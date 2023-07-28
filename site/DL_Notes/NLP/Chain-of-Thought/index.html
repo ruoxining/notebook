@@ -1,0 +1,1295 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ruoxining.github.io/OBvault/DL_Notes/NLP/Chain-of-Thought/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../../Python_Usage/IPDB/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>CoT prompt - MiniBabelLibrary</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="MiniBabelLibrary" class="md-header__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MiniBabelLibrary
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CoT prompt
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MiniBabelLibrary" class="md-nav__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MiniBabelLibrary
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          申请心得
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          申请心得
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Application/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Application/ZJU%20English%20Major%20to%20CS%26NLP/" class="md-nav__link">
+        英专转CS&NLP指北
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Application/NLP%20Global%20PHD%20Equality%20Digest/" class="md-nav__link">
+        搬运NLP申请PhD经验
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          CS专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          CS专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS_Notes/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS_Notes/8086%2680386%E6%B1%87%E7%BC%96/" class="md-nav__link">
+        8086&80386汇编
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS_Notes/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        编程规范文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS_Notes/C%E8%AF%AD%E8%A8%80/" class="md-nav__link">
+        C语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS_Notes/C%E5%A4%A7%E7%A8%8Blibgraphics%E8%B8%A9%E5%9D%91%E6%96%87%E6%A1%A3/" class="md-nav__link">
+        C大程libgraphics踩坑文档
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS_Notes/Crawler%F0%9F%95%B7/" class="md-nav__link">
+        爬虫
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          DL专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          DL专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          NLP专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          NLP专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        CoT prompt
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Python用法速查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python用法速查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python_Usage/IPDB/" class="md-nav__link">
+        IPDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python_Usage/Pandas%20Dataframe%E5%B8%B8%E7%94%A8/" class="md-nav__link">
+        Pandas DF速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python_Usage/Python%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+        Python类速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Python_Usage/Pytorch%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Pytorch速查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          命令行用法速查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          命令行用法速查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Terminal_Usage/Anaconda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="md-nav__link">
+        Anaconda速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Terminal_Usage/Linux/" class="md-nav__link">
+        Linux命令行速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/DL_Notes/Terminal_Usage/tmux.md" class="md-nav__link">
+        tmux速查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Linguistics专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Linguistics专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linguistics/index.md" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          语音学
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          语音学
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linguistics_Notes/Phonetics/Reduction%20of%20Intentional%20verb%2Bprep/" class="md-nav__link">
+        Reduction in verb.+prep.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linguistics_Notes/Phonetics/Signal%20Basics/" class="md-nav__link">
+        Signal Basics
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linguistics_Notes/Semantics/Semantic%20Course/" class="md-nav__link">
+        语义学
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          句法学
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          句法学
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linguistics/转换生成句法.md" class="md-nav__link">
+        转换生成句法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Linguistics_Notes/Syntax/Chomsky%E2%80%99s%20Universal%20Grammar/" class="md-nav__link">
+        乔姆斯基普遍语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/Linguistics_Notes/Syntax/UD and SUD.md" class="md-nav__link">
+        UD和SUD
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Math专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Math专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math_Notes/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math_Notes/Graph%20Theory/Laplacian%20Matrix/" class="md-nav__link">
+        图论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math_Notes/%E9%9B%B6%E6%95%A3%E7%9A%84%E9%A2%98/" class="md-nav__link">
+        零散的题
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          其它课程
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          其它课程
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other_Courses/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other_Courses/%E6%89%93%E5%BC%80%E8%89%BA%E6%9C%AF%E4%B9%8B%E9%97%A8-%E9%92%A2%E7%90%B4%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="md-nav__link">
+        钢琴期末复习
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">任务目标</h1>
+<p>本实验旨在测评ChatGPT在阅读理解任务（Multiple-choice Comprehension, MRC）上的表现，并使用多种方法挖掘提示词，通过不改变数据集和模型只改变提示词的方法，提高大模型在MRC上的表现。</p>
+<h1 id="_2">实验设计</h1>
+<p>为节约时间和金钱成本，对于每个实验，我们仅测试20个问题</p>
+<h1 id="_3">数据集</h1>
+<p>AQuA数据集题提供了100,000道用自然语言描述的数学题。
+<a href="https://github.com/deepmind/AQuA">https://github.com/deepmind/AQuA</a></p>
+<h1 id="benchmark-zero-shot-prompting">Benchmark: Zero-shot Prompting</h1>
+<p>最简单的MRC问题，只输入question和options
+The dataset consists of about 100,000 algebraic word problems with natural language rationales. Each problem is a json object consisting of four parts:
+- <code>question</code> - A natural language definition of the problem to solve
+- <code>options</code> - 5 possible options (A, B, C, D and E), among which one is correct
+- <code>rationale</code> - A natural language description of the solution to the problem
+- <code>correct</code> - The correct option</p>
+<pre><code class="language-cpp">{
+&quot;question&quot;: &quot;A grocery sells a bag of ice for $1.25, and makes 20% profit. If it sells 500 bags of ice, how much total profit does it make?&quot;,
+&quot;options&quot;: [&quot;A)125&quot;, &quot;B)150&quot;, &quot;C)225&quot;, &quot;D)250&quot;, &quot;E)275&quot;],
+&quot;rationale&quot;: &quot;Profit per bag = 1.25 * 0.20 = 0.25\nTotal profit = 500 * 0.25 = 125\nAnswer is A.&quot;,
+&quot;correct&quot;: &quot;A&quot;
+}
+</code></pre>
+<p>结果
+正确率 0.15 （3/20）</p>
+<h2 id="few-shot-prompting">Few-shot Prompting</h2>
+<p>1-shot 0.2（4/20）</p>
+<h2 id="cot">CoT</h2>
+<p>0.25（5/20）</p>
+<h2 id="self-consistency">Self-Consistency</h2>
+<pre><code># 将问题按句子分开，并随机打乱句子
+question_sentences = question.split('. ')
+question = '. '.join(shuffled(question_sentences))
+# 分别将问题输入给多个ChatGPT
+for i in range(GPT_number):
+    answers.append(query(ChatGPT_i, question))
+# 将回答更多的答案vote为正确答案
+final_answer = top_one(answers)
+</code></pre>
+<p>对于每个问题，我们先将question随机打乱，然后输入给三个gpt（不相邻的三轮），让它们vote</p>
+<p>因为太简单其实也可以不做了</p>
+<h2 id="multi-step-verifier">multi-step verifier</h2>
+<p>这个要接一个verifier model</p>
+<pre><code># 分别将问题输入给多个ChatGPT，探索尽可能多的推理路径
+for i in range(GPT_number):
+    answers.append(query(ChatGPT_i, question))
+
+# 使用一个fine-tuned的Verifier，根据数据集标签为answer的每一步打分
+scores = []
+for answer in answers:
+    score = 0
+    for step in answer:
+        score += Verifier(step, gold_label)
+    scores.append(score)
+
+# 将score更高的答案vote为正确答案
+final_answer = top_one(scores-&gt;answer)
+</code></pre>
+<h2 id="knowledge">+knowledge</h2>
+<p>因为原来的math inference数据集不适合，里面的表达没有什么需要特殊的外部知识的</p>
+<p>所以我们直接改用原来这篇的数据集HotpotQA，该数据集内部提供问题、回答，和相应的文章context。</p>
+<p>acurracy wo query: 0.26090945241420427</p>
+<p>acurracy w query: 0.2006805658979623</p>
+<h2 id="chain-of-thought-prompting-elicits-reasoning-in-large-language-models">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</h2>
+<p>添加lets think step by step + 带cot的1-shot</p>
+<p>正确率
+template:</p>
+<pre><code class="language-cpp">prompt = [I, t, q] -&gt; y
+I: instruction
+t: example
+q: question
+y: answer
+</code></pre>
+<p>example:</p>
+<pre><code class="language-cpp">There are 3 cars in the parking lot already. 2 more arrive. Now there are 3 + 2 = 5 cars. The answer is 5.
+</code></pre>
+<p>applicable to
+- math word problems (free response)
+- math word problems (multiple choice)
+- CSQA (commonsense)
+- strategyQA
+- date understanding
+- sports understanding
+- SayCan (instructing a robot)
+- Last Letter Concatenation
+- coin flip (state tracking)</p>
+<h2 id="the-cot-collection-improving-zero-shot-and-few-shot-learning-of-language-models-via-chain-of-thought-fine-tuning">The CoT Collection: Improving Zero-shot and Few-shot Learning of Language Models via Chain-of-Thought Fine-Tuning</h2>
+<h3 id="abstract">Abstract</h3>
+<ul>
+<li>introduce CoT collection: a new instruction-tuning dataset that augments 1.88 million CoT rationales across 1060 tasks</li>
+</ul>
+<h3 id="the-cot-collection">The CoT Collection</h3>
+<ul>
+<li>CoT Collection is an instruction-tuning dataset including 1.88 million CoT rationales</li>
+<li>distribution of data:
+![[cot_finetuning.png]]</li>
+</ul>
+<h2 id="self-consistency-improves-chain-of-thought-reasoning-in-language-models">SELF-CONSISTENCY IMPROVES CHAIN OF THOUGHT REASONING IN LANGUAGE MODELS</h2>
+<h3 id="introduction">Introduction</h3>
+<ul>
+<li>introduce a novel decoding strategy called self-consistency to replace the greedy decoding strategy used in cot prompting</li>
+</ul>
+<h2 id="method">method</h2>
+<ul>
+<li>prompt a language model using chain-of-thought prompting</li>
+<li>replace “greedy decode” in CoT prompting by sampling from the language model’s decoder to generate a diverse set of reasoning paths</li>
+<li>marginalize out the reasoning paths and aggregate by choosing the most consistent answer in the final answer set</li>
+</ul>
+<p>two assumptions
+- we hypothesize that correct reasoning processes, even if they are diverse, tend to have greater agreement in their final answer than incorrect processes.
+- by normalizing the answers. the normalization closer → generations are “similarly alike”
+![[self_consistency.png]]</p>
+<h3 id="advancement">Advancement</h3>
+<ul>
+<li>far simpler than prior approaches (train an additional verifier) or train a re-ranker given additional human annotations to improve generation quality</li>
+<li>unsupervised</li>
+</ul>
+<h2 id="interleaving-retrieval-with-cot-reasoning-for-knowledge-intensive-multi-step-questions">Interleaving retrieval with cot reasoning for knowledge-intensive multi-step questions</h2>
+<h3 id="abstract_1">Abstract</h3>
+<ul>
+<li>when necessary knowledge is not available or up-to-date within a model’s parameters</li>
+<li>multi-step QA: what to retrieve depends on what has already been derived</li>
+</ul>
+<h3 id="method_1">Method</h3>
+<p>IRCoT mian components
+- a base retriever that can take a query and return a given number of paragraphs from a corpus or knowledge source
+- a language model with zero/few-show CoT generation capabilities
+- a small number of annotated questions with reasoning steps explaining how to retrieve at the answer in natural language (CoT) and a set of paragraphs from the knowledge source K that collectively support the reasoning chain and answer.</p>
+<h2 id="making-large-language-models-better-reasoners-with-step-aware-verifier">Making Large Language Models Better Reasoners with Step-Aware Verifier</h2>
+<h3 id="abstract_2">Abstract</h3>
+<p>main components
+- it generates diverse prompts to explore different reasoning paths for the same question
+- it uses a verifier to filter out incorrect answers based on a weighted voting scheme
+- it verifies each reasoning step individually instead of the whole chain</p>
+<h1 id="pot-program-of-thought">PoT (Program of Thought)</h1>
+<p>template
+original paragraph (incorrect)</p>
+<pre><code class="language-cpp">The first number is 0, the second number is 1, therefore, the third number is 0+1=1.
+The fourth number is 1+1=2. The fifth number is 1+2=3. The sixth number is 2+3=5.
+(skip..)
+The 50th number is 32,432,268,459
+</code></pre>
+<p>PoT (correct)</p>
+<pre><code class="language-cpp">length_of_fibonacci_sequence = 50
+fibonacci_sequence = np.zeros(length_of_)
+fibonacci_sequence[0] = 0
+fibonacci_sequence[1] = 1
+for i in range(3, length_of_fibonacci_sequence):
+    fibonacci_sequnce[i] = fibonacci_sequence[i-1] +
+    fibonacci_sequence[i-2]
+ans = fibonacci_sequence[-1]
+</code></pre>
+<h1 id="cos-chain-of-symbol-prompting">CoS (Chain of Symbol Prompting)</h1>
+<p>template
+shared model input</p>
+<pre><code class="language-cpp">There are a set of bricks. 
+The yellow brick C is on top of the brick E . 
+The yellow brick D is on top of the brick A . 
+The yellow brick E is on top of the brick D . 
+The white brick A is on top of the brick B . 
+For the brick B, the color is white. 
+Now we have to get a specific brick. 
+The bricks must now be grabbed from top to bottom, and if the lower brick is to be grabbed, the upper brick must be removed first. 
+How to get brick D?
+</code></pre>
+<p>cot prompting (wrong)</p>
+<pre><code class="language-cpp">The bricks from bottom to top is B, A, D, E, C 
+1. Remove brick A from the top of brick B. 
+2. Remove brick E from the top of brick D. 
+3. Now brick D is the topmost yellow brick and can be grabbed.
+</code></pre>
+<p>cos prompting (correct)</p>
+<pre><code class="language-cpp">B/A/D/E/C 
+C/E 
+E/D 
+D
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
