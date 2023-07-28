@@ -115,7 +115,7 @@ applicable to
 ### The CoT Collection
 - CoT Collection is an instruction-tuning dataset including 1.88 million CoT rationales
 - distribution of data:
-![[cot_finetuning.png]]
+![](cot_finetuning.png)
 
 
 ## SELF-CONSISTENCY IMPROVES CHAIN OF THOUGHT REASONING IN LANGUAGE MODELS
@@ -131,7 +131,7 @@ applicable to
 two assumptions
 - we hypothesize that correct reasoning processes, even if they are diverse, tend to have greater agreement in their final answer than incorrect processes.
 - by normalizing the answers. the normalization closer → generations are “similarly alike”
-![[self_consistency.png]]
+![](self_consistency.png)
 ### Advancement
 - far simpler than prior approaches (train an additional verifier) or train a re-ranker given additional human annotations to improve generation quality
 - unsupervised

@@ -19,3 +19,6 @@ graph TD
 	Obsidian -- 使用同一文件夹 --> mkdocs
 
 ```
+
+Obsidian to mkdocs
+1. 图片路径问题：需要在设置中关闭使用wiki路径，保证所有图片都用md语法`![]()`

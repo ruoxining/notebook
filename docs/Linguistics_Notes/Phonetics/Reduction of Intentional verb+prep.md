@@ -1,4 +1,3 @@
-# Reduction of Intentional verb+prep.
 
 # Introduction
 

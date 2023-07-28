@@ -10,8 +10,8 @@
 - 最小非0特征值是图的代数连通度
 
 ## Definition
+![](Math_Notes/asset/Untitled.png)
 
-![Untitled](docs/Math_Notes/asset/Untitled.png)
 
 or L = D(degree matrix) - A(adjacency matrix)
 
