@@ -14,13 +14,13 @@ In full spelling, Universal Dependency gammar and Surface Syntax Universal Depen
 
 DG views linguistic structures in terms of a *one-to-one mapping* of atomic linguistic units to the nodes in structure, whereas PSG assumes a *one-to-one-or-more mapping*. The distinction is clearly visible when one compares the tree structures. The next trees are taken from the [Wikipedia article on DG](https://en.wikipedia.org/wiki/Dependency_grammar):
 
-![](Dependency&Constituency.png)
+![](../asset/Dependency&Constituency.png)
 
 ## SUD
 [Surface Syntactic Universal Dependencies (SUD) | SUD](https://surfacesyntacticud.github.io/
 SUD is an annotation scheme for syntactic dependency treebanks, and has a nearly perfect degree of two-way convertibility with the Universal Dependencies scheme (UD). Contrary to UD, it is based on syntactic criteria (favoring functional heads) and the relations are defined on distributional and functional bases.
 
-![](SUD.png)
+![](../asset/SUD.png)
 
 ### General principles of SUD
 - The definition of relations is based on syntactic positions rather than semantic positions.

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "瞎说一些东西/Notion和Obsidian，选哪一个.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "瞎说一些东西/Notion和Obsidian，选哪一个.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "瞎说一些东西/Notion和Obsidian，选哪一个.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "瞎说一些东西/Notion和Obsidian，选哪一个.md"
+                "file": "index.md"
               }
             }
           }
@@ -157,8 +157,6 @@
   },
   "active": "6a79a2c163cf8b02",
   "lastOpenFiles": [
-    "瞎说一些东西/index.md",
-    "index.md",
     "Other_Courses/index.md",
     "Other_Courses/打开艺术之门-钢琴期末复习.md",
     "Math_Notes/Normal Forms.md",
@@ -167,23 +165,29 @@
     "Linguistics_Notes/Linguistics & Theory of Computation.md",
     "Linguistics_Notes/index.md",
     "Linguistics_Notes/History of Philosophy of Language.md",
+    "Linguistics_Notes/asset/language_game2.png",
+    "Linguistics_Notes/asset/language_game.png",
     "Linguistics_Notes/Syntax/UD and SUD.md",
     "Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md",
     "Linguistics_Notes/Syntax/转换生成句法.md",
     "Linguistics_Notes/Semantics/Semantic Course.md",
     "Linguistics_Notes/Phonetics/Signal Basics.md",
+    "asset/Untitled.png.md",
+    "asset",
     "Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md",
-    "DL_Notes/Python_Usage/IPDB.md",
-    "DL_Notes/asset/read_imdb.png",
     "DL_Notes/Terminal_Usage/tmux.md",
     "DL_Notes/Terminal_Usage/Linux.md",
     "DL_Notes/Terminal_Usage/Anaconda常用命令.md",
     "DL_Notes/Python_Usage/Pytorch 常用命令.md",
     "DL_Notes/Python_Usage/Python的面向对象使用技巧.md",
     "DL_Notes/Python_Usage/Pandas Dataframe常用.md",
-    "DL_Notes/NLP/规则提取文本格式经验总结.md",
+    "DL_Notes/Python_Usage/IPDB.md",
     "DL_Notes/NLP/Chain-of-Thought.md",
+    "DL_Notes/NLP/规则提取文本格式经验总结.md",
     "CS_Notes/index.md",
+    "CS_Notes/Crawler🕷.md",
+    "Application/asset/Untitled.png",
+    "DL_Notes/asset/read_imdb.png",
     "CS_Notes/asset/Untitled 2.png",
     "docs/CS_Notes/asset",
     "docs/CS_Notes",
@@ -193,9 +197,6 @@
     "CS_Notes/asset/Untitled 1.png",
     "Application/asset/writing.png",
     "CS_Notes/asset/Untitled 6.png",
-    "CS_Notes/asset/Untitled 5.png",
-    "CS_Notes/asset/Untitled 4.png",
-    "CS_Notes/asset/Untitled 3.png",
     "CS_Notes/Untitled",
     "DL_Notes/Terminal_Usage",
     "DL_Notes/NLP/MindAudio Code/Untitled.canvas",
@@ -203,7 +204,6 @@
     "Presentation/ZOTERO配置教程/Zotero%E4%BB%8B%E7%BB%8D%E5%92%8C%E9%85%8D%E5%88%B6%E6%96%B9%E6%B3%95.pdf.pdf",
     "docs/技术沟通/课堂报告1",
     "docs/技术沟通/Attention Is All You Need 复现报告",
-    "docs/我的C++学习记录！/Stanford CS106B & CS106L",
     "Untitled.canvas"
   ]
 }

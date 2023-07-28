@@ -46,6 +46,10 @@ nav:
   - 其它课程:
     - 索引: 'Other_Courses/index.md' 
     - 钢琴期末复习: 'Other_Courses/打开艺术之门-钢琴期末复习.md'
+  - 瞎说一些东西: 
+    - 索引: '瞎说一些东西/index.md'
+    - 好用的工具: '瞎说一些东西/好用的工具.md'
+    - Notion vs. Obsidian: '瞎说一些东西/Notion和Obsidian，选哪一个.md'
 
 
 

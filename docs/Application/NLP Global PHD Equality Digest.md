@@ -47,11 +47,8 @@
 
 1. (Nelson Liu, PhD@Stanfard) **Student Perspectives on Applying to NLP PhD Programs** (2019). [[Suggestions Based on Surveys](https://blog.nelsonliu.me/2019/10/24/student-perspectives-on-applying-to-nlp-phd-programs/)]
     - 投多少所学校：8～13所
-        
-        ![Untitled](docs/Paper_IO/NLP%20Global%20PHD%20Equality%20Digest/Untitled.png)
-        
+        ![](./asset/Untitled.png)
     
-
 ### 怎样准备SOP？
 
 1. (Nelson Liu, PhD@Stanfard) **Student Perspectives on Applying to NLP PhD Programs** (2019). [[Suggestions Based on Surveys](https://blog.nelsonliu.me/2019/10/24/student-perspectives-on-applying-to-nlp-phd-programs/)]
@@ -184,7 +181,7 @@
 1. (Prof Jason Eisner@JHU) **How to write a paper?** (2010). [[Suggestions](https://www.cs.jhu.edu/~jason/advice/write-the-paper-first.html)]
 2. (Simon Peyton Jones@Microsoft) **How to write a great research paper: Seven simple suggestions** (2014). [[Slides](https://www.cis.upenn.edu/~sweirich/icfp-plmw15/slides/peyton-jones.pdf)] [[Talk](https://www.microsoft.com/en-us/research/video/how-to-write-a-great-research-paper-3/)]
     - 写文章是帮助建立研究的第一步，而不是一种汇报研究的机制
-    ![](writing.png)    
+    ![](./asset/writing.png)    
     - 不是只有好的idea能写，随便什么idea都可以写下来，然后跟别人谈一谈
     - 一篇paper一个idea，能够清晰表达。比如有这种句式“The main idea of this paper is…” “In this section we present the main contributions of this paper.”
     - 要强调你的contribution，在introduction里强调。introduction就是用来描述问题+介绍贡献的。
