@@ -1,0 +1,209 @@
+{
+  "main": {
+    "id": "fee3f5e19010b8cb",
+    "type": "split",
+    "children": [
+      {
+        "id": "a4d35cbf799e3d1f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "af5b6d5e2987a234",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS_Notes/Crawler🕷.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7e0909f0784498e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "66d798d0fa08f120",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a6dc0d05a715486f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d36baa3dba2220a3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "af33f3704a0e8bf5",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "a69cd1f14f2b34af",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 284.5
+  },
+  "right": {
+    "id": "b1e08f9bbf6ce722",
+    "type": "split",
+    "children": [
+      {
+        "id": "0b3d6028983b656a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57f4d65117f8eae9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "CS_Notes/Crawler🕷.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "02d15791d3015781",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "CS_Notes/Crawler🕷.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b1b039b16e351007",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "f23a3dd1f73c34d6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "CS_Notes/Crawler🕷.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-to-notion:Share to notion": false
+    }
+  },
+  "active": "af5b6d5e2987a234",
+  "lastOpenFiles": [
+    "CS_Notes/C语言.md",
+    "CS_Notes/Crawler🕷.md",
+    "DL_Notes/NLP/Chain-of-Thought.md",
+    "DL_Notes/NLP/Chain-of-Thought Prompting.md",
+    "CS_Notes/8086&80386汇编.md",
+    "CS_Notes/asset/Untitled 6.png",
+    "CS_Notes/asset/Untitled 5.png",
+    "CS_Notes/asset/Untitled 4.png",
+    "CS_Notes/asset/Untitled 3.png",
+    "CS_Notes/asset/Untitled 2.png",
+    "CS_Notes/asset/Untitled 2 1.png",
+    "CS_Notes/8086&80386汇编/objdump.md",
+    "CS_Notes/8086&80386汇编/考试复习.md",
+    "CS_Notes/8086&80386汇编/Lab记录.md",
+    "CS_Notes/8086&80386汇编/听课.md",
+    "Application/ZJU English Major to CS&NLP.md",
+    "CS_Notes/Untitled",
+    "Application/NLP Global PHD Equality Digest.md",
+    "CS_Notes/编程规范文档.md",
+    "CS_Notes/C大程libgraphics踩坑文档.md",
+    "CS_Notes/index.md",
+    "CS_Notes/asset/Untitled 1 1.png",
+    "CS_Notes/asset/Untitled 1.png",
+    "index.md",
+    "CS_Notes/CS15445 Database System.md",
+    "瞎说一些东西/index.md",
+    "瞎说一些东西/Notion和Obsidian，选哪一个.md",
+    "Application/asset/Untitled.png",
+    "Paper_IO/NLP Global PHD Equality Digest/%E6%88%AA%E5%B1%8F2023-07-11_21.43.45.png",
+    "Application/index.md",
+    "Paper_IO/英文学术写作.md",
+    "Paper_IO/Language Origin/Previous Studies.md",
+    "Paper_IO/BookCorpus/27 05.md",
+    "Paper_IO/ASR (Automatic Speech Recognition).md",
+    "Paper_IO/Grammar Correction.md",
+    "Paper_IO/HCI.md",
+    "Paper_IO/Language Origin.md",
+    "DL_Notes/Terminal_Usage",
+    "DL_Notes/NLP/MindAudio Code/Untitled.canvas",
+    "瞎说一些东西/asset",
+    "Presentation/ZOTERO配置教程/Zotero%E4%BB%8B%E7%BB%8D%E5%92%8C%E9%85%8D%E5%88%B6%E6%96%B9%E6%B3%95.pdf.pdf",
+    "docs",
+    "docs/技术沟通/课堂报告1",
+    "docs/技术沟通/Attention Is All You Need 复现报告",
+    "docs/我的C++学习记录！/Stanford CS106B & CS106L",
+    "docs/我的C++学习记录！/STL",
+    "docs/OS/Recall",
+    "Untitled.canvas"
+  ]
+}

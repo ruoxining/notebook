@@ -1,0 +1,59 @@
+site_name: MiniBabelLibrary
+site_url: https://ruoxining.github.io/OBvault
+repo_url: https://github.com/ruoxining/OBvault
+repo_name: OBvault
+
+nav:
+  - 'index.md'
+  - 申请心得: 
+    - 索引: 'Application/index.md'
+    - 英专转CS&NLP指北: 'Application/ZJU English Major to CS&NLP.md'
+    - 搬运NLP申请PhD经验: 'Application/NLP Global PHD Equality Digest.md'
+  - CS专栏: 
+    - 索引: 'CS_Notes/index.md'
+    - 8086&80386汇编: 'CS_Notes/8086&80386汇编.md'
+    - 编程规范文档: 'CS_Notes/编程规范文档.md'
+    - C语言: 'CS_Notes/C语言.md'
+    - C大程libgraphics踩坑文档: 'CS_Notes/C大程libgraphics踩坑文档.md'
+    - 爬虫: 'CS_Notes/Crawler🕷.md'
+  - DL专栏: 
+    - 索引: 'DL_Notes/index.md'
+    - NLP专栏: 
+      - CoT prompt: 'DL_Notes/NLP/Chain-of-Thought.md'
+    - Python用法速查:
+      - IPDB: 'DL_Notes/Python_Usage/IPDB.md'
+      - Pandas DF速查: 'DL_Notes/Python_Usage/Pandas Dataframe常用.md'
+      - Python类速查: 'DL_Notes/Python_Usage/Python的面向对象使用技巧.md'
+      - Pytorch速查: 'DL_Notes/Python_Usage/Pytorch 常用命令.md'
+    - 命令行用法速查: 
+      - Anaconda速查: 'DL_Notes/Terminal_Usage/Anaconda常用命令.md'
+      - Linux命令行速查: 'DL_Notes/Terminal_Usage/Linux.md'
+      - tmux速查: 'docs/DL_Notes/Terminal_Usage/tmux.md'
+  - Linguistics专栏:
+    - 索引: 'Linguistics/index.md'
+    - 语音学: 
+      - Reduction in verb.+prep.: 'Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md'
+      - Signal Basics: 'Linguistics_Notes/Phonetics/Signal Basics.md'
+    - 语义学: 'Linguistics_Notes/Semantics/Semantic Course.md'
+    - 句法学: 
+      - 转换生成句法: 'Linguistics/转换生成句法.md'
+      - 乔姆斯基普遍语法: 'Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md'
+      - UD和SUD: 'docs/Linguistics_Notes/Syntax/UD and SUD.md'
+  - Math专栏: 
+    - 索引: 'Math_Notes/index.md'
+    - 图论: 'Math_Notes/Graph Theory/Laplacian Matrix.md'
+    - 零散的题: 'Math_Notes/零散的题.md'
+  - 其它课程:
+    - 索引: 'Other_Courses/index.md' 
+    - 钢琴期末复习: 'Other_Courses/打开艺术之门-钢琴期末复习.md'
+
+
+
+theme:
+  name: material
+  language: zh
+  palette:
+    primary: black
+    accent: indigo
+  feature:
+    tabs: true
