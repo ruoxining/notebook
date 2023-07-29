@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "caf7f42faab4c814",
+        "id": "3a0709f12751d289",
         "type": "tabs",
         "children": [
           {
-            "id": "6a79a2c163cf8b02",
+            "id": "e5ad92167de64c07",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -155,8 +155,10 @@
       "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "6a79a2c163cf8b02",
+  "active": "e5ad92167de64c07",
   "lastOpenFiles": [
+    "瞎说一些东西/Notion和Obsidian，选哪一个.md",
+    "index.md",
     "Other_Courses/index.md",
     "Other_Courses/打开艺术之门-钢琴期末复习.md",
     "Math_Notes/Normal Forms.md",
@@ -184,8 +186,6 @@
     "DL_Notes/Python_Usage/IPDB.md",
     "DL_Notes/NLP/Chain-of-Thought.md",
     "DL_Notes/NLP/规则提取文本格式经验总结.md",
-    "CS_Notes/index.md",
-    "CS_Notes/Crawler🕷.md",
     "Application/asset/Untitled.png",
     "DL_Notes/asset/read_imdb.png",
     "CS_Notes/asset/Untitled 2.png",
