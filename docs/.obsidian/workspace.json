@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3a0709f12751d289",
+        "id": "71f3f7cb6839f01b",
         "type": "tabs",
         "children": [
           {
-            "id": "e5ad92167de64c07",
+            "id": "2dfcf26a9e7d00d0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "Linguistics_Notes/History of Philosophy of Language.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 284.5
+    "width": 262.5
   },
   "right": {
     "id": "b1e08f9bbf6ce722",
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "Linguistics_Notes/History of Philosophy of Language.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "Linguistics_Notes/History of Philosophy of Language.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "Linguistics_Notes/History of Philosophy of Language.md"
               }
             }
           }
@@ -155,55 +155,55 @@
       "obsidian-to-notion:Share to notion": false
     }
   },
-  "active": "e5ad92167de64c07",
+  "active": "2dfcf26a9e7d00d0",
   "lastOpenFiles": [
-    "瞎说一些东西/Notion和Obsidian，选哪一个.md",
-    "index.md",
-    "Other_Courses/index.md",
-    "Other_Courses/打开艺术之门-钢琴期末复习.md",
-    "Math_Notes/Normal Forms.md",
-    "Math_Notes/零散的题.md",
-    "Math_Notes/Graph Theory/Laplacian Matrix.md",
-    "Linguistics_Notes/Linguistics & Theory of Computation.md",
-    "Linguistics_Notes/index.md",
+    "Linguistics_Notes/Phonetics/Signal Basics.md",
+    "Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md",
+    "Linguistics_Notes/Semantics/Semantic Course.md",
     "Linguistics_Notes/History of Philosophy of Language.md",
-    "Linguistics_Notes/asset/language_game2.png",
-    "Linguistics_Notes/asset/language_game.png",
+    "Linguistics_Notes/Philosophy of Language and NLP.md",
+    "Linguistics_Notes/Linguistics & Theory of Computation.md",
+    "Linguistics_Notes/Syntax/转换生成句法.md",
     "Linguistics_Notes/Syntax/UD and SUD.md",
     "Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md",
-    "Linguistics_Notes/Syntax/转换生成句法.md",
-    "Linguistics_Notes/Semantics/Semantic Course.md",
-    "Linguistics_Notes/Phonetics/Signal Basics.md",
-    "asset/Untitled.png.md",
-    "asset",
-    "Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md",
+    "DL_Notes/NLP_Theory/!!TODO!! Natural Language Inference (NLI) Task.md",
     "DL_Notes/Terminal_Usage/tmux.md",
-    "DL_Notes/Terminal_Usage/Linux.md",
-    "DL_Notes/Terminal_Usage/Anaconda常用命令.md",
-    "DL_Notes/Python_Usage/Pytorch 常用命令.md",
+    "DL_Notes/NLP_Theory/!!TODO!! Neural Symbolic AI.md",
+    "DL_Notes/NLP_Theory/!!TODO!! Fault of Autoregressive Decoder.md",
+    "DL_Notes/NLP_Theory/Math Word Problem Solving Read Paper.md",
+    "Untitled.md",
+    "DL_Notes/NLP_Theory/Contrastive Learning and Interpretability.md",
+    "DL_Notes/asset/截屏2023-08-17 17.39.52.png",
+    "瞎说一些东西/APA Format.md",
+    "瞎说一些东西/!!TODO!! 英文学术写作.md",
+    "DL_Notes/NLP_Theory/Chain-of-Thought.md",
+    "DL_Notes/asset/截屏2023-08-16 00.48.41.png",
+    "Application/ZJU English Major to CS&NLP.md",
+    "index.md",
+    "DL_Notes/NLP_Tech/!!TODO!! NLP-Oriented DL Road Map.md",
     "DL_Notes/Python_Usage/Python的面向对象使用技巧.md",
-    "DL_Notes/Python_Usage/Pandas Dataframe常用.md",
-    "DL_Notes/Python_Usage/IPDB.md",
-    "DL_Notes/NLP/Chain-of-Thought.md",
-    "DL_Notes/NLP/规则提取文本格式经验总结.md",
-    "Application/asset/Untitled.png",
-    "DL_Notes/asset/read_imdb.png",
-    "CS_Notes/asset/Untitled 2.png",
+    "DL_Notes/asset/截屏2023-08-14 23.12.24.png",
+    "DL_Notes/asset/截屏2023-08-14 22.46.32.png",
+    "DL_Notes/asset/截屏2023-08-14 22.14.36.png",
+    "DL_Notes/asset/截屏2023-08-14 21.59.33.png",
+    "DL_Notes/asset/Pasted image 20230814215707.png",
+    "DL_Notes/asset/Pasted image 20230814211856.png",
+    "DL_Notes/asset/Pasted image 20230814173843.png",
+    "DL_Notes/asset/Pasted image 20230814171003.png",
+    "CS_Notes/8086&80386汇编.md",
+    "CS_Notes/objdump.md",
+    "瞎说一些东西/DL&NLP 入门资源整理.md",
+    "Untitled.canvas",
+    "瞎说一些东西/asset/Zotero介绍和配制方法.pdf",
+    "DL_Notes/NLP_Theory",
+    "CS_Notes/我的C++学习记录/Untitled",
+    "CS_Notes/我的C++学习记录/资源",
+    "CS_Notes/我的C++学习记录/专题",
+    "CS_Notes/我的C++学习记录/大块笔记",
+    "CS_Notes/我的C++学习记录",
+    "asset",
     "docs/CS_Notes/asset",
     "docs/CS_Notes",
-    "docs",
-    "CS_Notes/asset/Untitled 1 1.png",
-    "CS_Notes/asset/Untitled.png",
-    "CS_Notes/asset/Untitled 1.png",
-    "Application/asset/writing.png",
-    "CS_Notes/asset/Untitled 6.png",
-    "CS_Notes/Untitled",
-    "DL_Notes/Terminal_Usage",
-    "DL_Notes/NLP/MindAudio Code/Untitled.canvas",
-    "瞎说一些东西/asset",
-    "Presentation/ZOTERO配置教程/Zotero%E4%BB%8B%E7%BB%8D%E5%92%8C%E9%85%8D%E5%88%B6%E6%96%B9%E6%B3%95.pdf.pdf",
-    "docs/技术沟通/课堂报告1",
-    "docs/技术沟通/Attention Is All You Need 复现报告",
-    "Untitled.canvas"
+    "DL_Notes/NLP/MindAudio Code/Untitled.canvas"
   ]
 }

@@ -1,16 +1,9 @@
-# Semantic Course
-
 # Grading
-
 mid-term: 35%
-
 final: 50%
-
 participation: 15%
-
 ## Two tests
-
-Two  tests  will   be  given   during  the  term,  one   in  the   middle   and  one  at   the  end   of  the  term, covering all the material covered up to that point in the course. The tests will be a combination of various types of questions, including true/false and short essay.
+Two  tests  will   be  given   during  the  term,  one  in  the  middle  and  one  at  the  end of  the term, covering all the material covered up to that point in the course. The tests will be a combination of various types of questions, including true/false and short essay.
 ![](../asset/semantic_calendar.png)
 
 # 02/03/2023 Overview

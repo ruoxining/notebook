@@ -39,7 +39,7 @@ tmux new-session -d -s my_session \; send-keys "rsync filename username@ip_addre
 运行python脚本
 
 ```latex
-tmux new-session -d -s my_session \; send-keys "python3 1_get_origin_dataset_gpt.py" Enter
+tmux new-session -d -s my_session \; send-keys "python3 test.py" Enter
 ```
 
 查看正在运行的进程

@@ -235,17 +235,17 @@ body {
     /* Code */
     --code-white-space: pre-wrap;
     --code-size: var(--font-smaller);
-    --code-background: var(--background-primary-alt);
-    --code-normal: var(--text-muted);
+    --code-background: var(--color-base-10);
+    --code-normal: var(--color-yellow);
     --code-comment: var(--text-faint);
-    --code-function: var(--color-orange);
-    --code-important: var(--color-orange);
-    --code-keyword: var(--color-red);
-    --code-property: var(--color-blue);
+    --code-function: var(--color-greenblue);
+    --code-important: var(--color-pink);
+    --code-keyword: var(--color-blue);
+    --code-property: var(--color-lightblue);
     --code-punctuation: var(--text-muted);
-    --code-string: var(--color-cyan);
-    --code-tag: var(--color-red);
-    --code-value: var(--color-purple);
+    --code-string: var(--color-orange);
+    --code-tag: var(--color-green);
+    --code-value: var(--color-yellowgreen);
     /* Collapse icons */
     --collapse-icon-color: var(--text-faint);
     --collapse-icon-color-collapsed: var(--text-accent);
@@ -279,7 +279,7 @@ body {
     --embed-block-shadow-hover: 0 0 0 1px var(--background-modifier-border),
         inset 0 0 0 1px var(--background-modifier-border);
     /* File layout */
-    --file-line-width: 700px;
+    --file-line-width: 900px;     /* Here to modify the text width */
     --file-folding-offset: 24px;
     --file-margins: var(--size-4-8);
     --file-header-font-size: var(--font-ui-small);
@@ -710,6 +710,9 @@ body {
     --color-blue: #6CB6FF;
     --color-purple: #D2A8FF;
     --color-pink: #f778ba;
+    --color-yellowgreen: #82b31f;
+    --color-lightblue: #93ceff;
+
 
     --color-base-00: #0d1117;
     --color-base-10: #161b22;
@@ -791,6 +794,10 @@ body {
     --color-blue: #086DDD;
     --color-purple: #876be0;
     --color-pink: #C32B74;
+    --color-yellowgreen: #82b31f;
+    --color-lightblue: #5ba5e1;
+    --color-lightyellow:#d28e11; 
+    --color-greenblue:#008683; 
 
     --color-base-00: #ffffff;
     --color-base-05: #fcfcfc;

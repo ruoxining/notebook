@@ -11,6 +11,15 @@ nav:
     - 搬运NLP申请PhD经验: 'Application/NLP Global PHD Equality Digest.md'
   - CS专栏: 
     - 索引: 'CS_Notes/index.md'
+    - C++持续进步: 
+      - ZJU听课: 'CS_Notes/我的C++学习记录/听课（ZJU & Stanford CS106B）.md'
+      - ZJU期末复习: 'CS_Notes/我的C++学习记录/ZJU 期末复习.md'
+      - 继承: 'CS_Notes/我的C++学习记录/继承 Inheritance.md'
+      - 模板和标准模板库: 'CS_Notes/我的C++学习记录/模板和标准模板库 Template & STL.md'
+      - 类型和类型转换: 'CS_Notes/我的C++学习记录/类型和类型转换Type & Type Conversion.md'
+      - 文件读写: 'CS_Notes/我的C++学习记录/文件读写 File IO.md'
+      - 浅拷贝和深拷贝: 'CS_Notes/我的C++学习记录/浅拷贝和深拷贝 Shallow copy & Deep copy.md'
+      - 命名空间: 'CS_Notes/我的C++学习记录/命名空间 Namespace.md'
     - 8086&80386汇编: 'CS_Notes/8086&80386汇编.md'
     - 编程规范文档: 'CS_Notes/编程规范文档.md'
     - C语言: 'CS_Notes/C语言.md'
@@ -18,8 +27,12 @@ nav:
     - 爬虫: 'CS_Notes/Crawler🕷.md'
   - DL专栏: 
     - 索引: 'DL_Notes/index.md'
-    - NLP专栏: 
+    - NLP Theory: 
       - CoT prompt: 'DL_Notes/NLP/Chain-of-Thought.md'
+      - Unfinished/Math Word Problem Solving Read Paper: 'DL_Notes/NLP_Theory/!!TODO!! Math Word Problem Solving Read Paper.md'
+      - Contrastive Learning and Interpretability: 'DL_Notes/NLP_Theory/Contrastive Learning and Interpretability.md'
+    - NLP Tech:
+      - 规则提取文本格式经验总结: DL_Notes/NLP_Tech/规则提取文本格式经验总结.md
     - Python用法速查:
       - IPDB: 'DL_Notes/Python_Usage/IPDB.md'
       - Pandas DF速查: 'DL_Notes/Python_Usage/Pandas Dataframe常用.md'
@@ -50,6 +63,7 @@ nav:
     - 索引: '瞎说一些东西/index.md'
     - 好用的工具: '瞎说一些东西/好用的工具.md'
     - Notion vs. Obsidian: '瞎说一些东西/Notion和Obsidian，选哪一个.md'
+    - ZOTERO简介: '瞎说一些东西/ZOTERO 简介及配置教程.md'
 
 
 

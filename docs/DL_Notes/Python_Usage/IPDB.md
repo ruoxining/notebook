@@ -1,4 +1,4 @@
-调试工具
+Python调试工具
 安装
 ```cpp
 pip install ipdb

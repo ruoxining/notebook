@@ -3,5 +3,7 @@
   "custom-diegoeis-obsidianotion@@eis-hide-ribbon": false,
   "custom-diegoeis-obsidianotion@@eis-small-font": false,
   "custom-diegoeis-obsidianotion@@width-body-content": 680,
-  "id@@kanban-variant": "kanban-full"
+  "id@@kanban-variant": "kanban-full",
+  "id@@colorblind_protan-deutan": true,
+  "id@@colorblind_tritan": true
 }
