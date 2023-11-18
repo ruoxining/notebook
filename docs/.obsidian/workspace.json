@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md",
+                "file": "Linguistics_Notes/Semantics/Scope Ambiguity.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md",
+                "file": "Linguistics_Notes/Semantics/Scope Ambiguity.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md",
+                "file": "Linguistics_Notes/Semantics/Scope Ambiguity.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md"
+                "file": "Linguistics_Notes/Semantics/Scope Ambiguity.md"
               }
             }
           },
@@ -165,19 +165,20 @@
       "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "a6dc0d05a715486f",
+  "active": "2dfcf26a9e7d00d0",
   "lastOpenFiles": [
+    "Linguistics_Notes/Semantics/Logics & Formal Semantics.md",
+    "Linguistics_Notes/Semantics/Definition Clearification.md",
+    "CS_Notes/OS操作系统/index.md",
+    "CS_Notes/OS操作系统/内存_存储_文件系统.md",
     "Linguistics_Notes/Pragmatics",
     "CS_Notes/OS操作系统/进程与同步.md",
     "CS_Notes/OS操作系统/asset/OS2x.png",
-    "CS_Notes/OS操作系统/内存_存储_文件系统.md",
     "CS_Notes/OS操作系统/Lecture_Overview.md",
     "Linguistics_Notes/Semantics/index.md",
     "CS_Notes/OS操作系统/asset",
     "OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e/Untitled 1.png.md",
     "OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e",
-    "Linguistics_Notes/Semantics/Definition Clearification.md",
-    "CS_Notes/OS操作系统/index.md",
     "CS_Notes/OS操作系统/asset/OS30.png",
     "CS_Notes/OS操作系统/asset/OS310.png",
     "CS_Notes/OS操作系统/asset/OS39.png",
@@ -190,8 +191,7 @@
     "CS_Notes/OS操作系统/OS Lecture 内存 存储 文件系统 45314847c4294195a6ed9cf5b5ed9d66.md",
     "CS_Notes/OS操作系统/OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e.md",
     "CS_Notes/OS操作系统/OS Lecture Overview 76843e2eb3d445959b4edfd85f0d91b5.md",
-    "Linguistics_Notes/Semantics/Ambiguity.md",
-    "Linguistics_Notes/Semantics/Logics & Formal Semantics.md",
+    "Linguistics_Notes/Semantics/Scope Ambiguity.md",
     "Linguistics_Notes/Semantics/Untitled",
     "DL_Notes/index.md",
     "DL_Notes/NLP_Theory/【TODO】Neural Symbolic AI.md",
@@ -213,7 +213,6 @@
     "DL_Notes/NLP_Theory",
     "CS_Notes/我的C++学习记录/Untitled",
     "CS_Notes/我的C++学习记录/资源",
-    "CS_Notes/我的C++学习记录/专题",
     "DL_Notes/NLP/MindAudio Code/Untitled.canvas"
   ]
 }

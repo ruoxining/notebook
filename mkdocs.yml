@@ -48,7 +48,6 @@ nav:
       - Linux命令行速查: 'DL_Notes/Terminal_Usage/Linux.md'
       - tmux速查: 'docs/DL_Notes/Terminal_Usage/tmux.md'
   - Linguistics专栏:
-    - Index: 'Linguistics/index.md'
     - Phonetics:
       - Reduction in verb.+prep.: 'Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md'
       - Signal Basics: 'Linguistics_Notes/Phonetics/Signal Basics.md'
@@ -61,7 +60,9 @@ nav:
       - Definition Clearification: 'Linguistics_Notes/Semantics/Definition Clearification.md'
       - Logics & Formal Semantics: 'Linguistics_Notes/Semantics/Logics & Formal Semantics.md'
       - Ambiguity: 'Linguistics_Notes/Semantics/Ambiguity.md'
-    - Pragmatics: 'index.md'
+    - Pragmatics: 
+      - : ''
+      - : ''
   - Math专栏: 
     - 索引: 'Math_Notes/index.md'
     - 图论: 'Math_Notes/Graph Theory/Laplacian Matrix.md'
