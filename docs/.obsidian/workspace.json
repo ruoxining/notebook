@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md",
+                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md",
                 "mode": "source",
                 "source": false
               }
@@ -77,7 +77,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 262.5
+    "width": 261.5
   },
   "right": {
     "id": "b1e08f9bbf6ce722",
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md",
+                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md",
+                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,17 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md"
+                "file": "CS_Notes/OS操作系统/内存_存储_文件系统.md"
+              }
+            }
+          },
+          {
+            "id": "17c908aed6445abe",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency"
               }
             }
           }
@@ -152,58 +162,58 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "obsidian-to-notion:Share to notion": false
+      "mermaid-tools:Open Mermaid Toolbar": false
     }
   },
-  "active": "2dfcf26a9e7d00d0",
+  "active": "a6dc0d05a715486f",
   "lastOpenFiles": [
-    "Linguistics_Notes/Phonetics/Signal Basics.md",
-    "Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md",
-    "Linguistics_Notes/Semantics/Semantic Course.md",
-    "Linguistics_Notes/History of Philosophy of Language.md",
-    "Linguistics_Notes/Philosophy of Language and NLP.md",
-    "Linguistics_Notes/Linguistics & Theory of Computation.md",
-    "Linguistics_Notes/Syntax/转换生成句法.md",
-    "Linguistics_Notes/Syntax/UD and SUD.md",
-    "Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md",
-    "DL_Notes/NLP_Theory/!!TODO!! Natural Language Inference (NLI) Task.md",
-    "DL_Notes/Terminal_Usage/tmux.md",
-    "DL_Notes/NLP_Theory/!!TODO!! Neural Symbolic AI.md",
-    "DL_Notes/NLP_Theory/!!TODO!! Fault of Autoregressive Decoder.md",
-    "DL_Notes/NLP_Theory/Math Word Problem Solving Read Paper.md",
-    "Untitled.md",
-    "DL_Notes/NLP_Theory/Contrastive Learning and Interpretability.md",
-    "DL_Notes/asset/截屏2023-08-17 17.39.52.png",
-    "瞎说一些东西/APA Format.md",
-    "瞎说一些东西/!!TODO!! 英文学术写作.md",
-    "DL_Notes/NLP_Theory/Chain-of-Thought.md",
-    "DL_Notes/asset/截屏2023-08-16 00.48.41.png",
-    "Application/ZJU English Major to CS&NLP.md",
-    "index.md",
-    "DL_Notes/NLP_Tech/!!TODO!! NLP-Oriented DL Road Map.md",
-    "DL_Notes/Python_Usage/Python的面向对象使用技巧.md",
-    "DL_Notes/asset/截屏2023-08-14 23.12.24.png",
-    "DL_Notes/asset/截屏2023-08-14 22.46.32.png",
-    "DL_Notes/asset/截屏2023-08-14 22.14.36.png",
-    "DL_Notes/asset/截屏2023-08-14 21.59.33.png",
-    "DL_Notes/asset/Pasted image 20230814215707.png",
-    "DL_Notes/asset/Pasted image 20230814211856.png",
-    "DL_Notes/asset/Pasted image 20230814173843.png",
-    "DL_Notes/asset/Pasted image 20230814171003.png",
-    "CS_Notes/8086&80386汇编.md",
-    "CS_Notes/objdump.md",
-    "瞎说一些东西/DL&NLP 入门资源整理.md",
+    "Linguistics_Notes/Pragmatics",
+    "CS_Notes/OS操作系统/进程与同步.md",
+    "CS_Notes/OS操作系统/asset/OS2x.png",
+    "CS_Notes/OS操作系统/内存_存储_文件系统.md",
+    "CS_Notes/OS操作系统/Lecture_Overview.md",
+    "Linguistics_Notes/Semantics/index.md",
+    "CS_Notes/OS操作系统/asset",
+    "OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e/Untitled 1.png.md",
+    "OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e",
+    "Linguistics_Notes/Semantics/Definition Clearification.md",
+    "CS_Notes/OS操作系统/index.md",
+    "CS_Notes/OS操作系统/asset/OS30.png",
+    "CS_Notes/OS操作系统/asset/OS310.png",
+    "CS_Notes/OS操作系统/asset/OS39.png",
+    "CS_Notes/OS操作系统/asset/OS38.png",
+    "CS_Notes/OS操作系统/asset/OS37.png",
+    "CS_Notes/OS操作系统/asset/OS36.png",
+    "CS_Notes/OS操作系统/asset/OS35.png",
+    "CS_Notes/OS操作系统/asset/OS34.png",
+    "CS_Notes/OS操作系统/asset/OS33.png",
+    "CS_Notes/OS操作系统/OS Lecture 内存 存储 文件系统 45314847c4294195a6ed9cf5b5ed9d66.md",
+    "CS_Notes/OS操作系统/OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e.md",
+    "CS_Notes/OS操作系统/OS Lecture Overview 76843e2eb3d445959b4edfd85f0d91b5.md",
+    "Linguistics_Notes/Semantics/Ambiguity.md",
+    "Linguistics_Notes/Semantics/Logics & Formal Semantics.md",
+    "Linguistics_Notes/Semantics/Untitled",
+    "DL_Notes/index.md",
+    "DL_Notes/NLP_Theory/【TODO】Neural Symbolic AI.md",
+    "DL_Notes/NLP_Theory/【TODO】Natural Language Inference (NLI) Task.md",
+    "DL_Notes/NLP_Theory/【TODO】Autoregressive Decoder.md",
+    "DL_Notes/NLP_Tech/Note on Transformer Code.md",
+    "DL_Notes/NLP_Tech/规则提取文本格式经验总结.md",
+    "Application/NLP Global PHD Equality Digest.md",
+    "Application/index.md",
+    "Application/【TODO】我的24fall申请记录.md",
+    "DL_Notes/NLP_Tech/【TODO】Note on GPT Code.md",
+    "DL_Notes/NLP_Tech/【TODO】Note on LLaMA Code.md",
+    "DL_Notes/NLP_Tech/【TODO】CS231n.md",
+    "DL_Notes/NLP_Tech/【TODO】ML 八股 zero-to-hero.md",
+    "CS_Notes/OS操作系统",
+    "DL_Notes/LLM&sys",
     "Untitled.canvas",
     "瞎说一些东西/asset/Zotero介绍和配制方法.pdf",
     "DL_Notes/NLP_Theory",
     "CS_Notes/我的C++学习记录/Untitled",
     "CS_Notes/我的C++学习记录/资源",
     "CS_Notes/我的C++学习记录/专题",
-    "CS_Notes/我的C++学习记录/大块笔记",
-    "CS_Notes/我的C++学习记录",
-    "asset",
-    "docs/CS_Notes/asset",
-    "docs/CS_Notes",
     "DL_Notes/NLP/MindAudio Code/Untitled.canvas"
   ]
 }

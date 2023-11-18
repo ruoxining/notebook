@@ -14,8 +14,6 @@ The main contribution of Leibniz is
 
 
 ### Ferdinand de Saussure
-
-
 ```Text
 
 ```
@@ -23,7 +21,6 @@ The main contribution of Leibniz is
 ```Text
 
 ```
-
 
 
 

@@ -7,6 +7,7 @@ nav:
   - 'index.md'
   - 申请心得: 
     - 索引: 'Application/index.md'
+    - 24fall申请记录: 'Application/【TODO】我的24fall申请记录.md' 
     - 英专转CS&NLP指北: 'Application/ZJU English Major to CS&NLP.md'
     - 搬运NLP申请PhD经验: 'Application/NLP Global PHD Equality Digest.md'
   - CS专栏: 
@@ -20,8 +21,13 @@ nav:
       - 文件读写: 'CS_Notes/我的C++学习记录/文件读写 File IO.md'
       - 浅拷贝和深拷贝: 'CS_Notes/我的C++学习记录/浅拷贝和深拷贝 Shallow copy & Deep copy.md'
       - 命名空间: 'CS_Notes/我的C++学习记录/命名空间 Namespace.md'
+    - OS操作系统: 
+      - Index: 'CS_Notes/OS操作系统/index.md'
+      - 引入: 'CS_Notes/OS操作系统/Lecture_Overview.md'
+      - 进程与同步: 'CS_Notes/OS操作系统/进程与同步.md'
+      - 内存/存储/文件系统: 'CS_Notes/OS操作系统/内存_存储_文件系统.md'
     - 8086&80386汇编: 'CS_Notes/8086&80386汇编.md'
-    - 编程规范文档: 'CS_Notes/编程规范文档.md'
+    - 编程规范文档模板: 'CS_Notes/编程规范文档模板.md'
     - C语言: 'CS_Notes/C语言.md'
     - C大程libgraphics踩坑文档: 'CS_Notes/C大程libgraphics踩坑文档.md'
     - 爬虫: 'CS_Notes/Crawler🕷.md'
@@ -29,7 +35,6 @@ nav:
     - 索引: 'DL_Notes/index.md'
     - NLP Theory: 
       - CoT prompt: 'DL_Notes/NLP/Chain-of-Thought.md'
-      - Unfinished/Math Word Problem Solving Read Paper: 'DL_Notes/NLP_Theory/!!TODO!! Math Word Problem Solving Read Paper.md'
       - Contrastive Learning and Interpretability: 'DL_Notes/NLP_Theory/Contrastive Learning and Interpretability.md'
     - NLP Tech:
       - 规则提取文本格式经验总结: DL_Notes/NLP_Tech/规则提取文本格式经验总结.md
@@ -43,15 +48,20 @@ nav:
       - Linux命令行速查: 'DL_Notes/Terminal_Usage/Linux.md'
       - tmux速查: 'docs/DL_Notes/Terminal_Usage/tmux.md'
   - Linguistics专栏:
-    - 索引: 'Linguistics/index.md'
-    - 语音学: 
+    - Index: 'Linguistics/index.md'
+    - Phonetics:
       - Reduction in verb.+prep.: 'Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md'
       - Signal Basics: 'Linguistics_Notes/Phonetics/Signal Basics.md'
-    - 语义学: 'Linguistics_Notes/Semantics/Semantic Course.md'
-    - 句法学: 
+    - Syntax: 
       - 转换生成句法: 'Linguistics/转换生成句法.md'
       - 乔姆斯基普遍语法: 'Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md'
       - UD和SUD: 'docs/Linguistics_Notes/Syntax/UD and SUD.md'
+    - Semantics: 
+      - Index: 'Linguistics_Notes/Semantics/index.md'
+      - Definition Clearification: 'Linguistics_Notes/Semantics/Definition Clearification.md'
+      - Logics & Formal Semantics: 'Linguistics_Notes/Semantics/Logics & Formal Semantics.md'
+      - Ambiguity: 'Linguistics_Notes/Semantics/Ambiguity.md'
+    - Pragmatics: 'index.md'
   - Math专栏: 
     - 索引: 'Math_Notes/index.md'
     - 图论: 'Math_Notes/Graph Theory/Laplacian Matrix.md'

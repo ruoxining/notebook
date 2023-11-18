@@ -29,6 +29,7 @@ The data format is as follows.
 
 #### Math23k: Deep Neural Solver for Math Word Problems (2017)
 [Deep Neural Solver for Math Word Problems (aclanthology.org)](https://aclanthology.org/D17-1088.pdf)
+This dataset is in Chinese.
 ```Text
 Problem: Dan have 2 pens, Jessica have 4 pens. How many pens do they have in total ? 
 Equation: x = 4+2 
@@ -37,6 +38,7 @@ Solution: 6
 #### MathQA (2019)
 [MathQA-Dataset (math-qa.github.io)](https://math-qa.github.io/math-QA/)
 This paper proposes a math dataset which enhances the AQuA dataset by providing fully-specified operational programs.
+This dataset has a diverse range of operators.
 ![](../asset/截屏2023-08-14%2022.14.36.png)
 #### MATH (2021)
 [arxiv.org/pdf/2103.03874.pdf](https://arxiv.org/pdf/2103.03874.pdf)
@@ -54,6 +56,24 @@ This dataset does not distinguish the data with the texts. An example data is as
 Collected by OpenAI, this dataset consists of math problems in natural language descriptions, with the math formulas highlighted with special notes.The numbers are not explicitly highlighted with special symbols.
 Several examples of the data format are as follows.
 ![](../asset/Pasted%20image%2020230814170723.png)
+
+### DRAW
+Providing 1000 grounded word problems.
+
+### Algebra
+
+
+### AsDiv
+
+
+
+### MultiArith
+
+
+### SingleEq
+
+
+
 
 
 ## Methods
@@ -94,6 +114,22 @@ To answer the second question, this paper proposes a novel methods in data augme
 The workflow of the RFT method is illustrated as follows, where the SFT stands for supervised finetuning.
 ![](../asset/截屏2023-08-14%2021.59.33.png)
 With the novel method RFT, small models such as Llama-7b yields an accuracy of at most 49.7% on GSM8k, 14% higher than the previous SOTA method SFT.
+
+
+
+### PAL
+This work is a prompt engineering work.
+```Text
+Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now? 
+A: Roger started with 5 tennis balls. tennis_balls = 5 2 cans of 3 tennis balls each is bought_balls = 2 * 3 tennis balls. The answer is answer = tennis_balls + bought_balls 
+Q: The bakers at the Beverly Hills Bakery baked 200 loaves of bread on Monday morning. They sold 93 loaves in the morning and 39 loaves in the afternoon. A grocery store returned 6 unsold loaves. How many loaves of bread did they have left?
+```
+
+```Text
+A: The bakers started with 200 loaves loaves_baked = 200 They sold 93 in the morning and 39 in the afternoon loaves_sold_morning = 93 loaves_sold_afternoon = 39 The grocery store returned 6 loaves. loaves_returned = 6 The answer is answer = loaves_baked - loaves_sold_morning - loaves_sold_afternoon + loaves_returned
+```
+
+
 
 
 ## Preview
