@@ -60,9 +60,6 @@ nav:
       - Definition Clearification: 'Linguistics_Notes/Semantics/Definition Clearification.md'
       - Logics & Formal Semantics: 'Linguistics_Notes/Semantics/Logics & Formal Semantics.md'
       - Ambiguity: 'Linguistics_Notes/Semantics/Ambiguity.md'
-    - Pragmatics: 
-      - : ''
-      - : ''
   - Math专栏: 
     - 索引: 'Math_Notes/index.md'
     - 图论: 'Math_Notes/Graph Theory/Laplacian Matrix.md'

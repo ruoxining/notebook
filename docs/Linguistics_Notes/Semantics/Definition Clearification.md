@@ -171,8 +171,11 @@ meronomy:
 - transitive relationships
 
 ### 6) meronymy
+
 part-whole relationship
+
 subtypes of meronymy
+
 - from part to whole: is part of
 - from whole to part: has / have
     - steering wheel - car, roof - house, trunk - tree, keyboard - lap
@@ -220,8 +223,11 @@ dragon - monster
 
 
 ## Important linguistics
+
 Michel Bréal: coined semantics
+
 Ferdinand de Saussure: semiotician, diachronic vs. synchronic. 
+
 Leonard Bloomfield: structural linguistics, Language, behaviorism(stimulus-response testing). reject introspection(theorize about language learning by thinking about on ones own experience)
 
 ### Diachronic & Synchronic
@@ -252,6 +258,7 @@ Noam Chomsky Syntax
 - reliance on lexical decomposition
 
 ### Ambiguity
+
 - lexical ambiguity
 - scope (quantifiers)
 - syntactic ambiguity
@@ -345,7 +352,9 @@ Susan blushes when Jim looks at her, but she does not have a crush on him.
 ```
 
 ### Compositionality
+
 Proposed by Noam Chomsky, the term compositionality entails three dimension. 
+
 - productivity
 	- Key idea behind generative grammar. A relatively small number of combinatory rules may allow speakers to use a finite set of words to create a very large number of sentence.
 - generativity
@@ -354,6 +363,7 @@ Proposed by Noam Chomsky, the term compositionality entails three dimension.
 	- embedding: Frank thinks Sam said you deny Sue is cute…
 
 ### Principle of compositionally of meaning
+
 The meaning of the whole is a function of the meaning of its parts and the way they are put together.: … is determined by…
 
 

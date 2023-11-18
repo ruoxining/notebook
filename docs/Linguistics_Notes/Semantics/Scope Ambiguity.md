@@ -1,10 +1,16 @@
 ## Scope Ambiguity
 ## Scope and Anaphora
+
 antecedent vs. postcedent
+
 anaphor vs. cataphor
+
 Predicate logic is suited to capture natural language meaning
+
 allow recursion = recursivity
+
 two sources of recursion
+
 - coordination: john likes cats, dogs, beer
 - embedding: John said that Mary knws that Bill thinks that Jane claims that
 
@@ -42,6 +48,7 @@ Transformation:
 </aside>
 
 CALLOUT: annotation, connotation and denotation
+
 - annotation
     - a critical or explanatory commentary or analysis
     - a comment added to a text
@@ -51,9 +58,11 @@ CALLOUT: annotation, connotation and denotation
     
 - connotation: intension.
     - A meaning of a word or phrase that is suggested or implied, as opposed to a denotation, or literal meaning. A characteristic of words or phrases, or of the contexts that words and phrases are used in.
+    
         *The **connotations** of the phrase "you are a dog" are that you are physically unattractive or morally reprehensible, not that you are a canine.*
         
     - A technical term in logic used by J. S. Mill and later logicians to refer to the attribute or aggregate of attributes connoted by a term, and contrasted with *denotation* .
+    
         *The two expressions "the morning star" and "the evening star" have different **connotations** but the same denotation (i.e. the planet Venus).*
 
 - denotation
@@ -105,7 +114,9 @@ every boy kissed no girl.
 ```
 
 ### Deictic
+
 No boy said he was hungry.
+
 No boy was present. He was outside instead.: “he” is trying to refer to ”no boy” but outside the scope.
 
 
@@ -118,7 +129,9 @@ Every student was present and she was interested.
 ```
 
 every: scopes over “Every student was present”
+
 every: an indefinite quantifier. “she”’s antecedent is not clear
+
 “she” is hardly bound by the antecedent. “she” is free
 * ungrammatical: 不合语法的, syntactic
 
@@ -151,6 +164,7 @@ every: an indefinite quantifier. “she”’s antecedent is not clear
     ```
     
 So we may conclude the following rules for e-type anaphora. BUT this part has NOT been verified with any authority. Do NOT take them as given truths during exams.
+
 - F: universal quantifier + singular pronoun
 - T: universal quantifier + plural pronoun
 - F: negated quantifier + singular pronoun
@@ -266,7 +280,9 @@ Reference: [Unselective Binding](https://people.umass.edu/scable/LING720-FA18/Ha
 # Chapter 6 in short: Discourse/Donkey Anaphora
 
 (加粗的是Donkey anaphora和E-type anaphora的区别)
+
 Discourse: basic unit of interpretation
+
 - Dynamic theory of meaning: look beyond the meaning of individual sentences and determine the way they are pieced together to make discourse
 - discourse anaphora: anaphora in sequence of sentences (instead of single sentence)
 - Donkey sentence: **is such that an expected existential is interpreted as universal taking wide scope**. / sentences that contain a pronoun with clear meaning but whose syntactical role in the sentence poses challenges to grammarians (wikipedia)
