@@ -22,10 +22,10 @@ nav:
       - 浅拷贝和深拷贝: 'CS_Notes/我的C++学习记录/浅拷贝和深拷贝 Shallow copy & Deep copy.md'
       - 命名空间: 'CS_Notes/我的C++学习记录/命名空间 Namespace.md'
     - OS操作系统: 
-      - Index: 'CS_Notes/OS操作系统/index.md'
-      - 引入: 'CS_Notes/OS操作系统/Lecture_Overview.md'
-      - 进程与同步: 'CS_Notes/OS操作系统/进程与同步.md'
-      - 内存/存储/文件系统: 'CS_Notes/OS操作系统/内存_存储_文件系统.md'
+      - 00-Index: 'CS_Notes/OS操作系统/index.md'
+      - 0-引入: 'CS_Notes/OS操作系统/Lecture_Overview.md'
+      - 1-进程与同步: 'CS_Notes/OS操作系统/进程与同步.md'
+      - 2-内存/存储/文件系统: 'CS_Notes/OS操作系统/内存_存储_文件系统.md'
     - 8086&80386汇编: 'CS_Notes/8086&80386汇编.md'
     - 编程规范文档模板: 'CS_Notes/编程规范文档模板.md'
     - C语言: 'CS_Notes/C语言.md'
@@ -56,10 +56,10 @@ nav:
       - 乔姆斯基普遍语法: 'Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md'
       - UD和SUD: 'docs/Linguistics_Notes/Syntax/UD and SUD.md'
     - Semantics: 
-      - Index: 'Linguistics_Notes/Semantics/index.md'
-      - Definition Clearification: 'Linguistics_Notes/Semantics/Definition Clearification.md'
-      - Logics & Formal Semantics: 'Linguistics_Notes/Semantics/Logics & Formal Semantics.md'
-      - Ambiguity: 'Linguistics_Notes/Semantics/Ambiguity.md'
+      - 0-Index: 'Linguistics_Notes/Semantics/index.md'
+      - 1-Definition Clearification: 'Linguistics_Notes/Semantics/Definition Clearification.md'
+      - 2-Logics & Formal Semantics: 'Linguistics_Notes/Semantics/Logics & Formal Semantics.md'
+      - 3-Scope Ambiguity: 'Linguistics_Notes/Semantics/Scope Ambiguity.md'
   - Math专栏: 
     - 索引: 'Math_Notes/index.md'
     - 图论: 'Math_Notes/Graph Theory/Laplacian Matrix.md'
@@ -69,10 +69,9 @@ nav:
     - 钢琴期末复习: 'Other_Courses/打开艺术之门-钢琴期末复习.md'
   - 瞎说一些东西: 
     - 索引: '瞎说一些东西/index.md'
-    - 好用的工具: '瞎说一些东西/好用的工具.md'
+    - 杂七杂八的工具: '瞎说一些东西/杂七杂八的工具.md'
     - Notion vs. Obsidian: '瞎说一些东西/Notion和Obsidian，选哪一个.md'
     - ZOTERO简介: '瞎说一些东西/ZOTERO 简介及配置教程.md'
-
 
 
 theme:
