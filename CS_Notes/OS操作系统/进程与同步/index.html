@@ -217,7 +217,7 @@
   
     <li class="md-nav__item">
       <a href="../../.." class="md-nav__link">
-        None
+        Home
       </a>
     </li>
   
@@ -1347,37 +1347,23 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../Linguistics/index.md" class="md-nav__link">
-        Index
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
       
       
       
-        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
           Phonetics
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_1">
           <span class="md-nav__icon md-icon"></span>
           Phonetics
         </label>
@@ -1429,17 +1415,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
       
       
       
-        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
           Syntax
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_3">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
           <span class="md-nav__icon md-icon"></span>
           Syntax
         </label>
@@ -1505,17 +1491,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
       
       
       
-        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
           Semantics
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_5_4">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
           <span class="md-nav__icon md-icon"></span>
           Semantics
         </label>
@@ -1569,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Linguistics_Notes/Semantics/Ambiguity/" class="md-nav__link">
+      <a href="../../../Linguistics_Notes/Semantics/Ambiguity.md" class="md-nav__link">
         Ambiguity
       </a>
     </li>
@@ -1579,20 +1565,6 @@
           
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        Pragmatics
-      </a>
     </li>
   
 
@@ -2851,10 +2823,10 @@ thread_two() {
 <p>下面四点的交</p>
 <p>必要条件→打破任意一点就能避免死锁</p>
 <ul>
-<li>mutual exclusion：至少一个资源处于非共享模式（只有一个实例）</li>
-<li>hold and wait：一个进程（怀疑是每个？）占有至少一个资源，并等待另一个被占据的资源</li>
-<li>no preemption：资源不能被抢占，只能在进程结束后主动释放</li>
-<li>circular wait：一组等待进程跟想要的资源的占有者进程成环（我是这么理解的）</li>
+<li>Mutual exclusion：至少一个资源处于非共享模式（即每个资源只有一个实例）</li>
+<li>Hold and wait：每个进程占有至少一个资源，并等待另一个被占据的资源。</li>
+<li>No preemption：资源不能被抢占，只能在进程结束后主动释放。</li>
+<li>Circular wait：一组等待进程跟想要的资源的占有者进程成环，也就是进程编号与需要的资源编号形成一个完全轮换（没有一个进程对应与其编号相同的资源，而编号相同的资源指该进程当前正持有的那个资源）（我是这么理解的）。在阐述这一点时，可以列出这个轮换。</li>
 </ul>
 <p>处理死锁的四种方法</p>
 <ul>
