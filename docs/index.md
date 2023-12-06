@@ -8,7 +8,7 @@ Hi there 👋
 
 #### 申请心得
 
-[从英专转CS和NLP的建议帖！](ZJU%20English%20Major%20to%20CS&NLP.md)
+[从英专转CS和NLP的建议帖！](https://ruoxining.github.io/OBvault/Application/ZJU%20English%20Major%20to%20CS%26NLP/)
 
 #### Computer Science Notes
 
