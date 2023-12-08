@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Application/【TODO】我的24fall申请记录.md",
+                "file": "Linguistics_Notes/History of Philosophy of Language.md",
                 "mode": "source",
                 "source": false
               }
@@ -89,8 +89,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 261.5,
-    "collapsed": true
+    "width": 261.5
   },
   "right": {
     "id": "b1e08f9bbf6ce722",
@@ -106,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Application/【TODO】我的24fall申请记录.md",
+                "file": "Linguistics_Notes/History of Philosophy of Language.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Application/【TODO】我的24fall申请记录.md",
+                "file": "Linguistics_Notes/History of Philosophy of Language.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +145,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Application/【TODO】我的24fall申请记录.md"
+                "file": "Linguistics_Notes/History of Philosophy of Language.md"
               }
             }
           },
@@ -180,13 +179,18 @@
   },
   "active": "2dfcf26a9e7d00d0",
   "lastOpenFiles": [
-    "Linguistics_Notes/Semantics/index.md",
+    "Linguistics_Notes/asset/截屏2023-12-07 22.55.24.png",
+    "Linguistics_Notes/Philosophy of Language and NLP.md",
+    "Linguistics_Notes/History of Philosophy of Language.md",
+    "DL_Notes/NLP_Theory/Linguistic Fundamentals for Natural Language Procesing.md",
+    "DL_Notes/NLP_Theory/Contrastive Learning and Interpretability.md",
+    "DL_Notes/NLP_Theory/【TODO】Autoregressive Decoder.md",
     "Application/【TODO】我的24fall申请记录.md",
+    "Linguistics_Notes/Semantics/index.md",
     "Linguistics_Notes/Pragmatics/Conversation Analysis (CA) and Discourse Analysis (DA).md",
     "Application/ZJU English Major to CS&NLP.md",
     "Application/asset/截屏2023-11-25 22.28.50.png",
     "Application/asset/截屏2023-11-25 22.34.32.png",
-    "DL_Notes/NLP_Theory/Linguistic Fundamentals for Natural Language Procesing.md",
     "CS_Notes/OS操作系统/进程与同步.md",
     "CS_Notes/OS操作系统/内存_存储_文件系统.md",
     "Linguistics_Notes/Semantics/Scope Ambiguity.md",
@@ -213,13 +217,8 @@
     "DL_Notes/index.md",
     "DL_Notes/NLP_Theory/【TODO】Neural Symbolic AI.md",
     "DL_Notes/NLP_Theory/【TODO】Natural Language Inference (NLI) Task.md",
-    "DL_Notes/NLP_Theory/【TODO】Autoregressive Decoder.md",
     "DL_Notes/NLP_Tech/Note on Transformer Code.md",
     "DL_Notes/NLP_Tech/规则提取文本格式经验总结.md",
-    "Application/NLP Global PHD Equality Digest.md",
-    "Application/index.md",
-    "DL_Notes/NLP_Tech/【TODO】Note on GPT Code.md",
-    "DL_Notes/NLP_Tech/【TODO】Note on LLaMA Code.md",
     "CS_Notes/OS操作系统",
     "DL_Notes/LLM&sys",
     "Untitled.canvas",

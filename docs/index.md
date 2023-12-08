@@ -1,6 +1,16 @@
 Hi there 👋
 
+## 打招呼用的
+我的BLOG，主要语言是中文，主要内容有笔记 + 一些瞎话
+
 我的笔记不多！以后也不会多的😤 欢迎来看我的笔记！
+
+如果想查找ZJU课程资料，可以配合仓库[ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS)食用
+
+- 本BLOG的定位是掺杂自己观点的笔记 + 心得
+- 上述仓库的定位是客观通用的一个工具箱
+
+暂时这样分工
 
 大部分内容还在一点一点施工中，请稍等！
 
@@ -35,11 +45,11 @@ Hi there 👋
 [关于我怎样在笔记工具Notion和Obsidian之间做选择](https://ruoxining.github.io/OBvault/%E7%9E%8E%E8%AF%B4%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/Notion%E5%92%8CObsidian%EF%BC%8C%E9%80%89%E5%93%AA%E4%B8%80%E4%B8%AA/)
 
 
-## 更新日志
+<!-- ## 更新日志
 
 【19/11/2023】Update了一些暑期的论文阅读笔记和两三门ling/CS课。开了一个24fall申请历程的坑。12月ddl月过去就开始填！
 
-【28/07/2023】换站了！居然做到了把Ob和Mkdocs合并在了同一个文件夹。把Notion的东西也搬上来了！
+【28/07/2023】换站了！居然做到了把Ob和Mkdocs合并在了同一个文件夹。把Notion的东西也搬上来了！ -->
 
 
 ## 联系作者
