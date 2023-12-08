@@ -8,21 +8,27 @@
       
       
       
+        <link rel="canonical" href="https://ruoxining.github.io/OBvault/DL/Python/broadcastable_vector/">
       
       
-      <link rel="icon" href="/OBvault/assets/images/favicon.png">
+        <link rel="prev" href="../pytorch/">
+      
+      
+        <link rel="next" href="../../Terminal/anaconda/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>MiniBabelLibrary</title>
+        <title>Broadcastble Vector - MiniBabelLibrary</title>
       
     
     
-      <link rel="stylesheet" href="/OBvault/assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="/OBvault/assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -38,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="/OBvault/_css/style.css">
+      <link rel="stylesheet" href="../../../_css/style.css">
     
-    <script>__md_scope=new URL("/OBvault/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +74,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#broadcastble-vector" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -80,7 +91,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/OBvault/." title="MiniBabelLibrary" class="md-header__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+    <a href="../../.." title="MiniBabelLibrary" class="md-header__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Broadcastble Vector
             
           </span>
         </div>
@@ -204,7 +215,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/OBvault/." title="MiniBabelLibrary" class="md-nav__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+    <a href="../../.." title="MiniBabelLibrary" class="md-nav__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -235,7 +246,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -279,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/App/" class="md-nav__link">
+      <a href="../../../App/" class="md-nav__link">
         mu
       </a>
     </li>
@@ -293,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/App/24fall/" class="md-nav__link">
+      <a href="../../../App/24fall/" class="md-nav__link">
         24fall申请记录
       </a>
     </li>
@@ -307,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/App/zju_ling_cs/" class="md-nav__link">
+      <a href="../../../App/zju_ling_cs/" class="md-nav__link">
         英专转CS&NLP指北
       </a>
     </li>
@@ -321,7 +332,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/App/nlp_phd/" class="md-nav__link">
+      <a href="../../../App/nlp_phd/" class="md-nav__link">
         NLP申请PhD经验(搬运)
       </a>
     </li>
@@ -372,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/" class="md-nav__link">
+      <a href="../../../CS/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -386,7 +397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/c_lang/" class="md-nav__link">
+      <a href="../../../CS/c_lang/" class="md-nav__link">
         C语法
       </a>
     </li>
@@ -400,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/libgraphics/" class="md-nav__link">
+      <a href="../../../CS/libgraphics/" class="md-nav__link">
         C大程libgraphics使用记录
       </a>
     </li>
@@ -414,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/coding_code/" class="md-nav__link">
+      <a href="../../../CS/coding_code/" class="md-nav__link">
         编程规范文档模板
       </a>
     </li>
@@ -457,7 +468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/course/" class="md-nav__link">
+      <a href="../../../CS/CPP/course/" class="md-nav__link">
         ZJU听课
       </a>
     </li>
@@ -471,7 +482,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/final_review/" class="md-nav__link">
+      <a href="../../../CS/CPP/final_review/" class="md-nav__link">
         ZJU期末复习
       </a>
     </li>
@@ -485,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/inheritance/" class="md-nav__link">
+      <a href="../../../CS/CPP/inheritance/" class="md-nav__link">
         继承
       </a>
     </li>
@@ -499,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/templates/" class="md-nav__link">
+      <a href="../../../CS/CPP/templates/" class="md-nav__link">
         模板和标准模板库
       </a>
     </li>
@@ -513,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/type/" class="md-nav__link">
+      <a href="../../../CS/CPP/type/" class="md-nav__link">
         类型和类型转换
       </a>
     </li>
@@ -527,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/file_io/" class="md-nav__link">
+      <a href="../../../CS/CPP/file_io/" class="md-nav__link">
         文件读写
       </a>
     </li>
@@ -541,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/copy/" class="md-nav__link">
+      <a href="../../../CS/CPP/copy/" class="md-nav__link">
         浅拷贝和深拷贝
       </a>
     </li>
@@ -555,7 +566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/CPP/namespace/" class="md-nav__link">
+      <a href="../../../CS/CPP/namespace/" class="md-nav__link">
         命名空间
       </a>
     </li>
@@ -576,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/x86assm/" class="md-nav__link">
+      <a href="../../../CS/x86assm/" class="md-nav__link">
         x86汇编
       </a>
     </li>
@@ -619,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/OS/" class="md-nav__link">
+      <a href="../../../CS/OS/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -633,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/OS/overview/" class="md-nav__link">
+      <a href="../../../CS/OS/overview/" class="md-nav__link">
         课程引入
       </a>
     </li>
@@ -647,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/OS/process_syn/" class="md-nav__link">
+      <a href="../../../CS/OS/process_syn/" class="md-nav__link">
         进程与同步
       </a>
     </li>
@@ -661,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/OS/mem_file/" class="md-nav__link">
+      <a href="../../../CS/OS/mem_file/" class="md-nav__link">
         内存和文件系统
       </a>
     </li>
@@ -682,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/objdump/" class="md-nav__link">
+      <a href="../../../CS/objdump/" class="md-nav__link">
         Objdump工具
       </a>
     </li>
@@ -696,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/CS/crawler/" class="md-nav__link">
+      <a href="../../../CS/crawler/" class="md-nav__link">
         写个爬虫Crawler🕷️！
       </a>
     </li>
@@ -716,16 +727,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -734,7 +745,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           DL专栏
@@ -747,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         索引
       </a>
     </li>
@@ -790,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/ling_ebender/" class="md-nav__link">
+      <a href="../../NLPTheory/ling_ebender/" class="md-nav__link">
         E.Bender Ling4NLP读书笔记
       </a>
     </li>
@@ -804,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/cot/" class="md-nav__link">
+      <a href="../../NLPTheory/cot/" class="md-nav__link">
         CoT Prompt
       </a>
     </li>
@@ -818,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/nli/" class="md-nav__link">
+      <a href="../../NLPTheory/nli/" class="md-nav__link">
         NLI
       </a>
     </li>
@@ -832,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/embodied_ai/" class="md-nav__link">
+      <a href="../../NLPTheory/embodied_ai/" class="md-nav__link">
         Embodied AI
       </a>
     </li>
@@ -846,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/explainable_nlp/" class="md-nav__link">
+      <a href="../../NLPTheory/explainable_nlp/" class="md-nav__link">
         Explainable NLP
       </a>
     </li>
@@ -860,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/mwp/" class="md-nav__link">
+      <a href="../../NLPTheory/mwp/" class="md-nav__link">
         Math Word Problem
       </a>
     </li>
@@ -874,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/neural_symbolic/" class="md-nav__link">
+      <a href="../../NLPTheory/neural_symbolic/" class="md-nav__link">
         Neural Symbolic AI
       </a>
     </li>
@@ -888,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTheory/autoregressive/" class="md-nav__link">
+      <a href="../../NLPTheory/autoregressive/" class="md-nav__link">
         Autoregressive Decoder
       </a>
     </li>
@@ -938,7 +949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/ml_cheatsheet/" class="md-nav__link">
+      <a href="../../NLPTech/ml_cheatsheet/" class="md-nav__link">
         ML八股
       </a>
     </li>
@@ -952,7 +963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/transformer_code/" class="md-nav__link">
+      <a href="../../NLPTech/transformer_code/" class="md-nav__link">
         Transformer代码
       </a>
     </li>
@@ -966,7 +977,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/bert_code/" class="md-nav__link">
+      <a href="../../NLPTech/bert_code/" class="md-nav__link">
         BERT代码
       </a>
     </li>
@@ -980,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/gpt_code/" class="md-nav__link">
+      <a href="../../NLPTech/gpt_code/" class="md-nav__link">
         GPT代码
       </a>
     </li>
@@ -994,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/llama_code/" class="md-nav__link">
+      <a href="../../NLPTech/llama_code/" class="md-nav__link">
         LLaMa代码
       </a>
     </li>
@@ -1008,7 +1019,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/cs231n/" class="md-nav__link">
+      <a href="../../NLPTech/cs231n/" class="md-nav__link">
         CS231n笔记(还没写)
       </a>
     </li>
@@ -1022,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/cs224n/" class="md-nav__link">
+      <a href="../../NLPTech/cs224n/" class="md-nav__link">
         CS224n笔记(还没写)
       </a>
     </li>
@@ -1036,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/NLPTech/rule_text/" class="md-nav__link">
+      <a href="../../NLPTech/rule_text/" class="md-nav__link">
         规则提取文本格式总结
       </a>
     </li>
@@ -1055,16 +1066,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-        
-      
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
       
       
       
@@ -1073,7 +1084,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           Python用法速查
@@ -1086,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Python/ipdb/" class="md-nav__link">
+      <a href="../ipdb/" class="md-nav__link">
         IPDB
       </a>
     </li>
@@ -1100,7 +1111,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Python/pandas_dataframe/" class="md-nav__link">
+      <a href="../pandas_dataframe/" class="md-nav__link">
         Pandas DF速查
       </a>
     </li>
@@ -1114,7 +1125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Python/python_object/" class="md-nav__link">
+      <a href="../python_object/" class="md-nav__link">
         Python面向对象语法
       </a>
     </li>
@@ -1128,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Python/setup_pack/" class="md-nav__link">
+      <a href="../setup_pack/" class="md-nav__link">
         Python Setup Packages
       </a>
     </li>
@@ -1142,7 +1153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Python/pytorch/" class="md-nav__link">
+      <a href="../pytorch/" class="md-nav__link">
         Pytorch速查
       </a>
     </li>
@@ -1154,11 +1165,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/OBvault/DL/Python/broadcastable_vector/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Broadcastble Vector
       </a>
+      
     </li>
   
 
@@ -1206,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Terminal/anaconda/" class="md-nav__link">
+      <a href="../../Terminal/anaconda/" class="md-nav__link">
         Anaconda速查
       </a>
     </li>
@@ -1220,7 +1241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Terminal/linux/" class="md-nav__link">
+      <a href="../../Terminal/linux/" class="md-nav__link">
         Linux命令行
       </a>
     </li>
@@ -1234,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Terminal/pytorch_terminal/" class="md-nav__link">
+      <a href="../../Terminal/pytorch_terminal/" class="md-nav__link">
         Pytorch命令行
       </a>
     </li>
@@ -1248,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/DL/Terminal/tmux/" class="md-nav__link">
+      <a href="../../Terminal/tmux/" class="md-nav__link">
         tmux速查
       </a>
     </li>
@@ -1306,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/" class="md-nav__link">
+      <a href="../../../Ling/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -1349,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Phonetics/reduction/" class="md-nav__link">
+      <a href="../../../Ling/Phonetics/reduction/" class="md-nav__link">
         Reduction in verb.+prep.
       </a>
     </li>
@@ -1363,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Phonetics/signal/" class="md-nav__link">
+      <a href="../../../Ling/Phonetics/signal/" class="md-nav__link">
         Signal Basis
       </a>
     </li>
@@ -1413,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Syntax/conv_gen/" class="md-nav__link">
+      <a href="../../../Ling/Syntax/conv_gen/" class="md-nav__link">
         转换生成句法
       </a>
     </li>
@@ -1427,7 +1448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Syntax/uni_gram/" class="md-nav__link">
+      <a href="../../../Ling/Syntax/uni_gram/" class="md-nav__link">
         普遍语法
       </a>
     </li>
@@ -1441,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Syntax/ud_sud/" class="md-nav__link">
+      <a href="../../../Ling/Syntax/ud_sud/" class="md-nav__link">
         依存句法UD&SUD
       </a>
     </li>
@@ -1491,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Semantics/" class="md-nav__link">
+      <a href="../../../Ling/Semantics/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1505,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Semantics/definitions/" class="md-nav__link">
+      <a href="../../../Ling/Semantics/definitions/" class="md-nav__link">
         Definition Clearification
       </a>
     </li>
@@ -1519,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Semantics/formal_semantics/" class="md-nav__link">
+      <a href="../../../Ling/Semantics/formal_semantics/" class="md-nav__link">
         Logics & Formal Semantics
       </a>
     </li>
@@ -1533,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Semantics/ambiguity/" class="md-nav__link">
+      <a href="../../../Ling/Semantics/ambiguity/" class="md-nav__link">
         Scope Ambiguity
       </a>
     </li>
@@ -1583,7 +1604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/Pragmatics/ca_da/" class="md-nav__link">
+      <a href="../../../Ling/Pragmatics/ca_da/" class="md-nav__link">
         Research Methods
       </a>
     </li>
@@ -1604,7 +1625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Ling/pol_zh/" class="md-nav__link">
+      <a href="../../../Ling/pol_zh/" class="md-nav__link">
         语言哲学Philosophy of Language
       </a>
     </li>
@@ -1655,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Math/" class="md-nav__link">
+      <a href="../../../Math/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -1669,7 +1690,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Math/Graph/laplace_matrix/" class="md-nav__link">
+      <a href="../../../Math/Graph/laplace_matrix/" class="md-nav__link">
         图论
       </a>
     </li>
@@ -1683,7 +1704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Math/questions/" class="md-nav__link">
+      <a href="../../../Math/questions/" class="md-nav__link">
         零散的题
       </a>
     </li>
@@ -1697,7 +1718,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Math/normal_forms/" class="md-nav__link">
+      <a href="../../../Math/normal_forms/" class="md-nav__link">
         各种Normal Forms
       </a>
     </li>
@@ -1748,7 +1769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Other/" class="md-nav__link">
+      <a href="../../../Other/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -1762,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Other/tools/" class="md-nav__link">
+      <a href="../../../Other/tools/" class="md-nav__link">
         我的工具箱！
       </a>
     </li>
@@ -1776,7 +1797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Other/apa/" class="md-nav__link">
+      <a href="../../../Other/apa/" class="md-nav__link">
         APA Format
       </a>
     </li>
@@ -1790,7 +1811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/OBvault/Other/nlp_resources/" class="md-nav__link">
+      <a href="../../../Other/nlp_resources/" class="md-nav__link">
         DL & NLP 资源整理
       </a>
     </li>
@@ -1821,6 +1842,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1832,8 +1855,41 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<h1 id="broadcastble-vector">Broadcastble Vector</h1>
+<p>Broadcasting is a mechanism which allows tensors with different numbers of dimensions to be added or multiplied together by (virtually) replicating the smaller tensor along the dimensions that it is lacking. </p>
+<p>One tensor is broadcastable to another if the following rules hold.
+- Each tensor has at least one dimension.
+- When iterating over the dimension size, starting at the trailing dimension, the dimension sizes must either be equal, one of them is 1, or one of them does not exist.</p>
+<p>Examples
+Same shapes are always broadcastable.
+<div class="language-Python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>If one of the vectors does not have at least one dimension, they are not broadcastable.
+<div class="language-Python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">0</span><span class="p">,))</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p>Lining up is from right to left.
+x and y can line up trailing dimensions
+<div class="language-Python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>   <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></div>
+1st trailing dimension: x and y both have dim 1
+2nd trailing dimension: y has 1
+3rd trailing dimension: x = y
+4th trailing dimension: y's dimension does not exist</p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1870,13 +1926,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/OBvault/", "features": ["content.code.copy", "navigation.expand", "navigation.top"], "search": "/OBvault/assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.top"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/OBvault/assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="/OBvault/javascripts/mathjax.js"></script>
+          <script src="../../../javascripts/mathjax.js"></script>
         
       
         
@@ -1884,7 +1940,7 @@
         
       
         
-          <script src="/OBvault/javascripts/tex-mml-chtml.js"></script>
+          <script src="../../../javascripts/tex-mml-chtml.js"></script>
         
       
     
