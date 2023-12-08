@@ -4,81 +4,148 @@ repo_url: https://github.com/ruoxining/OBvault
 repo_name: OBvault
 
 nav:
-  - 'index.md'
+  - 'index.md' 
   - 申请心得: 
-    - 索引: 'Application/index.md'
-    - 24fall申请记录: 'Application/【TODO】我的24fall申请记录.md' 
-    - 英专转CS&NLP指北: 'Application/ZJU English Major to CS&NLP.md'
-    - 搬运NLP申请PhD经验: 'Application/NLP Global PHD Equality Digest.md'
+    - 索引: 'App/index.md'
+    - 24fall申请记录: 'App/24fall.md' 
+    - 英专转CS&NLP指北: 'App/zju_ling_cs.md'
+    - NLP申请PhD经验(搬运): 'App/nlp_phd.md'
+
   - CS专栏: 
-    - 索引: 'CS_Notes/index.md'
+    - 索引: 'CS/index.md'
+    - C语法: 'CS/c_lang.md'
+    - C大程libgraphics使用记录: 'CS/libgraphics.md'
+    - 编程规范文档模板: 'CS/coding_code.md'
     - C++持续进步: 
-      - ZJU听课: 'CS_Notes/我的C++学习记录/听课（ZJU & Stanford CS106B）.md'
-      - ZJU期末复习: 'CS_Notes/我的C++学习记录/ZJU 期末复习.md'
-      - 继承: 'CS_Notes/我的C++学习记录/继承 Inheritance.md'
-      - 模板和标准模板库: 'CS_Notes/我的C++学习记录/模板和标准模板库 Template & STL.md'
-      - 类型和类型转换: 'CS_Notes/我的C++学习记录/类型和类型转换Type & Type Conversion.md'
-      - 文件读写: 'CS_Notes/我的C++学习记录/文件读写 File IO.md'
-      - 浅拷贝和深拷贝: 'CS_Notes/我的C++学习记录/浅拷贝和深拷贝 Shallow copy & Deep copy.md'
-      - 命名空间: 'CS_Notes/我的C++学习记录/命名空间 Namespace.md'
+      - ZJU听课: 'CS/CPP/course.md'
+      - ZJU期末复习: 'CS/CPP/final_review.md'
+      - 继承: 'CS/CPP/inheritance.md'
+      - 模板和标准模板库: 'CS/CPP/templates.md'
+      - 类型和类型转换: 'CS/CPP/type.md'
+      - 文件读写: 'CS/CPP/file_io.md'
+      - 浅拷贝和深拷贝: 'CS/CPP/copy.md'
+      - 命名空间: 'CS/CPP/namespace.md'
+    - x86汇编: 'CS/x86assm.md'
     - OS操作系统: 
-      - 00-Index: 'CS_Notes/OS操作系统/index.md'
-      - 0-引入: 'CS_Notes/OS操作系统/Lecture_Overview.md'
-      - 1-进程与同步: 'CS_Notes/OS操作系统/进程与同步.md'
-      - 2-内存/存储/文件系统: 'CS_Notes/OS操作系统/内存_存储_文件系统.md'
-    - 8086&80386汇编: 'CS_Notes/8086&80386汇编.md'
-    - 编程规范文档模板: 'CS_Notes/编程规范文档模板.md'
-    - C语言: 'CS_Notes/C语言.md'
-    - C大程libgraphics踩坑文档: 'CS_Notes/C大程libgraphics踩坑文档.md'
-    - 爬虫: 'CS_Notes/Crawler🕷.md'
+      - 索引: 'CS/OS/index.md'
+      - 课程引入: 'CS/OS/overview.md'
+      - 进程与同步: 'CS/OS/process_syn.md'
+      - 内存和文件系统: 'CS/OS/mem_file.md'
+    - Objdump工具: 'CS/objdump.md'
+    - 写个爬虫Crawler🕷️！: 'CS/crawler.md'
+
   - DL专栏: 
-    - 索引: 'DL_Notes/index.md'
+    - 索引: 'DL/index.md'
     - NLP Theory: 
-      - CoT prompt: 'DL_Notes/NLP/Chain-of-Thought.md'
-      - Contrastive Learning and Interpretability: 'DL_Notes/NLP_Theory/Contrastive Learning and Interpretability.md'
+      - E.Bender Ling4NLP读书笔记: 'DL/NLPTheory/ling_ebender.md'
+      - CoT Prompt: 'DL/NLPTheory/cot.md'
+      - NLI: 'DL/NLPTheory/nli.md'
+      - Embodied AI: 'DL/NLPTheory/embodied_ai.md'
+      - Explainable NLP: 'DL/NLPTheory/explainable_nlp.md'
+      - Math Word Problem: 'DL/NLPTheory/mwp.md'
+      - Neural Symbolic AI: 'DL/NLPTheory/neural_symbolic.md'
+      - Autoregressive Decoder: 'DL/NLPTheory/autoregressive.md'
     - NLP Tech:
-      - 规则提取文本格式经验总结: DL_Notes/NLP_Tech/规则提取文本格式经验总结.md
+      - ML八股: 'DL/NLPTech/ml_cheatsheet.md'
+      - Transformer代码: 'DL/NLPTech/transformer_code.md'
+      - BERT代码: 'DL/NLPTech/bert_code.md'
+      - GPT代码: 'DL/NLPTech/gpt_code.md'
+      - LLaMa代码: 'DL/NLPTech/llama_code.md'
+      - CS231n笔记(还没写): 'DL/NLPTech/cs231n.md'
+      - CS224n笔记(还没写): 'DL/NLPTech/cs224n.md'
+      - 规则提取文本格式总结: DL/NLPTech/rule_text.md
     - Python用法速查:
-      - IPDB: 'DL_Notes/Python_Usage/IPDB.md'
-      - Pandas DF速查: 'DL_Notes/Python_Usage/Pandas Dataframe常用.md'
-      - Python类速查: 'DL_Notes/Python_Usage/Python的面向对象使用技巧.md'
-      - Pytorch速查: 'DL_Notes/Python_Usage/Pytorch 常用命令.md'
+      - IPDB: 'DL/Python/ipdb.md'
+      - Pandas DF速查: 'DL/Python/pandas_dataframe.md'
+      - Python面向对象语法: 'DL/Python/python_object.md'
+      - Python Setup Packages: 'DL/Python/setup_pack.md'
+      - Pytorch速查: 'DL/Python/pytorch.md'
+      - Broadcastble Vector: 'DL/Python/broadcastable_vector.md'
     - 命令行用法速查: 
-      - Anaconda速查: 'DL_Notes/Terminal_Usage/Anaconda常用命令.md'
-      - Linux命令行速查: 'DL_Notes/Terminal_Usage/Linux.md'
-      - tmux速查: 'docs/DL_Notes/Terminal_Usage/tmux.md'
-  - Linguistics专栏:
-    - Phonetics:
-      - Reduction in verb.+prep.: 'Linguistics_Notes/Phonetics/Reduction of Intentional verb+prep.md'
-      - Signal Basics: 'Linguistics_Notes/Phonetics/Signal Basics.md'
-    - Syntax: 
-      - 转换生成句法: 'Linguistics/Syntax/转换生成句法.md'
-      - 乔姆斯基普遍语法: 'Linguistics_Notes/Syntax/Chomsky’s Universal Grammar.md'
-      - UD和SUD: 'docs/Linguistics_Notes/Syntax/UD and SUD.md'
-    - Semantics: 
-      - 0-Index: 'Linguistics_Notes/Semantics/index.md'
-      - 1-Definition Clearification: 'Linguistics_Notes/Semantics/Definition Clearification.md'
-      - 2-Logics & Formal Semantics: 'Linguistics_Notes/Semantics/Logics & Formal Semantics.md'
-      - 3-Scope Ambiguity: 'Linguistics_Notes/Semantics/Scope Ambiguity.md'
+      - Anaconda速查: 'DL/Terminal/anaconda.md'
+      - Linux命令行: 'DL/Terminal/linux.md'
+      - Pytorch命令行: 'DL/Terminal/pytorch_terminal.md'
+      - tmux速查: 'DL/Terminal/tmux.md'
+
+  - Ling专栏:
+    - 索引: 'Ling/index.md'
+    - 语音学Phonetics:
+      - Reduction in verb.+prep.: 'Ling/Phonetics/reduction.md'
+      - Signal Basis: 'Ling/Phonetics/signal.md'
+    - 句法学Syntax: 
+      - 转换生成句法: 'Ling/Syntax/conv_gen.md'
+      - 普遍语法: 'Ling/Syntax/uni_gram.md'
+      - 依存句法UD&SUD: 'Ling/Syntax/ud_sud.md'
+    - 语义学Semantics: 
+      - Index: 'Ling/Semantics/index.md'
+      - Definition Clearification: 'Ling/Semantics/definitions.md'
+      - Logics & Formal Semantics: 'Ling/Semantics/formal_semantics.md'
+      - Scope Ambiguity: 'Ling/Semantics/ambiguity.md'
+    - 语用学Pragmatics:
+      - Research Methods: 'Ling/Pragmatics/ca_da.md'
+    - 语言哲学Philosophy of Language: 'Ling/pol_zh.md'
+    
   - Math专栏: 
-    - 索引: 'Math_Notes/index.md'
-    - 图论: 'Math_Notes/Graph Theory/Laplacian Matrix.md'
-    - 零散的题: 'Math_Notes/零散的题.md'
-  - 其它课程:
-    - 索引: 'Other_Courses/index.md' 
-    - 钢琴期末复习: 'Other_Courses/打开艺术之门-钢琴期末复习.md'
-  - 瞎说一些东西: 
-    - 索引: '瞎说一些东西/index.md'
-    - 杂七杂八的工具: '瞎说一些东西/杂七杂八的工具.md'
-    - Notion vs. Obsidian: '瞎说一些东西/Notion和Obsidian，选哪一个.md'
-    - ZOTERO简介: '瞎说一些东西/ZOTERO 简介及配置教程.md'
+    - 索引: 'Math/index.md'
+    - 图论: 'Math/Graph/laplace_matrix.md'
+    - 零散的题: 'Math/questions.md'
+    - 各种Normal Forms: 'Math/normal_forms.md'
+
+  - 说瞎话了: 
+    - 索引: 'Other/index.md'
+    - 我的工具箱！: 'Other/tools.md'
+    - APA Format: 'Other/apa.md'
+    - DL & NLP 资源整理: 'Other/nlp_resources.md'
+
 
 
 theme:
   name: material
-  language: zh
   palette:
     primary: black
-    accent: indigo
-  feature:
-    tabs: true
+    # - media: "(prefers-color-scheme: light)"
+    #   scheme: default
+    #   toggle:
+    #     icon: material/weather-night
+    #     name: 暗色模式
+    # - media: "(prefers-color-scheme: dark)"
+    #   primary: black
+    #   scheme: slate
+    #   toggle:
+    #     icon: material/weather-sunny
+    #     name: 亮色模式
+  language: zh
+  features:
+    - content.code.copy
+    # - navigation.tabs
+    - navigation.expand
+    - navigation.top
+    # - navigation.sections
+  icon:
+    repo: fontawesome/brands/git-alt
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+extra_css:
+  - _css/style.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - javascripts/tex-mml-chtml.js
+  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

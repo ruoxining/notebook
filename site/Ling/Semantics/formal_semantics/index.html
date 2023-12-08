@@ -1,0 +1,3118 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ruoxining.github.io/OBvault/Ling/Semantics/formal_semantics/">
+      
+      
+        <link rel="prev" href="../definitions/">
+      
+      
+        <link rel="next" href="../ambiguity/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Logics & Formal Semantics - MiniBabelLibrary</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_css/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#logics-formal-semantics" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="MiniBabelLibrary" class="md-header__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MiniBabelLibrary
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Logics & Formal Semantics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MiniBabelLibrary" class="md-nav__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MiniBabelLibrary
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          申请心得
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          申请心得
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/24fall/" class="md-nav__link">
+        24fall申请记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/zju_ling_cs/" class="md-nav__link">
+        英专转CS&NLP指北
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/nlp_phd/" class="md-nav__link">
+        NLP申请PhD经验(搬运)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          CS专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          CS专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/c_lang/" class="md-nav__link">
+        C语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/libgraphics/" class="md-nav__link">
+        C大程libgraphics使用记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/coding_code/" class="md-nav__link">
+        编程规范文档模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          C++持续进步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          C++持续进步
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/course/" class="md-nav__link">
+        ZJU听课
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/final_review/" class="md-nav__link">
+        ZJU期末复习
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/inheritance/" class="md-nav__link">
+        继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/templates/" class="md-nav__link">
+        模板和标准模板库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/type/" class="md-nav__link">
+        类型和类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/file_io/" class="md-nav__link">
+        文件读写
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/copy/" class="md-nav__link">
+        浅拷贝和深拷贝
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/CPP/namespace/" class="md-nav__link">
+        命名空间
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/x86assm/" class="md-nav__link">
+        x86汇编
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          OS操作系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          OS操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/OS/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/OS/overview/" class="md-nav__link">
+        课程引入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/OS/process_syn/" class="md-nav__link">
+        进程与同步
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/OS/mem_file/" class="md-nav__link">
+        内存和文件系统
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/objdump/" class="md-nav__link">
+        Objdump工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CS/crawler/" class="md-nav__link">
+        写个爬虫Crawler🕷️！
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          DL专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          DL专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          NLP Theory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          NLP Theory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/ling_ebender/" class="md-nav__link">
+        E.Bender Ling4NLP读书笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/cot/" class="md-nav__link">
+        CoT Prompt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/nli/" class="md-nav__link">
+        NLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/embodied_ai/" class="md-nav__link">
+        Embodied AI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/explainable_nlp/" class="md-nav__link">
+        Explainable NLP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/mwp/" class="md-nav__link">
+        Math Word Problem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/neural_symbolic/" class="md-nav__link">
+        Neural Symbolic AI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/autoregressive/" class="md-nav__link">
+        Autoregressive Decoder
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          NLP Tech
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          NLP Tech
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/ml_cheatsheet/" class="md-nav__link">
+        ML八股
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/transformer_code/" class="md-nav__link">
+        Transformer代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/bert_code/" class="md-nav__link">
+        BERT代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/gpt_code/" class="md-nav__link">
+        GPT代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/llama_code/" class="md-nav__link">
+        LLaMa代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/cs231n/" class="md-nav__link">
+        CS231n笔记(还没写)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/cs224n/" class="md-nav__link">
+        CS224n笔记(还没写)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/rule_text/" class="md-nav__link">
+        规则提取文本格式总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Python用法速查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python用法速查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/ipdb/" class="md-nav__link">
+        IPDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/pandas_dataframe/" class="md-nav__link">
+        Pandas DF速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/python_object/" class="md-nav__link">
+        Python面向对象语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/setup_pack/" class="md-nav__link">
+        Python Setup Packages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/pytorch/" class="md-nav__link">
+        Pytorch速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/broadcastable_vector/" class="md-nav__link">
+        Broadcastble Vector
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          命令行用法速查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          命令行用法速查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/anaconda/" class="md-nav__link">
+        Anaconda速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/linux/" class="md-nav__link">
+        Linux命令行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/pytorch_terminal/" class="md-nav__link">
+        Pytorch命令行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/tmux/" class="md-nav__link">
+        tmux速查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Ling专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Ling专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          语音学Phonetics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          语音学Phonetics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Phonetics/reduction/" class="md-nav__link">
+        Reduction in verb.+prep.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Phonetics/signal/" class="md-nav__link">
+        Signal Basis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          句法学Syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          句法学Syntax
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Syntax/conv_gen/" class="md-nav__link">
+        转换生成句法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Syntax/uni_gram/" class="md-nav__link">
+        普遍语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Syntax/ud_sud/" class="md-nav__link">
+        依存句法UD&SUD
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          语义学Semantics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          语义学Semantics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../definitions/" class="md-nav__link">
+        Definition Clearification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Logics & Formal Semantics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Logics & Formal Semantics
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metalanguage" class="md-nav__link">
+    Metalanguage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectives-truth-and-truth-conditions" class="md-nav__link">
+    Connectives, truth, and truth conditions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-of-logics" class="md-nav__link">
+    History of Logics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#term-logic" class="md-nav__link">
+    Term logic
+  </a>
+  
+    <nav class="md-nav" aria-label="Term logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modus-ponens" class="md-nav__link">
+    Modus Ponens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modus-tollens" class="md-nav__link">
+    Modus Tollens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothetical-syllogism" class="md-nav__link">
+    Hypothetical syllogism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disjunctive-syllogism" class="md-nav__link">
+    Disjunctive syllogism
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-types-of-reasoning" class="md-nav__link">
+    Three types of reasoning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propositional-logic" class="md-nav__link">
+    Propositional logic
+  </a>
+  
+    <nav class="md-nav" aria-label="Propositional logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-material-implication" class="md-nav__link">
+    conditional, material implication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biconditional" class="md-nav__link">
+    biconditional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-swarts-formalizations" class="md-nav__link">
+    De Swarts formalizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-formed-formula" class="md-nav__link">
+    Well-formed formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propositional-practice" class="md-nav__link">
+    Propositional practice
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-implication" class="md-nav__link">
+    Material implication →
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predication-and-quantification" class="md-nav__link">
+    Predication and Quantification
+  </a>
+  
+    <nav class="md-nav" aria-label="Predication and Quantification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collective-and-distributive-readings" class="md-nav__link">
+    Collective and distributive readings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polarity-item" class="md-nav__link">
+    Polarity item
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjunct-predicates" class="md-nav__link">
+    Adjunct predicates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restricted-quantification" class="md-nav__link">
+    restricted quantification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formal-predicate-semantics" class="md-nav__link">
+    Formal Predicate Semantics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relation" class="md-nav__link">
+    Relation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ambiguity/" class="md-nav__link">
+        Scope Ambiguity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          语用学Pragmatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          语用学Pragmatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Pragmatics/ca_da/" class="md-nav__link">
+        Research Methods
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pol_zh/" class="md-nav__link">
+        语言哲学Philosophy of Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Math专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Math专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/Graph/laplace_matrix/" class="md-nav__link">
+        图论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/questions/" class="md-nav__link">
+        零散的题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/normal_forms/" class="md-nav__link">
+        各种Normal Forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          说瞎话了
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          说瞎话了
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/tools/" class="md-nav__link">
+        我的工具箱！
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/apa/" class="md-nav__link">
+        APA Format
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/nlp_resources/" class="md-nav__link">
+        DL & NLP 资源整理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#metalanguage" class="md-nav__link">
+    Metalanguage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connectives-truth-and-truth-conditions" class="md-nav__link">
+    Connectives, truth, and truth conditions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-of-logics" class="md-nav__link">
+    History of Logics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#term-logic" class="md-nav__link">
+    Term logic
+  </a>
+  
+    <nav class="md-nav" aria-label="Term logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modus-ponens" class="md-nav__link">
+    Modus Ponens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modus-tollens" class="md-nav__link">
+    Modus Tollens
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothetical-syllogism" class="md-nav__link">
+    Hypothetical syllogism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disjunctive-syllogism" class="md-nav__link">
+    Disjunctive syllogism
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#three-types-of-reasoning" class="md-nav__link">
+    Three types of reasoning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#propositional-logic" class="md-nav__link">
+    Propositional logic
+  </a>
+  
+    <nav class="md-nav" aria-label="Propositional logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-material-implication" class="md-nav__link">
+    conditional, material implication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#biconditional" class="md-nav__link">
+    biconditional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#de-swarts-formalizations" class="md-nav__link">
+    De Swarts formalizations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-formed-formula" class="md-nav__link">
+    Well-formed formula
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propositional-practice" class="md-nav__link">
+    Propositional practice
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#material-implication" class="md-nav__link">
+    Material implication →
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predication-and-quantification" class="md-nav__link">
+    Predication and Quantification
+  </a>
+  
+    <nav class="md-nav" aria-label="Predication and Quantification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collective-and-distributive-readings" class="md-nav__link">
+    Collective and distributive readings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polarity-item" class="md-nav__link">
+    Polarity item
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adjunct-predicates" class="md-nav__link">
+    Adjunct predicates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restricted-quantification" class="md-nav__link">
+    restricted quantification
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#formal-predicate-semantics" class="md-nav__link">
+    Formal Predicate Semantics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relation" class="md-nav__link">
+    Relation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="logics-formal-semantics">Logics &amp; Formal Semantics</h1>
+<h3 id="metalanguage">Metalanguage</h3>
+<ul>
+<li>object language: the language we talk about</li>
+<li>metalanguage: the language that we use to talk about the object language</li>
+</ul>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">a</span><span class="p">.</span><span class="w"> </span><span class="n">January</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="n">days</span><span class="p">.</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">b</span><span class="p">.</span><span class="w"> </span><span class="o">*******</span><span class="n">January</span><span class="o">*******</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">letters</span><span class="p">.</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">b</span><span class="o">*</span><span class="p">.</span><span class="w"> </span><span class="s1">&#39;January&#39;</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">letters</span><span class="p">.</span>
+</span></code></pre></div>
+<p>Liar sentence</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(31) Sentence (31) is false.
+</span></code></pre></div>
+<p>solutions: (不考)</p>
+<ul>
+<li>
+<p>fuzzy logic 
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>x = NOT(x)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>x = 1 - x
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>x = 0.5
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Alfred Tarski
+    paradox arises only in languages that are “semantically closed”.</p>
+</li>
+<li>
+<p>Arthur Prior
+    equivalent
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>This statement is false.
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>This statement is true and this statement is false.
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Saul Kripke
+    Whether a sentence is paradoxical or not can be depend upon contingent facts.
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>A majority of what Jones says about me is false.
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Smith is a big spender.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Smith is soft on crime.
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Everything Smith says about me is true.
+</span></code></pre></div>
+<p>If a statement's truth value is ultimately tied up in some evaluable fact about the world, that statement is "grounded". If not, that statement is "ungrounded". Ungrounded statements do not have a truth value. Liar statements and liar-like statements are ungrounded, and therefore have no truth value.</p>
+</li>
+<li>
+<p>Jon Barwise and John Etchemendy
+    “denial” or “negation”</p>
+</li>
+<li>
+<p>Dialetheism</p>
+<p>Dialetheism is the view that there are true contradictions. Dialetheism raises its own problems. Chief among these is that since dialetheism recognizes the liar paradox, an intrinsic contradiction, as being true, it must discard the long-recognized principle of explosion, which asserts that any proposition can be deduced from a contradiction, unless the dialetheist is willing to accept trivialism – the view that <em>all</em> propositions are true. Since trivialism is an intuitively false view, dialetheists nearly always reject the explosion principle. Logics that reject it are called paraconsistent.</p>
+</li>
+<li>
+<p>Non-cognitivism</p>
+</li>
+<li>Bhartrhari’s perspectivism</li>
+</ul>
+<h2 id="connectives-truth-and-truth-conditions">Connectives, truth, and truth conditions</h2>
+<p>logic overview</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>graph TD
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  Logic --&gt; Logic_from_antiquity
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    Logic --&gt; Predicate_Logic
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    Logic_from_antiquity --&gt; Term_Logic
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    Logic_from_antiquity --&gt; Propositional_Logic
+</span></code></pre></div>
+<p>logic from antiquity: older</p>
+<p>predicate logic: newer</p>
+<p>Aristotle: term logic</p>
+<p>Gottlob Frege: predicate logic</p>
+<h2 id="history-of-logics">History of Logics</h2>
+<ul>
+<li>term logic (syllogism logic)<ul>
+<li>Aristotle</li>
+<li>syllogism</li>
+</ul>
+</li>
+<li>propositional logic (predicate calculus, semantic, sentence, symbolic logic)<ul>
+<li>antiquity</li>
+<li>proposition: true and false</li>
+<li>logical words</li>
+</ul>
+</li>
+<li>predicate logic<ul>
+<li>gottlob frege</li>
+<li>meaning</li>
+<li>quantifier</li>
+</ul>
+</li>
+</ul>
+<p>Not applied for
+- question (?)
+- exclamation
+- modal: modal logic</p>
+<aside>
+💭 ergo: therefore
+
+</aside>
+
+<h2 id="term-logic">Term logic</h2>
+<h3 id="modus-ponens">Modus Ponens</h3>
+<p>Means of putting, MP syllogism, affirming the antecedent</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>P(conditional statement): If it rain, I do not go to school.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>H: It rains.
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>C: I do not go to class.
+</span></code></pre></div>
+<p>Formal fallacy: affirming the consequent. Abductive reasoning.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>P: If it rains, I will not go to class.
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>H: I do not go to class.
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>C: * It rains.
+</span></code></pre></div></p>
+<h3 id="modus-tollens">Modus Tollens</h3>
+<p>Means of carrying, MT syllogism, denying the consequent. 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>P: If it has not been cloudy, it does not rain.
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>H: It rains.
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>C: It has been cloudy.
+</span></code></pre></div></p>
+<h3 id="hypothetical-syllogism">Hypothetical syllogism</h3>
+<p>principle of transitivity
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>P: If it rains, the soils goes wet. If the soil goes wet, the plants grow.
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>H: It rains.
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>C: The plants grow.
+</span></code></pre></div></p>
+<h3 id="disjunctive-syllogism">Disjunctive syllogism</h3>
+<p>two premises and a conclusion
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>P: It either rains or its sunny.
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>H: It rains.
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>C: It is not sunny.
+</span></code></pre></div></p>
+<h2 id="three-types-of-reasoning">Three types of reasoning</h2>
+<ul>
+<li>
+<p>Deductive reasoning</p>
+<p>general to the particular. based on entailment</p>
+</li>
+<li>
+<p>Inductive reasoning</p>
+<p>particular to the general. empiricism</p>
+</li>
+<li>
+<p>Abductive reasoning</p>
+<p>formal fallacy. All dogs bark, Fido barks, Fido is a dog.</p>
+<p>Abductive reasoning allows inferring a as an explanation of b. As a result of this inference, abduction allows the precondition a to be abducted from the consequence b.</p>
+<p>Properly used, abductive reasoning can be a useful source of priors in Bayesian statistics.</p>
+</li>
+</ul>
+<h2 id="propositional-logic">Propositional logic</h2>
+<ul>
+<li>propositional 1: p</li>
+<li>propositional 2: q</li>
+<li>propositional 3: r</li>
+<li>negation: <span class="arithmatex">\(\neg\)</span></li>
+<li>conjunction:</li>
+<li>disjunction:</li>
+<li>inclusive disjunction</li>
+<li>exclusive disjunction</li>
+<li>conditional:</li>
+<li>biconditional:</li>
+</ul>
+<h3 id="conditional-material-implication">conditional, material implication</h3>
+<ul>
+<li>antecedent</li>
+<li>consequent</li>
+<li>→, arrow.</li>
+</ul>
+<h3 id="biconditional">biconditional</h3>
+<ul>
+<li>↔</li>
+<li>if and only if</li>
+<li>logical equivalence</li>
+</ul>
+<h3 id="de-swarts-formalizations">De Swarts formalizations</h3>
+<ul>
+<li><span class="arithmatex">\(\phi\)</span> phi, any proposition</li>
+<li><span class="arithmatex">\(\psi\)</span> psi, any other proposition</li>
+<li>wff, well-formed formula</li>
+</ul>
+<h3 id="well-formed-formula">Well-formed formula</h3>
+<ul>
+<li>Any atomic proposition is itself a wff.</li>
+<li>If <span class="arithmatex">\(\phi\)</span> is wff, then <span class="arithmatex">\(\neg\phi\)</span> is wff.</li>
+<li>Two wff’s conbinations under logical operators are a wff.</li>
+<li>No other are wff.</li>
+</ul>
+<h3 id="propositional-practice">Propositional practice</h3>
+<table>
+<thead>
+<tr>
+<th>John is happy.</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John is not happy.</td>
+<td>~p</td>
+</tr>
+<tr>
+<td>John is happy or sad.</td>
+<td>p or q exlusive</td>
+</tr>
+<tr>
+<td>John is happy, not sad.</td>
+<td>p and ~q</td>
+</tr>
+<tr>
+<td>If John has eaten, John is happy.</td>
+<td>p -&gt; q</td>
+</tr>
+<tr>
+<td>If John has not eaten, John is not happy.</td>
+<td>~p -&gt; ~q</td>
+</tr>
+<tr>
+<td>John is hungry or thirsty.</td>
+<td>p or q inclusive.</td>
+</tr>
+<tr>
+<td>John left before you did.</td>
+<td>p</td>
+</tr>
+<tr>
+<td>John is not hungry or thirsty.</td>
+<td>~(p or q inclusive) &lt;-&gt; ~p and ~q</td>
+</tr>
+<tr>
+<td>John is not hungry and thirsty.</td>
+<td>~(p and q) &lt;-&gt; ~p or ~q inclusive</td>
+</tr>
+<tr>
+<td>If John did not laugh, then John cried.</td>
+<td>~p → q ↔ p or q</td>
+</tr>
+<tr>
+<td>If John laughed, then John also cried.</td>
+<td>p → q ↔ ~p or q inclusive</td>
+</tr>
+<tr>
+<td>John did not laugh, or John cried.</td>
+<td>~p or q ↔ p → q</td>
+</tr>
+<tr>
+<td>John laughed, or John cried and beat on the table.</td>
+<td>p and (q or r) ↔ (p and q) or  (p and r)</td>
+</tr>
+<tr>
+<td>John is not happy, but rather sad. (scope of “not”)</td>
+<td>~p and q. * ~(p and q)</td>
+</tr>
+<tr>
+<td>John is not happy, or sad.</td>
+<td>~(p and q)</td>
+</tr>
+<tr>
+<td>John is not happy, or John is sad.</td>
+<td>~p or q</td>
+</tr>
+<tr>
+<td>John did not help us or hinder us.</td>
+<td>~(p or q) ↔ ~p and ~q</td>
+</tr>
+<tr>
+<td>John did not help us or John hinders us.</td>
+<td>~p or q</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Tautology: necessarily true</li>
+<li>Contradiction: necessarily false</li>
+<li>Contingent: possible</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>John is friendly or John is not friendly.
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>V_e</th>
+<th>~p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>John is friendly and John is not friendly.
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>and</th>
+<th>~p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+</tr>
+</tbody>
+</table>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>It is not the case that John is not friendly.
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>~</th>
+<th>~</th>
+<th>p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>contingent.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>It is not the case that John is hungry or John is not grumpy.
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>~(</th>
+<th>p</th>
+<th>or</th>
+<th>~q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+</tr>
+<tr>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<h2 id="material-implication">Material implication →</h2>
+<p>converse: q→p. affirming the consequent</p>
+<p>inverse: ~p→~q. denying the antecedent</p>
+<p>contrapositive: ~q→~p. modus tollens</p>
+<p>given p→q.</p>
+<ul>
+<li>Sufficient condition: if p is True, p is the necessary condition for q so q must be True.</li>
+<li>Necessary condition: if q is True, q is not a necessary condition for p so p may or may not be True.</li>
+</ul>
+<p>Although it was extremely cold, Sally did not stay indoors.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>~q-&gt;p
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>p and ~q
+</span></code></pre></div>
+<p>We get a holiday, or we protest.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>~p-&gt;q
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>p or q
+</span></code></pre></div>
+<p>Jone said that Jane helped him.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>p
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>p and q
+</span></code></pre></div>
+<p>John’s sister burped</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>p: John has a sister. presupposition, assume it true
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>q: This sister burped.
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>p
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>p and q
+</span></code></pre></div>
+<p>John arrives before Jane left</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>p before q
+</span></code></pre></div>
+<p>John did not arrive before Jane left.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>~p before q
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>p ~before q
+</span></code></pre></div>
+<h2 id="predication-and-quantification">Predication and Quantification</h2>
+<p>universal quantifier: every, each, all, any, only</p>
+<p>existential quantifier: a, some, there is <span class="arithmatex">\(\exist\)</span>, for all <span class="arithmatex">\(\forall\)</span></p>
+<p>predicate, argument</p>
+<p>John may like Sally.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>predicate: may like
+</span></code></pre></div>
+<p>John has a crush on Sally.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>predicate: has a crush on
+</span></code></pre></div>
+<p>Frank is the father of Susan.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>predicate: is the father of
+</span></code></pre></div>
+<p>Frank is Susan’s father.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>predicate: is...&#39;s father
+</span></code></pre></div>
+<p>Adjunct: if, probably, means, of course, early</p>
+<p>Valent, empty place holder: formal subject</p>
+<h3 id="collective-and-distributive-readings">Collective and distributive readings</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Jogn and Molly ate a pizza.
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>p: one pizza, ate one together.   distributive
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>p and q: two pizzas, each ate a pizza.  collective
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Cinthia and Sam have saved 100 dollars.
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>p: together 100 dollars
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>p and q: 200 dollars
+</span></code></pre></div>
+<p>Content verb is a predicate, but functional verbs are not</p>
+<p>John obviously spoke with Jane because he had to.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>predicate: spoke with
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>argument: John, Jane
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>adjuncts: obviously, because he had to.
+</span></code></pre></div>
+<p>If I get a chance, I will probably try to avoid the mistake.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>predicate: will try to 
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>argument: I, avoid the mistake
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>adjuncts: If I get a chance, probably
+</span></code></pre></div>
+<p>John performed Jill’s operation first.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>
+</span></code></pre></div>
+<p>The person who talk loudly is Jim’s father.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>predicate: is someone&#39;s father
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>argument: the person who talk loudly, Jim
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>adjunct: 
+</span></code></pre></div>
+<p>the talking loudly person</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>predicate: talking
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>argument: person
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>adjunct: loudly
+</span></code></pre></div>
+<p>predicate: the nodes that are connected in SUD parsing tree</p>
+<p>universal dependency (UD)</p>
+<p>syntactic-universal dependency (SUD)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>graph TD
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>  Primitive_units_within_propositions --&gt; Predicates
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>  Primitive_units_within_propositions --&gt; Arguments
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>    Arguments --&gt; individuals_Terms
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>    individuals_Terms --&gt; constants
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>    individuals_Terms --&gt; variables
+</span></code></pre></div>
+<p>lexical  predicates vs. syntactic predicates</p>
+<ul>
+<li>lexical: content verbs, adjectives, common nouns, some prepositions</li>
+<li>syntactic: content verbs plus functional elements, adjective plus functional elements, predicate expressions (nouns, prepositions, subordinators, plus functional elements)</li>
+</ul>
+<p>individual constants vs. individual variables</p>
+<ul>
+<li>names and definite descriptions: John, the first one, the idea</li>
+<li>quantified phrases: every man, some idea, no paper</li>
+</ul>
+<p>e.g. We think John likes Susan.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>T(w, Lj,s)
+</span></code></pre></div>
+<p>Types of predicates:</p>
+<ul>
+<li>converse: husband-wife, above-below, precede-follow</li>
+<li>symmetric: be the roommate of, be married to, be related to</li>
+<li>reflexive: see oneself, praise oneself</li>
+<li>transitive: older than, be north of, be a sibling of</li>
+</ul>
+<p>e.g. Monica hid her bicycle.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>x hide y: Hx,y
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>Monica: m
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>her bicycle: b
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>Hm,b
+</span></code></pre></div>
+<p>e.g. Monica did not hide her bicycle.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>x hide y: Hx,y
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Monica: m
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>her bicycle: b
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>~Hm,b
+</span></code></pre></div>
+<p>e.g. Monica laughed and cried.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>Monica: m
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>laugh: L()
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>cry: C()
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>Lm and Cm
+</span></code></pre></div>
+<p>e.g. Jim sent Monica his dog.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>Sj,m,d
+</span></code></pre></div>
+<p>e.g. William did not help or hinder Mike.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>~ (H1w,m or H2w,m) 
+</span></code></pre></div>
+<p>e.g. Jennifer promise to help.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>P(j, Hj)
+</span></code></pre></div>
+<p>e.g. Jennifer did not promise to help.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>~P(j,Hj)
+</span></code></pre></div>
+<p>e.g. Jennifer promise to not laugh.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>P(j,~Lj)
+</span></code></pre></div>
+<p>e.g. Mike claimed he wanted to help.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>C(m, W(m/x, Hm/x))
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>m: Mike
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>x: maybe some other
+</span></code></pre></div>
+<p>e.g. John asked Mandy to stop laughing.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>A(j, m, S(m, Lm))
+</span></code></pre></div>
+<p>e.g. John and Larry called Molly.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>Cj,m and Cl,m
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>C(j and l, m)
+</span></code></pre></div>
+<p>e.g. Molly did not call John and Larry.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>~C(m, j) and ~C(m, l)
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>~C(m, j and l)
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>~C(m, j) or ~C(m, l)
+</span></code></pre></div>
+<p>entailment: (universal instantiation) </p>
+<p>every dog barks → if something is a dog, then it is a dog.</p>
+<p>Universal quantification</p>
+<p><span class="arithmatex">\(\forall\)</span>x (Dx → Bx)</p>
+<p>D = (d1, d2, d3,…)</p>
+<p><span class="arithmatex">\(\forall\)</span>x (Dx → Bx)= (Bd1 and Bd2 and Bd3, ….)</p>
+<p>Existential quantification</p>
+<p><span class="arithmatex">\(\exist\)</span>x (Dx and Bx)</p>
+<p>D = (d1, d2, d3,…)</p>
+<p><span class="arithmatex">\(\exist\)</span>x (Dx and Bx) = (Bd1 or Bd2 or Bd3, ….)</p>
+<p>e.g. Every cat barfed.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>\forall x (Cx -&gt; Bx)
+</span></code></pre></div>
+<p>e.g. The cat barfed.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>Bc
+</span></code></pre></div>
+<p>e.g. Bill fed cat.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>\forall x (Cx -&gt; Fb,x)
+</span></code></pre></div>
+<p>e.g. Some dog barked at Fred.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>\exist x (Dx and Bx,f)
+</span></code></pre></div>
+<p>e.g. Fred scolded some dog.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>\exist x (Dx and Sf,x)
+</span></code></pre></div>
+<p>e.g. Fred and Susan avoid some dog.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>\exist x (Dx and Af,x and As,x)
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>\exits x (Dx and Af,x) and \exist y (Dy and Af,s)
+</span></code></pre></div>
+<p>e.g. No dog barks.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>\forall x (Dx -&gt; ~Bx)
+</span><span id="__span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>~\exist x (Dx and Bx)
+</span></code></pre></div>
+<p>e.g. Bill fed no dog.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>~\exist x (Dx and Fb,x)
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>\forall x (Dx -&gt; ~Fb,x)
+</span></code></pre></div>
+<p>e.g. No dog barked at Susan or chased Fred.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>~\exist x ((Dx and (Bx,s or Cx,f))
+</span><span id="__span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>\forall x ((Dx -&gt; (~Bx,s and ~Cx,f))
+</span><span id="__span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>\forall x ((Dx -&gt; ~(Bx,s or Cx,f))
+</span></code></pre></div>
+<p>Scope ambiguity</p>
+<p>e.g. Some boy kissed every girl.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>\exist x \forall y (Bx and (Gy -&gt; Kx,y)) = \exist x(Bx and \forall y (Gy -&gt; Kx,y))
+</span><span id="__span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>\forall y \exist x (Gy -&gt; (Bx and Kx,y)) = \forall y (Gy -&gt; \exist x (Bx and Kx,y))
+</span></code></pre></div>
+<p>Every boy kissed some girl.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>\forall x (Bx -&gt; \exist (Gy and Kxy)) &lt;=&gt; \forall x \exist y (Gy and Kxy)
+</span></code></pre></div>
+<p>Every students did not laugh.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>\forall x (Sx -&gt; ~Lx) &lt;=&gt; ! \exist x (Sx and Lx)
+</span><span id="__span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>~\forall x (Sx -&gt; Lx) &lt;=&gt; \exist (Sx and ~Lx)
+</span></code></pre></div>
+<p>Not every student laughs.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>~\forall x (Sx -&gt; Lx) &lt;=&gt; \exist (Sx and ~Lx)
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>graph TD
+</span><span id="__span-60-2"><a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>  laughed --&gt; student
+</span><span id="__span-60-3"><a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>    student --&gt; /every
+</span><span id="__span-60-4"><a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>    /every --&gt; not
+</span></code></pre></div>
+<p>each studnet did not laugh.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-61-1"><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>\forall x (Sx -&gt; ~Lx) 
+</span><span id="__span-61-2"><a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>~\forall x (Sx -&gt; Lx)
+</span></code></pre></div>
+<h3 id="polarity-item">Polarity item</h3>
+<p>any: negative polarity item</p>
+<p>John did not pass every exam.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-62-1"><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>~\forall x (Ex -&gt; Pj,x) &lt;=&gt; \exist x (Ex and Pj,x)
+</span><span id="__span-62-2"><a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>\forall x (Ex -&gt; ~Pj,x)
+</span></code></pre></div>
+<p>John did not pass any exam.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-63-1"><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>\forall x (Ex -&gt; ~Pj,x)
+</span></code></pre></div>
+<ul>
+<li>universal quantifier: all, every, each, any</li>
+<li>existential: some, a/an, one, there is</li>
+</ul>
+<p>e.g. </p>
+<p>Jack saw a rat.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-64-1"><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>\exist x (Rx and Sj,x) 
+</span></code></pre></div>
+<p>Jack is a rat.</p>
+<p>the quantifier is in the predicate but not the argument. here rat is a constant.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-65-1"><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>Rj
+</span></code></pre></div>
+<p>Jack knows no genius.</p>
+<p>use not exist to render “no”</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-66-1"><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>~\exist x (Gx and Kj,x)  &lt;=&gt; \forall x (Gx -&gt; ~Kj,x)
+</span></code></pre></div>
+<p>Jack is no genius. &lt;=&gt; Jack is not a genius.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-67-1"><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>~Gj
+</span></code></pre></div>
+<p>These problems are difficult.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-68-1"><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>Dp
+</span></code></pre></div>
+<p>These problems are difficult ones.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-69-1"><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>Dp
+</span></code></pre></div>
+<p>All the problems are difficult.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-70-1"><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>\forall x (Px -&gt; Dx)
+</span></code></pre></div>
+<p>These problems are all the problems.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-71-1"><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>Ap
+</span></code></pre></div>
+<p>These problems are not all the problems.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-72-1"><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>~Ap
+</span></code></pre></div>
+<p>Jack is our plumber.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-73-1"><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>Pj
+</span></code></pre></div>
+<p>Our plumer is Jack. (has presupposition)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-74-1"><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>Pj
+</span></code></pre></div>
+<p>Everything counts.</p>
+<p>whether thing includes animate and inanimate.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-75-1"><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>\forall x (Cx)
+</span><span id="__span-75-2"><a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>\forall x (Tx -&gt; Cx)
+</span></code></pre></div>
+<p>Everybody counts.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-76-1"><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>*\forall x (Cx)
+</span><span id="__span-76-2"><a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>\forall x (Px -&gt; Cx)
+</span></code></pre></div>
+<p>predicates</p>
+<ul>
+<li>content words</li>
+<li>adjectives</li>
+<li>predicative expressions (common nouns, adjectives, preposition, subordinators)</li>
+<li>
+<p>some prepositions.</p>
+<p>The present under the tree is big. (prepositions that gives location)</p>
+</li>
+<li>
+<p>argument nouns.</p>
+</li>
+</ul>
+<p>common nouns</p>
+<ul>
+<li>John is a teacher. Tj</li>
+<li>Every teacher was present. \forall x (Tx → Px)</li>
+<li>The teacher was present. Pt</li>
+</ul>
+<p>content verbs are the core of syntactic predicates</p>
+<p>adjectives are most always the core of syntactic predicates.</p>
+<p>e.g. Mike’s wife thinks Mikes if lazy.</p>
+<ul>
+<li>thinks (Mike’s wife, Mike is Lazy) - propositional</li>
+<li>‘s (Mike, wife) ‘Mike has a wife’ - presuppositional: does not affect the truth value</li>
+<li>is lazy (Mike) - intensional: does not affect the truth value</li>
+</ul>
+<p>predicates inside individual constants are presuppositional</p>
+<p>A thin man was present.</p>
+<ul>
+<li>was present (a thin man)</li>
+<li>thin (a man)</li>
+<li>\exist x (Mx and Tx and Px)</li>
+</ul>
+<p>predicates inside … .are propositional</p>
+<p>e.g. Every barking is harmless</p>
+<p>has true or false impact on the truth</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-77-1"><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>\forall x ((Dx and Bx) -&gt; Hx)
+</span></code></pre></div>
+<p>this proposition has to show up in the predicate</p>
+<p>The barking dog is harmless.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-78-1"><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>Hd
+</span></code></pre></div>
+<p>the presupposition does not show in the predicate</p>
+<p>John avoids every dog he sees.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-79-1"><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>\forall x ((Dx and Sj,x) -&gt; Aj,x)
+</span></code></pre></div>
+<p>John said every dog barks.</p>
+<p>intensional</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-80-1"><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>Sj
+</span><span id="__span-80-2"><a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a>S(j,\forall x (Dx -&gt; Bx)) 
+</span><span id="__span-80-3"><a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a>Sj,I  ; I for intensional argument predicate
+</span></code></pre></div>
+<h3 id="adjunct-predicates">Adjunct predicates</h3>
+<p>Jane probably teased Sam last night</p>
+<ul>
+<li>teased (Jane, Sam)</li>
+<li>probably (Jane, teased Sam last night) - model adverbs</li>
+<li>last night (Jane teased Sam) - temporal adjuncts</li>
+</ul>
+<p>John arrived drunk.</p>
+<ul>
+<li>arrived (John)</li>
+<li>drunk (John)</li>
+</ul>
+<p>Jim burped twice.</p>
+<p>twice: propositional or presuppositional</p>
+<p>Susan did not cheat yesterday.</p>
+<p>Mary stayed because John stayed.</p>
+<ul>
+<li>stayed (Mary)</li>
+<li>stayed (John)</li>
+<li>because (Mary stayed, John stayed)</li>
+</ul>
+<p>Mary did not stay because John stayed</p>
+<ul>
+<li>~stay (Mary)</li>
+<li>~because ()</li>
+</ul>
+<h2 id="restricted-quantification">restricted quantification</h2>
+<p>Every boy was hungry</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-81-1"><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>\forall x: Bx(Hx)
+</span></code></pre></div>
+<p>Some boy was hungry.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-82-1"><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>\exist x: Bx(Hx)
+</span></code></pre></div>
+<p>Every cat barfed.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-83-1"><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>\forall x: Cx(Bx)
+</span></code></pre></div>
+<p>Bill fed every cat.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-84-1"><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>\forall x (Cx, Fb,x)
+</span><span id="__span-84-2"><a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a>\forall x: Cx(Fb,x)
+</span></code></pre></div>
+<p>Some dog barked at Fred.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-85-1"><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>\exist x (Dx, Bx,f)
+</span><span id="__span-85-2"><a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>\exist x: Dx(Bx,f)
+</span></code></pre></div>
+<p>Fred and Susan avoid some dog.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-86-1"><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>\exist x(Dx and (Af,x and As,x))
+</span><span id="__span-86-2"><a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a>\exist x: Dx (Af,x and Af,x)
+</span></code></pre></div>
+<p>No dog barks.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-87-1"><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>~\exist x (Dx and Bx) &lt;=&gt; ~\exist x: Dx (Bx)
+</span></code></pre></div>
+<h2 id="formal-predicate-semantics">Formal Predicate Semantics</h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-88-1"><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>graph TD
+</span><span id="__span-88-2"><a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>  Semantic_Rules --&gt; Model
+</span><span id="__span-88-3"><a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a>  Semantic_Rules --&gt; Valuation_Function
+</span><span id="__span-88-4"><a id="__codelineno-88-4" name="__codelineno-88-4" href="#__codelineno-88-4"></a>    Model --&gt; Universe_of_Discourse
+</span><span id="__span-88-5"><a id="__codelineno-88-5" name="__codelineno-88-5" href="#__codelineno-88-5"></a>    Model --&gt; Interpretation_Function
+</span><span id="__span-88-6"><a id="__codelineno-88-6" name="__codelineno-88-6" href="#__codelineno-88-6"></a>    Universe_of_Discourse --&gt; entities
+</span></code></pre></div>
+<ul>
+<li>model M:<ul>
+<li>Universe of discourse in which all constants have clearly assigned values</li>
+<li>A limited part of a world (real or imagined), a discourse context</li>
+<li>Clearly defined</li>
+<li>Values of linguistics expressions known</li>
+</ul>
+</li>
+<li>universe/domain of discourse U/D<ul>
+<li>Constants all the constants in M (set members)</li>
+</ul>
+</li>
+<li>
+<p>interpretation function I</p>
+<ul>
+<li>Assign a value to an individual constant</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-89-1"><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>I(name) → meaning
+</span></code></pre></div>
+</li>
+<li>
+<p>assignment function g[x/e]</p>
+<ul>
+<li>Assign a value to an individual variable</li>
+<li>g iterates all the variables and assigns the value</li>
+<li>g() := for x in domain of e</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-90-1"><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>g(type of object) -&gt; meaning
+</span></code></pre></div>
+</li>
+<li>
+<p>valuation function V</p>
+<ul>
+<li>Assigns a value 1 or 0 to a wffs. (propositions)</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-91-1"><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>V(p) = 1/0
+</span><span id="__span-91-2"><a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a>V(Bs) = 1/0
+</span></code></pre></div>
+</li>
+<li>
+<p>[[\alpha]]^M the denotation of \alpha wrt M (same as interpretation function I)</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-92-1"><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>[[name]]^M -&gt; meaning
+</span></code></pre></div>
+</li>
+</ul>
+<h2 id="relation">Relation</h2>
+<ul>
+<li>if t is a constant, [[]]^{M,g} = I(t)</li>
+<li>if t is a variable, [[]]^{M,g} = g(t)</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.top"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="../../../javascripts/tex-mml-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>
