@@ -61,7 +61,7 @@ from Contents
 	- presupposition的trigger（？TODO）有很多
 	- some linguistic expressions pass embedded presuppositions up, some don't, and with others it depends （TODO）
 	- presuppositions interact with discourse coherence （TODO）
-	
+
 12. Information Status and Information Structure 
 	- 定义了一个叫 information status 的名词
 	- 定义：information status是一种介绍所指与实在界的联系的语言学描述
