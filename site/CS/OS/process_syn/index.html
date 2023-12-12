@@ -1,0 +1,3289 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ruoxining.github.io/OBvault/CS/OS/process_syn/">
+      
+      
+        <link rel="prev" href="../overview/">
+      
+      
+        <link rel="next" href="../mem_file/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>进程与同步 - MiniBabelLibrary</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_css/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#os-lecture" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="MiniBabelLibrary" class="md-header__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MiniBabelLibrary
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              进程与同步
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MiniBabelLibrary" class="md-nav__button md-logo" aria-label="MiniBabelLibrary" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    MiniBabelLibrary
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          申请心得
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          申请心得
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/24fall/" class="md-nav__link">
+        24fall申请记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/zju_ling_cs/" class="md-nav__link">
+        英专转CS&NLP指北
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../App/nlp_phd/" class="md-nav__link">
+        NLP申请PhD经验(搬运)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          CS专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          CS专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../c_lang/" class="md-nav__link">
+        C语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libgraphics/" class="md-nav__link">
+        C大程libgraphics使用记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding_code/" class="md-nav__link">
+        编程规范文档模板
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          C++持续进步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          C++持续进步
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/course/" class="md-nav__link">
+        ZJU听课
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/final_review/" class="md-nav__link">
+        ZJU期末复习
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/inheritance/" class="md-nav__link">
+        继承
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/templates/" class="md-nav__link">
+        模板和标准模板库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/type/" class="md-nav__link">
+        类型和类型转换
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/file_io/" class="md-nav__link">
+        文件读写
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/copy/" class="md-nav__link">
+        浅拷贝和深拷贝
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/namespace/" class="md-nav__link">
+        命名空间
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../x86assm/" class="md-nav__link">
+        x86汇编
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          OS操作系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          OS操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        课程引入
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          进程与同步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        进程与同步
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-process" class="md-nav__link">
+    2. 进程 Process
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 进程 Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 组成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 进程的状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-process-control-block-pcb-aka-task-control-block" class="md-nav__link">
+    2.3 进程控制块Process Control Block (PCB, aka. task control block)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-pid" class="md-nav__link">
+    2.4 进程的创建，pid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 进程的终止
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-ipcinterprocess-communication" class="md-nav__link">
+    2.6 进程间通信IPC，InterProcess Communication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-scheduling" class="md-nav__link">
+    3. 调度Scheduling
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 调度Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 调度的时机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-context-switchin" class="md-nav__link">
+    3.2 过程（上下文切换，context switchin）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 调度算法评价
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 调度算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-threads" class="md-nav__link">
+    4. 线程 threads
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 线程 threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 动机和概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 优缺点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 实现方式：用户级/内核态，多线程模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-synchronization" class="md-nav__link">
+    5. 同步和同步工具 Synchronization
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 同步和同步工具 Synchronization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-cs-problem" class="md-nav__link">
+    5.1 引入和CS Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-petersons-solution" class="md-nav__link">
+    5.2 Peterson’s Solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 硬件指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-semaphores" class="md-nav__link">
+    5.4 信号量 Semaphores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-atomic-variable" class="md-nav__link">
+    5.5 Atomic Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-mutex-mutual-exclusion-lock" class="md-nav__link">
+    5.6 Mutex (Mutual Exclusion Lock)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-priority-inversion" class="md-nav__link">
+    5.7 Priority Inversion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 经典同步问题
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 经典同步问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-bounded-buffer-problem" class="md-nav__link">
+    6.1 Bounded-buffer Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-reader-writer-problem" class="md-nav__link">
+    6.2 Reader-Writer Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-dining-philosophers-problem" class="md-nav__link">
+    6.3 Dining-Philosophers Problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deadlocks" class="md-nav__link">
+    7. 死锁 Deadlocks
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 死锁 Deadlocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-system-resource-allocation-graph" class="md-nav__link">
+    7.1 资源分配图 system resource-allocation graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 死锁的必要条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 预防，银行家算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    7.4 避免
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    7.5 检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    7.6 恢复
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mem_file/" class="md-nav__link">
+        内存和文件系统
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../objdump/" class="md-nav__link">
+        Objdump工具
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../crawler/" class="md-nav__link">
+        写个爬虫Crawler🕷️！
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          DL专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          DL专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          NLP Theory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          NLP Theory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/ling_ebender/" class="md-nav__link">
+        E.Bender Ling4NLP读书笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/cot/" class="md-nav__link">
+        CoT Prompt
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/nli/" class="md-nav__link">
+        NLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/embodied_ai/" class="md-nav__link">
+        Embodied AI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/explainable_nlp/" class="md-nav__link">
+        Explainable NLP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/mwp/" class="md-nav__link">
+        Math Word Problem
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/neural_symbolic/" class="md-nav__link">
+        Neural Symbolic AI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTheory/autoregressive/" class="md-nav__link">
+        Autoregressive Decoder
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          NLP Tech
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          NLP Tech
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/ml_cheatsheet/" class="md-nav__link">
+        ML八股
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/transformer_code/" class="md-nav__link">
+        Transformer代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/bert_code/" class="md-nav__link">
+        BERT代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/gpt_code/" class="md-nav__link">
+        GPT代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/llama_code/" class="md-nav__link">
+        LLaMa代码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/cs231n/" class="md-nav__link">
+        CS231n笔记(还没写)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/cs224n/" class="md-nav__link">
+        CS224n笔记(还没写)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/NLPTech/rule_text/" class="md-nav__link">
+        规则提取文本格式总结
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Python用法速查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Python用法速查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/ipdb/" class="md-nav__link">
+        IPDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/pandas_dataframe/" class="md-nav__link">
+        Pandas DF速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/python_object/" class="md-nav__link">
+        Python面向对象语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/setup_pack/" class="md-nav__link">
+        Python Setup Packages
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/pytorch/" class="md-nav__link">
+        Pytorch速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Python/broadcastable_vector/" class="md-nav__link">
+        Broadcastble Vector
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          命令行用法速查
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          命令行用法速查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/anaconda/" class="md-nav__link">
+        Anaconda速查
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/linux/" class="md-nav__link">
+        Linux命令行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/pytorch_terminal/" class="md-nav__link">
+        Pytorch命令行
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Terminal/tmux/" class="md-nav__link">
+        tmux速查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Ling专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Ling专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          语音学Phonetics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          语音学Phonetics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Phonetics/reduction/" class="md-nav__link">
+        Reduction in verb.+prep.
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Phonetics/signal/" class="md-nav__link">
+        Signal Basis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          句法学Syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          句法学Syntax
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/conv_gen/" class="md-nav__link">
+        转换生成句法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/uni_gram/" class="md-nav__link">
+        普遍语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/ud_sud/" class="md-nav__link">
+        依存句法UD&SUD
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          语义学Semantics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          语义学Semantics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/definitions/" class="md-nav__link">
+        Definition Clearification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/formal_semantics/" class="md-nav__link">
+        Logics & Formal Semantics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/ambiguity/" class="md-nav__link">
+        Scope Ambiguity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          语用学Pragmatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          语用学Pragmatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/ca_da/" class="md-nav__link">
+        Research Methods
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/pol_zh/" class="md-nav__link">
+        语言哲学Philosophy of Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Math专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Math专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/Graph/laplace_matrix/" class="md-nav__link">
+        图论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/questions/" class="md-nav__link">
+        零散的题
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Math/normal_forms/" class="md-nav__link">
+        各种Normal Forms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          说瞎话了
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          说瞎话了
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/tools/" class="md-nav__link">
+        我的工具箱！
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/apa/" class="md-nav__link">
+        APA Format
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/nlp_resources/" class="md-nav__link">
+        DL & NLP 资源整理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/portfolio/" class="md-nav__link">
+        Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-process" class="md-nav__link">
+    2. 进程 Process
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 进程 Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 组成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 进程的状态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-process-control-block-pcb-aka-task-control-block" class="md-nav__link">
+    2.3 进程控制块Process Control Block (PCB, aka. task control block)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-pid" class="md-nav__link">
+    2.4 进程的创建，pid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5 进程的终止
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-ipcinterprocess-communication" class="md-nav__link">
+    2.6 进程间通信IPC，InterProcess Communication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-scheduling" class="md-nav__link">
+    3. 调度Scheduling
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 调度Scheduling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 调度的时机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-context-switchin" class="md-nav__link">
+    3.2 过程（上下文切换，context switchin）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 调度算法评价
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    3.4 调度算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-threads" class="md-nav__link">
+    4. 线程 threads
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 线程 threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    4.1 动机和概念
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2 优缺点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    4.3 实现方式：用户级/内核态，多线程模型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-synchronization" class="md-nav__link">
+    5. 同步和同步工具 Synchronization
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 同步和同步工具 Synchronization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-cs-problem" class="md-nav__link">
+    5.1 引入和CS Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-petersons-solution" class="md-nav__link">
+    5.2 Peterson’s Solution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    5.3 硬件指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-semaphores" class="md-nav__link">
+    5.4 信号量 Semaphores
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-atomic-variable" class="md-nav__link">
+    5.5 Atomic Variable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-mutex-mutual-exclusion-lock" class="md-nav__link">
+    5.6 Mutex (Mutual Exclusion Lock)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-priority-inversion" class="md-nav__link">
+    5.7 Priority Inversion
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6. 经典同步问题
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 经典同步问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-bounded-buffer-problem" class="md-nav__link">
+    6.1 Bounded-buffer Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-reader-writer-problem" class="md-nav__link">
+    6.2 Reader-Writer Problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-dining-philosophers-problem" class="md-nav__link">
+    6.3 Dining-Philosophers Problem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-deadlocks" class="md-nav__link">
+    7. 死锁 Deadlocks
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 死锁 Deadlocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-system-resource-allocation-graph" class="md-nav__link">
+    7.1 资源分配图 system resource-allocation graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    7.2 死锁的必要条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    7.3 预防，银行家算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    7.4 避免
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#75" class="md-nav__link">
+    7.5 检测
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#76" class="md-nav__link">
+    7.6 恢复
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="os-lecture">OS Lecture 进程与同步</h1>
+<h2 id="2-process">2. 进程 Process</h2>
+<h3 id="21">2.1 组成</h3>
+<p>进程process（=作业job）是被加载到内存中正在运行的程序。多个进程可能对应同一个程序。一个正在运行的OS中会有多个进程，进程是程序的一次执行过程，是OS分配资源的基本单位。</p>
+<p>进程的组成：一个进程包括
+- code or text
+    - 即程序代码，加载到内存前以executable file的形式存储在disk中
+- program counter
+    - PC，指向下一个要运行的指令
+- counter of the processor’s registers
+    - 在进程之间切换时，需要保存寄存器的值以便下次回到该进程时继续运行
+- run time stack
+    - 在ICS和汇编中学习过相关内容，其中的条目称为activation records（stack frames）
+    - 由用户代码控制（编译时完成关于栈的相关调用），在调用函数时暂时存储一些数据，如local variables, return address, return values, state of registers, parameters等
+- data section
+    - global variables
+- heap
+    - dynamically allocated memory
+    <img alt="" src="../asset/OS20.png" /></p>
+<h3 id="22">2.2 进程的状态</h3>
+<p>进程在执行(execute)时会改变状态(state)：
+<img alt="" src="../asset/OS21.png" />
+一个处理器，只有一个进程可以running，更多的处于ready或waiting状态</p>
+<h3 id="23-process-control-block-pcb-aka-task-control-block">2.3 进程控制块Process Control Block (PCB, aka. task control block)</h3>
+<p>表示进程，每个进程有且仅有一个PCB</p>
+<p>PCB包含的关于当前进程的信息：
+- process state 进程状态
+- program counter
+- CPU registers 进程相关的寄存器的值
+- CPU scheduling information, properties, scheduling queue pointers, etc.
+- Memory-management information
+- Accounting information, CPU 使用时间，时间期限，记账数据等
+- IO status information, 分配给进程的IO设备列表，打开文件列表等</p>
+<p>PCB结构示意图
+<img alt="" src="../asset/OS22.png" />
+不同的系统可能有不同的PCB。Linux中的进程用结构体task_struct存储。</p>
+<h3 id="24-pid">2.4 进程的创建，pid</h3>
+<p>OS通过一个唯一的标识符（process identifier, pid）识别进程。一个进程在运行时可以创建新的进程，则它成为父进程，新进程称为子进程。</p>
+<p>父进程的pid称为子进程的ppid（parent’s pid）→ 形成进程树（process tree）
+<img alt="" src="../asset/OS23.png" />
+当子进程创建时，需要的资源（CPU时间、内存、文件、IO设备等）可以来自OS也可以继承（共享）自父进程。</p>
+<p>UNIX系统通过系统调用fork()创建新进程，相当于拷贝了一份父进程，只改变pid和ppid，然后把子进程当前内存使用记录设0。fork()给父进程返回值是子进程的pid，给子进程返回0。</p>
+<p>代码段：creating a separate process using the UNIX fork() system call.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unist.h&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="kt">pid_t</span><span class="w"> </span><span class="n">pid</span><span class="p">;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="cm">/* fork a child process */</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fork</span><span class="p">();</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">){</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="cm">/* error occurred */</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Fork Failed&quot;</span><span class="p">);</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pid</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="cm">/* child process */</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="n">execlp</span><span class="p">(</span><span class="s">&quot;/bin/ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ls&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="c1">// 对于用户给出的指定文件名，程序会在当前PATH环境变量下搜索</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="cm">/* parent process */</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="cm">/* parent will wait for the child to complete */</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;child complete&quot;</span><span class="p">);</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>fork() 如何对父进程和子进程返回不同的值：当创建新进程时，父进程可以</p>
+<ul>
+<li>继续运行（和子进程并发执行，即同时或交替运行）或</li>
+<li>等待子进程运行完后再运行</li>
+</ul>
+<p>子进程的地址空间有可能</p>
+<ul>
+<li>使用父进程的拷贝或</li>
+<li>加载一个新程序</li>
+</ul>
+<p>为什么要拷贝一份，有的子进程不会用copy的地址。所以部分UNIX引入了copy-on-write机制，即将地址空间的复制推迟到需要写入的时候再进行。</p>
+<p>getpid()和getppid()可以获得进程的pid和ppid。</p>
+<h3 id="25">2.5 进程的终止</h3>
+<p>进程调用exit()实现终止。也是C语言main函数返回时隐式调用的东西</p>
+<p>当进程终止时，进程进入terminated状态，其资源被OS回收，但是pid，结束状态，资源使用情况仍然会被保存，因为父进程有可能会调用wait()来获取。</p>
+<p>zombie processes: 子进程已终止，父进程还没有调用wait()</p>
+<p>orphan processes: 父进程结束了，子进程没结束。有些OS会把子进程结束掉，UNIX会让init称为其父进程。</p>
+<h3 id="26-ipcinterprocess-communication">2.6 进程间通信IPC，InterProcess Communication</h3>
+<p>是为了在进程的资源相互隔离（？）的情况下，让不同的进程能相互访问资源，协调工作。</p>
+<ul>
+<li>共享内存shared memory：两个进程各有一块虚拟内存，映射到同一块物理内存。共享内存也需要信号量等同步手段保护。</li>
+<li>消息传递message passing
+<img alt="" src="../asset/OS24.png" /></li>
+<li>信号量semaphores：本意用来线程间同步，但是可以通过sem_open()系统调用来建立和维护进程间的信号量。</li>
+<li>共享文件</li>
+<li>管道pipe，也是一种文件，半双工信道</li>
+<li>消息队列message queue：操作系统维护的链表，进程可以新建或连接到消息队列，并写入或读取消息</li>
+<li>socket：TCP/UDP</li>
+</ul>
+<h2 id="3-scheduling">3. 调度Scheduling</h2>
+<p>多道multiprogramming环境下，进程的个数通常大于CPU个数。</p>
+<p>CPU调度是OS关于哪个ready进程可以运行和运行多久的决定。</p>
+<p>具体来讲一次调度应该是指OS将一个进程从5种状态中的一种切换到了另一种的过程。</p>
+<p>目标是始终允许某个进程运行以最大化CPU利用率，同时保证一定公平性。</p>
+<p>调度不一定是CPU调度，有可能发生在所有场景。</p>
+<p>调度的原因是能够供给的资源数量远小于请求的数量。</p>
+<h3 id="31">3.1 调度的时机</h3>
+<p>CPU调度出现在任意一个进程，有如下5种转换</p>
+<ul>
+<li>running → waiting, 如等待IO</li>
+<li>running → terminated</li>
+<li>running → ready，当发生了中断，如计时器时间到了</li>
+<li>waiting → ready，如IO完成了</li>
+<li>new → ready</li>
+</ul>
+<p>好看一点的看图吧
+<img alt="" src="../asset/OS25.png" />
+调度按时机分类分两种</p>
+<ul>
+<li>非抢占式调度nonpreemptive：只会做running2waiting或者running2terminated，此时进程不再运行了</li>
+<li>抢占式调度preemptive：发生上述5种</li>
+</ul>
+<aside>
+💡 Q：调度和中断+异常的区别
+
+A：（用户态）调用（进程），目标是进程状态变化；（内核态）对（用户态）做trap，目标是谁用CPU
+
+A：其实中断程序也可以是一个进程
+
+在此致谢 @isshiki修 和 @vinci 的回答
+
+</aside>
+
+<h3 id="32-context-switchin">3.2 过程（上下文切换，context switchin）</h3>
+<p>调度的过程就是上下文切换，感觉这个名字说的是对于正在运行的CPU里的进程，所谓上下文就是PCB内容。
+<img alt="" src="../asset/OS26.png" /></p>
+<h3 id="33">3.3 调度算法评价</h3>
+<ul>
+<li>Maximize CPU utilization CPU使用率：即CPU非空闲的时间比例</li>
+<li>Maximize Throughput 吞吐量：每个时间单元内完成的进程</li>
+<li>Minimize Turnaround Time 周转时间：从进程创立到进程完成的时间，等待进入内存+在ready queue等待+在CPU上执行+IO执行+…</li>
+<li>Minimize Waiting Time 等待时间：在ready queue中等待所花的时间之和</li>
+<li>Minimize Response Time 响应时间：交互系统从进程创立到第一次产生响应的时间</li>
+</ul>
+<p>这些目标可能的冲突：
+- context switch vs. throughput
+- context switch vs. response time</p>
+<h3 id="34">3.4 调度算法</h3>
+<p>First-come first-serve (FCFS) | Nonpreemptive</p>
+<p>先申请CPU的进程先用，可以用一个FIFO队列实现。</p>
+<p>它会导致convey effort: short process behind long process, 尤其是当有线程进入waiting后，再返回的时候又要重新排队。</p>
+<p>Shortest-job-first (SJF)</p>
+<p>SJF的核心想法是让下一次运行时间最短的进程先来运行 ⇒ 能得到最少的平均等待时间</p>
+<p>下一次运行时间 = （非抢占式调度）进程总时间（因为进程不可能被打断）=（抢占式调度）进程的剩余运行时间</p>
+<p>会分开计算就行</p>
+<p>SJF在两种调度方法都能获得最小平均等待时间</p>
+<p>问题是我们不知道下一次运行时间 → 所以要猜，猜的算法是之前CPU执行长度的指数平均</p>
+<p>Round-robin (RR) in preemptive</p>
+<p>做法：定义一个时间片（time slice/time quantum），即一个固定的较小的时间单元，如果process不是唯一在ready queue中的进程，那就不会连续运行超过一个时间片的时间。ready queue是FIFO的。</p>
+<p>性能：比起SJF平均等待时间更长，但是降低了response time。性能好坏基本上取决于时间片大小，response time和overhead冲突。如果时间片→inf，相当于RR→FCFS</p>
+<p>时间片一般用10~100ms, context-switch一般花10mius</p>
+<p>Priority Scheduling</p>
+<p>优先调度优先级最高的进程（根据课本的例子，优先级好像是不会重复的）</p>
+<p>优先级标准：</p>
+<ul>
+<li>internal: 一些测量数据，如SJF是priority的一个特例，即优先级由CPU预测运行时间决定</li>
+<li>external: 用户指定</li>
+</ul>
+<p>可以用priority queue实现</p>
+<p>可以与RR结合，这时候ready queue是用priority queue实现的</p>
+<p>Priority Aging：解决indefinite blocking / starvation，即低优先级的进程可能永远不会被执行。可以根据等待时间逐渐增加priority。</p>
+<p>Multilevel Queue Scheduling</p>
+<p>可以将进程分为不同的组，每个组内有不同调度算法的ready queue，组和组之间也要调度。</p>
+<p>组内：一般前台队列使用RR以保证response，后台可以FCFS</p>
+<p>组间：通常给队列设置优先级，用preemptive priority scheduling。也可以使用组间time-slicing</p>
+<p>Multilevel Feedback Queue Scheduling</p>
+<p>上一个版本的加强版。允许进程在组间迁移。</p>
+<p>过程</p>
+<ul>
+<li>按照FCFS原则，设置N个就绪队列为Q1，Q2，…QN，每个队列之间可以放很多作业</li>
+<li>为N个就绪队列赋予不同优先级，第一个队列优先级最高，第二个队列次之，其余逐个降低</li>
+<li>设置每个就绪时间片优先权越高，算法赋予队列的时间片越小。按照实际作业（进程）的需要调整</li>
+<li>进程等待时首先进入待调度的队列等待时，首先进入优先级最高的Q1等待</li>
+<li>首先调度优先级最高的队列中的进程，若高优先级中队列中没有已调度的进程，则调度次优先队列中的进程</li>
+<li>对于一个队列中的各个进程，按照（时间片轮转去调度），比如Q1的时间片为N，那么Q1的作业在经历了时间片为N的时间后，若还没有完成，则进入Q2，这样一直进入下一级，直到最后一级是FCFS</li>
+<li>在低优先级的队列中的进程在运行时，又到达新的作业，那在运行完这个时间片后，CPU马上分配给新到达的作业即抢占式调度CPU</li>
+</ul>
+<p>这种算法的performance根据具体操作系统和具体实现而异。
+<img alt="" src="../asset/OS27.png" /></p>
+<h2 id="4-threads">4. 线程 threads</h2>
+<h3 id="41">4.1 动机和概念</h3>
+<p>开销：</p>
+<ul>
+<li>进程在fork（创建）的时候有较大的开销</li>
+<li>上下文切换有较大的开销</li>
+</ul>
+<p>因为若干进程可能共享一些内容，如果OS知道这些共享，就能减少新建进程的开销及进程切换的时延。</p>
+<p>⇒ 引入线程threads，线程属于进程</p>
+<p>它也有thread id (tid), PC, register set 和 runtime stack。</p>
+<p>线程与同一进程的其它线程共享code section, data section, heap, open files, signals</p>
+<p>Linux中线程也叫轻量级进程Light Weight Process。</p>
+<p>如果OS支持线程，那调度的就是内核级线程而不是进程，也就是说线程是运行以及CPU调度的基本单元。</p>
+<p>区分：进程是分配资源的基本单元</p>
+<h3 id="42">4.2 优缺点</h3>
+<p>多线程编程Multi-Threaded Programming的优点有：</p>
+<ul>
+<li>economy：建立线程经济，因为code data heap都已经在内存里了（不用再copy？），另外同一进程的线程之间context switch也会更快，因为不用flush cache。</li>
+<li>resource sharing：同一进程的线程之间天然共享内存，因此无需为之编写IPC，也允许对同一块内存进行并行处理。</li>
+<li>responsiveness：多线程进程会有更好的响应性。</li>
+<li>scalability：多处理器的体系结构上多线程进程可以更好发挥作用，因为每一个线程运行在一个处理器上，对比单线程进程只能运行在一个处理器上。</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>一个线程出现错误，整个进程都会去世（比如浏览器一个网页挂掉使整个浏览器挂掉）</li>
+<li>OS对每个进程地址空间大小限制，但多线程会占更多内存</li>
+<li>共享内存使内存保护变复杂</li>
+</ul>
+<h3 id="43">4.3 实现方式：用户级/内核态，多线程模型</h3>
+<p><img alt="" src="../asset/OS28.png" />
+- 用户级线程user-level thread：在OS上只是一个进程，这个进程包含线程库thread library，负责线程的创建和切换；内核级线程由OS支持这些操作
+    - 用户通过OS提供的线程库函数创建，
+    - 优点：1）不占用OS的tid，理论上可以支持比内核级线程更多的线程数 2）调度等操作在用户态，不需要进入内核态 3）容易实现自定义的调度算法
+    - 缺点：1）一旦当前正在运行的线程阻塞，那么OS看来就是整个进程被阻塞了，就会认为该进程的其它线程也阻塞了。如果是内核级线程就只阻塞这个线程 2）同一个进程中的多个用户级线程无法在多核上分别运行
+- 内核级线程kernel-level thread：</p>
+<p>多线程模型：有的OS同时支持用户级和内核级，有几种用户级和内核级的映射方法</p>
+<p>（1）等于只支持用户级
+<img alt="" src="../asset/OS29.png" />
+（2）等于只支持内核级
+<img alt="" src="../asset/OS210.png" />
+（3）m个用户级可以映射到n个内核级
+<img alt="" src="../asset/OS211.png" />
+Linux线程：没有特别区分进程和线程，都是叫task</p>
+<p>不知道这里考不考要是考了回去refer一下</p>
+<p><a href="https://xuan-insr.github.io/%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86/os/II_process_management/5_thread/">5 线程 - 咸鱼暄的代码空间 (xuan-insr.github.io)</a></p>
+<h2 id="5-synchronization">5. 同步和同步工具 Synchronization</h2>
+<p>Synchronization就是规定进程所做的工作之间的顺序或者先序关系，从而防止一些非法情况发生的方法。</p>
+<h3 id="51-cs-problem">5.1 引入和CS Problem</h3>
+<p>Cooperation process是可以影响系统中其它运行进程或被其它进程影响的进程。</p>
+<p>Cooperating System会</p>
+<ul>
+<li>共同使用一些数据，可能是直接使用同一段地址空间（代码+数据），或者是通过共享的内存或信息共用一些数据</li>
+<li>对数据的同时访问concurrent access可能会导致data inconsistency，因为数据的一致性需要cooperating process有序的运行</li>
+</ul>
+<p>e.g. Bounded-buffer problem</p>
+<p>给定两个进程producer和consumer，共用大小为n的buffer。</p>
+<p>producer生产数据放入buffer，consumer从buffer中使用数据</p>
+<p>限定条件：producer不应在buffer满时放入数据，consumer也不应当在buffer空时取出数据</p>
+<p>想象中的两个进程</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/* producer process */</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="cm">/* produce an item in nert_produced */</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">BUFFER_SIZE</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="cm">/* do nothing */</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">buffer</span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_produced</span><span class="p">;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">in</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">BUFFER_SIZE</span><span class="p">;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">}</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="cm">/* Consumer Process */</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="cm">/* do nothing */</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">next_consumed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">out</span><span class="p">];</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">out</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">BUFFER_SIZE</span><span class="p">;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="n">count</span><span class="w"> </span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="cm">/* consume the item in next_consumed */</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>如果count的值是错误的？
+<img alt="" src="../asset/OS2x.png" />
+例子的意思是，++和—都是系统实现的，如果共用count读取的时间恰好撞上，count的值就不对</p>
+<p>出现这种情况的原因是我们允许两个进程同时操纵变量count。</p>
+<p>e.g. kernel中：两个进程 P0 和 P1 同时 <code>fork()</code> 时，如果不加限制，可能会出现类似前例的情况，即在某一个进程把当前的 <code>next_avaliable_pid</code> 分配给他的 child 后，在没来得及更新 <code>next_avaliable_pid</code> 前，另一个进程使用了 <code>next_avaliable_pid</code> 来给 child 分配 PID，这就会导致两个不同的线程使用同一个 PID 的情况。</p>
+<p><strong>Race Condition</strong>：多个进程同时操控一个数据，由操控出现的顺序决定结果</p>
+<p>必须保证同一个时间只能有一个进程操控某个变量。</p>
+<p>The Critical-Section Problem （CS Problem）</p>
+<p>考虑一个有n个进程的系统，每个进程中都有一段代码可能修改其他至少一个进程公用的数据，称为critical section。这个系统需要满足的重要性质是，当一个进程正在运行critical section时，其它进程都不能进入critical section</p>
+<p>将这个问题称为critical section problem，也就是要设计一种达成一致行的方法。或者说设计一种让各种进程同步从而安全共享数据的协议。</p>
+<p>这段程序的示意图如下：
+<img alt="" src="../asset/OS212.png" />
+每个进程必须在entry section中申请进入critical section的许可；在critical section运行结束后进入exit section，在这里许可被释放。</p>
+<p>❗❗❗</p>
+<p>Critical section problem的解决方法必须满足如下三个要求</p>
+<ul>
+<li>Mutual exclusion：没有两个进程可以同时在运行critical section</li>
+<li>Progress：系统整体上是在运行的<ul>
+<li>要么有一个进程在运行它的critical section</li>
+<li>要么没有进程在critical section</li>
+<li>要么有限时间内要有一个进程被选入它的critical section</li>
+</ul>
+</li>
+<li>Bounded waiting：任何一个进程等待进入critical section的时间是有限的。即当一个进程进入critical section的请求后，只有有限个（次）进程会在它之前进入critical section。</li>
+</ul>
+<p>接下来我们介绍的算法都是在一步一步满足这三个要求</p>
+<p>Kernel中的CS Problem</p>
+<ul>
+<li>对于单核系统：可以在entry section中，对critical section禁止中断，然后在exit section中恢复</li>
+<li>对于多核系统：中断消息需要传到所有处理器，消息传递会延迟进入临界区，会降低效率。同时也影响时钟中断。</li>
+</ul>
+<p>需要保证kernel的设计实现了critical section</p>
+<p>kernel的实现分两种类型：</p>
+<ul>
+<li>抢占式内核 preemptive kernel</li>
+<li>非抢占式内核 nonpreemptive kernel</li>
+</ul>
+<p>区别是是否允许kernel mode被抢占</p>
+<p>抢占式内核更难设计，但同时也响应更快。</p>
+<h3 id="52-petersons-solution">5.2 Peterson’s Solution</h3>
+<p>省流：让两个进程共享一个变量，既有turn（轮到谁能进去）也有flag（进程是否ready）。当flag[某个进程]且turn=该进程，就可以进去。</p>
+<aside>
+💡 想要理解PS算法，请想象两个人互相让座，A先说你坐吧，B再说你坐吧，这时A坐下。
+
+A获得椅子有两个充要条件：
+
+A想坐: flag[A] = 1
+
+在B让座之前，A已经让过座了: turn ≠ A 说明之前turn曾经被赋为A，现在是B
+
+</aside>
+
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">turn</span><span class="p">;</span><span class="w">         </span><span class="c1">// who is allowed to enter</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">boolean</span><span class="w"> </span><span class="n">flag</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w">  </span><span class="c1">// ready to enter its CS</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(){</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">// mark self ready</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">turn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">;</span><span class="w">     </span><span class="c1">// assert that if the other process wishes to enter its CS, it can do so;</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">turn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">i</span><span class="p">);</span><span class="w"> </span><span class="c1">// wait</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="cm">/* critical section */</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">  </span><span class="c1">// set ready to false</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="cm">/* reminder section */</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>其中 <code>i</code> 是0或1，表示第i个进程。 <code>turn</code> 是当前有权进入critical section的进程（0或1）; <code>flag</code> 是第i个进程是否准备好进入critical section，初始值均为FALSE。</p>
+<p>To enter the critical section, process Pi first sets <code>flag[i]</code> to be true and then sets <code>turn</code> to the value <code>1-i</code> (the other process), thereby asserting that is the other process wishes to enter the critical section, it can do so. If both processes try to enter at the same time, <code>turn</code> will be set to both <code>0</code> and <code>1</code> at roughly the same time. Only one of these assignments will last; the other will occur but will be overwritten immediately. The eventual value of <code>turn</code> determines which of the two processes is allowed to enter its critical section first.</p>
+<p>Peterson’s Solution满足同步算法必须满足的三个性质：</p>
+<ul>
+<li>Mutual exclusion 互斥<ul>
+<li>用了一个例子说不可能有两个进程同时进入Critical Section</li>
+</ul>
+</li>
+<li>Progress Requirement 空闲让进<ul>
+<li>如果没有进程在CS，而有一些进程在Enter section，不能让想要进入CS的进程无限等待</li>
+<li>经过有限次等待以后，需要进入，避免Starvation</li>
+</ul>
+</li>
+<li>Bounded Waiting 让权等待<ul>
+<li>是否能进入critical section需要其它进程来决定</li>
+</ul>
+</li>
+</ul>
+<p>Bakery Algorithm：</p>
+<blockquote>
+<p>2个进程版本的PS。需要遍历所有进程查看大家的turn
+</p>
+</blockquote>
+<p>Reordering 重排序</p>
+<p>PS的缺点是在现代计算机体系结构上不一定适用。因为现代的处理器和编译器可能会为了优化性能而对一些读写操作进行重排。</p>
+<p>重排的时候会考虑重排在单线程程序中的合理性（计算结果是稳定且正确的）。但是这样不能保证在多线程共用数据时的正确性，可能在多线程共用时出现不确定或不对的输出。</p>
+<p>e.g. 编译器和处理器可能会对数据读取顺序进行reorder，以使不需要交替读取两个数据的值，而是相同读取放在一起。</p>
+<p>为了解决重排序导致的在多线程下不稳定，我们引入：</p>
+<p>Memory Barrier</p>
+<p>它用来保证其之前的内存访问先于之后的完成。即，在某个操作前，内存的改变对其它处理器上的进程都是可见的。</p>
+<p>加memory barrier的一种方法</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">flag</span><span class="p">)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">memory_barrier</span><span class="p">();</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">print</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+</span></code></pre></div>
+<p>这样就保证了flag在x之前被加载了。</p>
+<p>Memory Model</p>
+<p>另外，在现代的体系结构上，一个线程写了对应的变量后可能不会立即写回内存，这也有可能导致问题。</p>
+<p>计算机体系结构决定哪块内存给哪个程序的方法，叫做memory model。memory model有两种类型</p>
+<ul>
+<li>Strongly ordered: a memory modification on one processor is immediately visible to all other processors.</li>
+<li>Weakly ordered: modification to other memory on one processor may not be immediately visible to other processors.</li>
+</ul>
+<h3 id="53">5.3 硬件指令</h3>
+<p>有两个硬件指令能帮助实现互斥和同步</p>
+<p>许多现代系统提供硬件指令来修改word的内容，或者用于atomically (uniterruptably，不可被打断地)交换两个word。</p>
+<p>用户一般不用关心特定机器指令，可以用指令 <code>test_and_set()</code> 和 <code>compare_and_swap()</code> 抽象了解这些机器指令背后的含义。</p>
+<p><code>test_and_set</code> 的定义是把一个true输入到硬件，并且把变量原来的值返回。它是一个基本指令器件。</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">test_and_set</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">rv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="o">*</span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">rv</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>它的重要特征是，它的执行是atomic的。</p>
+<p>这个指令可以用来实现mutual exclusive: 定义一个bool变量 <code>lock</code>，初始化为false。</p>
+<p>为什么可以：如果 <code>lock</code> 在 Entry Section 时为 true，那么 <code>test_and_set(&amp;lock)</code> 将返回 true，因此会始终在 while 循环中询问。直到某个时刻 <code>lock</code> 为 false，那么 <code>test_and_set(&amp;lock)</code> 将返回 false 同时将 <code>lock</code> 置为 true，进程进入 Critical Section，同时保证其他进程无法进入 Critical Section。当持锁的进程完成 Critical Section 的运行，它在 Exit Section 中释放 <code>lock</code> ，从而允许其他进程进入 Critical Section。而如果某个时刻 <code>lock</code> 为 false，而有两个或多个进程几乎同时调用了 <code>test_and_set(&amp;lock)</code> 。但由于它是 atomic（none-or-all）的，因此只有一个进程可以返回 false。</p>
+<p>不能实现bounded waiting怎么办，有的进程可能就一直没有拿到锁：加一个循环遍历找下一个可以进入的进程，每个进程最多等全部遍历完一遍就轮到自己</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="cm">/* Entry Section */</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">test_and_set</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">))</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="cm">/* do something */</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="cm">/* Critical Section */</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="cm">/* Exit Section */</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">j</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">        </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">else</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="n">waiting</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="cm">/* Remainder Section */</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>compare_and_swap()</code> 用软件来实现性能非常差，用软件来实现会变好。它的定义是</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">compare_and_swap</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">expected</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">new_value</span><span class="p">){</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">expected</span><span class="p">)</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="o">*</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_value</span><span class="p">;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>可见其实<code>compare_and_swap()</code> 与<code>test_and_set()</code> 作用类似。</p>
+<p>用<code>compare_and_swap()</code> 实现mutual exclusive</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="cm">/* Entry Section */</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lock</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="cm">/* do nothing */</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="cm">/* Critical Section */</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="cm">/* Exit Section */</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="cm">/* Remainder Section */</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="54-semaphores">5.4 信号量 Semaphores</h3>
+<p>是一个整型变量，除了初始化外，只能通过两个atomic操作 <code>wait()</code> 和 <code>signal()</code> 来访问。</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="n">S</span><span class="p">){</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">        </span><span class="p">;</span><span class="w"> </span><span class="cm">/* busy waiting */</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">S</span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">signal</span><span class="p">(</span><span class="n">S</span><span class="p">){</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="n">S</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>有两种semaphore：</p>
+<ul>
+<li>counting semaphore：S的值不受限制</li>
+<li>binary semaphore: S的值只能是0或1，类似与互斥锁。</li>
+</ul>
+<p>e.g. Consider P1 and P2 that require S1 to happen before S2, create a semaphore “synch” initialized to 0.</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nl">P1</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">S1</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nl">P2</span><span class="p">:</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">synch</span><span class="p">);</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">S2</span><span class="p">;</span>
+</span></code></pre></div>
+<p>如果想要解决semaphore的busy waiting问题，可以引入waiting queue</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">list_head</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">waiting_queue</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="p">}</span><span class="w"> </span><span class="n">semaphore</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">wait</span><span class="p">(</span><span class="n">semaphore</span><span class="w"> </span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="n">add</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">        </span><span class="n">block</span><span class="p">();</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="p">}</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">signal</span><span class="p">(</span><span class="n">semaphore</span><span class="w"> </span><span class="o">*</span><span class="n">S</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="o">-&gt;</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">        </span><span class="n">remove</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">process</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">S</span><span class="o">-&gt;</span><span class="n">list</span><span class="p">;</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">        </span><span class="n">wakeup</span><span class="p">(</span><span class="n">P</span><span class="p">);</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>可能会导致deadlock</p>
+<h3 id="55-atomic-variable">5.5 Atomic Variable</h3>
+<p>那就直接用<code>compare_and_swap()</code> 来做成一些atomic的机器指令工具</p>
+<p>e.g. count++ 是可以打断的，但是可以设计一个不可打断的increment(&amp;count)</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">increment</span><span class="p">(</span><span class="kt">atomic_int</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">){</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">        </span><span class="n">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">v</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">temp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">compare_and_swap</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span><span class="w">  </span><span class="c1">// 它不会被打断</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>要记得它只能解决变量更新过程中的race condition。此时只有待更新变量一个变量在等待读取。如果有两个consumer等待读取，但count改变时只会产生一个值在buffer里，那就不行。</p>
+<h3 id="56-mutex-mutual-exclusion-lock">5.6 Mutex (Mutual Exclusion Lock)</h3>
+<p>用软件方法解决CS。</p>
+<p>让进程先在entry section申请acquire()一个锁，然后在exit section release()一个锁。然后用一个bool变量来看它是否available</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">acquire</span><span class="p">();</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="cm">/* critical section */</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="n">release</span><span class="p">();</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="cm">/* remainder section */</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="p">}</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="kt">void</span><span class="w"> </span><span class="n">acquire</span><span class="p">(){</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">available</span><span class="p">)</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="p">;</span><span class="w"> </span><span class="cm">/* busy waiting */</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="n">available</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">}</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="kt">void</span><span class="w"> </span><span class="n">release</span><span class="p">(){</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">    </span><span class="n">availble</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>因为还需要保证互斥，需要保证acquire是原子性的，那就用上述两个硬件工具来实现。代码同对应节，不赘述。</p>
+<p>缺点：需要busy waiting，当有一个进程在CS中时，其它进程需要在acquire()中spin，所以也称为spinlock。如果有N个进程同时使用一个CPU，那么将大约有(N-1)/N的浪费。如果有进程在企图acquire一个锁时被组织，称它为contended（被争夺）；反之称为uncontended。</p>
+<p>还可以考虑下面的设计，其中yield()会使程序从running转为ready，从而让出CPU</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">acquire</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">compare_and_swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">avaliable</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">        </span><span class="n">yield</span><span class="p">();</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">}</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">release</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="n">avaliable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>（这个地方真的真的没看懂）</p>
+<h3 id="57-priority-inversion">5.7 Priority Inversion</h3>
+<p>e.g.</p>
+<p>Three processes PL, PM and PN with priority PL &lt; PM &lt; PH.</p>
+<p>PL holds a lock that was requested by PH → PH is blocked.</p>
+<p>PM becomes ready and preempted the PL</p>
+<p>It effectively inverts the relative priorities of PM and PH.</p>
+<p>具有中等优先级的PM影响了高优先级的PH的等待时间，这样是不对的。</p>
+<p>解决方案：</p>
+<p>可以通过优先级继承priority inheritance来解决。所有正在访问资源的进程（如PL）需要获得访问这个资源的更高优先级的进程的优先级（PH），直到其用完有关资源为止。比如上例中，PL会临时继承PL的优先级，然后PH运行，最后PM运行。</p>
+<h2 id="6">6. 经典同步问题</h2>
+<p>一般我们用信号量解决问题</p>
+<p>信号量的逻辑：一个信号量用来表示一类“资源”的余量。wait()等待到其有余量时从中取走一个，而signal()释放一个资源。</p>
+<p>（上边这段在写什么）</p>
+<h3 id="61-bounded-buffer-problem">6.1 Bounded-buffer Problem</h3>
+<aside>
+💡 给定两个进程：producer和consumer，共用大小为n的buffer。producer生产数据放入buffer，consumer从buffer中取出数据并使用之。
+
+该问题需要保证：producer不应当在buffer满时放入数据，consumer也不应当在buffer空时取出数据。
+
+</aside>
+
+<p>首先，根据我们在前一节中的讨论，produce和consume的过程会访问到buffer的资源，因此访问buffer是critical section，我们需要使用一个锁（或者信号量）来控制对buffer的访问。</p>
+<p>讨论了一下锁永远不可能有最优解：没看懂</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">eslot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BUFFER_SIZE</span><span class="p">;</span><span class="w"> </span><span class="c1">// 空闲buffer的数量</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">fslot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="n">producer</span><span class="p">(){</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="n">wait</span><span class="w"> </span><span class="p">(</span><span class="n">eslot</span><span class="p">);</span><span class="w"> </span><span class="c1">// if buffer is full. i.e. eslot == 0, wait. else eslot --</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">        </span><span class="n">wait</span><span class="w"> </span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">        </span><span class="n">add_to_buffer</span><span class="p">(</span><span class="n">next_produced</span><span class="p">);</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">fslot</span><span class="p">);</span><span class="w"> </span><span class="c1">// fslot ++</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="p">}</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="n">consumer</span><span class="p">(){</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="nb">true</span><span class="p">){</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">fslot</span><span class="p">);</span><span class="w">  </span><span class="c1">// if buffer is empty. i.e. fslot == 0, wait. else fslot--</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">        </span><span class="n">next_consumed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">take_from_buffer</span><span class="p">();</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">lock</span><span class="p">);</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">eslot</span><span class="p">);</span><span class="w"> </span><span class="c1">// eslot ++</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="62-reader-writer-problem">6.2 Reader-Writer Problem</h3>
+<aside>
+💡 对一个数据，readers读，writers读和写
+
+设计方案保证：多个readers可以同时读取，但是writer进行读写时不能有其它writers和readers。
+
+</aside>
+
+<div class="language-c highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">write_lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">reader_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">reader_count_lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">writer_first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">writer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">writer_first</span><span class="p">);</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">write_lock</span><span class="p">);</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">        </span><span class="n">read_and_write</span><span class="p">();</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">write_lock</span><span class="p">);</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">writer_first</span><span class="p">);</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="p">}</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="n">reader</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">writer_first</span><span class="p">);</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">reader_count_lock</span><span class="p">);</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="w">        </span><span class="n">reader_count</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reader_count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">            </span><span class="n">wait</span><span class="p">(</span><span class="n">write_lock</span><span class="p">);</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">reader_count_lock</span><span class="p">);</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">writer_first</span><span class="p">);</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="w">        </span><span class="n">read</span><span class="p">();</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="w">        </span><span class="n">wait</span><span class="p">(</span><span class="n">reader_count_lock</span><span class="p">);</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="w">        </span><span class="n">reader_count</span><span class="o">--</span><span class="p">;</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reader_count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a><span class="w">            </span><span class="n">signal</span><span class="p">(</span><span class="n">write_lock</span><span class="p">);</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="w">        </span><span class="n">signal</span><span class="p">(</span><span class="n">reader_count_lock</span><span class="p">);</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="63-dining-philosophers-problem">6.3 Dining-Philosophers Problem</h3>
+<aside>
+💡 5个哲学家一起吃饭。每两个哲学家之间有一根筷子，每个人一次可以拿起一根筷子，拿到两根筷子的就可以吃一段时间，吃完思考一段时间。
+
+![OS%20Lecture%20%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%90%8C%E6%AD%A5%208a4f18b7687b4834a9402d982a22680e/Untitled%2013.png](OS%20Lecture%20%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%90%8C%E6%AD%A5%208a4f18b7687b4834a9402d982a22680e/Untitled%2013.png)
+
+</aside>
+
+<p>三种解决方案：</p>
+<ul>
+<li>可以的话，所有人拿起左边的筷子 → 有的时候可能每个人同时拿起左边的筷子，导致死锁</li>
+<li>只允许同时拿起两根筷子：轮流询问每个人是否能拿起两根筷子，如果能则拿起，不能则等待放下</li>
+<li>奇数人先拿左边筷子，偶数人先拿右边筷子</li>
+</ul>
+<h2 id="7-deadlocks">7. 死锁 Deadlocks</h2>
+<p>是指多个进程因竞争资源导致的一种僵局，即若干进程各持有一些资源，同时等待获取另一个进程持有的资源，形成的互相等待局面。</p>
+<p>e.g.</p>
+<p>两个进程，两个磁盘驱动器</p>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">first_mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">semaphore</span><span class="w"> </span><span class="n">second_mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">thread_one</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">first_mutex</span><span class="p">);</span><span class="w">  </span><span class="c1">// 持有一个</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">second_mutex</span><span class="p">);</span><span class="w"> </span><span class="c1">// 想要另一个</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="p">}</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="n">thread_two</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">second_mutex</span><span class="p">);</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">    </span><span class="n">wait</span><span class="p">(</span><span class="n">first_mutex</span><span class="p">);</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="c1">// ...</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>可以通过分配优先级来解决，但是优先级可能导致starvation</p>
+<h3 id="71-system-resource-allocation-graph">7.1 资源分配图 system resource-allocation graph</h3>
+<p>是一种对系统资源和想使用资源的实例进行建模的规范化作图标准</p>
+<p>假设有m个资源(resources) R1… Rm，每种资源有W个实例（instance）。各个活动进程P1…Pn会利用这些资源，每个资源的利用由request, use, release三步组成。
+<img alt="" src="../asset/OS214.png" />
+资源分配图是一种有向图</p>
+<ul>
+<li>点集 V = P \and R<ul>
+<li>活动进程集合 P = {P1, … Pn} 用圆表示</li>
+<li>资源类型集合 R = {R1, … Rn} 用矩形表示，里面用圆点个数表示各个资源实例</li>
+</ul>
+</li>
+<li>边集<ul>
+<li>申请边 request edge P → R 表示进程已申请并在等待资源。圆指向矩形</li>
+<li>分配边 assignment edge R → P 表示资源已经分配给了进程。矩形里的圆点指向圆</li>
+</ul>
+</li>
+</ul>
+<p>没有环一定没有死锁，有环可能但不一定有死锁，有环且每个资源只有一个实例一定有死锁。</p>
+<h3 id="72">7.2 死锁的必要条件</h3>
+<aside>
+💡 想要理解这一块，请想象四个成环的公交路口，每个公交路口都堵着一排想要顺时针前行的车。每个车都想进入下一个路口，但是每个路口都被上一辆车堵着
+
+</aside>
+
+<p>下面四点的交</p>
+<p>必要条件→打破任意一点就能避免死锁</p>
+<ul>
+<li>Mutual exclusion：至少一个资源处于非共享模式（即每个资源只有一个实例）</li>
+<li>Hold and wait：每个进程占有至少一个资源，并等待另一个被占据的资源。</li>
+<li>No preemption：资源不能被抢占，只能在进程结束后主动释放。</li>
+<li>Circular wait：一组等待进程跟想要的资源的占有者进程成环，也就是进程编号与需要的资源编号形成一个完全轮换（没有一个进程对应与其编号相同的资源，而编号相同的资源指该进程当前正持有的那个资源）（我是这么理解的）。在阐述这一点时，可以列出这个轮换。</li>
+</ul>
+<p>处理死锁的四种方法</p>
+<ul>
+<li>保证系统不会进入死锁<ul>
+<li>死锁预防 (deadlock prevention)</li>
+<li>死锁避免 (deadlock avoidance)</li>
+</ul>
+</li>
+<li>在系统进入死锁状态后恢复<ul>
+<li>死锁检测和恢复 (deadlock detection and recovery): 例如数据库</li>
+</ul>
+</li>
+<li>假装系统不会发生死锁，真发生了就寄：？<ul>
+<li>大多数操作系统(including Linux and Win)采用，需要软件来处理死锁</li>
+</ul>
+</li>
+</ul>
+<h3 id="73">7.3 预防，银行家算法</h3>
+<p>预防的核心思路就是打破必要条件中的任何一个。分别讨论四个条件如何破坏</p>
+<ul>
+<li>Mutual Exclusion<ul>
+<li>通过保证系统资源能够共享来打破</li>
+<li>但是不一定能实现，很多资源不能共享e.g. 信号量</li>
+</ul>
+</li>
+<li>Hold and Wait<ul>
+<li>通过保证每个进程申请资源时不能占有其它资源</li>
+<li>程序直到开始执行前才申请所有资源</li>
+<li>或者只允许进程在没有资源时才申请资源</li>
+<li>缺点是资源利用率会变低，需要资源较多的进程会发生starvation</li>
+</ul>
+</li>
+<li>No Preemption<ul>
+<li>当一个进程请求资源但没有得到满足时，它必须释放已经持有的所有资源，直到它需要的所有资源（包括刚才释放的那些资源）都可用时才能一并获取并继续执行。</li>
+<li>信号量不能这样释放</li>
+<li>会降低资源利用率</li>
+</ul>
+</li>
+<li>Circular Wait<ul>
+<li>对所有资源进行排序，要求每个进程按照递增顺序申请资源</li>
+<li>如果程序开发者没有按此顺序执行，就会死锁</li>
+<li>也可能影响资源利用率</li>
+</ul>
+</li>
+</ul>
+<h3 id="74">7.4 避免</h3>
+<p>避免死锁则是靠预测进程未来需要使用哪些资源、资源的使用顺序等。系统需要设计算法计算一下来避免。所以既需要额外信息，又需要额外算法。</p>
+<p>额外信息包括</p>
+<p>资源分配状态resource allocation state:</p>
+<ul>
+<li>每个进程声明可能对每种资源类型的最大需求（maximum demands）</li>
+<li>当前系统的available和allocated的资源数目</li>
+</ul>
+<p>资源分配图算法：适用于每种资源都只有一个实例的情况</p>
+<p>在资源分配图上加一种边：claim edge。表示一个进程可能会需要某种资源，用虚线表示。转化关系为</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>graph TD
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    claim_edge --需求出现--&gt; request_edge
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    request_edge --不会出现环的话就需求满足--&gt; assignment_edge
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    assignment_edge --资源释放--&gt; claim_edge
+</span></code></pre></div>
+<p>安全状态 Safe State</p>
+<p>是指按照一定顺序为每个进程分配资源，同时避免死锁。</p>
+<p>具体而言，如果某个资源有A个空闲，对于每个活动进程Pi，各自持有Ci个该资源，并且仍然需要Di个资源。</p>
+<p>如果一个序列<P1, … Pn>使得对于任意Pi，都有A+\sum[j&lt;i][j=1]{Ci} ≥ Di, 则系统处于安全状态。</p>
+<p>可以用归纳法证明：如果Pi的需求不能被立刻满足，只需要等待Pj | j&lt;i 全部完成。Pi就能获得所需资源
+<img alt="" src="../asset/OS215.png" />
+安全状态是非死锁状态的子集</p>
+<p>银行家算法 Banker’s Algorithm</p>
+<p>通过available, max, allocation, need 这四个矩阵刻画一个时间内各个进程对各种资源的持有和需求状况，以及当前系统的资源情况。OS应使用这些数据判断系统是否安全状态。</p>
+<p>找一个安全序列的基本思路是：选一个need（的每一项对应地）小于available（的对应项）的进程，运行完后会将allocation释放回available.</p>
+<p>假设这个需求被接受了，更新对应的need，available，allocation</p>
+<p>在此状态下推演是否有合法的安全序列。</p>
+<p>而决定一个需求是否应当被满足的方案是，假设被接受了，根据该需求更新need，available，allocation，在此状态推演是否有合法的安全序列。</p>
+<h3 id="75">7.5 检测</h3>
+<p>Single Instance Resources</p>
+<p>wait-for graph来解决</p>
+<p>在这个图里找环，用拓扑排序时间复杂度是O(V+E)的，最差情况下是O(n^2)的。
+<img alt="" src="../asset/OS216.png" />
+Multi-Instance Resources</p>
+<p>类似银行家算法，如果找不到任何安全序列，说明系统处于死锁。</p>
+<h3 id="76">7.6 恢复</h3>
+<ul>
+<li>
+<p>进程终止Terminate deadlocked processes</p>
+<p>它和资源抢占的区别似乎是，进程终止代价非常大，其一是需要维护终止时的状态，并需要重新计算一些内容，并需要避免产生重复的副作用。</p>
+<p>直接放弃所有进程花费会很大。</p>
+<p>可以选择每次放弃一个进程，直到所有死锁环解除。</p>
+<p>如何选择放弃哪个进程：一系列指标</p>
+<ul>
+<li>进程的优先级</li>
+<li>已经算了多久，还要算多久</li>
+<li>用了哪些、多少资源，是否容易被抢占</li>
+<li>还需要多少资源</li>
+<li>终止这一进程的前提是还需终止多少进程</li>
+<li>进程是交互的还是批处理的</li>
+<li>资源抢占 Resource Preemption</li>
+</ul>
+<p>不断抢占资源给其它进程，直到消除死锁环为止</p>
+<p>需要考虑三个问题</p>
+<ul>
+<li>选择牺牲进程 select a victim：与进程终止的选法相似</li>
+<li>回滚（Rollback）：当一个进程的若干资源被抢占，需要将这个进程回滚到某个安全状态，即回滚到申请那些被抢占的资源之前</li>
+<li>饥饿（Starvation）：如何保证不会永远从一个进程中抢占资源，可以在代价评价中加一个指标回滚次数。这个指标的设计思想类似于priority aging</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.expand", "navigation.top"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="../../../javascripts/tex-mml-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

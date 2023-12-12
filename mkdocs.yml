@@ -126,12 +126,12 @@ theme:
     repo: fontawesome/brands/git-alt
 plugins:
   - search
-  - mkdocs-video:
-      is_video: True
-      video_muted: True
-      video_controls: True
-      css_style:
-        width: "50%"
+  # - mkdocs-video:
+  #     is_video: True
+  #     video_muted: True
+  #     video_controls: True
+  #     css_style:
+  #       width: "50%"
 markdown_extensions:
   - admonition
   - md_in_html

@@ -1,6 +1,6 @@
 # Portfolio for CMU METALS Application
 
-!!! note This site is a temporary portfolio for application. The official site will be updated after Christmas.
+This site is a temporary portfolio for application. The official site will be updated after Christmas.
 
 calender
 <img src="./asset/calender.jpg" alt="标题" width="100%" height="100%">
