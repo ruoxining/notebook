@@ -18,6 +18,8 @@
 
 我加心选单主要看的飞跃+opencsapp，然后从里面删去所有申到也不想去的
 
+我为什么没忍住申了这么多：因为觉得申请费与如果申请失败可能gap一年带来的损失，可能前者较小
+
 ## Ph.D. 选导
 
 ## 语言成绩
@@ -53,6 +55,17 @@ Umich目前只知道至少ms和meng之间不能共享推荐信。填错了可以
 Waterloo的推荐信在第一步提交后1-3天内发出，申请人不可决定。我的推荐人最快收到的是提交后1天左右。之后在ddl前14天和7天还会各自动发一次催信
 
 群里说的：补充一个哥大cs ce ee也是共用。应该是ms
+
+这几个学校网申问题给我的感觉是
+
+ucsd问得特别全但是有点莫名其妙
+
+gatech想看到你是一个想contribute to community的人
+
+rice想看到你是一个tough good guy
+
+umich只想看到你be happy and diversified
+
 ## 套瓷
 
 网上说套到瓷才能申。申请过程中得到的消息是套瓷和申请并不强相关，有教授就想等看到池子再决定的情况。
@@ -67,6 +80,20 @@ CMU如果直接搜索 MLT application 出现的以下页面及申请链接是找
 [Application Management (cmu.edu)](https://admissions.scs.cmu.edu/portal/apply_gr) 这个页面和以下截图是正确的，同理mscv和msaii什么的项目也在这里申请。
 ![](../asset/截屏2023-11-25%2022.34.32.png)
 
+
+CMU的video essay：
+
+在mscs的系统里是提前录好了然后上传到youtube这种的，在细分的那几个ai项目里是限3次机会，每次随机问题，限时准备，限时说。
+
+我看到的网上的帖子说好像miis ini ece（记不住这几个项目名字，总之类似）是30s准备，180s说，问的问题大类有：你队友怎么评价你，你收到的队友的一条负面评价是，你怎么领导project，一个成功的project对你来说是怎样的，你喜欢什么沟通模式，对你来说什么是很难做的决定，你遇到挫折了会怎么样...这种很跟course project和合作有关的。
+
+但是我在mlt里打开遇到的是10s准备，210s说，遇到的两个问题供参考:
+- 讲讲为什么选我们项目
+- 你的研究兴趣都有什么
+这样很研究导向的问题，感觉熟记sop就能答
+
+
+
 UWaterloo 的申请分为两个阶段，第一个阶段赶紧交了才能在第二个阶段上传cv 文书 语言成绩等东西，第二阶段的链接会在第一阶段后2-4天收到。第一个阶段一定一定要比12.1提前至少四五天交
 
 Umich的系统一开始四五个页面要顺序填完，后面的页面才能跳着填
@@ -74,6 +101,17 @@ Umich的系统一开始四五个页面要顺序填完，后面的页面才能跳
 
 
 ## 文书
+
+CV instruction from JHU
+Upload a copy of your resume or curriculum vitae (CV). This document should outline clearly and briefly the following:
+Employment held (include title of jobs and start/end dates)
+Research activities
+Academic honors, including fellowships you have been awarded
+Volunteer or community service
+Extracurricular activities
+Honorary societies, awards for service or leadership you have received
+Publications
+
 
 其实我个人认为在审文书时每份文书5-10分钟，可能所有人能一眼看到的是 1）小标题 2）加粗的关键词。讲一个例子是我上次参加一门课的group tutorial时，当时小组成员合写了一份rp，其中我写的是最晦涩的lit review，即专业术语密度最高还句子最长，但是我给每个分主题加了小标题，其它同学写的部分没有加。老师在与我们谈话的间隙瞄了几眼我们的文件，短短的时间里就只看进去了lit review的小标题，点评了一下。所以我觉得做清晰的分段和小标题很重要（这里真的有点像设计四原则，对比/聚合），尤其是时间精力不够时，其中的细节内容说不定不用抠太细。
 
