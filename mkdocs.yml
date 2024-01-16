@@ -5,13 +5,13 @@ repo_name: OBvault
 
 nav:
   - 'index.md' 
-  - 申请心得: 
+  - 🗳️申请心得: 
     - 索引: 'App/index.md'
     - 24fall申请记录: 'App/24fall.md' 
     - 英专转CS&NLP指北: 'App/zju_ling_cs.md'
     - NLP申请PhD经验(搬运): 'App/nlp_phd.md'
 
-  - CS专栏: 
+  - 💻CS专栏: 
     - 索引: 'CS/index.md'
     - C语法: 'CS/c_lang.md'
     - C大程libgraphics使用记录: 'CS/libgraphics.md'
@@ -34,7 +34,7 @@ nav:
     - Objdump工具: 'CS/objdump.md'
     - 写个爬虫Crawler🕷️！: 'CS/crawler.md'
 
-  - DL专栏: 
+  - 🎓DL专栏: 
     - 索引: 'DL/index.md'
     - NLP Theory: 
       - E.Bender Ling4NLP读书笔记: 'DL/NLPTheory/ling_ebender.md'
@@ -67,7 +67,7 @@ nav:
       - Pytorch命令行: 'DL/Terminal/pytorch_terminal.md'
       - tmux速查: 'DL/Terminal/tmux.md'
 
-  - Ling专栏:
+  - 🌳Ling专栏:
     - 索引: 'Ling/index.md'
     - 语音学Phonetics:
       - Reduction in verb.+prep.: 'Ling/Phonetics/reduction.md'
@@ -82,16 +82,19 @@ nav:
       - Logics & Formal Semantics: 'Ling/Semantics/formal_semantics.md'
       - Scope Ambiguity: 'Ling/Semantics/ambiguity.md'
     - 语用学Pragmatics:
+      - Introduction: 'Ling/Pragmatics/intro.md'
+      - Theory&Hypothesis: 'Ling/Pragmatics/theories.md'
+      - Sociopragmatics: 'Ling/Pragmatics/socio.md'
       - Research Methods: 'Ling/Pragmatics/ca_da.md'
     - 语言哲学Philosophy of Language: 'Ling/pol_zh.md'
     
-  - Math专栏: 
+  - 🤮Math专栏: 
     - 索引: 'Math/index.md'
     - 图论: 'Math/Graph/laplace_matrix.md'
     - 零散的题: 'Math/questions.md'
     - 各种Normal Forms: 'Math/normal_forms.md'
 
-  - 说瞎话了: 
+  - 💭说瞎话了: 
     - 索引: 'Other/index.md'
     - 我的工具箱！: 'Other/tools.md'
     - APA Format: 'Other/apa.md'

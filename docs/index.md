@@ -1,6 +1,14 @@
-Hi there 👋
+# 🏛️📚 Mini Babel Library
 
-## 打招呼用的
+
+!!! tip "La biblioteca de Babel"
+
+    Jorge Luis Borges (1939):
+    
+    「宇宙（别人管它叫图书馆）由许多六角形的回廊组成，数目不能确定，也许是无限的」
+
+
+## Hi There!👋
 我的BLOG，主要语言是中文，主要内容有笔记 + 一些瞎话
 
 我的笔记不多！以后也不会多的😤 欢迎来看我的笔记！
