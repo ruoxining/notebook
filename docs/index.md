@@ -3,65 +3,63 @@
 
 !!! tip "La biblioteca de Babel"
 
-    Jorge Luis Borges (1939):
-    
-    「宇宙（别人管它叫图书馆）由许多六角形的回廊组成，数目不能确定，也许是无限的」
+    「宇宙（别人管它叫图书馆）由许多六角形的回廊组成，数目不能确定，也许是无限的」  —— Jorge Luis Borges (1939)
 
-
-## Hi There!👋
-我的BLOG，主要语言是中文，主要内容有笔记 + 一些瞎话
-
-我的笔记不多！以后也不会多的😤 欢迎来看我的笔记！
-
-如果想查找ZJU课程资料，可以配合仓库[ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS)食用
-
-- 本BLOG的定位是掺杂自己观点的笔记 + 心得
-- 上述仓库的定位是客观通用的一个工具箱
-
-暂时这样分工
-
-大部分内容还在一点一点施工中，请稍等！
+这是我主要用中文写的BLOG，大部分内容是学习笔记。我的笔记不多！以后也不会多的😤 欢迎来看我的笔记！
 
 ## 推荐阅读
 
-#### 申请心得
+我正在努力在这里建一个尚能读的资源的pagetable，以防不幸的游客从侧边栏游走进本图书馆的垃圾堆漩涡🌀🌊。
 
-[从英专转CS和NLP的建议帖！](https://ruoxining.github.io/OBvault/Application/ZJU%20English%20Major%20to%20CS%26NLP/)
+| 🔴 | 🟡 | 🟢 | 🔗 |
+| -- | -- | -- | -- |  
+| 写得很烂或不打算写了 | 在写的且有生之年会写完的。 | 可以阅读！ | 同类一样好或更好的资源 |
 
-#### Computer Science Notes
+### 💻 CS Notes 
 
-[C大程libgraphics踩坑文档](https://ruoxining.github.io/OBvault/CS_Notes/C%E5%A4%A7%E7%A8%8Blibgraphics%E8%B8%A9%E5%9D%91%E6%96%87%E6%A1%A3/) （但其实遇到的坑包括但不限于这里列出来的 欢迎issue或邮件催更！）
+| 类别 | 课.. | | | | |
+| -- | -- | -- | -- | -- | -- |
+| 编程语言 | 🟡[C尖](https://ruoxining.github.io/OBvault/CS_Notes/C%E5%A4%A7%E7%A8%8Blibgraphics%E8%B8%A9%E5%9D%91%E6%96%87%E6%A1%A3/) | 🔴C++ 🔗[萱宝](https://xuan-insr.github.io/cpp/cpp_restart/) | 🔴Verilog 🔗[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) | 🔴Python | 🟢[x86汇编](https://ruoxining.github.io/OBvault/CS/x86assm/) |
+| 计算机科学 | 🔴离散数学 🔗[圆猫](https://github.com/Kaleo996/ZJU-Discrete-Math-2022) | 🟡FDS | 🔴ADS | 🔴计算理论 | 🔴编译原理 🔗[萱宝](https://xuan-insr.github.io/compile_principle/) |
+| 软件 | 🟡OS 🔗[修勾](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴软工 |  |  |
+| 硬件 | 🟡数逻 🔗[修勾](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | 🟡体系 | 🔴计网 |  |
+| 不好描述 | 🟡沟通技巧 | 🟡编程规范文档 | 🟡写个爬虫 |  |  |
 
-[C++听课笔记](https://ruoxining.github.io/OBvault/CS_Notes/%E6%88%91%E7%9A%84C%2B%2B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/%E5%90%AC%E8%AF%BE%EF%BC%88ZJU%20%26%20Stanford%20CS106B%EF%BC%89/)
+### 🎓 DL Notes
 
-[OS操作系统笔记](https://ruoxining.github.io/OBvault/CS_Notes/OS%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/)
-
-#### Deep Learning Notes
-
-抱歉，这栏全是TODO，，
-
-#### Linguistics Notes
-
-[ZJU Semantics Notes](https://ruoxining.github.io/OBvault/Linguistics_Notes/Semantics/) （虽然排版仍不是很好看但可能是全网首个😭）
-
-#### 其它课程
-
-[ZJU打开艺术之门-钢琴期末复习笔记](https://ruoxining.github.io/OBvault/Other_Courses/%E6%89%93%E5%BC%80%E8%89%BA%E6%9C%AF%E4%B9%8B%E9%97%A8-%E9%92%A2%E7%90%B4%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/)
-
-#### 工具推荐
-
-[关于我怎样在笔记工具Notion和Obsidian之间做选择](https://ruoxining.github.io/OBvault/%E7%9E%8E%E8%AF%B4%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/Notion%E5%92%8CObsidian%EF%BC%8C%E9%80%89%E5%93%AA%E4%B8%80%E4%B8%AA/)
+| 类别 | 课.. | | | | |
+| -- | -- | -- | -- | -- | -- |
+| DL | 🟡RL |  |   |  |
+| CV |  |  |  |  |  |
+| NLP |  |  |  |  |  |
+| DM |  |  |  |  |  |
 
 
-<!-- ## 更新日志
+### 🌳 Linguistics Notes
 
-【19/11/2023】Update了一些暑期的论文阅读笔记和两三门ling/CS课。开了一个24fall申请历程的坑。12月ddl月过去就开始填！
+| 类别 | 课.. | | | | | |
+| -- | -- | -- | -- | -- | -- | -- |
+| 语言学 | 🟡语音学 | 🟡音系学 | 🟡形态学 | 🔴句法学 🔗[圆猫](https://kaleo996.github.io/ling/syntax/) | 🟢[语义学](https://ruoxining.github.io/OBvault/Ling/Semantics/) | 🟢[语用学](https://ruoxining.github.io/OBvault/Ling/Pragmatics/intro/) |
+| 不好描述 | 🟢[语言哲学](https://ruoxining.github.io/OBvault/Ling/pol_zh/) |  |  |  |  | |
 
-【28/07/2023】换站了！居然做到了把Ob和Mkdocs合并在了同一个文件夹。把Notion的东西也搬上来了！ -->
+### 💭 说瞎话了
+
+| 类别 | 帖子.. | | | | |
+| -- | -- | -- | -- | -- | -- |
+| 生存经验.. |  |   |   |  |
+| ZJU生存经验.. | 🟢[从英专转CS和NLP的建议帖](https://ruoxining.github.io/OBvault/App/zju_ling_cs/) |  |  |  |  |
+| 升学经验.. | 🟡24fall申请记录 |  |  |  |  |
+
+
+
+## 相似资源指路
+
+| 站 | 定位是 |
+| -- | -- |
+| 本站：# | 掺杂自己观点的笔记 + 心得 |
+| 仓库：🔗[ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS) | 客观通用的一个ZJU课程资料工具箱  |
 
 
 ## 联系作者
 
-📫 RuoxiNing@outlook.com
-
-🧑‍💻 https://ruoxining.github.io
+[📫 邮箱](RuoxiNing@outlook.com) | [🧑‍💻 主页](https://ruoxining.github.io)
