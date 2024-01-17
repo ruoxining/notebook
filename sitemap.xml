@@ -11,27 +11,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/c_lang/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/coding_code/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/crawler/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ruoxining.github.io/OBvault/CS/libgraphics/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/objdump/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -77,26 +57,6 @@
     </url>
     <url>
          <loc>https://ruoxining.github.io/OBvault/CS/CPP/type/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/OS/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/OS/mem_file/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/OS/overview/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/CS/OS/process_syn/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
