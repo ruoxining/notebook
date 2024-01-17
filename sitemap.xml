@@ -256,16 +256,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ruoxining.github.io/OBvault/Ling/Phonetics/reduction/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/Ling/Phonetics/signal/</loc>
-         <lastmod>2024-01-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ruoxining.github.io/OBvault/Ling/Pragmatics/ca_da/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
@@ -307,6 +297,11 @@
     </url>
     <url>
          <loc>https://ruoxining.github.io/OBvault/Ling/Semantics/formal_semantics/</loc>
+         <lastmod>2024-01-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ruoxining.github.io/OBvault/Ling/Syntax/</loc>
          <lastmod>2024-01-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
