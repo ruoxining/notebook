@@ -1,81 +1,134 @@
 # Portfolio for CMU METALS Application
 
-This site is a temporary portfolio for application. The official site will be updated after Christmas.
+Hi there! 👋
 
-<!-- calender
-<img src="./asset/calender.jpg" alt="标题" width="100%" height="100%">
+This site is a temporary portfolio for CMU METALS application.
 
-card
-<img src="./asset/card1.jpg" alt="标题" width="50%" height="50%">
-<img src="./asset/card2.jpg" alt="标题" width="50%" height="50%">
-<img src="./asset/card3.jpg" alt="标题" width="100%" height="100%">
+## Frontend Works
 
-glyph
-<img src="./asset/glyph.jpg" alt="标题" width="100%" height="100%">
+<figure markdown>
+  ![Glyph](./asset/glyph.png){ width="100%" }
+  <figcaption>Glyph</figcaption>
+</figure>
+
+[Gun violence in US visualization](https://gun-violence-us-visualization.github.io/)
+
+<figure markdown>
+  ![](./asset/gun_vio1.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown>
+  ![](./asset/gun_vio2.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+
+<figure markdown>
+  ![](./asset/gun_vio3.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+
+
+## Graphic Design
+
+<figure markdown>
+  ![Calendar](./asset/calender.jpg){ width="100%" }
+  <figcaption>Calendar</figcaption>
+</figure>
+
+
+<figure markdown>
+  ![Card1](./asset/card1.jpg){ width="100%" }
+  <figcaption>Card1</figcaption>
+</figure>
+
+<figure markdown>
+  ![Card2](./asset/card2.jpg){ width="100%" }
+  <figcaption>Card2</figcaption>
+</figure>
+
+<figure markdown>
+  ![Card3](./asset/card3.png){ width="100%" }
+  <figcaption>Card3</figcaption>
+</figure>
 
 logo
-<img src="./asset/logo0.jpg" alt="标题" width="30%" height="30%">
-<img src="./asset/logo1.jpg" alt="标题" width="30%" height="30%">
-<img src="./asset/logo2.jpg" alt="标题" width="30%" height="30%">
 
-map1
-<img src="./asset/map.jpg" alt="标题" width="100%" height="100%">
+<figure markdown>
+  ![](./asset/logo0.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
 
-map2
-<img src="./asset/map2.jpg" alt="标题" width="100%" height="100%">
+<figure markdown>
+  ![](./asset/logo1.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
 
-postcard
-<img src="./asset/postcard.jpg" alt="标题" width="100%" height="100%">
-
-postcard2
-<img src="./asset/postcard2.jpg" alt="标题" width="100%" height="100%">
-
-stamps
-<img src="./asset/stamp.jpg" alt="标题" width="100%" height="100%">
-<img src="./asset/stamp-01.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp-02.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp-03.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp-04.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp2-01.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp2-01.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp2-01.jpg" alt="标题" width="22%" height="22%">
-<img src="./asset/stamp2-01.jpg" alt="标题" width="22%" height="22%"> -->
+<figure markdown>
+  ![](./asset/logo2.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
 
 
-calender
-![](./asset/calender.jpg)
-
-card
-![](./asset/card1.jpg)
-![](./asset/card2.jpg)
-![](./asset/card3.png)
-
-glyph
-![](./asset/glyph.png)
-
-logo
-![](./asset/logo0.png)
-![](./asset/logo1.png)
-![](./asset/logo2.png)
+<figure markdown>
+  ![](./asset/map.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
 
 
-map1
-![](./asset/map.jpg)
+<figure markdown>
+  ![](./asset/map2.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
 
-map2
-![](./asset/map2.png)
 
-postcard
-![](./asset/postcard.png)
-![](./asset/postcard2.png)
+<figure markdown>
+  ![](./asset/postcard.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
 
-stamps
-![](./asset/stamp.jpg)
-![](./asset/stamp-01.jpg)
-![](./asset/stamp-02.jpg)
-![](./asset/stamp-03.jpg)
-![](./asset/stamp-04.jpg)
-![](./asset/stamp2-01.jpg)
-![](./asset/stamp2-02.jpg)
-![](./asset/stamp2-03.jpg)
-![](./asset/stamp2-04.jpg)
+<figure markdown>
+  ![](./asset/postcard1.png){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+
+
+
+<figure markdown>
+  ![](./asset/stamp.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+
+
+<figure markdown>
+  ![](./asset/stamp-01.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp-02.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp-03.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp-04.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp2-01.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp2-02.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp2-03.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
+<figure markdown>
+  ![](./asset/stamp2-04.jpg){ width="100%" }
+  <figcaption></figcaption>
+</figure>
