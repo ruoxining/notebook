@@ -5,11 +5,11 @@ CS106B偏简单，相当于ZJU的数据结构+C++的STL用法一块讲，另外�
 CS106L是专门讲C++进阶特性的。
 
 因为在听CS106B之前学过FDS，CS106B花一天速通了一下，重复内容有点多，截下了一幅图。
-![](STL.png)
+![](../asset/STL.png)
 
 
 CS106L提供的C++学习路线图
-![](C++roadmap.png)
+![](../asset/C++roadmap.png)
 
 
 ## ZJU课程

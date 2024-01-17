@@ -88,7 +88,7 @@ The math word problems are constructed into Quantity Comparison Graph.
 
 
 #### Math Word Problem Solving with Explicit Numerical Values (2021)
-#Math23K 
+
 A novel approach called NumS2T is proposed to solve MWP. NumS2T is constructed with (a) an attention-based seq2seq model to generate its math expressions, (b) a numerical value encoder to obtain the number-aware problem state which are then concatenated with the problem hidden state in (a) to obtain number-aware problem representation, and (c) a numerical properties prediction mechanism for comparing the paired numerical values, determining the category of each numeral and measuring whether they should appear in the target expression.!
 ![](../asset/截屏2023-08-14%2022.46.32.png)
 
@@ -109,7 +109,7 @@ This paper develops a cooperative reasoning-induced PLM for solving MWPs called 
 
 
 #### Scaling Relationship on Learning Mathematical Reasoning with Large Language Models (2023)
-#GSM8k
+
 This paper mainly focus on the following two questions: (i) Which is a better performance indicator of LLMs? (pre-training loss amount/model size) (ii) How to improve small model's performance by data augmentation?
 To answer the second question, this paper proposes a novel methods in data augmentation in the LLM data generation step which is called Rejection Finetuning (RFT). The algorithm of sampling data in RFT mainly adopts the thought of rejection sampling, which is expressed in the following pseudo-code. This paper assumes such an algorithm will yield as many as possible diverse reasoning paths.
 ![](../asset/Pasted%20image%2020230814215707.png)

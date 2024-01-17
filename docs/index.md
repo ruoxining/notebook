@@ -5,7 +5,7 @@
 
     「宇宙（别人管它叫图书馆）由许多六角形的回廊组成，数目不能确定，也许是无限的」  —— Jorge Luis Borges (1939)
 
-这是我主要用中文写的BLOG，大部分内容是学习笔记。我的笔记不多！以后也不会多的😤 欢迎来看我的笔记！
+这是我主要用中文写的BLOG，大部分内容是学习笔记。我的笔记不多！以后也不会多的😤[🔗](https://github.com/orgs/SaltyfishShop/discussions/5) 欢迎来看我的笔记！
 
 ## 推荐阅读
 
@@ -19,11 +19,11 @@
 
 | 类别 | 课.. | | | | |
 | -- | -- | -- | -- | -- | -- |
-| 编程语言 | 🟡[C尖](https://ruoxining.github.io/OBvault/CS_Notes/C%E5%A4%A7%E7%A8%8Blibgraphics%E8%B8%A9%E5%9D%91%E6%96%87%E6%A1%A3/) | 🔴C++ 🔗[萱宝](https://xuan-insr.github.io/cpp/cpp_restart/) | 🔴Verilog 🔗[HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) | 🔴Python | 🟢[x86汇编](https://ruoxining.github.io/OBvault/CS/x86assm/) |
-| 计算机科学 | 🔴离散数学 🔗[圆猫](https://github.com/Kaleo996/ZJU-Discrete-Math-2022) | 🟡FDS | 🔴ADS | 🔴计算理论 | 🔴编译原理 🔗[萱宝](https://xuan-insr.github.io/compile_principle/) |
-| 软件 | 🟡OS 🔗[修勾](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴软工 |  |  |
-| 硬件 | 🟡数逻 🔗[修勾](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | 🟡体系 | 🔴计网 |  |
-| 不好描述 | 🟡沟通技巧 | 🟡编程规范文档 | 🟡写个爬虫 |  |  |
+| 编程语言 | [🟡C尖](https://ruoxining.github.io/OBvault/CS_Notes/C%E5%A4%A7%E7%A8%8Blibgraphics%E8%B8%A9%E5%9D%91%E6%96%87%E6%A1%A3/) | [🔴C++](https://ruoxining.github.io/OBvault/CS/CPP/course/) [🔗萱宝](https://xuan-insr.github.io/cpp/cpp_restart/) | 🔴Verilog [🔗HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) | 🔴Python | [🟢x86汇编](https://ruoxining.github.io/OBvault/CS/x86assm/) |
+| 计算机科学 | 🔴离散数学 [🔗圆猫](https://github.com/Kaleo996/ZJU-Discrete-Math-2022) | 🟡FDS | 🔴ADS | 🔴计算理论 | 🔴编译原理 [🔗萱宝](https://xuan-insr.github.io/compile_principle/) |
+| 软件 | 🟡OS [🔗修勾](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴软工 |  |  |
+| 硬件 | 🔴数逻 [🔗修勾](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | 🔴体系 | 🔴计网 |  |
+| 不好描述 | 🔴沟通技巧 | 🟡写个爬虫 |  |  |  |
 
 ### 🎓 DL Notes
 
@@ -31,7 +31,7 @@
 | -- | -- | -- | -- | -- | -- |
 | DL | 🟡RL |  |   |  |
 | CV |  |  |  |  |  |
-| NLP |  |  |  |  |  |
+| NLP | [🔴Explainable NLP](https://ruoxining.github.io/OBvault/DL/NLPTheory/explainable_nlp/) | [🔴Math Word Problem](https://ruoxining.github.io/OBvault/DL/NLPTheory/mwp/) |  |  |  |
 | DM |  |  |  |  |  |
 
 
@@ -39,16 +39,16 @@
 
 | 类别 | 课.. | | | | | |
 | -- | -- | -- | -- | -- | -- | -- |
-| 语言学 | 🟡语音学 | 🟡音系学 | 🟡形态学 | 🔴句法学 🔗[圆猫](https://kaleo996.github.io/ling/syntax/) | 🟢[语义学](https://ruoxining.github.io/OBvault/Ling/Semantics/) | 🟢[语用学](https://ruoxining.github.io/OBvault/Ling/Pragmatics/intro/) |
-| 不好描述 | 🟢[语言哲学](https://ruoxining.github.io/OBvault/Ling/pol_zh/) |  |  |  |  | |
+| 语言学 | 🟡语音学 | 🔴音系学 | 🔴形态学 | [🟡句法学](https://ruoxining.github.io/OBvault/Ling/Syntax/) [🔗圆猫](https://kaleo996.github.io/ling/syntax/) | [🟢语义学](https://ruoxining.github.io/OBvault/Ling/Semantics/) | [🟢语用学](https://ruoxining.github.io/OBvault/Ling/Pragmatics/intro/) |
+| 不好描述 | [🟢语言哲学](https://ruoxining.github.io/OBvault/Ling/pol_zh/) |  |  |  |  | |
 
 ### 💭 说瞎话了
 
 | 类别 | 帖子.. | | | | |
 | -- | -- | -- | -- | -- | -- |
 | 生存经验.. |  |   |   |  |
-| ZJU生存经验.. | 🟢[从英专转CS和NLP的建议帖](https://ruoxining.github.io/OBvault/App/zju_ling_cs/) |  |  |  |  |
-| 升学经验.. | 🟡24fall申请记录 |  |  |  |  |
+| ZJU生存经验.. | [🟢从英专转CS和NLP的建议帖](https://ruoxining.github.io/OBvault/Other/zju_ling_cs/) |  |  |  |  |
+| 升学经验.. | [🟡24fall申请记录](https://ruoxining.github.io/OBvault/Other/24fall/) |  |  |  |  |
 
 
 ## 相似资源指路
@@ -56,7 +56,7 @@
 | 站 | 定位是 |
 | -- | -- |
 | 本站：# | 掺杂自己观点的笔记 + 心得 |
-| 仓库：🔗[ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS) | 客观通用的一个ZJU课程资料工具箱  |
+| 仓库：[🔗ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS) | 客观通用的一个ZJU课程资料工具箱  |
 
 
 ## 联系作者

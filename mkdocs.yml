@@ -1,78 +1,28 @@
-site_name: MiniBabelLibrary
+site_name: Mini Babel Library
 site_url: https://ruoxining.github.io/OBvault
 repo_url: https://github.com/ruoxining/OBvault
 repo_name: OBvault
 
 nav:
   - 'index.md' 
-  - 🗳️申请心得: 
-    - 索引: 'App/index.md'
-    - 24fall申请记录: 'App/24fall.md' 
-    - 英专转CS&NLP指北: 'App/zju_ling_cs.md'
-    - NLP申请PhD经验(搬运): 'App/nlp_phd.md'
-
   - 💻CS专栏: 
     - 索引: 'CS/index.md'
-    - C语法: 'CS/c_lang.md'
-    - C大程libgraphics使用记录: 'CS/libgraphics.md'
-    - 编程规范文档模板: 'CS/coding_code.md'
+    - C大程libgraphics: 'CS/libgraphics.md'
     - C++持续进步: 
       - ZJU听课: 'CS/CPP/course.md'
       - ZJU期末复习: 'CS/CPP/final_review.md'
-      - 继承: 'CS/CPP/inheritance.md'
-      - 模板和标准模板库: 'CS/CPP/templates.md'
-      - 类型和类型转换: 'CS/CPP/type.md'
-      - 文件读写: 'CS/CPP/file_io.md'
-      - 浅拷贝和深拷贝: 'CS/CPP/copy.md'
-      - 命名空间: 'CS/CPP/namespace.md'
     - x86汇编: 'CS/x86assm.md'
-    - OS操作系统: 
-      - 索引: 'CS/OS/index.md'
-      - 课程引入: 'CS/OS/overview.md'
-      - 进程与同步: 'CS/OS/process_syn.md'
-      - 内存和文件系统: 'CS/OS/mem_file.md'
-    - Objdump工具: 'CS/objdump.md'
-    - 写个爬虫Crawler🕷️！: 'CS/crawler.md'
 
   - 🎓DL专栏: 
     - 索引: 'DL/index.md'
     - NLP Theory: 
-      - E.Bender Ling4NLP读书笔记: 'DL/NLPTheory/ling_ebender.md'
-      - CoT Prompt: 'DL/NLPTheory/cot.md'
-      - NLI: 'DL/NLPTheory/nli.md'
-      - Embodied AI: 'DL/NLPTheory/embodied_ai.md'
       - Explainable NLP: 'DL/NLPTheory/explainable_nlp.md'
       - Math Word Problem: 'DL/NLPTheory/mwp.md'
-      - Neural Symbolic AI: 'DL/NLPTheory/neural_symbolic.md'
-      - Autoregressive Decoder: 'DL/NLPTheory/autoregressive.md'
-    - NLP Tech:
-      - ML八股: 'DL/NLPTech/ml_cheatsheet.md'
-      - Transformer代码: 'DL/NLPTech/transformer_code.md'
-      - BERT代码: 'DL/NLPTech/bert_code.md'
-      - GPT代码: 'DL/NLPTech/gpt_code.md'
-      - LLaMa代码: 'DL/NLPTech/llama_code.md'
-      - CS231n笔记(还没写): 'DL/NLPTech/cs231n.md'
-      - CS224n笔记(还没写): 'DL/NLPTech/cs224n.md'
-      - 规则提取文本格式总结: DL/NLPTech/rule_text.md
-    - Python用法速查:
-      - IPDB: 'DL/Python/ipdb.md'
-      - Pandas DF速查: 'DL/Python/pandas_dataframe.md'
-      - Python面向对象语法: 'DL/Python/python_object.md'
-      - Python Setup Packages: 'DL/Python/setup_pack.md'
-      - Pytorch速查: 'DL/Python/pytorch.md'
-      - Broadcastble Vector: 'DL/Python/broadcastable_vector.md'
-    - 命令行用法速查: 
-      - Anaconda速查: 'DL/Terminal/anaconda.md'
-      - Linux命令行: 'DL/Terminal/linux.md'
-      - Pytorch命令行: 'DL/Terminal/pytorch_terminal.md'
-      - tmux速查: 'DL/Terminal/tmux.md'
 
   - 🌳Ling专栏:
     - 索引: 'Ling/index.md'
-    - 语音学Phonetics:
-      - Reduction in verb.+prep.: 'Ling/Phonetics/reduction.md'
-      - Signal Basis: 'Ling/Phonetics/signal.md'
     - 句法学Syntax: 
+      - Index: 'Ling/Syntax/index.md'
       - 转换生成句法: 'Ling/Syntax/conv_gen.md'
       - 普遍语法: 'Ling/Syntax/uni_gram.md'
       - 依存句法UD&SUD: 'Ling/Syntax/ud_sud.md'
@@ -87,12 +37,6 @@ nav:
       - Sociopragmatics: 'Ling/Pragmatics/socio.md'
       - Research Methods: 'Ling/Pragmatics/ca_da.md'
     - 语言哲学Philosophy of Language: 'Ling/pol_zh.md'
-    
-  - 🤮Math专栏: 
-    - 索引: 'Math/index.md'
-    - 图论: 'Math/Graph/laplace_matrix.md'
-    - 零散的题: 'Math/questions.md'
-    - 各种Normal Forms: 'Math/normal_forms.md'
 
   - 💭说瞎话了: 
     - 索引: 'Other/index.md'
@@ -100,31 +44,20 @@ nav:
     - APA Format: 'Other/apa.md'
     - DL & NLP 资源整理: 'Other/nlp_resources.md'
     - Portfolio: 'Other/portfolio.md'
-
+    - 24fall申请记录: 'Other/24fall.md' 
+    - 英专转CS&NLP指北: 'Other/zju_ling_cs.md'
+    - NLP申请PhD经验(搬运): 'Other/nlp_phd.md'
 
 
 theme:
   name: material
   palette:
     primary: black
-    # - media: "(prefers-color-scheme: light)"
-    #   scheme: default
-    #   toggle:
-    #     icon: material/weather-night
-    #     name: 暗色模式
-    # - media: "(prefers-color-scheme: dark)"
-    #   primary: black
-    #   scheme: slate
-    #   toggle:
-    #     icon: material/weather-sunny
-    #     name: 亮色模式
   language: zh
   features:
     - content.code.copy
-    # - navigation.tabs
     - navigation.expand
     - navigation.top
-    # - navigation.sections
   icon:
     repo: fontawesome/brands/git-alt
 plugins:
@@ -158,4 +91,3 @@ extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - javascripts/tex-mml-chtml.js
-  # - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

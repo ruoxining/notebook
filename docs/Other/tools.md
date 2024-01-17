@@ -1,5 +1,5 @@
 # 我的工具箱！
-记录一点好用的工具哈
+记录一点好用的工具
 
 ## 我的workflow
 
@@ -16,21 +16,13 @@
 | 导出中文支持程度 | 只有三种字体，部分中文缺字 | 字体多，支持比较好 |
 
 
-目前我选择的workflow
+目前我选择的 workflow: 完全抛弃 Ob 了！
 
 ```mermaid
 graph TD
 	听写 --> Notion 
-	Notion -- 有时间 --> Obsidian
-	有时间慢慢写 --> Obsidian
-	Obsidian -- 使用同一文件夹 --> mkdocs
-
+	Notion -- 有时间 --> mkdocs
 ```
-
-Obsidian to mkdocs
-1. 图片路径问题：
-	需要在设置中关闭使用wiki路径，保证所有图片都用md语法`![]()`
-	且需要使用相对路径，即前面加`./`的那种
 
 ### TODO list 用什么做
 
