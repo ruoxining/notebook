@@ -1197,9 +1197,30 @@
 <p class="admonition-title">Note</p>
 <p>计组王道有一章专门讲。其它请通过王道学习，还有姜老师 ppt 也有一个小总结的表格。</p>
 </div>
-<p>| 概念 | 全名 | 特点 | 优点 |
-| UMA | uniform memory access | 每个节点到 memory 的访问时间一致 | |
-| NUMA | non-uniform memory access |每个节点到 memory 的访问时间不一致，到自己的快，到别人的慢 | 扩展到更大规模上的可扩展性强 |</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>全名</th>
+<th>特点</th>
+<th>优点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UMA</td>
+<td>uniform memory access</td>
+<td>每个节点到 memory 的访问时间一致</td>
+<td></td>
+</tr>
+<tr>
+<td>NUMA</td>
+<td>non-uniform memory access</td>
+<td>每个节点到 memory 的访问时间不一致，到自己的快，到别人的慢</td>
+<td>扩展到更大规模上的可扩展性强</td>
+</tr>
+</tbody>
+</table>
 <p><strong>cache 一致性的术语</strong></p>
 <p>如果 CPU 有多个核，或者如果 CPU 是分布式的，它们共用一个 cache，那么就需要使 cache 对所有核/节点的读写保持一致性，比如一个核/节点写的东西对其它核/节点可见，其它核/节点看见的都是最新的。</p>
 <table>
