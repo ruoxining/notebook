@@ -2095,9 +2095,9 @@
 </ul>
 <h3 id="riscv">RISCV 寄存器</h3>
 <p>回忆内存结构（如果你明确知道寄存器是什么就不用回忆了），可见寄存器并不在运行内存里：</p>
-<p>```plain text
-小/快 &lt;---------------&gt; 大/慢
-[寄存器] - [cache] - [内存] - [外存]
+<p>```plain text</p>
+<p>小/快 &lt;---------------&gt; 大/慢
+[寄存器] - [cache] - [内存] - [外存]</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>riscv有32个通用寄存器 + 很多控制状态寄存器 (control and status registers (CSRs))。riscv 给每个寄存器有个元信息，这个元信息共用 12-bit 来存储即 csr[11:0]，所以一共支持 4096 个寄存器。具体而言，csr[11:0] 这个数据结构每个位的意义分配如下：
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 </span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>| 位数 | 11:10 | 9:8 | 7:4 |
@@ -2323,7 +2323,7 @@
 </span><span id="__span-8-223"><a id="__codelineno-8-223" name="__codelineno-8-223" href="#__codelineno-8-223"></a>                      │                             │
 </span><span id="__span-8-224"><a id="__codelineno-8-224" name="__codelineno-8-224" href="#__codelineno-8-224"></a>              0xffffffc000000000           0xffffffffffffffff
 </span><span id="__span-8-225"><a id="__codelineno-8-225" name="__codelineno-8-225" href="#__codelineno-8-225"></a>                start_address                  end_address
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>然后必须要搞明白：虚拟内存从来没有被真正开辟过，被真正开辟的只有物理内存。我们在程序实现过程中开的变量和 alloc 的 page，都是开在 kernel 的栈或者堆上（.data和.bss段），因为查地址时可以查到它们的物理地址。而各种 csr 在 cpu 里，不会加载到内存中。而本次实验所讲的“开启虚拟内存”，本质上只是设计一个虚拟地址到物理地址的转换函数，这个函数放在页表里。</p>
 <h3 id="sv39">Sv39 的页表项</h3>
 <p>TODO: pte 的结构 一个截图</p>
