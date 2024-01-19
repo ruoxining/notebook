@@ -1784,7 +1784,7 @@
 <h2 id="overview">overview</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>TODO</p>
+<p>结构图 TODO</p>
 </div>
 <p>一个最后做出来的 lab 结构图:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
@@ -2260,20 +2260,16 @@
 </tbody>
 </table>
 <p>首先，通用寄存器有如下这些：</p>
-<p>TODO：一个寄存器的列表的截图</p>
+<p><img alt="" src="../../asset/riscv_regs.png" /></p>
 <p>在编写汇编代码的时候一般使用寄存器的abi的名字而不是寄存器的编号</p>
 <ul>
 <li>x0 - x31是用来做整形运算的寄存器</li>
 <li>f0 - f31是用来做浮点运算的寄存器（有的不一定有）</li>
 </ul>
 <p>而下面要单独讲一下 <strong>csr</strong>。</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>我不知道下面的图片作为 notion 内部链接能否正常查看，总之我会尽快把图片变成本地图片来 fix。</p>
-</div>
 <p><strong>sstatus (supervisor status register)</strong></p>
 <p>The sstatus register is an SXLEN(代表32或64)-bit read/write register formatted as follows. 我们用的是64位。</p>
-<p><img alt="截屏2023-12-22 16.03.00.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/c19de790-9471-46d8-9b8c-5d800024e979/%E6%88%AA%E5%B1%8F2023-12-22_16.03.00.png" /></p>
+<p><img alt="" src="../../asset/sstatus.png" /></p>
 <p>也就是说这个寄存器把很多事件的状态都用0或1表示，拼到了同一个寄存器里。</p>
 <table>
 <thead>
@@ -2312,13 +2308,13 @@
 </ul>
 <p><strong>sie (supervisor interrupt enable register)</strong></p>
 <p>如果开启了sstatus[SIE]，就会根据sie中的比特位，决定是否处理interrupt</p>
-<p><img alt="截屏2023-12-22 16.17.00.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/9a2f9d95-ddb1-4437-a479-4287cee94ebd/%E6%88%AA%E5%B1%8F2023-12-22_16.17.00.png" /></p>
+<p><img alt="" src="../../asset/sie.png" /></p>
 <p>Bits sip.SEIP and sie.SEIE are the interrupt-pending and interrupt-enable bits for supervisor- level external interrupts. If implemented, SEIP is read-only in sip, and is set and cleared by the execution environment, typically through a platform-specific interrupt controller.
 Bits sip.STIP and sie.STIE are the interrupt-pending and interrupt-enable bits for supervisor- level timer interrupts. If implemented, STIP is read-only in sip, and is set and cleared by the execution environment.
 Bits sip.SSIP and sie.SSIE are the interrupt-pending and interrupt-enable bits for supervisor- level software interrupts. If implemented, SSIP is writable in sip and may also be set to 1 by a platform-specific interrupt controller.</p>
 <p><strong>stvec (supervisor trap vector base address register)</strong></p>
 <p>中断向量表基址. </p>
-<p><img alt="截屏2023-12-22 16.11.56.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/df6c9965-4ba3-45af-a9e6-70a9c05920f1/%E6%88%AA%E5%B1%8F2023-12-22_16.11.56.png" /></p>
+<p><img alt="" src="../../asset/stvec.png" /></p>
 <p>WARL是中断处理程序的地址</p>
 <p>MODE是</p>
 <table>
@@ -2347,21 +2343,19 @@ Bits sip.SSIP and sie.SSIE are the interrupt-pending and interrupt-enable bits f
 </tr>
 </tbody>
 </table>
-<p><strong>scause (supervisor cause register)</strong></p>
-<p>会记录 trap 发生的原因，还会记录该 trap是 <code>Interrupt</code> 还是 <code>Exception</code>。</p>
 <p><strong>sscratch (supervisor scratch register)</strong></p>
 <p>Typically, sscratch is used to hold a pointer to the hart-local supervisor context while the hart is executing user mode. At the beginning of a trap handler, sscratch is swapped with a user register to provide an initial working register.</p>
-<p><img alt="截屏2023-12-22 16.25.34.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/4b8b7b1d-90ef-427d-ab05-989ec67fc5a0/%E6%88%AA%E5%B1%8F2023-12-22_16.25.34.png" /></p>
+<p><img alt="" src="../../asset/sscratch.png" /></p>
 <p>在本次实验中，我们拿sscratch记录s-mode的stack pointer，在trap发生的时候与u-mode stack pointer交换（好像是来着忘了TODO一会核实）</p>
 <p><strong>sepc (supervisor exception program counter)</strong></p>
-<p>在s-mode里，会记录触发 exception 的那条指令的虚拟地址，虽然最低位总为0</p>
-<p><img alt="截屏2023-12-22 16.28.07.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/00a1bf77-a91d-451b-85ff-f0b0bb598dc1/%E6%88%AA%E5%B1%8F2023-12-22_16.28.07.png" /></p>
+<p>会记录 trap 处理过后的返回地址。</p>
+<p><img alt="" src="../../asset/sepc.png" /></p>
 <p><strong>scause (supervisor cause register)</strong></p>
-<p><img alt="截屏2023-12-22 16.30.34.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/2c536a76-0998-4991-bbd9-d3b29b079909/%E6%88%AA%E5%B1%8F2023-12-22_16.30.34.png" /></p>
-<p>记录trap发生的原因，原因有以下几种：</p>
-<p><img alt="截屏2023-12-22 16.32.43.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/bf99120a-2b6d-426d-aa6a-acb3bd0be7d6/%E6%88%AA%E5%B1%8F2023-12-22_16.32.43.png" /></p>
+<p><img alt="" src="../../asset/scause.png" /></p>
+<p>会记录 trap 发生的原因，还会记录该 trap 是 <code>Interrupt</code> 还是 <code>Exception</code>。原因有以下几种：</p>
+<p><img alt="" src="../../asset/scause2.png" /></p>
 <p><strong>stval (supervisor trap value register)</strong></p>
-<p><img alt="截屏2023-12-22 16.33.29.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/c7b7ed51-5e53-409c-80de-e3afbae2222d/%E6%88%AA%E5%B1%8F2023-12-22_16.33.29.png" /></p>
+<p><img alt="" src="../../asset/stval.png" /></p>
 <p>The stval register can optionally also be used to return the faulting instruction bits on an illegal
 instruction exception (sepc points to the faulting instruction in memory). If stval is written with
 a nonzero value when an illegal-instruction exception occurs, then stval will contain the shortest
@@ -2371,10 +2365,9 @@ of:</p>
  the first SXLEN bits of the faulting instruction</p>
 <p>The value loaded into stval on an illegal-instruction exception is right-justified and all unused upper bits are cleared to zero.</p>
 <p><strong>satp (supervisor address translation and protection register)</strong></p>
-<p><img alt="截屏2023-12-22 16.36.48.png" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/a3eb604e-abb0-49ff-b3ae-be1989ce8ab0/2de881ee-778a-4e43-a7d5-09294570e47c/%E6%88%AA%E5%B1%8F2023-12-22_16.36.48.png" /></p>
-<p>记录最高级页表的物理地址</p>
-<p>MODE位=8时，使用Sv39模式虚拟地址（本实验）</p>
-<p>时钟中断相关的寄存器</p>
+<p><img alt="" src="../../asset/satp.png" /></p>
+<p>记录最高级页表的物理地址。MODE位=8时，使用Sv39模式虚拟地址（本实验）</p>
+<p>以下是时钟中断相关的寄存器：</p>
 <p><strong>mtime</strong></p>
 <p>计时器，以恒定频率自增（我记得在本实验里是多少分之一秒）</p>
 <p><strong>mtimecmp（machine timer register）</strong></p>
@@ -2528,7 +2521,7 @@ of:</p>
 </span></code></pre></div>
 <p>然后必须要搞明白：虚拟内存从来没有被真正开辟过，被真正开辟的只有物理内存。我们在程序实现过程中开的变量和 alloc 的 page，都是开在 kernel 的栈或者堆上（.data和.bss段），因为查地址时可以查到它们的物理地址。而各种 csr 在 cpu 里，不会加载到内存中。而本次实验所讲的“开启虚拟内存”，本质上只是设计一个虚拟地址到物理地址的转换函数，这个函数放在页表里。</p>
 <h3 id="sv39">Sv39 的页表项</h3>
-<p>TODO: pte 的结构 一个截图</p>
+<p><img alt="" src="../../asset/riscv_sv39.png" /></p>
 <p>理解一下页表项（pte）。它的低位：</p>
 <ul>
 <li>V: valid</li>
