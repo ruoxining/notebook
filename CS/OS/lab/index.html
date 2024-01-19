@@ -667,6 +667,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lab5" class="md-nav__link">
+    lab5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab6" class="md-nav__link">
+    lab6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab7" class="md-nav__link">
+    lab7
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    常见问题之补充又名我之总是遇见问题
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1635,6 +1663,34 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lab5" class="md-nav__link">
+    lab5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab6" class="md-nav__link">
+    lab6
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab7" class="md-nav__link">
+    lab7
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    常见问题之补充又名我之总是遇见问题
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2519,131 +2575,115 @@ of:</p>
 <p>一种物理内存管理算法，空闲空间首先被看成 2^N 个物理页的大空间，当一个大小为 m 的页请求内存分配时，不停把空间 /2 划分，最后找到最接近m的2的次方的一个空间大小分给 m。当块释放时，分配器就会找到其它空闲的伙伴块去合并。它的实现在这个文章里讲得更好 <a href="https://zhuanlan.zhihu.com/p/456803049">Lab 6：RISC-V 动态内存分配与缺页异常处理 - 知乎 (zhihu.com)</a>。</p>
 <h4 id="elf">elf 文件</h4>
 <p>一个 elf 文件像一个封装复杂版的二进制用户程序。用抽象的画图给它的结构做一个比喻（对不起太抽象了）：</p>
-<p><code>``plain text
-Elf_Ehdr     ehdr-&gt;e_phoff
-⬇️            ⬇️
-[            [type: ???][type: LOAD][type: ???] ]
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>就是 elf 文件里散落着几个小段，其中一个类型为 LOAD 的段是需要复制到线程代码段的，但不一定复制到线程头的起始地址 `0x0`，`p_vaddr` 会告诉你这段代码希望被复制到哪里去。e_entry 也贴心告诉你第一条代码指令的起始地址在哪。总之，你需要先通过一些偏移量在 Elf64_Ehdr 这个指针里找到第一个 segment，然后以一个 Elf63_phdr 的大小为单位，挨个去寻找一个类型为 LOAD 的 segment。等找到了就可以拷贝了。
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>如果你按照一堆指针的写法被搞得晕头转向，甚至只是先用 `readelf -h` 查看一下 elf 文件里各个东西的地址（查看后可以发现与实验指导中给的例子就是同一个文件），然后直接把整个 uapp 程序全部拷到进程里来，直接把 `__dummy` 返回地址指到你在文件里读出来的那个代码起始地址，甚至都能跑。在跑起来之后，根据你的理解一点一点把设置指针的代码按照含义替换上，我感觉这样反着做也行。
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>## lab5
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>!!! warning
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    下面几个实验我写得有点简略，小部分因为我不记得了，大部分因为我自我感觉没有吃透这个实验，不班门弄斧了。但是这个地方发自内心地想留个 TODO 希望能有机会补完。
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>本实验与 lab4 内存分配的区别是，为了防止物理内存不足，在 task 初始化请求空间时，先不分配物理内存，而是用 `do_mmap()` 先把 task 的请求的所有参数记录下来，等 task 真正去访问的时候，必然会触发 page fault，然后在 page fault handler 里根据记录的参数，再分配物理内存。
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>## lab6
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>实验主要目标是实现创建子进程的逻辑，即在用户程序调用fork()函数，产生220号系统调用的时候，在sys_clone()这个函数里创建子进程，并使其加入被调用的task队列。
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>## lab7
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>!!! warning
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    lab7 我只完成了占 60% 的第一部分，但其实工作量比较大的还在第二部分。我这里只能总结第一部分了。
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>本实验每个task都有一个结构体去维护已经打开的文件表。本实验首先修改task struct，在每个task struct中添加了一个页(struct file* 型)去维护这个文件表。
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>每个文件表有一些函数指针，分别指向对文件的读写操作函数。首先需要实现这些函数，如 `stdout_write()` 和 `stdin_read()` 等。
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a>
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a>当用户程序产生文件读写的 system call 时，`trap_handler()` 中需要实现对这些 system call 的处理函数。具体操作就是捕获，然后什么也不做，直接把参数交给上述实现的文件读写函数来操作。
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a>
-</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
-</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a>## 常见问题之补充又名我之总是遇见问题
-</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a>
-</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>**Q1**: 运行发现程序在几个初始化函数之间来回跳跃，比如已经到了 `set_up_vm_final()`，又跳回 `set_up_vm()`，再往下运行就在这几个函数之间循环。进入 gdb 调试，则发现发生跳转的地方并没有任何 branch 或者 call 语句指向跳往的地址，但是能观察到出现跳转的地方，往往是进了 memset() 或者 memcopy() 函数。
-</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a>
-</span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a>**A1**: 整个实验过程中我遇到了三四次，一开始觉得是以奇怪的方式解决了（比如，突然发现自己在初始化进程，引入外部页表时用到的代码是 `extern unsigned long *swapper_pg_dir;`，而不是 `extern unsigned long swapper_pg_dir[512] __attribute__((__aligned__(0x1000)));`，即，缺少了一个地址对齐。同学指出如果没有对齐，可能会导致页表边缘的一些数据的丢失损坏。），后来慢慢发现规律是：发生这样跳转的指令，都在尝试往 `0x80000000` 这个物理地址以下的物理地址写东西。我们注意到 qemu 提供给我们的物理地址都是 `0x80000000` 以上的地址，虽然没有考证，但是合理猜测其下的地址是 qemu 自己的代码区，支持 qemu 自己的运行逻辑。如果不小心写到了这个地方，当然可能发生不能解释的 qemu 行为。
-</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a>
-</span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a>所以如果遇到这个问题，可行的一步一步检查方法是：
-</span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a>
-</span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>- 检查 lab3 `create_mapping()` 做页表有没有做对。一个漂亮的检查方法是 `printk(&quot;[function name]: map from %#llx-%#llx to %#llx-%#llx&quot;, pa, pa+size, va, va+size);`，帮助检查从哪个地址 copy 到哪个地址了。
-</span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a>- 检查做好的页表，使用上是否正确。
-</span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a>- 检查 `memset()` `memcpy()` 等函数有没有用对。一样是用上面类似的 prink 去打印起始地址。
-</span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a>
-</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a>总之，根本目标是去看一下有没有往物理地址 `0x80000000` 以下的地方写东西。
-</span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a>
-</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a>**Q2**: 运行程序到一半卡住，没有任何输出了，调试发现最后是在 `__dummy` 的 `sret` 后卡住了。
-</span><span id="__span-10-43"><a id="__codelineno-10-43" name="__codelineno-10-43" href="#__codelineno-10-43"></a>
-</span><span id="__span-10-44"><a id="__codelineno-10-44" name="__codelineno-10-44" href="#__codelineno-10-44"></a>**A2**: 可以先实现一个漂亮点的 `trap_handler()` 帮助调试。这点在 lab7 的指导里才有提示到，不过我觉得应该早点实现起来。比如：
-</span><span id="__span-10-45"><a id="__codelineno-10-45" name="__codelineno-10-45" href="#__codelineno-10-45"></a>
-</span><span id="__span-10-46"><a id="__codelineno-10-46" name="__codelineno-10-46" href="#__codelineno-10-46"></a>```c
-</span><span id="__span-10-47"><a id="__codelineno-10-47" name="__codelineno-10-47" href="#__codelineno-10-47"></a>void trap_handler(uint64 scause, uint64 sepc, struct pt_regs* regs) {  // a0, a1, a2
-</span><span id="__span-10-48"><a id="__codelineno-10-48" name="__codelineno-10-48" href="#__codelineno-10-48"></a>
-</span><span id="__span-10-49"><a id="__codelineno-10-49" name="__codelineno-10-49" href="#__codelineno-10-49"></a>    uint64 stval = csr_read(stval);
-</span><span id="__span-10-50"><a id="__codelineno-10-50" name="__codelineno-10-50" href="#__codelineno-10-50"></a>    // printk(&quot;[S] Trap @sepc = %#llx, @scause = %#llx, @stval = %#llx\n&quot;, sepc, scause, stval);
-</span><span id="__span-10-51"><a id="__codelineno-10-51" name="__codelineno-10-51" href="#__codelineno-10-51"></a>
-</span><span id="__span-10-52"><a id="__codelineno-10-52" name="__codelineno-10-52" href="#__codelineno-10-52"></a>    int done = 0;
-</span><span id="__span-10-53"><a id="__codelineno-10-53" name="__codelineno-10-53" href="#__codelineno-10-53"></a>
-</span><span id="__span-10-54"><a id="__codelineno-10-54" name="__codelineno-10-54" href="#__codelineno-10-54"></a>    /* Interrupt */
-</span><span id="__span-10-55"><a id="__codelineno-10-55" name="__codelineno-10-55" href="#__codelineno-10-55"></a>    if ((scause &gt;&gt; 63) &amp;&amp; (scause &amp; 0x7FFFFFFFFFFFFFFF) == 5) {
-</span><span id="__span-10-56"><a id="__codelineno-10-56" name="__codelineno-10-56" href="#__codelineno-10-56"></a>        clock_set_next_event();
-</span><span id="__span-10-57"><a id="__codelineno-10-57" name="__codelineno-10-57" href="#__codelineno-10-57"></a>        printk(&quot;[S] Supervisor Timer Intterupt\n&quot;);
-</span><span id="__span-10-58"><a id="__codelineno-10-58" name="__codelineno-10-58" href="#__codelineno-10-58"></a>        do_timer();
-</span><span id="__span-10-59"><a id="__codelineno-10-59" name="__codelineno-10-59" href="#__codelineno-10-59"></a>    } 
-</span><span id="__span-10-60"><a id="__codelineno-10-60" name="__codelineno-10-60" href="#__codelineno-10-60"></a>    /* Exception */
-</span><span id="__span-10-61"><a id="__codelineno-10-61" name="__codelineno-10-61" href="#__codelineno-10-61"></a>    else {
-</span><span id="__span-10-62"><a id="__codelineno-10-62" name="__codelineno-10-62" href="#__codelineno-10-62"></a>        /* instrution addr misaligned */
-</span><span id="__span-10-63"><a id="__codelineno-10-63" name="__codelineno-10-63" href="#__codelineno-10-63"></a>        if (scause == 0) {}
-</span><span id="__span-10-64"><a id="__codelineno-10-64" name="__codelineno-10-64" href="#__codelineno-10-64"></a>        /* Instruction access fault */
-</span><span id="__span-10-65"><a id="__codelineno-10-65" name="__codelineno-10-65" href="#__codelineno-10-65"></a>        else if (scause == 1) {}
-</span><span id="__span-10-66"><a id="__codelineno-10-66" name="__codelineno-10-66" href="#__codelineno-10-66"></a>        /* Illegal instruction */
-</span><span id="__span-10-67"><a id="__codelineno-10-67" name="__codelineno-10-67" href="#__codelineno-10-67"></a>        else if (scause == 2) {}
-</span><span id="__span-10-68"><a id="__codelineno-10-68" name="__codelineno-10-68" href="#__codelineno-10-68"></a>        /* breakpoint */
-</span><span id="__span-10-69"><a id="__codelineno-10-69" name="__codelineno-10-69" href="#__codelineno-10-69"></a>        else if (scause == 3) {}
-</span><span id="__span-10-70"><a id="__codelineno-10-70" name="__codelineno-10-70" href="#__codelineno-10-70"></a>        /* load addr misaligned */
-</span><span id="__span-10-71"><a id="__codelineno-10-71" name="__codelineno-10-71" href="#__codelineno-10-71"></a>        else if (scause == 4) {}
-</span><span id="__span-10-72"><a id="__codelineno-10-72" name="__codelineno-10-72" href="#__codelineno-10-72"></a>        /* load access fault */
-</span><span id="__span-10-73"><a id="__codelineno-10-73" name="__codelineno-10-73" href="#__codelineno-10-73"></a>        else if (scause == 5) {}
-</span><span id="__span-10-74"><a id="__codelineno-10-74" name="__codelineno-10-74" href="#__codelineno-10-74"></a>        /* store/amo addr misaligned */
-</span><span id="__span-10-75"><a id="__codelineno-10-75" name="__codelineno-10-75" href="#__codelineno-10-75"></a>        else if (scause == 6) {}
-</span><span id="__span-10-76"><a id="__codelineno-10-76" name="__codelineno-10-76" href="#__codelineno-10-76"></a>        /* store/amo access fault */
-</span><span id="__span-10-77"><a id="__codelineno-10-77" name="__codelineno-10-77" href="#__codelineno-10-77"></a>        else if (scause == 7) {}
-</span><span id="__span-10-78"><a id="__codelineno-10-78" name="__codelineno-10-78" href="#__codelineno-10-78"></a>        /* ecall U-mode */
-</span><span id="__span-10-79"><a id="__codelineno-10-79" name="__codelineno-10-79" href="#__codelineno-10-79"></a>        else if (scause == 8) {
-</span><span id="__span-10-80"><a id="__codelineno-10-80" name="__codelineno-10-80" href="#__codelineno-10-80"></a>            uint64 sys_call_num = regs-&gt;x[17];
-</span><span id="__span-10-81"><a id="__codelineno-10-81" name="__codelineno-10-81" href="#__codelineno-10-81"></a>            if (sys_call_num == SYS_WRITE) {
-</span><span id="__span-10-82"><a id="__codelineno-10-82" name="__codelineno-10-82" href="#__codelineno-10-82"></a>                regs-&gt;x[10] = sys_write(regs-&gt;x[10], regs-&gt;x[11], regs-&gt;x[12]);
-</span><span id="__span-10-83"><a id="__codelineno-10-83" name="__codelineno-10-83" href="#__codelineno-10-83"></a>            } 
-</span><span id="__span-10-84"><a id="__codelineno-10-84" name="__codelineno-10-84" href="#__codelineno-10-84"></a>            else if (sys_call_num == SYS_GETPID) {
-</span><span id="__span-10-85"><a id="__codelineno-10-85" name="__codelineno-10-85" href="#__codelineno-10-85"></a>                regs-&gt;x[10] = sys_getpid();
-</span><span id="__span-10-86"><a id="__codelineno-10-86" name="__codelineno-10-86" href="#__codelineno-10-86"></a>            } 
-</span><span id="__span-10-87"><a id="__codelineno-10-87" name="__codelineno-10-87" href="#__codelineno-10-87"></a>            else if (sys_call_num == SYS_CLONE) {
-</span><span id="__span-10-88"><a id="__codelineno-10-88" name="__codelineno-10-88" href="#__codelineno-10-88"></a>                // initialize currents&#39; pt_regs
-</span><span id="__span-10-89"><a id="__codelineno-10-89" name="__codelineno-10-89" href="#__codelineno-10-89"></a>                for (int i=0; i &lt; 32; ++i) {
-</span><span id="__span-10-90"><a id="__codelineno-10-90" name="__codelineno-10-90" href="#__codelineno-10-90"></a>                    current-&gt;regsframe-&gt;x[i] = regs-&gt;x[i];
-</span><span id="__span-10-91"><a id="__codelineno-10-91" name="__codelineno-10-91" href="#__codelineno-10-91"></a>                }
-</span><span id="__span-10-92"><a id="__codelineno-10-92" name="__codelineno-10-92" href="#__codelineno-10-92"></a>                current-&gt;regsframe-&gt;sepc = regs-&gt;sepc;
-</span><span id="__span-10-93"><a id="__codelineno-10-93" name="__codelineno-10-93" href="#__codelineno-10-93"></a>                regs-&gt;x[10] = sys_clone(regs);
-</span><span id="__span-10-94"><a id="__codelineno-10-94" name="__codelineno-10-94" href="#__codelineno-10-94"></a>            }
-</span><span id="__span-10-95"><a id="__codelineno-10-95" name="__codelineno-10-95" href="#__codelineno-10-95"></a>            else {
-</span><span id="__span-10-96"><a id="__codelineno-10-96" name="__codelineno-10-96" href="#__codelineno-10-96"></a>                printk(&quot;[S] Unhandled syscall with sys_call_num = %d\n&quot;, sys_call_num);
-</span><span id="__span-10-97"><a id="__codelineno-10-97" name="__codelineno-10-97" href="#__codelineno-10-97"></a>                current-&gt;counter = 0;
-</span><span id="__span-10-98"><a id="__codelineno-10-98" name="__codelineno-10-98" href="#__codelineno-10-98"></a>                schedule();
-</span><span id="__span-10-99"><a id="__codelineno-10-99" name="__codelineno-10-99" href="#__codelineno-10-99"></a>                // while (1);
-</span><span id="__span-10-100"><a id="__codelineno-10-100" name="__codelineno-10-100" href="#__codelineno-10-100"></a>            }
-</span><span id="__span-10-101"><a id="__codelineno-10-101" name="__codelineno-10-101" href="#__codelineno-10-101"></a>            regs-&gt;sepc += 4; // pc + 4
-</span><span id="__span-10-102"><a id="__codelineno-10-102" name="__codelineno-10-102" href="#__codelineno-10-102"></a>        } 
-</span><span id="__span-10-103"><a id="__codelineno-10-103" name="__codelineno-10-103" href="#__codelineno-10-103"></a>        /* ecall S-mode */
-</span><span id="__span-10-104"><a id="__codelineno-10-104" name="__codelineno-10-104" href="#__codelineno-10-104"></a>        else if (scause == 9) {}
-</span><span id="__span-10-105"><a id="__codelineno-10-105" name="__codelineno-10-105" href="#__codelineno-10-105"></a>        /* Instruction page fault */
-</span><span id="__span-10-106"><a id="__codelineno-10-106" name="__codelineno-10-106" href="#__codelineno-10-106"></a>        /* Load page fault */
-</span><span id="__span-10-107"><a id="__codelineno-10-107" name="__codelineno-10-107" href="#__codelineno-10-107"></a>        /* Store/amo page fault */
-</span><span id="__span-10-108"><a id="__codelineno-10-108" name="__codelineno-10-108" href="#__codelineno-10-108"></a>        else if (scause == 12 || scause == 13 || scause == 15) {
-</span><span id="__span-10-109"><a id="__codelineno-10-109" name="__codelineno-10-109" href="#__codelineno-10-109"></a>            done = do_page_fault(scause, regs);
-</span><span id="__span-10-110"><a id="__codelineno-10-110" name="__codelineno-10-110" href="#__codelineno-10-110"></a>        } 
-</span><span id="__span-10-111"><a id="__codelineno-10-111" name="__codelineno-10-111" href="#__codelineno-10-111"></a>        else {
-</span><span id="__span-10-112"><a id="__codelineno-10-112" name="__codelineno-10-112" href="#__codelineno-10-112"></a>            printk(&quot;[S] Unhandled exception with scause = %d, sepc = %lx\n&quot;, scause, sepc);
-</span><span id="__span-10-113"><a id="__codelineno-10-113" name="__codelineno-10-113" href="#__codelineno-10-113"></a>            while (1);
-</span><span id="__span-10-114"><a id="__codelineno-10-114" name="__codelineno-10-114" href="#__codelineno-10-114"></a>        }
-</span><span id="__span-10-115"><a id="__codelineno-10-115" name="__codelineno-10-115" href="#__codelineno-10-115"></a>    }
-</span><span id="__span-10-116"><a id="__codelineno-10-116" name="__codelineno-10-116" href="#__codelineno-10-116"></a>    // if (!done) while(1);
-</span><span id="__span-10-117"><a id="__codelineno-10-117" name="__codelineno-10-117" href="#__codelineno-10-117"></a>}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Elf_Ehdr     ehdr-&gt;e_phoff
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>⬇️            ⬇️
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>[            [type: ???][type: LOAD][type: ???] ]
 </span></code></pre></div>
-总之，建议对</code>trap_handler()<code>做的改进有两件
+<p>就是 elf 文件里散落着几个小段，其中一个类型为 LOAD 的段是需要复制到线程代码段的，但不一定复制到线程头的起始地址 <code>0x0</code>，<code>p_vaddr</code> 会告诉你这段代码希望被复制到哪里去。e_entry 也贴心告诉你第一条代码指令的起始地址在哪。总之，你需要先通过一些偏移量在 Elf64_Ehdr 这个指针里找到第一个 segment，然后以一个 Elf63_phdr 的大小为单位，挨个去寻找一个类型为 LOAD 的 segment。等找到了就可以拷贝了。</p>
+<p>如果你按照一堆指针的写法被搞得晕头转向，甚至只是先用 <code>readelf -h</code> 查看一下 elf 文件里各个东西的地址（查看后可以发现与实验指导中给的例子就是同一个文件），然后直接把整个 uapp 程序全部拷到进程里来，直接把 <code>__dummy</code> 返回地址指到你在文件里读出来的那个代码起始地址，甚至都能跑。在跑起来之后，根据你的理解一点一点把设置指针的代码按照含义替换上，我感觉这样反着做也行。</p>
+<h2 id="lab5">lab5</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>下面几个实验我写得有点简略，小部分因为我不记得了，大部分因为我自我感觉没有吃透这个实验，不班门弄斧了。但是这个地方发自内心地想留个 TODO 希望能有机会补完。</p>
+</div>
+<p>本实验与 lab4 内存分配的区别是，为了防止物理内存不足，在 task 初始化请求空间时，先不分配物理内存，而是用 <code>do_mmap()</code> 先把 task 的请求的所有参数记录下来，等 task 真正去访问的时候，必然会触发 page fault，然后在 page fault handler 里根据记录的参数，再分配物理内存。</p>
+<h2 id="lab6">lab6</h2>
+<p>实验主要目标是实现创建子进程的逻辑，即在用户程序调用fork()函数，产生220号系统调用的时候，在sys_clone()这个函数里创建子进程，并使其加入被调用的task队列。</p>
+<h2 id="lab7">lab7</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>lab7 我只完成了占 60% 的第一部分，但其实工作量比较大的还在第二部分。我这里只能总结第一部分了。</p>
+</div>
+<p>本实验每个task都有一个结构体去维护已经打开的文件表。本实验首先修改task struct，在每个task struct中添加了一个页(struct file* 型)去维护这个文件表。</p>
+<p>每个文件表有一些函数指针，分别指向对文件的读写操作函数。首先需要实现这些函数，如 <code>stdout_write()</code> 和 <code>stdin_read()</code> 等。</p>
+<p>当用户程序产生文件读写的 system call 时，<code>trap_handler()</code> 中需要实现对这些 system call 的处理函数。具体操作就是捕获，然后什么也不做，直接把参数交给上述实现的文件读写函数来操作。</p>
+<h2 id="_8">常见问题之补充又名我之总是遇见问题</h2>
+<p><strong>Q1</strong>: 运行发现程序在几个初始化函数之间来回跳跃，比如已经到了 <code>set_up_vm_final()</code>，又跳回 <code>set_up_vm()</code>，再往下运行就在这几个函数之间循环。进入 gdb 调试，则发现发生跳转的地方并没有任何 branch 或者 call 语句指向跳往的地址，但是能观察到出现跳转的地方，往往是进了 memset() 或者 memcopy() 函数。</p>
+<p><strong>A1</strong>: 整个实验过程中我遇到了三四次，一开始觉得是以奇怪的方式解决了（比如，突然发现自己在初始化进程，引入外部页表时用到的代码是 <code>extern unsigned long *swapper_pg_dir;</code>，而不是 <code>extern unsigned long swapper_pg_dir[512] __attribute__((__aligned__(0x1000)));</code>，即，缺少了一个地址对齐。同学指出如果没有对齐，可能会导致页表边缘的一些数据的丢失损坏。），后来慢慢发现规律是：发生这样跳转的指令，都在尝试往 <code>0x80000000</code> 这个物理地址以下的物理地址写东西。我们注意到 qemu 提供给我们的物理地址都是 <code>0x80000000</code> 以上的地址，虽然没有考证，但是合理猜测其下的地址是 qemu 自己的代码区，支持 qemu 自己的运行逻辑。如果不小心写到了这个地方，当然可能发生不能解释的 qemu 行为。</p>
+<p>所以如果遇到这个问题，可行的一步一步检查方法是：</p>
+<ul>
+<li>检查 lab3 <code>create_mapping()</code> 做页表有没有做对。一个漂亮的检查方法是 <code>printk("[function name]: map from %#llx-%#llx to %#llx-%#llx", pa, pa+size, va, va+size);</code>，帮助检查从哪个地址 copy 到哪个地址了。</li>
+<li>检查做好的页表，使用上是否正确。</li>
+<li>检查 <code>memset()</code> <code>memcpy()</code> 等函数有没有用对。一样是用上面类似的 prink 去打印起始地址。</li>
+</ul>
+<p>总之，根本目标是去看一下有没有往物理地址 <code>0x80000000</code> 以下的地方写东西。</p>
+<p><strong>Q2</strong>: 运行程序到一半卡住，没有任何输出了，调试发现最后是在 <code>__dummy</code> 的 <code>sret</code> 后卡住了。</p>
+<p><strong>A2</strong>: 可以先实现一个漂亮点的 <code>trap_handler()</code> 帮助调试。这点在 lab7 的指导里才有提示到，不过我觉得应该早点实现起来。比如：</p>
+<p><div class="language-c highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">trap_handler</span><span class="p">(</span><span class="n">uint64</span><span class="w"> </span><span class="n">scause</span><span class="p">,</span><span class="w"> </span><span class="n">uint64</span><span class="w"> </span><span class="n">sepc</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">pt_regs</span><span class="o">*</span><span class="w"> </span><span class="n">regs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// a0, a1, a2</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">uint64</span><span class="w"> </span><span class="n">stval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">csr_read</span><span class="p">(</span><span class="n">stval</span><span class="p">);</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="c1">// printk(&quot;[S] Trap @sepc = %#llx, @scause = %#llx, @stval = %#llx\n&quot;, sepc, scause, stval);</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="cm">/* Interrupt */</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">scause</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="mi">63</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x7FFFFFFFFFFFFFFF</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">        </span><span class="n">clock_set_next_event</span><span class="p">();</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">        </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;[S] Supervisor Timer Intterupt</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">        </span><span class="n">do_timer</span><span class="p">();</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="cm">/* Exception */</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">        </span><span class="cm">/* instrution addr misaligned */</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">        </span><span class="cm">/* Instruction access fault */</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">        </span><span class="cm">/* Illegal instruction */</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">        </span><span class="cm">/* breakpoint */</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="cm">/* load addr misaligned */</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">        </span><span class="cm">/* load access fault */</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="w">        </span><span class="cm">/* store/amo addr misaligned */</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">        </span><span class="cm">/* store/amo access fault */</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-32"><a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">        </span><span class="cm">/* ecall U-mode */</span>
+</span><span id="__span-11-33"><a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-34"><a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">            </span><span class="n">uint64</span><span class="w"> </span><span class="n">sys_call_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">17</span><span class="p">];</span>
+</span><span id="__span-11-35"><a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sys_call_num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SYS_WRITE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-36"><a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">                </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys_write</span><span class="p">(</span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span><span class="w"> </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">12</span><span class="p">]);</span>
+</span><span id="__span-11-37"><a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-11-38"><a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sys_call_num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SYS_GETPID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-39"><a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">                </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys_getpid</span><span class="p">();</span>
+</span><span id="__span-11-40"><a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">            </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-11-41"><a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sys_call_num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">SYS_CLONE</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-42"><a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a><span class="w">                </span><span class="c1">// initialize currents&#39; pt_regs</span>
+</span><span id="__span-11-43"><a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-44"><a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">                    </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">regsframe</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-11-45"><a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-11-46"><a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="w">                </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">regsframe</span><span class="o">-&gt;</span><span class="n">sepc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">sepc</span><span class="p">;</span>
+</span><span id="__span-11-47"><a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="w">                </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sys_clone</span><span class="p">(</span><span class="n">regs</span><span class="p">);</span>
+</span><span id="__span-11-48"><a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-11-49"><a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a><span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-50"><a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="w">                </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;[S] Unhandled syscall with sys_call_num = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">sys_call_num</span><span class="p">);</span>
+</span><span id="__span-11-51"><a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a><span class="w">                </span><span class="n">current</span><span class="o">-&gt;</span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-11-52"><a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a><span class="w">                </span><span class="n">schedule</span><span class="p">();</span>
+</span><span id="__span-11-53"><a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="w">                </span><span class="c1">// while (1);</span>
+</span><span id="__span-11-54"><a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-11-55"><a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="w">            </span><span class="n">regs</span><span class="o">-&gt;</span><span class="n">sepc</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="c1">// pc + 4</span>
+</span><span id="__span-11-56"><a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-11-57"><a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="w">        </span><span class="cm">/* ecall S-mode */</span>
+</span><span id="__span-11-58"><a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-59"><a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a><span class="w">        </span><span class="cm">/* Instruction page fault */</span>
+</span><span id="__span-11-60"><a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="w">        </span><span class="cm">/* Load page fault */</span>
+</span><span id="__span-11-61"><a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a><span class="w">        </span><span class="cm">/* Store/amo page fault */</span>
+</span><span id="__span-11-62"><a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">scause</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-63"><a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a><span class="w">            </span><span class="n">done</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">do_page_fault</span><span class="p">(</span><span class="n">scause</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">);</span>
+</span><span id="__span-11-64"><a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span>
+</span><span id="__span-11-65"><a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-66"><a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="w">            </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;[S] Unhandled exception with scause = %d, sepc = %lx</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">scause</span><span class="p">,</span><span class="w"> </span><span class="n">sepc</span><span class="p">);</span>
+</span><span id="__span-11-67"><a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-11-68"><a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-11-69"><a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-70"><a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="w">    </span><span class="c1">// if (!done) while(1);</span>
+</span><span id="__span-11-71"><a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="p">}</span>
+</span></code></pre></div>
+总之，建议对 <code>trap_handler()</code> 做的改进有两件
 - 如果发生 trap 就输出一下当前的 scause（trap 原因），stval（具体发生 trap 的指令地址），sepc（trap 之后的返回地址），一方面看看有没有 trap，另一方面根据这些寄存器的值看看 trap 发生的原因。
-- 可以观察到有一些</code>while(1)` 语句，这是因为如果你的程序卡住的原因是循环发生 trap，一个 trap 还没结束就进入了另一个，那可能会循环输出你打印的信息看不清。这个语句可以帮你停住让你看清打印的信息。（怎么我讲得挺起来好弱智）</p>
+- 可以观察到有一些 <code>while(1)</code> 语句，这是因为如果你的程序卡住的原因是循环发生 trap，一个 trap 还没结束就进入了另一个，那可能会循环输出你打印的信息看不清。这个语句可以帮你停住让你看清打印的信息。（怎么我讲得挺起来好弱智）</p>
 <p>如果确实是循环 trap 导致的程序卡住，那么按打印的信息去思考就可以了。如果还是什么输出都没有（我记得也有这种情况），我不记得是什么原因了，但是起码帮你排除了发生了 trap 的可能性，你可以在此基础上继续思考是为什么。</p>
 
 
