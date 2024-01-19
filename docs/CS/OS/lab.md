@@ -15,28 +15,11 @@
 
 ## 背景知识
 
-### 特权模式
+先介绍一下整个实验和实验环境的大背景。
 
-riscv有三种特权模式：User Supervisor Machine
+### 计算机上电到OS运行的过程
 
-| Level | Encoding | Name |  Abbreviation | 介绍 |
-| --- | --- | --- | --- | --- |
-| 0 | 00 | User/Application | U | 对硬件模式的抽象，有最高级别的权限 |
-| 1 | 01 | Supervisor | S | 对应与内核态Kernel。当用户需要内核资源时，向内核申请，并切换到内核态进行处理 |
-| 2 | 10 | Reserved |  |  |
-| 3 | 11 | Machine | M | 用户态，最低级别权限 |
-
-一般可以运行的程序有
-
-| supported modes | intended usage |
-| --- | --- |
-| M | simple embedded systems |
-| M, U | secure embedded systems |
-| M, S, U | systems running unix-like operating systems |
-
-#### 计算机上电到OS运行的过程
-
-嵌入式系统（相比计算机系统比较简单，只能在特定硬件上运行）的启动过程比较简单，用它来做例子讲解：
+嵌入式系统（相比计算机系统比较简单，只能在特定硬件上运行）的启动过程比较简单，用它来做例子讲解，过程是：
 
 - 上电，对硬件进行一些简单的初始化
 - 将CPU的program counter移动到内存的bootloader的起始地址。bootloader用于操作系统运行内核之前，初始化硬件，加载操作系统内核。
@@ -51,7 +34,7 @@ Hardware             RISC-V M Mode           RISC-V S Mode
 
 ### sbi和opensbi
 
-sbi (supervisor binary interface)是s-mode的kernel和m-mode执行环境之间的接口规范
+介绍实验环境用的第一个工具：sbi (supervisor binary interface)是 s-mode 的 kernel 和 m-mode 执行环境之间的接口规范
 
 opensbi是一个riscv sbi规范的开源实现，总之意思是opensbi是一些对m-mode下硬件的统一定义，在s-mode下的内核可以按照这些规范对不同硬件操作。
 
@@ -62,6 +45,25 @@ opensbi是一个riscv sbi规范的开源实现，总之意思是opensbi是一些
 qemu会把opensbi起始地址加载到0x80000000处.
 
 opensbi初始化后会跳转到0x80200000处，即kernel的起始地址。所以要编译的代码在0x80200000处。
+
+### 特权模式
+
+riscv有三种特权模式：User, Supervisor, & Machine。整个实验中我们一开始都要在 s-mode 操作，之后慢慢实现 u-mode。
+
+| Level | Encoding | Name |  Abbreviation | 介绍 |
+| --- | --- | --- | --- | --- |
+| 0 | 00 | User/Application | U | 对硬件模式的抽象，有最高级别的权限 |
+| 1 | 01 | Supervisor | S | 对应与内核态Kernel。当用户需要内核资源时，向内核申请，并切换到内核态进行处理 |
+| 2 | 10 | Reserved |  |  |
+| 3 | 11 | Machine | M | 用户态，最低级别权限 |
+
+一般每种模式可以运行的程序有
+
+| supported modes | intended usage |
+| --- | --- |
+| M | simple embedded systems |
+| M, U | secure embedded systems |
+| M, S, U | systems running unix-like operating systems |
 
 
 ## 环境配置
@@ -101,7 +103,7 @@ docker run -it --name my_linux ubuntu:22.04 bash
 ## 方法介绍
 
 !!! warning
-    TODO
+    TODO 这块应该再扩写一下的
 
 - shell脚本：相当于一组打包好的命令行，里面命令用来指示命令行的运行顺序等。可以直接用 `bash [shell file].sh` 来运行。
 - qemu：一个可以在x86平台上执行不同架构下程序的模拟器，本实验中用qemu完成对riscv架构程序的模拟。
@@ -703,7 +705,6 @@ void trap_handler(uint64 scause, uint64 sepc, struct pt_regs* regs) {  // a0, a1
     
     uint64 stval = csr_read(stval);
     // printk("[S] Trap @sepc = %#llx, @scause = %#llx, @stval = %#llx\n", sepc, scause, stval);
-
     int done = 0;
 
     /* Interrupt */
@@ -732,26 +733,14 @@ void trap_handler(uint64 scause, uint64 sepc, struct pt_regs* regs) {  // a0, a1
 		else if (scause == 7) {}
 		/* ecall U-mode */
         else if (scause == 8) {
-            uint64 sys_call_num = regs->x[17];
             if (sys_call_num == SYS_WRITE) {
-                regs->x[10] = sys_write(regs->x[10], regs->x[11], regs->x[12]);
+                // ...
             } 
             else if (sys_call_num == SYS_GETPID) {
-                regs->x[10] = sys_getpid();
+                // ...
             } 
             else if (sys_call_num == SYS_CLONE) {
-                // initialize currents' pt_regs
-                for (int i=0; i < 32; ++i) {
-                    current->regsframe->x[i] = regs->x[i];
-                }
-                current->regsframe->sepc = regs->sepc;
-                regs->x[10] = sys_clone(regs);
-            }
-            else {
-                printk("[S] Unhandled syscall with sys_call_num = %d\n", sys_call_num);
-                current->counter = 0;
-                schedule();
-                // while (1);
+                // ...
             }
             regs->sepc += 4; // pc + 4
         } 
@@ -773,7 +762,8 @@ void trap_handler(uint64 scause, uint64 sepc, struct pt_regs* regs) {  // a0, a1
 
 ```
 总之，建议对 `trap_handler()` 做的改进有两件
+
 - 如果发生 trap 就输出一下当前的 scause（trap 原因），stval（具体发生 trap 的指令地址），sepc（trap 之后的返回地址），一方面看看有没有 trap，另一方面根据这些寄存器的值看看 trap 发生的原因。
-- 可以观察到有一些 `while(1)` 语句，这是因为如果你的程序卡住的原因是循环发生 trap，一个 trap 还没结束就进入了另一个，那可能会循环输出你打印的信息看不清。这个语句可以帮你停住让你看清打印的信息。（怎么我讲得挺起来好弱智）
+- 可以观察到有一些 `while(1)` 语句，这是因为如果你的程序卡住的原因是循环发生 trap，一个 trap 还没结束就进入了另一个，那可能会循环输出你打印的信息看不清。这个语句可以帮你停住让你看清打印的信息。（怎么我讲得听起来好弱智）
 
 如果确实是循环 trap 导致的程序卡住，那么按打印的信息去思考就可以了。如果还是什么输出都没有（我记得也有这种情况），我不记得是什么原因了，但是起码帮你排除了发生了 trap 的可能性，你可以在此基础上继续思考是为什么。

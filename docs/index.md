@@ -20,8 +20,8 @@
 | -- | -- | -- | -- | -- | -- |
 | 编程语言 | [🟡C尖](https://ruoxining.github.io/OBvault/CS_Notes/C%E5%A4%A7%E7%A8%8Blibgraphics%E8%B8%A9%E5%9D%91%E6%96%87%E6%A1%A3/) | [🔴C++](https://ruoxining.github.io/OBvault/CS/CPP/course/) [🔗萱宝](https://xuan-insr.github.io/cpp/cpp_restart/) | 🔴Verilog [🔗HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) | 🔴Python | [🟢x86汇编](https://ruoxining.github.io/OBvault/CS/x86assm/) |
 | 计算机科学 | 🔴离散数学 [🔗圆猫](https://github.com/Kaleo996/ZJU-Discrete-Math-2022) | 🟡FDS | 🔴ADS | 🔴计算理论 | 🔴编译原理 [🔗萱宝](https://xuan-insr.github.io/compile_principle/) |
-| 软件 | [🟡OS](https://ruoxining.github.io/OBvault/CS/OS/) [🔗修勾](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴软工 |  |  |
-| 硬件 | 🔴数逻 [🔗修勾](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | [🟢体系](https://ruoxining.github.io/OBvault/CS/CA/) | 🔴计网 |  |
+| 软件 | [🟢OS](https://ruoxining.github.io/OBvault/CS/OS/) [🔗修勾](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴计网 | 🔴软工 |  |
+| 硬件 | 🔴数逻 [🔗修勾](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | [🟢体系](https://ruoxining.github.io/OBvault/CS/CA/) |  |  |
 | 不好描述 | 🔴沟通技巧 | 🟡写个爬虫 |  |  |  |
 
 ### 🎓 DL Notes
