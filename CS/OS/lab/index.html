@@ -460,28 +460,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    特权模式
-  </a>
-  
-    <nav class="md-nav" aria-label="特权模式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#os" class="md-nav__link">
     计算机上电到OS运行的过程
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#sbiopensbi" class="md-nav__link">
+    sbi和opensbi
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sbiopensbi" class="md-nav__link">
-    sbi和opensbi
+  <a href="#_2" class="md-nav__link">
+    特权模式
   </a>
   
 </li>
@@ -1491,28 +1485,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    特权模式
-  </a>
-  
-    <nav class="md-nav" aria-label="特权模式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#os" class="md-nav__link">
     计算机上电到OS运行的过程
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#sbiopensbi" class="md-nav__link">
+    sbi和opensbi
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sbiopensbi" class="md-nav__link">
-    sbi和opensbi
+  <a href="#_2" class="md-nav__link">
+    特权模式
   </a>
   
 </li>
@@ -1790,8 +1778,28 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
 </span></code></pre></div>
 <h2 id="_1">背景知识</h2>
+<p>先介绍一下整个实验和实验环境的大背景。</p>
+<h3 id="os">计算机上电到OS运行的过程</h3>
+<p>嵌入式系统（相比计算机系统比较简单，只能在特定硬件上运行）的启动过程比较简单，用它来做例子讲解，过程是：</p>
+<ul>
+<li>上电，对硬件进行一些简单的初始化</li>
+<li>将CPU的program counter移动到内存的bootloader的起始地址。bootloader用于操作系统运行内核之前，初始化硬件，加载操作系统内核。</li>
+<li>riscv架构下bootloader运行在M模式下，bootloader运行完毕后切换到S模式，随后开始运行kernel。</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Hardware             RISC-V M Mode           RISC-V S Mode 
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>+------------+         +--------------+         +----------+
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>|  Power On  |  ----&gt;  |  Bootloader  |  ----&gt;  |  Kernel  |
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>+------------+         +--------------+         +----------+
+</span></code></pre></div>
+<h3 id="sbiopensbi">sbi和opensbi</h3>
+<p>介绍实验环境用的第一个工具：sbi (supervisor binary interface)是 s-mode 的 kernel 和 m-mode 执行环境之间的接口规范</p>
+<p>opensbi是一个riscv sbi规范的开源实现，总之意思是opensbi是一些对m-mode下硬件的统一定义，在s-mode下的内核可以按照这些规范对不同硬件操作。</p>
+<p>我们opensbi可以作为bootloader完成机器启动时m-mode下的硬件初始化和寄存器设置，可以利用opensbi完成字符打印之类的操作。</p>
+<p><img alt="opensbi" src="../../asset/opensbi.png" /></p>
+<p>qemu会把opensbi起始地址加载到0x80000000处.</p>
+<p>opensbi初始化后会跳转到0x80200000处，即kernel的起始地址。所以要编译的代码在0x80200000处。</p>
 <h3 id="_2">特权模式</h3>
-<p>riscv有三种特权模式：User Supervisor Machine</p>
+<p>riscv有三种特权模式：User, Supervisor, &amp; Machine。整个实验中我们一开始都要在 s-mode 操作，之后慢慢实现 u-mode。</p>
 <table>
 <thead>
 <tr>
@@ -1833,7 +1841,7 @@
 </tr>
 </tbody>
 </table>
-<p>一般可以运行的程序有</p>
+<p>一般每种模式可以运行的程序有</p>
 <table>
 <thead>
 <tr>
@@ -1856,25 +1864,6 @@
 </tr>
 </tbody>
 </table>
-<h4 id="os">计算机上电到OS运行的过程</h4>
-<p>嵌入式系统（相比计算机系统比较简单，只能在特定硬件上运行）的启动过程比较简单，用它来做例子讲解：</p>
-<ul>
-<li>上电，对硬件进行一些简单的初始化</li>
-<li>将CPU的program counter移动到内存的bootloader的起始地址。bootloader用于操作系统运行内核之前，初始化硬件，加载操作系统内核。</li>
-<li>riscv架构下bootloader运行在M模式下，bootloader运行完毕后切换到S模式，随后开始运行kernel。</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Hardware             RISC-V M Mode           RISC-V S Mode 
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>+------------+         +--------------+         +----------+
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>|  Power On  |  ----&gt;  |  Bootloader  |  ----&gt;  |  Kernel  |
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>+------------+         +--------------+         +----------+
-</span></code></pre></div>
-<h3 id="sbiopensbi">sbi和opensbi</h3>
-<p>sbi (supervisor binary interface)是s-mode的kernel和m-mode执行环境之间的接口规范</p>
-<p>opensbi是一个riscv sbi规范的开源实现，总之意思是opensbi是一些对m-mode下硬件的统一定义，在s-mode下的内核可以按照这些规范对不同硬件操作。</p>
-<p>我们opensbi可以作为bootloader完成机器启动时m-mode下的硬件初始化和寄存器设置，可以利用opensbi完成字符打印之类的操作。</p>
-<p><img alt="opensbi" src="../../asset/opensbi.png" /></p>
-<p>qemu会把opensbi起始地址加载到0x80000000处.</p>
-<p>opensbi初始化后会跳转到0x80200000处，即kernel的起始地址。所以要编译的代码在0x80200000处。</p>
 <h2 id="_3">环境配置</h2>
 <h3 id="docker">Docker</h3>
 <p>在官网安装Docker。之后需要打开Docker app，登陆后才能在terminal中使用docker命令。</p>
@@ -1900,7 +1889,7 @@
 <h2 id="_4">方法介绍</h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>TODO</p>
+<p>TODO 这块应该再扩写一下的</p>
 </div>
 <ul>
 <li>shell脚本：相当于一组打包好的命令行，里面命令用来指示命令行的运行顺序等。可以直接用 <code>bash [shell file].sh</code> 来运行。</li>
