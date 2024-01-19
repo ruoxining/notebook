@@ -2724,9 +2724,11 @@ of:</p>
 </span><span id="__span-12-57"><a id="__codelineno-12-57" name="__codelineno-12-57" href="#__codelineno-12-57"></a><span class="w">    </span><span class="c1">// if (!done) while(1);</span>
 </span><span id="__span-12-58"><a id="__codelineno-12-58" name="__codelineno-12-58" href="#__codelineno-12-58"></a><span class="p">}</span>
 </span></code></pre></div>
-总之，建议对 <code>trap_handler()</code> 做的改进有两件
-- 如果发生 trap 就输出一下当前的 scause（trap 原因），stval（具体发生 trap 的指令地址），sepc（trap 之后的返回地址），一方面看看有没有 trap，另一方面根据这些寄存器的值看看 trap 发生的原因。
-- 可以观察到有一些 <code>while(1)</code> 语句，这是因为如果你的程序卡住的原因是循环发生 trap，一个 trap 还没结束就进入了另一个，那可能会循环输出你打印的信息看不清。这个语句可以帮你停住让你看清打印的信息。（怎么我讲得挺起来好弱智）</p>
+总之，建议对 <code>trap_handler()</code> 做的改进有两件</p>
+<ul>
+<li>如果发生 trap 就输出一下当前的 scause（trap 原因），stval（具体发生 trap 的指令地址），sepc（trap 之后的返回地址），一方面看看有没有 trap，另一方面根据这些寄存器的值看看 trap 发生的原因。</li>
+<li>可以观察到有一些 <code>while(1)</code> 语句，这是因为如果你的程序卡住的原因是循环发生 trap，一个 trap 还没结束就进入了另一个，那可能会循环输出你打印的信息看不清。这个语句可以帮你停住让你看清打印的信息。（怎么我讲得听起来好弱智）</li>
+</ul>
 <p>如果确实是循环 trap 导致的程序卡住，那么按打印的信息去思考就可以了。如果还是什么输出都没有（我记得也有这种情况），我不记得是什么原因了，但是起码帮你排除了发生了 trap 的可能性，你可以在此基础上继续思考是为什么。</p>
 
 
