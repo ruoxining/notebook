@@ -56,15 +56,7 @@ Waterloo的推荐信在第一步提交后1-3天内发出，申请人不可决定
 
 群里说的：补充一个哥大cs ce ee也是共用。应该是ms
 
-这几个学校网申问题给我的感觉是
-
-ucsd问得特别全但是有点莫名其妙
-
-gatech想看到你是一个想contribute to community的人
-
-rice想看到你是一个tough good guy
-
-umich只想看到你be happy and diversified
+已知大茅和哥大查ip挺严，群里有同学收到学校邮件说查到信是自己发的
 
 ## 套瓷
 

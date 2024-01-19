@@ -130,7 +130,7 @@ objdump -S -d main > main.txt
 5. 写入结果集
 6. 回到1
 
-![](./asset/Untitled%202.png)
+![](./asset/instcycle.png)
 
 
 运算器进行信息处理，寄存器进行信息存储，控制器控制各种器件工作，总线连接各种器件。
@@ -175,9 +175,9 @@ Mov ds:[bx], ax
 | IP | 控制寄存器 | 它始终指向当前将要执行指令在代码段中的偏移量 |
 | FR | 控制寄存器 | 控制标志位 |
 
-![Untitled](./asset/Untitled%201%201.png)
+![reg1](./asset/reg1.png)
 
-![Untitled](./asset/Untitled%202%201.png)
+![reg2](./asset/reg2.png)
 
 #### 通用寄存器
 
@@ -255,7 +255,7 @@ PF (Parity Flag): 奇偶标志。结果操作数中1的个数为偶数时置1，
 TF：单步调试要用。#
 
 
-![](./asset/Untitled%203.png)
+![](./asset/flag.png)
 
 ![https://img-blog.csdnimg.cn/20200426105235850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nhcmxvc1g=,size_16,color_FFFFFF,t_70](https://img-blog.csdnimg.cn/20200426105235850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nhcmxvc1g=,size_16,color_FFFFFF,t_70)
 
@@ -356,7 +356,7 @@ Jz 99495898 //如果ZF等于1，则跳转到00405898
 | repe/renpe cmpsb | 字符串比较指令。⽐较byte ptr ds:[si]与byte ptr es:[di] 当DF=0时，SI++，DI++ 当DF=1时，SI--，DI-- repne:当ECX!=0并且ZF==0时 重复 repe: cx != 0且zf != 0重复 |  |  |
 | rep movsb | 字符串移动指令。其中rep表示repeat，s表示string，b表示byte 在执⾏此指令前要做以下准备⼯作： ①ds:si |  |  |
 | lodsb | 块装入指令，把SI指向的存储单元读入累加器，lodsb就读入ax，lodsw就读入ax，然后si自动增加或减小1或2 |  |  |
-| stosb/stosw/stosd | SI指向的https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83读入https://baike.baidu.com/item/%E7%B4%AF%E5%8A%A0%E5%99%A8,其中LODSB是读入AL, LODSW是读入AX中, 然后SI自动增加或减小1或2位.当方向标志位DF=0时，则SI自动增加；DF=1时，SI自动减小。 |  |  |
+| stosb/stosw/stosd | SI指向的[🔗](https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83读入https://baike.baidu.com/item/%E7%B4%AF%E5%8A%A0%E5%99%A8),其中LODSB是读入AL, LODSW是读入AX中, 然后SI自动增加或减小1或2位.当方向标志位DF=0时，则SI自动增加；DF=1时，SI自动减小。 |  |  |
 | rep stosb |  |  |  |
 | lodsb |  |  |  |
 
@@ -481,7 +481,7 @@ div word ptr [esp+36]; // 将eax寄存器的值按word为单位除以堆栈地�
 
 ### 高级语言中的数据结构与80386间接寻址
 
-![](./asset/Untitled%204.png)
+![](./asset/segment.png)
 
 BX BP SI DI
 
@@ -512,7 +512,7 @@ ES (extra segment)：附加数据段寄存器，用来存放附加段的段地�
 [bp+si+1] [bp+di-1] tips：两个寄存器相加的间接寻址⽅式中, bx或bp通常⽤来表示数组的⾸地址, ⽽si或di则⽤来表示下 标。
 
 缺省段址：不含bp的源操作数⼀般都省略的段地址ds，含有bp的源操作数省略了ss，⽽这个默认的段地址是 可以被改变的
-![](./asset/Untitled%205.png)
+![](./asset/segment2.png)
 
 用堆栈传递参数时，如何用[bp+]实现对参数的引用？
 

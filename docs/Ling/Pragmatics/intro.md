@@ -15,7 +15,7 @@ Charles W. Morris (1901-1979) American semiotician and philosopher. supervised b
 - semantics: Meaning in Language itself. Signs (/words) and things which they denote. Literal, propositional / truth-conditional meaning.
 - pragmatics: Meaning in context. Signs (/words) and interpreters. Implicit, context-related, non-literal, non-truth-conditional meaning.
 
-```plain text
+```
 syntax  -------------> semantics -------------> pragmatics
               ⬆️ 	                     ⬆️ 	       
 						decoding              use in context

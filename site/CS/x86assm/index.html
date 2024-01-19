@@ -14,7 +14,7 @@
         <link rel="prev" href="../CPP/final_review/">
       
       
-        <link rel="next" href="../../DL/">
+        <link rel="next" href="../OS/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
@@ -367,6 +367,162 @@
         x86汇编
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          OS操作系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OS/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OS/lab/" class="md-nav__link">
+        lab
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+        
+      
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          CA体系结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          CA体系结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CA/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CA/chap2/" class="md-nav__link">
+        chap2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CA/chap3/" class="md-nav__link">
+        chap3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CA/chap5/" class="md-nav__link">
+        chap5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1151,7 +1307,7 @@ stdcall，从右到左，caller清理
 <li>写入结果集</li>
 <li>回到1</li>
 </ol>
-<p><img alt="" src="../asset/Untitled%202.png" /></p>
+<p><img alt="" src="../asset/instcycle.png" /></p>
 <p>运算器进行信息处理，寄存器进行信息存储，控制器控制各种器件工作，总线连接各种器件。</p>
 <h3 id="163280x86-view">16位和32位的80x86的区别 - 操作系统view</h3>
 <ul>
@@ -1253,8 +1409,8 @@ Mov ds:[bx], ax
 </tr>
 </tbody>
 </table>
-<p><img alt="Untitled" src="../asset/Untitled%201%201.png" /></p>
-<p><img alt="Untitled" src="../asset/Untitled%202%201.png" /></p>
+<p><img alt="reg1" src="../asset/reg1.png" /></p>
+<p><img alt="reg2" src="../asset/reg2.png" /></p>
 <h4 id="_8">通用寄存器</h4>
 <p>IA-32架构中一共有4个32位寄存器，用于保存临时数据，这4个通用寄存器可以当作16位用，也可以作8位用。</p>
 <p>AX BX CX DX：数据寄存器，每个数据寄存器都可以拆成两个 8 位寄存器独立使用，如 AX 可拆分为 AH 和 AL，BX 拆分为 BH 和 BL 等。H 和 L 分别表示高 8 位和低 8 位。</p>
@@ -1298,7 +1454,7 @@ bp默认的栈寻址寄存器</p>
 <p>CF (Carry Flag): 进位标志，进位时置1，否则置0。配套的clc，stc两条设置指令：清除和置1。#</p>
 <p>PF (Parity Flag): 奇偶标志。结果操作数中1的个数为偶数时置1，否则置0。</p>
 <p>TF：单步调试要用。#</p>
-<p><img alt="" src="../asset/Untitled%203.png" /></p>
+<p><img alt="" src="../asset/flag.png" /></p>
 <p><img alt="https://img-blog.csdnimg.cn/20200426105235850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nhcmxvc1g=,size_16,color_FFFFFF,t_70" src="https://img-blog.csdnimg.cn/20200426105235850.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Nhcmxvc1g=,size_16,color_FFFFFF,t_70" /></p>
 <p>EFLAGS是实现条件判断和逻辑判断的一种机制，在汇编语言中一般不直接访问EFLAGS寄存器，而是通过指令的操作隐含访问EFLAGS寄存器。</p>
 <div class="language-nasm highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nf">cmp</span><span class="w"> </span><span class="kt">dword</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">ebp</span><span class="o">+</span><span class="mi">8</span><span class="p">],</span><span class="w"> </span><span class="mi">0</span><span class="nv">.</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">影响标志位</span><span class="nv">CF</span><span class="err">，</span><span class="nv">ZF</span><span class="err">，</span><span class="nv">SF</span><span class="err">，</span><span class="nv">OF</span><span class="err">，</span><span class="nv">AF和PF</span>
@@ -1822,7 +1978,7 @@ bp默认的栈寻址寄存器</p>
 </tr>
 <tr>
 <td>stosb/stosw/stosd</td>
-<td>SI指向的https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83读入https://baike.baidu.com/item/%E7%B4%AF%E5%8A%A0%E5%99%A8,其中LODSB是读入AL, LODSW是读入AX中, 然后SI自动增加或减小1或2位.当方向标志位DF=0时，则SI自动增加；DF=1时，SI自动减小。</td>
+<td>SI指向的<a href="https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E5%8D%95%E5%85%83读入https://baike.baidu.com/item/%E7%B4%AF%E5%8A%A0%E5%99%A8">🔗</a>,其中LODSB是读入AL, LODSW是读入AX中, 然后SI自动增加或减小1或2位.当方向标志位DF=0时，则SI自动增加；DF=1时，SI自动减小。</td>
 <td></td>
 <td></td>
 </tr>
@@ -1909,7 +2065,7 @@ bp默认的栈寻址寄存器</p>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nf">div</span><span class="w"> </span><span class="kt">word</span><span class="w"> </span><span class="nv">ptr</span><span class="w"> </span><span class="p">[</span><span class="nb">esp</span><span class="o">+</span><span class="mi">36</span><span class="p">]</span><span class="c1">; // 将eax寄存器的值按word为单位除以堆栈地址为esp+36所指向的数据，得出的结果商保存在eax寄存器中，余数保存在edx寄存器中。</span>
 </span></code></pre></div>
 <h3 id="80386">高级语言中的数据结构与80386间接寻址</h3>
-<p><img alt="" src="../asset/Untitled%204.png" /></p>
+<p><img alt="" src="../asset/segment.png" /></p>
 <p>BX BP SI DI</p>
 <p>BX：</p>
 <p>BP：</p>
@@ -1925,7 +2081,7 @@ bp默认的栈寻址寄存器</p>
 <p>间接寻址： 可以⽤作间接寻址的寄存器只有四个：bx, bp, si, di [bx], [bp], [si], [di]是最简单的间接寻址 [bx + si], [bp + si], [bx + di], [bp + di]注意前⾯必须是bx/bp，后⾯必须是di/si [bx+2] [bp-2] [si+1] [di-1] [bx+si+2] [bx+di-2]</p>
 <p>[bp+si+1] [bp+di-1] tips：两个寄存器相加的间接寻址⽅式中, bx或bp通常⽤来表示数组的⾸地址, ⽽si或di则⽤来表示下 标。</p>
 <p>缺省段址：不含bp的源操作数⼀般都省略的段地址ds，含有bp的源操作数省略了ss，⽽这个默认的段地址是 可以被改变的
-<img alt="" src="../asset/Untitled%205.png" /></p>
+<img alt="" src="../asset/segment2.png" /></p>
 <p>用堆栈传递参数时，如何用[bp+]实现对参数的引用？</p>
 <p>bp + 多少就是栈里的多少</p>
 <p>王爽《汇编语⾔》第四版 附录4:⽤栈传递参数</p>

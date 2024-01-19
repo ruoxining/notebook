@@ -12,6 +12,14 @@ nav:
       - ZJU听课: 'CS/CPP/course.md'
       - ZJU期末复习: 'CS/CPP/final_review.md'
     - x86汇编: 'CS/x86assm.md'
+    - OS操作系统:
+      - index: 'CS/OS/index.md'
+      - lab: 'CS/OS/lab.md'
+    - CA体系结构:
+      - Index: 'CS/CA/index.md'
+      - chap2: 'CS/CA/chap2.md'
+      - chap3: 'CS/CA/chap3.md'
+      - chap5: 'CS/CA/chap5.md'
 
   - 🎓DL专栏: 
     - 索引: 'DL/index.md'
