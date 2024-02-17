@@ -50,13 +50,16 @@
 | 升学经验.. | [🟡24fall申请记录](https://ruoxining.github.io/OBvault/Other/24fall/) |  |  |  |  |
 
 
-## 相似资源指路
+## 资源指路
 
 | 站 | 定位是 |
 | -- | -- |
 | 本站：# | 掺杂自己观点的笔记 + 心得 |
 | 仓库：[🔗ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS) | 客观通用的一个ZJU课程资料工具箱  |
 
+| 友链 | 来自于 | 内容 | 推荐语 |
+| -- | -- | -- | -- |
+| [mem 的小站](https://mem.ac/) | [memset0 小朋友！](https://github.com/memset0) | 算法笔记/ZJU 课程笔记 | 谢谢第一位找我换友链的小朋友！是 OIer，算法笔记里的一些题目是不太常见的资源 |  
 
 ## 联系作者
 
