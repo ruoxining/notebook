@@ -1298,20 +1298,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/apa/" class="md-nav__link">
-        APA Format
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../Other/nlp_resources/" class="md-nav__link">
         DL & NLP 资源整理
       </a>
@@ -1654,7 +1640,7 @@ This blog is structured as follows. The Dataset part will introduce two main typ
 <p>This survey provides a comprehensive introduction to the MWP datasets and methods prior to 2019. This survey defines three stages of MWP solving, the Rule-based matching stage (1960-2010), Semantic parsing, feature engineering and statistical learning stage (2011-2017), and Deep learning and reinforcement learning stage (2017-2019).</p>
 <h4 id="towards-tractable-mathematical-reasoning-challenges-strategies-and-opportunities-for-solving-math-word-problems-2021">Towards Tractable Mathematical Reasoning: Challenges, Strategies, and Opportunities for Solving Math Word Problems (2021)</h4>
 <p>This survey introduces the contemporary MWP datasets til 2021, and methods including rule-based, and neural network encoder-decoder structures. Specifically, this paper concludes three strategies for math word solving, (i) direct answer generation, (ii) expression tree generation for inferring answers, and (iii) template retrieval for answer computation. Considering the type of problem solving method, this paper concludes two classes. The first class is non-neural approaches (rule-base or pattern matching approaches, semantic parsing, and statistical machine learning approaches), within which a particular strategy of applying domain knowledge in classifying the problems (e.g. into change, part-whole and compare classes). The second class is neural approaches, including intuitions of (i) predicting the answer directly (ii) generating a set of equations or mathematical expressions and inferring answers from the by executing them (iii) retrieving the templates from a pool of templates derived from training data and augmenting numerical quantities to compute the answer. These neural approaches generally follow encoder-decoder architectures, which fall in four types (i) seq-to-seq (ii) Transformer-to-tree (iii) seq-to-tree (iv) graph-to-tree. 
-<img alt="" src="../../asset/%E6%88%AA%E5%B1%8F2023-08-16%2000.48.41.png" />
+<img alt="" src="../../asset/towards_tractable.png" />
 Among the four methods, the tree-structured decoder attend both parents and siblings to generate the next token, while the bottom-up representation of sub-tree of a sibling could further help to derive better outcomes. The graph-based encoder aims to learn different types of relationships among the constituents of MWPs. This section also mentions that "Data augmentation is a popular preprocessing technique to increase the size of training data" (reverse operation-based augmentation techniques, different traversal orders of expression trees, and <strong>weak supervision</strong>). 
 In section <em>Math Reasoning in Neural Approaches</em>, this paper mentions several further topics under math reasoning, interpretability and explainability, infusing explicit and definitive knowledge, and reinforcement learning. </p>
 <h2 id="datasets">Datasets</h2>
@@ -1681,19 +1667,19 @@ This dataset is in Chinese.
 <p><a href="https://math-qa.github.io/math-QA/">MathQA-Dataset (math-qa.github.io)</a>
 This paper proposes a math dataset which enhances the AQuA dataset by providing fully-specified operational programs.
 This dataset has a diverse range of operators.
-<img alt="" src="../../asset/%E6%88%AA%E5%B1%8F2023-08-14%2022.14.36.png" /></p>
+<img alt="" src="../../asset/mathqa.png" /></p>
 <h4 id="math-2021">MATH (2021)</h4>
 <p><a href="https://arxiv.org/pdf/2103.03874.pdf">arxiv.org/pdf/2103.03874.pdf</a>
 MATH is a LaTeX format dataset, with its answer highlighted in a square block.
-<img alt="" src="../../asset/Pasted%20image%2020230814171003.png" /></p>
+<img alt="" src="../../asset/math.png" /></p>
 <h4 id="svmap">SVMAP</h4>
 <p><a href="https://github.com/arkilpatel/SVAMP">arkilpatel/SVAMP: NAACL 2021: Are NLP Models really able to Solve Simple Math Word Problems? (github.com)</a>
 This dataset does not distinguish the data with the texts. An example data is as follows.
-<img alt="" src="../../asset/Pasted%20image%2020230814173843.png" /></p>
+<img alt="" src="../../asset/svmap.png" /></p>
 <h4 id="gsm8k-grade-school-math-2021">GSM8k: grade school math (2021)</h4>
 <p>Collected by OpenAI, this dataset consists of math problems in natural language descriptions, with the math formulas highlighted with special notes.The numbers are not explicitly highlighted with special symbols.
 Several examples of the data format are as follows.
-<img alt="" src="../../asset/Pasted%20image%2020230814170723.png" /></p>
+<img alt="" src="../../asset/gsm8k.png" /></p>
 <h3 id="draw">DRAW</h3>
 <p>Providing 1000 grounded word problems.</p>
 <h3 id="algebra">Algebra</h3>
@@ -1706,25 +1692,25 @@ Several examples of the data format are as follows.
 <h4 id="graph-to-tree-learning-for-solving-math-word-problems-2020">Graph-to-Tree Learning for Solving Math Word Problems (2020)</h4>
 <p>This paper proposes a attention-based model Graph2Tree, consisting of graph-based encoder and a tree-based decoder.
 The math word problems are constructed into Quantity Comparison Graph. 
-<img alt="" src="../../asset/%E6%88%AA%E5%B1%8F2023-08-14%2023.12.24.png" /></p>
+<img alt="" src="../../asset/graph2tree.png" /></p>
 <h4 id="math-word-problem-solving-with-explicit-numerical-values-2021">Math Word Problem Solving with Explicit Numerical Values (2021)</h4>
 <p>A novel approach called NumS2T is proposed to solve MWP. NumS2T is constructed with (a) an attention-based seq2seq model to generate its math expressions, (b) a numerical value encoder to obtain the number-aware problem state which are then concatenated with the problem hidden state in (a) to obtain number-aware problem representation, and (c) a numerical properties prediction mechanism for comparing the paired numerical values, determining the category of each numeral and measuring whether they should appear in the target expression.!
-<img alt="" src="../../asset/%E6%88%AA%E5%B1%8F2023-08-14%2022.46.32.png" /></p>
+<img alt="" src="../../asset/numerical_values.png" /></p>
 <h4 id="learning-to-reason-deductively-math-word-problem-solving-as-complex-relation-extraction-2022">Learning to Reason Deductively: Math Word Problem Solving as Complex Relation Extraction (2022)</h4>
 <p>This paper proposes a novel approach</p>
 <h3 id="workflows">Workflows</h3>
 <p>Most of the recent works follow the method of knowledge distilling, which means to generate high quality data with LLMs and then train a small model with the generated (and sometimes then augmented) data. The workflow of such tasks mainly assembles that of the following paper.</p>
 <h4 id="large-language-models-are-reasoning-teachers">Large Language Models Are Reasoning Teachers</h4>
 <p>This paper proposes a knowledge distilling method in solving math reasoning problems.
-<img alt="" src="../../asset/Pasted%20image%2020230814211856.png" /></p>
+<img alt="" src="../../asset/reasoning_teachers.png" /></p>
 <h4 id="solving-math-word-problems-via-cooperative-reasoning-induced-language-models-acl-2023">Solving Math Word Problems via Cooperative Reasoning induced Language Models (ACL 2023)</h4>
 <p>This paper develops a cooperative reasoning-induced PLM for solving MWPs called Cooperative Reasoning (CoRe), with a generator to generate reasoning paths and a verifier to supervise the evaluation. </p>
 <h4 id="scaling-relationship-on-learning-mathematical-reasoning-with-large-language-models-2023">Scaling Relationship on Learning Mathematical Reasoning with Large Language Models (2023)</h4>
 <p>This paper mainly focus on the following two questions: (i) Which is a better performance indicator of LLMs? (pre-training loss amount/model size) (ii) How to improve small model's performance by data augmentation?
 To answer the second question, this paper proposes a novel methods in data augmentation in the LLM data generation step which is called Rejection Finetuning (RFT). The algorithm of sampling data in RFT mainly adopts the thought of rejection sampling, which is expressed in the following pseudo-code. This paper assumes such an algorithm will yield as many as possible diverse reasoning paths.
-<img alt="" src="../../asset/Pasted%20image%2020230814215707.png" />
+<img alt="" src="../../asset/scaling_relationship.png" />
 The workflow of the RFT method is illustrated as follows, where the SFT stands for supervised finetuning.
-<img alt="" src="../../asset/%E6%88%AA%E5%B1%8F2023-08-14%2021.59.33.png" />
+<img alt="" src="../../asset/scaling_relationship2.png" />
 With the novel method RFT, small models such as Llama-7b yields an accuracy of at most 49.7% on GSM8k, 14% higher than the previous SOTA method SFT.</p>
 <h3 id="pal">PAL</h3>
 <p>This work is a prompt engineering work.

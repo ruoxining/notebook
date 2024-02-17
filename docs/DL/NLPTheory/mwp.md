@@ -10,7 +10,7 @@ This survey provides a comprehensive introduction to the MWP datasets and method
 
 #### Towards Tractable Mathematical Reasoning: Challenges, Strategies, and Opportunities for Solving Math Word Problems (2021)
 This survey introduces the contemporary MWP datasets til 2021, and methods including rule-based, and neural network encoder-decoder structures. Specifically, this paper concludes three strategies for math word solving, (i) direct answer generation, (ii) expression tree generation for inferring answers, and (iii) template retrieval for answer computation. Considering the type of problem solving method, this paper concludes two classes. The first class is non-neural approaches (rule-base or pattern matching approaches, semantic parsing, and statistical machine learning approaches), within which a particular strategy of applying domain knowledge in classifying the problems (e.g. into change, part-whole and compare classes). The second class is neural approaches, including intuitions of (i) predicting the answer directly (ii) generating a set of equations or mathematical expressions and inferring answers from the by executing them (iii) retrieving the templates from a pool of templates derived from training data and augmenting numerical quantities to compute the answer. These neural approaches generally follow encoder-decoder architectures, which fall in four types (i) seq-to-seq (ii) Transformer-to-tree (iii) seq-to-tree (iv) graph-to-tree. 
-![](../asset/截屏2023-08-16%2000.48.41.png)
+![](../asset/towards_tractable.png)
 Among the four methods, the tree-structured decoder attend both parents and siblings to generate the next token, while the bottom-up representation of sub-tree of a sibling could further help to derive better outcomes. The graph-based encoder aims to learn different types of relationships among the constituents of MWPs. This section also mentions that "Data augmentation is a popular preprocessing technique to increase the size of training data" (reverse operation-based augmentation techniques, different traversal orders of expression trees, and **weak supervision**). 
 In section *Math Reasoning in Neural Approaches*, this paper mentions several further topics under math reasoning, interpretability and explainability, infusing explicit and definitive knowledge, and reinforcement learning. 
 
@@ -41,23 +41,23 @@ Solution: 6
 [MathQA-Dataset (math-qa.github.io)](https://math-qa.github.io/math-QA/)
 This paper proposes a math dataset which enhances the AQuA dataset by providing fully-specified operational programs.
 This dataset has a diverse range of operators.
-![](../asset/截屏2023-08-14%2022.14.36.png)
+![](../asset/mathqa.png)
 #### MATH (2021)
 [arxiv.org/pdf/2103.03874.pdf](https://arxiv.org/pdf/2103.03874.pdf)
 MATH is a LaTeX format dataset, with its answer highlighted in a square block.
-![](../asset/Pasted%20image%2020230814171003.png)
+![](../asset/math.png)
 
 
 #### SVMAP
 [arkilpatel/SVAMP: NAACL 2021: Are NLP Models really able to Solve Simple Math Word Problems? (github.com)](https://github.com/arkilpatel/SVAMP)
 This dataset does not distinguish the data with the texts. An example data is as follows.
-![](../asset/Pasted%20image%2020230814173843.png)
+![](../asset/svmap.png)
 
 
 #### GSM8k: grade school math (2021)
 Collected by OpenAI, this dataset consists of math problems in natural language descriptions, with the math formulas highlighted with special notes.The numbers are not explicitly highlighted with special symbols.
 Several examples of the data format are as follows.
-![](../asset/Pasted%20image%2020230814170723.png)
+![](../asset/gsm8k.png)
 
 ### DRAW
 Providing 1000 grounded word problems.
@@ -76,21 +76,19 @@ Providing 1000 grounded word problems.
 
 
 
-
-
 ## Methods
 ### Models
 Prior to 2017, the models for solving MWP are mainly concerning with neural networks. After Transformer has been released in 2017, attention-based models have been thriving. The novel models based on Transformer are mainly modifying the encoder and decoder structures, among which there are graph-encoder and tree-decoders.
 #### Graph-to-Tree Learning for Solving Math Word Problems (2020)
 This paper proposes a attention-based model Graph2Tree, consisting of graph-based encoder and a tree-based decoder.
 The math word problems are constructed into Quantity Comparison Graph. 
-![](../asset/截屏2023-08-14%2023.12.24.png)
+![](../asset/graph2tree.png)
 
 
 #### Math Word Problem Solving with Explicit Numerical Values (2021)
 
 A novel approach called NumS2T is proposed to solve MWP. NumS2T is constructed with (a) an attention-based seq2seq model to generate its math expressions, (b) a numerical value encoder to obtain the number-aware problem state which are then concatenated with the problem hidden state in (a) to obtain number-aware problem representation, and (c) a numerical properties prediction mechanism for comparing the paired numerical values, determining the category of each numeral and measuring whether they should appear in the target expression.!
-![](../asset/截屏2023-08-14%2022.46.32.png)
+![](../asset/numerical_values.png)
 
 #### Learning to Reason Deductively: Math Word Problem Solving as Complex Relation Extraction (2022)
 This paper proposes a novel approach
@@ -101,7 +99,7 @@ This paper proposes a novel approach
 Most of the recent works follow the method of knowledge distilling, which means to generate high quality data with LLMs and then train a small model with the generated (and sometimes then augmented) data. The workflow of such tasks mainly assembles that of the following paper.
 #### Large Language Models Are Reasoning Teachers
 This paper proposes a knowledge distilling method in solving math reasoning problems.
-![](../asset/Pasted%20image%2020230814211856.png)
+![](../asset/reasoning_teachers.png)
 
 
 #### Solving Math Word Problems via Cooperative Reasoning induced Language Models (ACL 2023)
@@ -112,9 +110,9 @@ This paper develops a cooperative reasoning-induced PLM for solving MWPs called 
 
 This paper mainly focus on the following two questions: (i) Which is a better performance indicator of LLMs? (pre-training loss amount/model size) (ii) How to improve small model's performance by data augmentation?
 To answer the second question, this paper proposes a novel methods in data augmentation in the LLM data generation step which is called Rejection Finetuning (RFT). The algorithm of sampling data in RFT mainly adopts the thought of rejection sampling, which is expressed in the following pseudo-code. This paper assumes such an algorithm will yield as many as possible diverse reasoning paths.
-![](../asset/Pasted%20image%2020230814215707.png)
+![](../asset/scaling_relationship.png)
 The workflow of the RFT method is illustrated as follows, where the SFT stands for supervised finetuning.
-![](../asset/截屏2023-08-14%2021.59.33.png)
+![](../asset/scaling_relationship2.png)
 With the novel method RFT, small models such as Llama-7b yields an accuracy of at most 49.7% on GSM8k, 14% higher than the previous SOTA method SFT.
 
 
@@ -130,8 +128,6 @@ Q: The bakers at the Beverly Hills Bakery baked 200 loaves of bread on Monday mo
 ```Text
 A: The bakers started with 200 loaves loaves_baked = 200 They sold 93 in the morning and 39 in the afternoon loaves_sold_morning = 93 loaves_sold_afternoon = 39 The grocery store returned 6 loaves. loaves_returned = 6 The answer is answer = loaves_baked - loaves_sold_morning - loaves_sold_afternoon + loaves_returned
 ```
-
-
 
 
 ## Preview

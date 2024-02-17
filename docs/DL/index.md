@@ -8,4 +8,4 @@
 
 而且我也不记得为什么下面放了这张图了
 
-![](../asset/v2-7761582f4974e76aa0df2a424b52ef99_720w.webp.png)
+![](../asset/index.png)

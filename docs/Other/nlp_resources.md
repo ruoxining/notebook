@@ -1,5 +1,7 @@
 # DL & NLP Resources
 
+这个页面用来收集 nlp 入门资料的 minimal closure（指足够学会的最小资源集合）
+
 ## Machine Learning Theory
 
 Google的一个教程，里面的playground做得比较直观，无需代码

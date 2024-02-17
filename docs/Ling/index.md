@@ -1,6 +1,30 @@
-本专栏包含语言学笔记，目前已完成以下内容
+# Linguistic Notes
 
-- 句法学 Syntax
-- 语义学 Semantics
-- 语用学 Pragmatics
-- 语言哲学
+It is commonly considered that the subject linguistics consists of 6 main branches. 
+
+```
+Liguistics
+    |     -------------
+    | -   | Phonetics |
+    |     -------------       -> Interface: TODO
+    | -   | Phonology |
+    |     -------------       -> Interface: 
+    | -   | Morphology |
+    |     -------------       -> Interface: 
+    | -   |   Syntax   |
+    |     -------------       -> Interface: 
+    | -   | Semantics |
+    |     -------------       -> Interface: 
+    | -   | Pragmatics |
+    |     -------------
+
+```
+
+<!-- Interfaces between branches -->
+
+<!-- Exterior subjects: psycholinguistics, phylosophy of linguistics -->
+
+Besides, border topics of linguistics include
+- Psycholinguistics
+- Phylosophy of linguistics
+- Computational linguistics
