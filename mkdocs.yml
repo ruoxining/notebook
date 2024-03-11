@@ -64,8 +64,9 @@ theme:
   language: zh
   features:
     - content.code.copy
-    - navigation.expand
-    - navigation.top
+    # - navigation.expand # 一级导航在竖向
+    # - navigation.top  # 导航完全展开
+    - navigation.tabs # 一级导航在横着的导航栏
   icon:
     repo: fontawesome/brands/git-alt
 plugins:
