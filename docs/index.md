@@ -4,7 +4,7 @@
 
     「宇宙（别人管它叫图书馆）由许多六角形的回廊组成，数目不能确定，也许是无限的」  —— Jorge Luis Borges (1939)
 
-这是我主要用中文写的BLOG，大部分内容是学习笔记。我的笔记不多！以后也不会多的😤([出处🔗](https://github.com/orgs/SaltyfishShop/discussions/5)) 欢迎来看我的笔记！
+这是我主要用中文写的BLOG，大部分内容是学习笔记。我的笔记不多！以后也不会多的(保质不保量) 欢迎来看我的笔记！
 
 
 ## 页表 Page Table
@@ -19,10 +19,10 @@
 
 | 类别 | 课.. | | | | |
 | -- | -- | -- | -- | -- | -- |
-| 编程语言 | 🔴C尖 | [🔴C++](https://ruoxining.github.io/OBvault/CS/CPP/course/) [🔗咸鱼暄](https://xuan-insr.github.io/cpp/cpp_restart/) | 🔴Verilog [🔗HDLBits](https://hdlbits.01xz.net/wiki/Main_Page) [🔗瓜豪](https://guahao31.github.io/2024_DD/) | 🔴Python | [🟢x86汇编](https://ruoxining.github.io/OBvault/CS/x86assm/) |
-| 计算机科学 | 🔴离散数学 [🔗Kaleo](https://github.com/Kaleo996/ZJU-Discrete-Math-2022) | 🟡FDS | 🔴ADS | 🔴计算理论 | 🔴编译原理 [🔗咸鱼暄](https://xuan-insr.github.io/compile_principle/) |
-| 软件 | [🟢OS](https://ruoxining.github.io/OBvault/CS/OS/) [🔗修勾](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴计网 | 🔴软工 |  |
-| 硬件 | 🔴数逻 [🔗isshiki修](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | [🟢体系](https://ruoxining.github.io/OBvault/CS/CA/) |  |  |
+| 编程语言 | 🔴C尖 | [🔴C++](https://ruoxining.github.io/OBvault/CS/CPP/course/) [🔗暄](https://xuan-insr.github.io/cpp/cpp_restart/) | 🔴Verilog [🔗HDLB](https://hdlbits.01xz.net/wiki/Main_Page) [🔗瓜](https://guahao31.github.io/2024_DD/) | 🔴Python | [🟢x86汇编](https://ruoxining.github.io/OBvault/CS/x86assm/) |
+| 计算机科学 | 🔴离散数学 [🔗Kaleo](https://github.com/Kaleo996/ZJU-Discrete-Math-2022) | 🟡FDS | 🔴ADS | 🔴计算理论 | 🔴编译原理 [🔗暄](https://xuan-insr.github.io/compile_principle/) |
+| 软件 | [🟢OS](https://ruoxining.github.io/OBvault/CS/OS/) [🔗修](https://note.isshikih.top/cour_note/D3QD_OperatingSystem/) | 🟡DBMS | 🔴计网 | 🔴软工 |  |
+| 硬件 | 🔴数逻 [🔗修](https://note.isshikih.top/cour_note/D2QD_DigitalDesign/) | 🔴计概 | 🔴计组 | [🟢体系](https://ruoxining.github.io/OBvault/CS/CA/) |  |  |
 | 不好描述 | 🔴沟通技巧 | 🟡写个爬虫 |  |  |  |
 
 
