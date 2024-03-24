@@ -56,7 +56,6 @@ nav:
     - 英专转CS&NLP指北: 'Other/zju_ling_cs.md'
     - NLP申请PhD经验(搬运): 'Other/nlp_phd.md'
 
-
 theme:
   name: material
   palette:
@@ -69,6 +68,9 @@ theme:
     - navigation.tabs # 一级导航在横着的导航栏
   icon:
     repo: fontawesome/brands/git-alt
+  font:
+    text: Noto Sans Simplified Chinese
+    code: Robot Mono
 plugins:
   - search
   # - mkdocs-video:

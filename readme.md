@@ -37,3 +37,30 @@ mkdocs gh-deploy --clean
 - html图片语法 `<img src="相对路径" alt="标题" width="宽度" height="高度">`
 - md链接语法 `[标题](链接)` 链接也要用部署后的链接，不要用文件名因为找不到
 - html链接语法 `<a href="链接"> 标题 </a>`
+
+
+
+TODO
+
+- 你好 我服了 评论不会配
+  snippet 生成出来是这样的
+
+    ```html
+    <script src="https://giscus.app/client.js"
+            data-repo="ruoxining/OBvault"
+            data-repo-id="R_kgDOKAxP-Q"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOKAxP-c4Cd9bq"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="light"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+    ```
+    后续参照[这个帖子](https://squidfunk.github.io/mkdocs-material/setup/adding-a-comment-system/)
