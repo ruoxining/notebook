@@ -1,4 +1,4 @@
-# ZJU English Major to CS&NLP
+# ZJU English Major to CS
 
 ⚠️ 感觉当时写得不是很好，现在很多观念又有些改变，可能24年春节期间空下来会再认真改一下orz
 

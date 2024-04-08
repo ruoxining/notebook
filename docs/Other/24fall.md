@@ -77,11 +77,11 @@ double 的群里还有个朋友做了个匿名 google docs 供群友分享拿到
 
 **CMU**: 如果直接搜索 MLT application 出现的以下页面及申请链接是找不到MLT项目的
 
-![](../asset/fake_mlt.png){ width="50%" }
+![](./asset/fake_mlt.png){ width="50%" }
 
 [Application Management (cmu.edu)](https://admissions.scs.cmu.edu/portal/apply_gr) 这个页面和以下截图是正确的，同理mscv和msaii什么的项目也在这里申请。
 
-![](../asset/true_mlt.png){ width="50%" }
+![](./asset/true_mlt.png){ width="50%" }
 
 mscs 的 video essay 是提前录好了上传到 youtube 这种的，可以自己随意录多次，但我估计不要拼接痕迹太重，一口气说下来最好。内容我记得没有限制，随意设计自我介绍，据说主要是为了看申请人性格、口语、表达能力之类的潜在特点。
 
@@ -181,7 +181,7 @@ SOP 可以理解为关于自己学术经历和计划的一份文书。经验来�
 - 加拿大 Mitacs，好像考核比较严格
 - epfl
    
-   ![](../asset/epfl.jpeg){ width="50%" }
+   ![](./asset/epfl.jpeg){ width="50%" }
 
 - 其它很多老师主页可能也有常年开放渠道
 

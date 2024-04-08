@@ -20,6 +20,9 @@ nav:
       - chap2: 'CS/CA/chap2.md'
       - chap3: 'CS/CA/chap3.md'
       - chap5: 'CS/CA/chap5.md'
+    - Compiler编译原理:
+      - Index: 'CS/Compiler/index.md'
+      - Parsing: 'CS/Compiler/parsing.md'
 
   - 🎓DL专栏: 
     - 索引: 'DL/index.md'
@@ -54,7 +57,7 @@ nav:
     - Portfolio: 'Other/portfolio.md'
     - 24fall申请记录: 'Other/24fall.md' 
     - 英专转CS&NLP指北: 'Other/zju_ling_cs.md'
-    - NLP申请PhD经验(搬运): 'Other/nlp_phd.md'
+    # - NLP申请PhD经验(搬运): 'Other/nlp_phd.md'
 
 theme:
   name: material
