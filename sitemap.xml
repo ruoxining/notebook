@@ -41,6 +41,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://ruoxining.github.io/OBvault/CS/CO/</loc>
+         <lastmod>2024-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://ruoxining.github.io/OBvault/CS/CPP/course/</loc>
          <lastmod>2024-04-08</lastmod>
          <changefreq>daily</changefreq>
@@ -52,6 +57,16 @@
     </url>
     <url>
          <loc>https://ruoxining.github.io/OBvault/CS/CPP/templates/</loc>
+         <lastmod>2024-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ruoxining.github.io/OBvault/CS/Compiler/</loc>
+         <lastmod>2024-04-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ruoxining.github.io/OBvault/CS/Compiler/parsing/</loc>
          <lastmod>2024-04-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
