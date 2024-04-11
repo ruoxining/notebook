@@ -9,7 +9,7 @@
 | 文法 | 判断是 | 判断不是 |
 | :-- | :-- | :-- |
 | LL(1) | (不含左递归 && 对于文法中每一个 non-terminal，它的产生式的 SELECT set（即开头的 terminal 与开头的 non-terminal 的 FIRST）两两不交，且不能同时推出空串) \|\| 产生式 lhs 两两不相同 | 含左递归 \|\| 遇到下一个要扫描的 terminal 输入时，有超过一种 derive 方法 |
-| LR(0) | 构造出 LR(0) items DFA，如果不存在 shift-reduce & reduce-reduce conflicts | LR(0) items DFA 存在 shift-reduce | reduce-reduce conflicts |
+| LR(0) | 构造出 LR(0) items DFA，如果不存在 shift-reduce & reduce-reduce conflicts | LR(0) items DFA 存在 shift-reduce \| reduce-reduce conflicts |
 | SLR (aka. SLR(1)) | 构造出 LR(0) items DFA，首先其不存在 reduce-reduce 冲突，且存在 shift-reduce 冲突（否则就为 LR(0) 语法了）。对于每个有 shift-reduce 冲突的地方，状态里面有可 shift 规则也有可 reduce 规则，如果 reduce 后得到的 non-terminal 的 FOLLOW set 与可 shift 规则新纳入的 terminal 都没有交 | shift-reduce conflict 中如果 reduce 后得到的 non-terminal 的 FOLLOW set 与可 shift 规则新纳入的 terminal 有交 |
 | LR(1) | 构造出 LR(1) items DFA，如果不存在 shift-reduce & reduce-reduce conflicts | LR(1) items DFA，如果存在 shift-reduce \| reduce-reduce conflicts |
 | LALR(1) | 构造出 LR(1) items DFA，如果合并同心集后没有产生 reduce-reduce conflicts（一定不会产生 shift-reduce conflicts，同心集不长那样） | LR(1) items DFA 如果合并同心集后产生了 reduce-reduce conflicts |

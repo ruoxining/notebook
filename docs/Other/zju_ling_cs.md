@@ -193,3 +193,9 @@ http://www-cc98-org-s.webvpn.zju.edu.cn:8001/topic/4950730
 笔者估计是从英语专业转NLP规划最不顺、进度最曲折的一个。这份文档不是什么成功经验分享，我并不成功，只是想把我踩过的坑告诉后人，希望少有人重蹈我的覆辙。我觉得我的高中和本科过得太坎坷了，真诚地想帮助学弟学妹，希望你们一切顺利。读者可以以我作为基准，在四年后不能（当然如果早做规划，一直在努力，也不会）比我更差。毕竟一条路走的人多了，后人一定是要越走越顺的。
 
 如有建议或疑问请通过邮件联系我 RuoxiNing@outlook.com。
+
+## Recommended Readings
+
+- [SurviveSJTUManual](https://survivesjtu.gitbook.io/survivesjtumanual)
+- [图灵班学习指南](https://zju-turing.github.io/TuringCourses/)
+- [how-to-succeed-in-zju-cs](https://github.com/zjufailure/how-to-succeed-in-zju-cs)

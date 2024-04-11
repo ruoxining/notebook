@@ -34,10 +34,14 @@
 
 ### 🌳 Linguistics Notes
 
-| 类别 | 课.. | | | | | |
+| 类别 | 模块.. | | | | | |
 | :-- | :-- | :-- | :-- | :-- | :-- | :-- |
 | 语言学 | 📘语音学 | 📘音系学 | [📘形态学](https://ruoxining.github.io/OBvault/Ling/Morphology) | [📘句法学](https://ruoxining.github.io/OBvault/Ling/Syntax/) <br> [🔗讲义@Kaleo](https://kaleo996.github.io/ling/syntax/) | [📖语义学](https://ruoxining.github.io/OBvault/Ling/Semantics/) | [📖语用学](https://ruoxining.github.io/OBvault/Ling/Pragmatics/intro/) |
-| 不好描述 | [📖语言哲学](https://ruoxining.github.io/OBvault/Ling/pol_zh/) |  |  |  |  | |
+| 罗曼语族 | 📘法语 | | | | | |
+| 日耳曼语族 | 📘德语 | | | | | |
+| 汉藏语系 | 📘日语 | | | | | |
+| 其它语言 |  | | | | | |
+| "三级学科" | [📖语言哲学](https://ruoxining.github.io/OBvault/Ling/pol_zh/) | 📘心理语言学 |  |  |  | |
 
 
 ### 💭 说瞎话了
