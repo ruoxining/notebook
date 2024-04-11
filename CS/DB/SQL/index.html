@@ -8,20 +8,16 @@
       
       
       
-        <link rel="canonical" href="https://ruoxining.github.io/OBvault/CS/Compiler/parsing/">
+        <link rel="canonical" href="https://ruoxining.github.io/OBvault/CS/DB/SQL/">
       
       
-        <link rel="prev" href="../">
-      
-      
-        <link rel="next" href="../../../DL/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Parsing - Mini Babel Library</title>
+        <title>SQL Grammar - Mini Babel Library</title>
       
     
     
@@ -71,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#parsing" class="md-skip">
+        <a href="#sql-grammar" class="md-skip">
           跳转至
         </a>
       
@@ -104,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Parsing
+              SQL Grammar
             
           </span>
         </div>
@@ -190,15 +186,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link">
         💻CS专栏
       </a>
     </li>
@@ -318,16 +312,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -336,7 +328,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           💻CS专栏
@@ -603,16 +595,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
       
       
       
@@ -621,7 +611,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           Compiler编译原理
@@ -634,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../Compiler/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -646,21 +636,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Compiler/parsing/" class="md-nav__link">
         Parsing
       </a>
-      
     </li>
   
 
@@ -1276,6 +1256,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    关系代数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL 语法
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1292,108 +1294,9 @@
   
 
 
-<h1 id="parsing">Parsing</h1>
-<p>本页完成了关于 LL(1), LR(0), SLR (aka. SLR(1)), LR(1), LALR(1) 文法的一些常用区别的整理。由于作者也学得不好，如果有错，请向我指出（可惜评论区我还没研究好怎样配，一定尽快配上，可以先其它途径联系我）。</p>
-<p>本页面写作时的特点是尽量用自然语言来描述特点，而不是 latex 数学公式和图像。原因是我在其它资料搜到的讲解都事无巨细用大量公式和图像，使理解变得容易，但不适合速查和记忆。直白一点说就是笔者不想看到它们，一看就头疼。因此也造成了本文档的一个缺点：不是为初学者设计的。初学者推荐阅读 xyx 的笔记。做题时速查记忆可以看本文档。</p>
-<p>怎样判断文法是...不是...</p>
-<table>
-<thead>
-<tr>
-<th align="left">文法</th>
-<th align="left">判断是</th>
-<th align="left">判断不是</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">LL(1)</td>
-<td align="left">(不含左递归 &amp;&amp; 对于文法中每一个 non-terminal，它的产生式的 SELECT set（即开头的 terminal 与开头的 non-terminal 的 FIRST）两两不交，且不能同时推出空串) || 产生式 lhs 两两不相同</td>
-<td align="left">含左递归 || 遇到下一个要扫描的 terminal 输入时，有超过一种 derive 方法</td>
-</tr>
-<tr>
-<td align="left">LR(0)</td>
-<td align="left">构造出 LR(0) items DFA，如果不存在 shift-reduce &amp; reduce-reduce conflicts</td>
-<td align="left">LR(0) items DFA 存在 shift-reduce | reduce-reduce conflicts</td>
-</tr>
-<tr>
-<td align="left">SLR (aka. SLR(1))</td>
-<td align="left">构造出 LR(0) items DFA，首先其不存在 reduce-reduce 冲突，且存在 shift-reduce 冲突（否则就为 LR(0) 语法了）。对于每个有 shift-reduce 冲突的地方，状态里面有可 shift 规则也有可 reduce 规则，如果 reduce 后得到的 non-terminal 的 FOLLOW set 与可 shift 规则新纳入的 terminal 都没有交</td>
-<td align="left">shift-reduce conflict 中如果 reduce 后得到的 non-terminal 的 FOLLOW set 与可 shift 规则新纳入的 terminal 有交</td>
-</tr>
-<tr>
-<td align="left">LR(1)</td>
-<td align="left">构造出 LR(1) items DFA，如果不存在 shift-reduce &amp; reduce-reduce conflicts</td>
-<td align="left">LR(1) items DFA，如果存在 shift-reduce | reduce-reduce conflicts</td>
-</tr>
-<tr>
-<td align="left">LALR(1)</td>
-<td align="left">构造出 LR(1) items DFA，如果合并同心集后没有产生 reduce-reduce conflicts（一定不会产生 shift-reduce conflicts，同心集不长那样）</td>
-<td align="left">LR(1) items DFA 如果合并同心集后产生了 reduce-reduce conflicts</td>
-</tr>
-</tbody>
-</table>
-<p>大家的 items DFA 怎么画...</p>
-<table>
-<thead>
-<tr>
-<th align="left">文法</th>
-<th align="left">items DFA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">LL(1)</td>
-<td align="left">它没有…</td>
-</tr>
-<tr>
-<td align="left">LR(0)</td>
-<td align="left">先画 NFA：所有 shift 的情况靠读取 non-terminal/terminal 转换，所有 reduce 的情况空转移。然后画 DFA：把空转移合并。</td>
-</tr>
-<tr>
-<td align="left">SLR (aka. SLR(1))</td>
-<td align="left">同画 LR(0)。只是多判断一下 shift-reduce conflict 的 FOLLOW 和 terminal 重合情况，但这个只体现在 parse table，不属于 DFA 关心的事。</td>
-</tr>
-<tr>
-<td align="left">LR(1)</td>
-<td align="left">其它步骤同画 LR(0)，只是多了在所有 items 后面用逗号隔开一个 lookahead symbol。lookahead 的选择很像选择了对应产生式（不论是 lhs/rhs）的 FOLLOW set，即对应产生式之后接的 terminal 是什么。</td>
-</tr>
-<tr>
-<td align="left">LALR(1)</td>
-<td align="left">同画 LR(1)。只是需要合并所有同心集，同心集是指产生式相同但是只有 lookahead symbol 不同的那些状态。</td>
-</tr>
-</tbody>
-</table>
-<p>大家的 parse table 怎么画...</p>
-<table>
-<thead>
-<tr>
-<th align="left">文法</th>
-<th align="left">parse table</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">LL(1)</td>
-<td align="left">non-terminals, nullable, FIRST, FOLLOW</td>
-</tr>
-<tr>
-<td align="left">LR(0)</td>
-<td align="left">states, shift&amp;reduce, goto</td>
-</tr>
-<tr>
-<td align="left">SLR (aka. SLR(1))</td>
-<td align="left">states, shift&amp;reduce, goto</td>
-</tr>
-<tr>
-<td align="left">LR(1)</td>
-<td align="left">states, shift&amp;reduce, goto</td>
-</tr>
-<tr>
-<td align="left">LALR(1)</td>
-<td align="left">states, shift&amp;reduce, goto</td>
-</tr>
-</tbody>
-</table>
+<h1 id="sql-grammar">SQL Grammar</h1>
+<h2 id="_1">关系代数</h2>
+<h2 id="sql">SQL 语法</h2>
 
 
 
