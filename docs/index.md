@@ -61,6 +61,7 @@
 | 本站：# | 掺杂自己观点的笔记 + 心得 |
 | 仓库：[🔗ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS) | 客观通用的一个ZJU课程资料工具箱  |
 | [🔗mem 的小站](https://mem.ac/) | 内容主要是算法笔记 + ZJU 课程笔记。谢谢第一位找我换友链的小朋友！是很厉害的 OIer |
+|[🔗科学空间](https://spaces.ac.cn/)| 苏剑林苏神的 blog，更新了十几年了，仰慕 |
 
 ## 联系作者
 
