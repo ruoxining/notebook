@@ -19,6 +19,12 @@ master 选项目主要经历了“添加心愿单”+“筛选”两个流程。
 
 最终 master + PhD 我一共申请了似乎是 14 个（含 3 个免费）。这个数目因人而异，主要看与推荐人沟通。身边也有朋友申到 50 个的，惊人但是尊重理解。
 
+最新在 24fall 群里看到的选导师的其它工具
+
+- [Computer Science Professor Profile - Drafty](https://drafty.cs.brown.edu/csprofessors)
+- [Computer Science Open Data](https://jeffhuang.com/computer-science-open-data/#cs-faculty-composition-and-hiring-trends)
+- [Computer Science Open Rankings](https://drafty.cs.brown.edu/csopenrankings/)
+
 ## 语言成绩
 
 如果申请 PhD，那么大家的经验来看过线就够，不太会严卡，重点无需在语言成绩。
@@ -185,6 +191,6 @@ SOP 可以理解为关于自己学术经历和计划的一份文书。经验来�
 
 - 其它很多老师主页可能也有常年开放渠道
 
-## 接 offer 的考虑和致谢
+## 接 offer 的考虑
 
-（先 TODO 了，暂时有点恍惚，在考虑“自己有没有对得起所有人对我的帮助”“自己能否胜任这么优秀的老师可能带给我的挑战”等问题 😭）
+只有这一个选择（）
