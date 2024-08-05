@@ -17,18 +17,55 @@
 下面依次简单介绍每个存储器：
 
 - Cache 缓存
+    
     缓存是速度最快的存储器，但造价和维护成本最高，所以相对比较小。虽然数据库无需维护 cache，但有的数据库在设计查询的时候会关注 cache 效率。
+
+
 - Main memory 主存
+
     主存里的数据可以直接被 CPU 执行计算操作，这里的计算操作就是指 machine instruction 机器指令。主存也相对小，虽然现在有的商业数据库可以被整个塞进主存。主存是 volatile 也就是断电丢失的，系统坏掉也会丢失。
+
+
 - Flash memory 闪存
     闪存及以下的存储器就都是断电不丢失的了。闪存的维护成本比主存低，比磁盘高。
+
     闪存可以用于在“USB flash drive”（U 盘）中保存数据；还有 Solid-state drive 固态硬盘（SSD）也使用了闪存，但是提供了磁盘一样的接口，可以代替磁盘的功能。
+
 - Magnetic disk 磁盘
+    
     也叫 hard disk drive 硬盘。磁盘是主要的长期 online 存储的介质，但是 CPU 如果想要操作磁盘上的数据，就先要把数据移到主存里，处理完再移出来。磁盘的存储能力在逐年上升。
+
 - Optical disk 光盘
-    常见的 disk video disk（DVD）就是一种光盘。光盘上的数据被用激光读写。它是一种 write-once, read-many (WORM) 介质，即只能写一次，但是能读很多次。 
+
+    常见的 disk video disk（DVD）就是一种光盘。光盘上的数据被用激光读写。它是一种 write-once, read-many (WORM) 介质，即只能写一次，但是能读很多次。
+
 - Magnetic tape 磁盘
+
+    [](../asset/magnetic_disk.png)
+
     磁盘一般是用来备份和存档不常用的数据的，这类数据就不常使用，一般需要被安全地长期保存。磁盘上的数据必须被顺序读取，即读写头在磁盘上移动，读哪里移到哪里，所以它叫 sequential-access storage，这样读取是非常慢的。直接读取的 direct-access storage，比如磁盘和 SSD storage，读取就相对快一些，因为可以直接读取盘上的任何地方。
+
+    一个磁盘有上十万个 track（磁道），一个磁道又有上千个 sector（扇区，是计算机和磁盘交换数据的最小单位）。磁盘上寻道的工具是 arm assemly 读写头，读写头进进退退来寻找数据在哪个磁道上，等对应扇区旋转到读写头，才开始传输数据。
+    
+    同样的磁道组成一个柱面，对于大文件，最好储存在同一个柱面上，这样可以并行读写。
+
+
+### Performance Measures of Disk 磁盘性能计算
+
+测量磁盘的性能需要一些量化指标，通常我们考虑数据数据访问的用时和。
+
+- Access time（访问时间）
+    - Seek time（寻道时间）
+    - Rotational latency（旋转延迟）
+
+- Data-transfer Rate（数据传输率）
+
+
+### 磁盘性能优化
+
+
+
+
 
 ### RAID
 
@@ -44,13 +81,12 @@ RAID 全称是 redundant arrays of independent disk 独立磁盘冗余阵列。�
 
 ![](../asset/raid.png)
 
-- RAID level 0 
-
-- RAID level 1
-
-- RAID level 5
-
-- RAID level 6
+- RAID 0：无冗余无校验的磁盘阵列
+- RAID 1：镜像磁盘阵列
+- RAID 2：采用纠错的海明码的磁盘阵列
+- RAID 3：位交叉奇偶校验的磁盘阵列
+- RAID 4：块较差奇偶校验的磁盘阵列
+- RAID 5：无独立校验的奇偶校验磁盘阵列
 
 
 ## File System 文件系统
@@ -61,6 +97,13 @@ RAID 全称是 redundant arrays of independent disk 独立磁盘冗余阵列。�
 
 ### 记录的类型
 
+记录分为
+
+- Fixed-length records 定长记录
+
+    记录 i 从字节 n * (i-1) 处开始，
+
+- Variable-length records 变长记录
 
 
 ### 记录的排布
@@ -158,6 +201,9 @@ slotted page structure 分槽页
 - Multilevel index 多级索引
     分为 outer index 和 inner index。
 
+- Clustering Index
+    A clustering index is an index whose search key also defines the sequentially ordered, a clustering index is an index whose search key also defines the sequenrial order of the file. Clustering indices are also called primary indices.
+
 
 ### B+ 树
 
@@ -176,6 +222,20 @@ B+ 树是一种平衡的（每层都是满的）多分树（不止两个节点�
 
 [B+ Tree Visualization](https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html) 是一个 B+ 树可视化的工具。
 
+介绍查询、插入和删除操作。
+
+当 B+ 树中的节点 TODO 具体的条件是什么，我们这里记作破坏了 B+ 树、元素过多或元素过少，就需要考虑更新索引。
+
+- 插入：
+    - 如果被插入关键字所在的节点插入后不破坏 B+ 树，就可以插入。
+    - 如果插入后某节点元素数目多了，且分裂后不破坏 B+ 树条件，就可以分裂；如果插入后父节点元素数目也过多了，就分裂父节点。
+
+- 删除：
+    - 如果删除后不破坏 B+ 树，则可以直接删除
+    - 如果删除某节点中最大或最小的关键字，就涉及到更改双亲节点一直到根节点值的更改
+    - 如果删除后某节点中元素过少，但是向兄弟节点借元素后不破坏 B+ 树，就可以借
+    - 如果删除后某节点中元素过少，但是与兄弟节点合并后不破坏 B+ 树，就可以合并；如果合并后使父节点元素过少，则也应借或合并。
+
 分别分析几种数据操作下，B+ 树的性能：
 
 - 查找 search
@@ -184,152 +244,22 @@ B+ 树是一种平衡的（每层都是满的）多分树（不止两个节点�
 
 - 插入 insert
 
-    插入算法涉及：先找到该插入的位置直接插入，如果当前的节点数量超过了阶数 M 则拆成两个部分，并向上更新索引。TODO 所以时间复杂度是...
+    插入算法涉及：先找到该插入的位置直接插入，如果当前的节点数量超过了阶数 M 则拆成两个部分，并向上更新索引。所以时间复杂度是...
 
 - 删除 delete
 
-    删除算法设计：直接把要删除的节点删除，然后把没有索引 key 了的非叶节点删除，从旁边找一个叶节点合并出新的非叶节点。TODO 所以时间复杂度是...
+    删除算法设计：直接把要删除的节点删除，然后把没有索引 key 了的非叶节点删除，从旁边找一个叶节点合并出新的非叶节点。所以时间复杂度是...
 
 B+ 树的相关计算
 
 高度的估计：可以分析高度的上下界
 
-- 高度最小的情况是所有叶节点都满 $h = \lceil log_N(M) \rceil$
-- 高度最大的情况是所有叶节点都半满 $h = \lfloor log_{} \rfloor + 1$
+- 高度最小的情况是所有节点都满 $h = \lceil log_N(M) \rceil$
+- 高度最大的情况是所有节点都半满 $h = \lfloor log_{\div{N}{2}}(\div{M}{2}) \rfloor + 1$
 
 size 大小的估计：也是分析高度的上下界
 
-- $$
-- $$
+- 大小最小的时候是所有节点都满：相当于一个首项为 1，末项为 $\lceil \div{K}{n-1} \lceil$，高度为 $\lceil log_N(M) \rceil$ 的等比数列求和
+- 大小最大的时候是所有节点都半满：相当于一个首项为 1，末项为 $\ceil \div{K}{\lceil \div{n-1}{2} \rceil} \ceil$，高度为 $\lfloor log_{\div{N}{2}}(\div{M}{2}) \rfloor + 1$ 的等比数列求和
 
 ### Hash 索引
-
-
-
-## Query Process 查询处理
-
-查询处理的基本步骤是：（1）Parsing and translation 解析和翻译 （2）Optimization 优化 （3）Evaluation 评估。
-
-我们最关注的其实是优化步骤。优化一步是基于以下假设：一种 SQL 查询可能对应了多种等价的关系代数表达式。可以通过估计每种优化方法的 cost 来评估方法的好坏。查询优化会选择最节约的方式进行查询。
-
-那么问题就规约成了从所有等价的关系代数表达式中，选择 cost 最小的一个。那么问题就变成了如何计算 cost！
-
-Cost is generally measured as *total elapsed time* for answering query. Many factors contribute to the time cost: disk access + CPU + network communication. 但是前面讨论过，一个查询被执行的时候需要被加载到磁盘上，而磁盘读写非常慢；CPU 时间可以忽略不计；只要不是网络应用就不用管网络传输开销。所以目前我们关注的 cost 最大的来源就是磁盘访问时间，其中包含 seek, block read, block write 的用时。因此定义以下 cost 计算方法：
-
-在 B 个 block 中查询 S 次的时间 = B * 转移到一个 block 的时间 + S * 一次查询的时间。
-
-而查询中，读写耗时更多，其中写比读更耗时。所以我们希望查找和查询的时间都更少。
-
-（TODO：这里计算的时候要基于两个假设，cost 依赖于主存中缓冲区的大小，更多的内存可以减少 disk access；另外通常考虑最坏的情况，即主存只提供最少的内存来完成查询工作）
-
-接下来来估计关系代数各个操作的 cost
-
-**Select 选择的 cost 计算**
-
-有三种 select 的算法
-
-- 线性搜索
-
-    去依次查询每个 block 判断是否满足查询条件。
-
-- 索引搜索
-
-    
-
-- Primary index, equality on key 搜索一条记录
-
-
-- Primary index, equality on non-key 需要搜索多条记录
-
-
-- Secondary index 二级索引
-
-
-**Sort 排序的 cost 估计**
-
-sort 操作一般使用外部归并排序。对于一个大小为 M 的内存，b_r 表示 block 的数量。sort 分为以下两个步骤：(1) create sorted runs，数据从磁盘读入内存中，因为内存大小是 M，每次能处理 M 个数据项 (2) merge the runs。
-
-需要的 merge pass 的总数 $\lceil log_{M-1}(b_r/M) \rceil$。
-
-创建和每次 run 的过程中 disk access 的数量 2br。
-
-外部排序中总的 disk access 次数 $(2\lceil log_{M-1}(b_r/M) \rceil+1)b_r$
-
-
-**Join 连接的 cost 估计**
-
-以下有几种实现 join 的算法 (1) nested-loop join (2) block nested-loop join (3) indexed nested-loop join (4) merge-join (5) hash-join。
-
-- nested-loop join
-
-    计算 theta-join 表达式：
-
-    ```
-    for each tuple tr in sr do begin
-        for each tuple ts in s do begin
-            test pair (tr, ts) to see if they satisfy the join condition
-    ```
-
-    r is called the outer relation and s the inner relation of the join.
-
-- block nested-loop join
-    
-    ```
-    for each block br of r do begin
-        for each block bs of s do begin
-            for each tuple tr in br do begin
-                for each tuple ts in bs do begin
-                    check if (tr, ts) satisfy the join condition
-                        if they do, add tr·ts to the result
-                end
-            end
-        end
-    end
-    ```
-
-    最坏的情况：
-        block transfer b_r * b_s + b_r
-
-    基础情况：
-
-- index nested-loop join
-
-
-
-- merge-join
-
-    
-
-- hash join
-
-    hash
-
-
-**Duplicated Deletion 重复消除**
-
-排序和投影可以消除重复
-
-考得不多。
-
-
-**Aggregation 聚合**
-
-也可以用排序或投影来做。
-
-
-
-## Query Optimization 查询优化
-
-
-原则：往往先去做选择和投影（已经对初始表做过一次选择，减少了很多记录），再连接
-
-有两种查询优化的方法：（1）找到等价的查询效率的最高的关系代数表达式（2）制定详细的策略来处理查询。下面分别来介绍
-
-
-
-**等价关系代数表达式法**
-
-
-
-**制定详细的策略来处理查询**
-

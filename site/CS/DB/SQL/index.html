@@ -718,14 +718,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-          NLP Theory
+          Explainable NLP
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_2">
           <span class="md-nav__icon md-icon"></span>
-          NLP Theory
+          Explainable NLP
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -735,9 +735,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL/NLPTheory/explainable_nlp/" class="md-nav__link">
-        Explainable NLP
+      <a href="../../../DL/Explainable/" class="md-nav__link">
+        综述
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -748,9 +755,84 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Math Word Problem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Math Word Problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../DL/NLPTheory/mwp/" class="md-nav__link">
-        Math Word Problem
+      <a href="../../../DL/MWP/" class="md-nav__link">
+        综述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          LLM大语言模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          LLM大语言模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/LLMs/llama3_405b/" class="md-nav__link">
+        Llama-3.1-405B技术报告
       </a>
     </li>
   
@@ -1230,6 +1312,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/readingnotes/" class="md-nav__link">
+        读书笔记
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1296,7 +1392,39 @@
 
 <h1 id="sql-grammar">SQL Grammar</h1>
 <h2 id="_1">关系代数</h2>
+<p>5 种基本操作</p>
+<ul>
+<li>select</li>
+<li>project</li>
+<li>join</li>
+<li>union</li>
+<li>rename</li>
+</ul>
+<p>扩展操作</p>
+<ul>
+<li>cartesian product</li>
+<li>set difference</li>
+<li>set intersection</li>
+<li>assignment</li>
+</ul>
 <h2 id="sql">SQL 语法</h2>
+<p><strong>select</strong></p>
+<p><strong>select distinct</strong></p>
+<p><strong>where</strong></p>
+<p><strong>and / or</strong></p>
+<p><strong>order by</strong></p>
+<p><strong>insert to</strong></p>
+<p><strong>update delete</strong></p>
+<p><strong>JOIN 语句</strong></p>
+<p>连接：用于把多个表的行结合起来。</p>
+<p><img alt="" src="../../asset/sqljoins.png" /></p>
+<p>SQL 中几种 join 的类型</p>
+<ul>
+<li>inner join: 如果表中至少有一个匹配，则返回这些行</li>
+<li>left join: 即使右表中没有匹配，也要从左表返回所有的行（只是这样就没有右表的字段）</li>
+<li>right join: 即使左表中没有匹配，也要从右表返回所有的行（只是这样就没有左表的字段）</li>
+<li>full join: 只要其中一个表存在匹配，就返回行</li>
+</ul>
 
 
 

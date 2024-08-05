@@ -48,6 +48,9 @@ F --(single step)--> B[[aborted]]
 
 这样就涉及到调度概念。Schedules 调度是一系列用于指定并发事务执行顺序的指令。它需要（1）包含事务中的所有指令，（2）保证单个事务中的指令的相对顺序。
 
+如果事务是良构的且是两阶段的，那么任何一个合法的调度都是隔离的
+具体的数学推到过程可以参照<<事务处理:概念与技术>>这本书的7.5.8.2节此书乃是关于数据库事务的圣经，无需解释(中文翻译虽然晦涩，也能坚持读下去,强烈推荐
+
 ## 串行
 
 如果一个调度与一个串行调度（serial）等价，那么称这个调度是 serializable 可串行化的。
@@ -61,6 +64,7 @@ F --(single step)--> B[[aborted]]
 
 
 
+
 ## 并发处理
 
 同时执行多个事务，可以提高运行的效率，减少平均执行时间。
@@ -68,5 +72,57 @@ F --(single step)--> B[[aborted]]
 并发控制的处理机制是，让并发的事务独立进行，控制并发的事务之间的交流。
 
 
-## 恢复
 
+## 故障恢复
+
+故障的种类有：
+
+- database application
+    逻辑错误：比如不满足数据库约束条件（主键），系统错误死锁。
+
+- DBMS
+
+
+- Database 
+
+checkpoint 
+
+
+Recovery algorithms are techniques to ensure database consistency and transaction atomicity and durability despite failures. 故障恢复算法就是保障数据库 ACD（不知道为什么没有 I）特性的方法。
+
+故障恢复算法有两个部分：
+
+- Actions taken during normal transaction processing to ensure enough information exists to recover from failures. 在正常运行的事务中，要记日志，以保存足够的信息用来恢复。
+- Actions taken after a failure to recover the database contents to a state that ensures atomicity, consistency and durability. 在错误发生后，要恢复到一个 ACD 状态。
+
+故障恢复算法具有 Idempotent(幂等性): An recovery algorithm is said to be idempotent if executing it several times gives the same result as executing it once. 意思是算法恢复多次的效果是一样的，因为恢复过程中可能也发生 crash。
+
+
+**Log-based Recovery 基于日志的恢复法**
+
+log records 日志记录：
+
+日志记录是记录在 stable storage（稳定存储器）上的，一系列记录数据库怎样被成功修改的信息。log 由一串 log records 组成。它有以下几种格式
+
+- \<Ti start\> transaction 开始的标志。
+- \<Ti, X, V1, V2\> 当 T 执行了 write(X) 时，就写一个 update log，表示在数据表 X 上，将旧值 X1 更新成了 X2。
+- \<Ti commit\> 当 Ti 结束，写一个 commit 记录。
+- \<Ti abort\> 如果 Ti roll back 了，写一个 abort 记录。
+
+checkpoint 之间的间隔应当通过日志量来确定。
+
+
+
+两种策略
+- Redo:
+
+    In the redo phase, the system replays updates of all transactions by scaning the log forward from the last checkpoint. The log records that are replayed include log records for transactions that were rolled back befored system crash, and those that had not committed when the system crash occurred. 
+    在 redo 阶段里，系统根据重新扫描上一次 checkpoint 之后的所有记录，重新执行上一次 checkpoint 之后的所有 transaction。这里的 log 记录包括在 crash 之前正在回滚的那些记录，也包括 crash 时还没有提交的那些记录。Redo 阶段也会判断所有 transaction 是否完成了，是否需要 roll back。没完成的 transaction 会被标记为或者 \<Ti abort\> 或者 \<Ti commit\> 的标记。具体来说执行的步骤有下面几条：
+
+    - 
+
+
+
+- Undo:
+
+    

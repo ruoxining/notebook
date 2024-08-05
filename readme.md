@@ -11,6 +11,7 @@
 部署命令
 
 ```
+conda activate MKdocs
 mkdocs gh-deploy --clean
 ```
 
@@ -60,3 +61,5 @@ TODO list
 - 实现一下网站访问统计：[MkDocs实现网站访问统计(不蒜子)及添加评论系统模块(livere来必应)实现](https://blog.csdn.net/arnolan/article/details/105026738)
 
 - 实现一下渲染 mermaid：[HTML - 在网页上显示mermaid流程图（使用纯js在网页上显示mermaid流程图）](https://blog.csdn.net/Tisfy/article/details/131464925)
+
+- 实现一下怎么内嵌 pdf 下载链接

@@ -29,7 +29,7 @@
 | 类别 | 论文笔记.. | | | | |
 | :-- | :-- | :-- | :-- | :-- | :-- |
 | DL | 📘RL |  |   |  |
-| NLP | [📘Explainable NLP](https://ruoxining.github.io/OBvault/DL/NLPTheory/explainable_nlp/) | [📘Math Word Problem](https://ruoxining.github.io/OBvault/DL/NLPTheory/mwp/) |  |  |  |
+| NLP | [📘Explainable NLP](https://ruoxining.github.io/OBvault/DL/Explainable/) | [📘Math Word Problem](https://ruoxining.github.io/OBvault/DL/MWP/) |  |  |  |
 
 
 ### 🌳 Linguistics Notes

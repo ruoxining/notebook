@@ -25,10 +25,13 @@ nav:
       - Parsing: 'CS/Compiler/parsing.md'
 
   - 🎓DL专栏: 
-    - 索引: 'DL/index.md'
-    - NLP Theory: 
-      - Explainable NLP: 'DL/NLPTheory/explainable_nlp.md'
-      - Math Word Problem: 'DL/NLPTheory/mwp.md'
+    - 索引: 'DL/index.md' 
+    - Explainable NLP: 
+      - 综述: 'DL/Explainable/index.md'
+    - Math Word Problem: 
+      - 综述: 'DL/MWP/index.md'
+    - LLM大语言模型:
+      - Llama-3.1-405B技术报告: 'DL/LLMs/llama3_405b.md'
 
   - 🌳Ling专栏:
     - 索引: 'Ling/index.md'
@@ -57,6 +60,7 @@ nav:
     - Portfolio: 'Other/portfolio.md'
     - 24fall申请记录: 'Other/24fall.md' 
     - 英专转CS&NLP指北: 'Other/zju_ling_cs.md'
+    - 读书笔记: 'Other/readingnotes.md'
     # - NLP申请PhD经验(搬运): 'Other/nlp_phd.md'
 
 theme:
