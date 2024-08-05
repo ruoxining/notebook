@@ -131,17 +131,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ruoxining.github.io/OBvault/DL/NLPTheory/explainable_nlp/</loc>
-         <lastmod>2024-08-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://ruoxining.github.io/OBvault/DL/NLPTheory/mwp/</loc>
-         <lastmod>2024-08-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://ruoxining.github.io/OBvault/DL/PaperNotes/llama3_405b/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ruoxining.github.io/OBvault/DL/PaperTopics/explainable_nlp/</loc>
+         <lastmod>2024-08-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ruoxining.github.io/OBvault/DL/PaperTopics/mwp/</loc>
          <lastmod>2024-08-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
