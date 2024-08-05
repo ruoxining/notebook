@@ -1577,68 +1577,94 @@
 <p>在多个 benchmark 上测试 Llama-3.1-405B 的性能。此处想对本文用到的 benchmark 进行一点概述。</p>
 <p>pre-train 阶段结束后，用于测试的 benchmark 有：</p>
 <ul>
-<li>Reading Comprehension 阅读理解</li>
+<li>Reading Comprehension 阅读理解<ul>
 <li><code>SQuAD V2</code> (Rajpurkar et al., 2018) stf 做的一个阅读理解 benchmark，收集了 wikipedia 文章，对里面内容做 QA。</li>
 <li><code>QuaC</code> (Choi et al., 2018) 全称是 QA in context，也是对 wikipedia 文章做 QA，但是所标注的 QA 数据是连续的很长的对话。比如格式是，speaker A 问，这个人出生地是哪里，B 回答，A 再问这个人哪一年做了哪个事等，如此继续。</li>
 <li><code>RACE</code> (Lai et al., 2017) 是中国的英语考试阅读理解题。</li>
-<li>Code 代码</li>
+</ul>
+</li>
+<li>Code 代码<ul>
 <li><code>HumanEval</code> (Chen et al., 2021) 格式有点像 leetcode 题目，每条数据包含题目要求和一组测试点，自动测试程序会运行模型生成的代码，判断通过多少测试点。</li>
 <li><code>MBPP</code> (Austin et al., 2021) 格式大致同上。</li>
-<li>Commonsense Reasoning / Understanding 常识推理</li>
+</ul>
+</li>
+<li>Commonsense Reasoning / Understanding 常识推理<ul>
 <li><code>CommonSenseQA</code> (Talmor et al., 2019) 在 conceptnet 数据集的基础上产生 multichoice 问题。</li>
 <li><code>PiQA</code> (Bisk et al., 2020) physical ... 物理领域的常识推理。</li>
 <li><code>SiQA</code> (Sap et al., 2019) social ... 社交 / 文化领域的常识推理。</li>
 <li><code>OpenBookQA</code> (Mihaylov et al., 2018) 基础科学问题。</li>
 <li><code>WinoGrande</code> (Sakaguchi et al., 2021) adversarial Winograd challenge，因为 Winograd 已经被很多模型训练过了，制作了与 Winograd 数据集同格式的新数据。</li>
-<li>Math, Reasoning, and Problem solving 数学推理</li>
+</ul>
+</li>
+<li>Math, Reasoning, and Problem solving 数学推理<ul>
 <li><code>GSM8K</code> (Cobbe et al., 2021) 小学数学问题，问题是应用题，提供一系列思维链解题过程，每个步骤都能用简单的加减乘除解决。</li>
 <li><code>MATH</code> (Hendrycks et al., 2021b) 竞赛数学题，与 GSM8K 同格式，复杂的数学符号用 LaTeX 写成。</li>
 <li><code>ARC Challenge</code> (Clark et al., 2018) 全称 AI2's Reasoning Challenge，是 3-9 年级的科学题，格式是 multichoice。</li>
 <li><code>DROP</code> (Dua et al., 2019) discrete reasoning over paragraphs 文本段落中夹杂数字或大小等关系，对这些数字或文本进行推理。</li>
 <li><code>WorldSense</code> (Benchekroun et al., 2023) 用文本描述的图形和空间方位关系，对图形属性和空间方位进行推理。</li>
-<li>Adversarial 对抗攻击？</li>
+</ul>
+</li>
+<li>Adversarial 对抗攻击？<ul>
 <li><code>Adv SQuAD</code> (Jia and Liang, 2017) 手动造了 SQuAD 格式的更难的问题。</li>
 <li><code>Dynabench SQuAD</code> (Kiela et al., 2021) dynamic benchmark collection，有一个网站 <a href="https://dynabench.org/about">Dynabench</a>，允许用户随时上传新的数据。</li>
 <li><code>GSM-Plus</code> (Li et al., 2024c) 将 GSM8K 里面的数字改掉，比如 3 改成 30，整数改成小数等。</li>
 <li><code>PAWS</code> (Zhang et al., 2019) 问题格式是，交换某个表达中的两个词（比如，flight from NYC to Florida 中的 NYC 和 Florida），判断是否等价。</li>
-<li>Long context 长文本</li>
+</ul>
+</li>
+<li>Long context 长文本<ul>
 <li><code>QuALITY</code> (Pang et al., 2022) 长文本上的 multichoice 问题。</li>
 <li><code>many-shot GSM8K</code> (An et al., 2023a) 似乎这个 benchmark 搜关键词没有找到，原文中引用对应的文章也不是这个名字。</li>
-<li>Aggregate 综合</li>
+</ul>
+</li>
+<li>Aggregate 综合<ul>
 <li><code>MMLU</code> (Hendrycks et al., 2021a) massive multi-task language understanding，包含 57 个 STEM 学科，用来测量大模型在预训练中获得的知识。因为比较老了，很多大语言模型都在这个数据集上 overfit 了。</li>
 <li><code>MMLU-Pro</code> (Wang et al., 2024b) 在 MMLU 中去掉了一部分质量差的问题，做了一个更 challenging 的 test set。（发现还是即将一起去 Waterloo 的 Yubo 同学一作）</li>
 <li><code>AGIEval</code> (Zhong et al., 2023) 由一些考试题组成，高考，SAT，GRE ... 等。</li>
 <li><code>BIG-Bench Hard</code> (Suzgun et al., 2023) 专门选择了一些表现不如人类好的 benchmark 集合起来。</li>
 </ul>
+</li>
+</ul>
 <p>post-train 阶段结束时，测试用的 benchmark 如下：</p>
 <ul>
-<li>General 综合类 </li>
+<li>General 综合类 <ul>
 <li><code>MMLU</code> (Hendrycks et al., 2021a) 同前文。</li>
 <li><code>MMLU-Pro</code> (Wang et al., 2024b) 同前文。</li>
 <li><code>IFEval</code> (Zhou et al., 2023) Instruction-following evaluation for LLMs，定义了一系列“可以验证的指令”，比如“写 400 字”“至少说 3 次关键词”，测试模型遵守指令的能力。</li>
-<li>Math and Reasoning 数学推理</li>
+</ul>
+</li>
+<li>Math and Reasoning 数学推理<ul>
 <li><code>GSM8K</code> (Cobbe et al., 2021) 同前文。</li>
 <li><code>MATH</code> (Hendrycks et al., 2021b) 同前文。</li>
 <li><code>GPQA</code> (Rein et al., 2023) graduate-level Google-proof QA benchmark，由 biology, physics, chemistry 领域的专家写成的非常难的问题。</li>
 <li><code>ARC-Challenge</code> (Clark et al., 2018) 同前文。</li>
-<li>Code 代码</li>
+</ul>
+</li>
+<li>Code 代码<ul>
 <li><code>HumanEval</code> (Chen et al., 2021) 同前文。</li>
 <li><code>MBPP</code> (Austin et al., 2021) 同前文。</li>
 <li><code>HumanEval+</code> (Liu et al., 2024a) 将 HumanEval 扩大了 80 倍做成了这个数据集。</li>
 <li><code>MBPP EvalPlus (base)</code> (Liu et al., 2024a) 将 MBPP 扩大了 35 倍做成了这个数据集。</li>
 <li><code>MultiPL-E</code> (Cassano et al., 2023) 扩展 HumanEval 和 MBPP 到了 18 种编程语言。</li>
-<li>Multilinguality 多语言</li>
+</ul>
+</li>
+<li>Multilinguality 多语言<ul>
 <li><code>MGSM</code> (Shi et al., 2022) 将 GSM8K 数据集翻译成了 10 种文字不同的语言。（是我博导的工作）</li>
 <li><code>Multilingual MMLU</code> (internal benchmark) 内部数据集，没有搜到，可能没有公开。</li>
-<li>Tool-use 使用工具</li>
+</ul>
+</li>
+<li>Tool-use 使用工具<ul>
 <li><code>Nexus</code> (Srinivasan et al., 2023) 很奇怪，这个数据集能搜到的条目只有 huggingface 并且点开 404 了。</li>
 <li><code>API-Bank</code> (Li et al., 2023b) 由 73 个 API 工具构成，根据模型产生的对话中调用 API 的情况，测试模型是否能调用、检索+调用、规划+检索+调用 API。</li>
 <li><code>API-Bench</code> (Patil et al., 2023) </li>
 <li><code>BFCL</code> (Yan et al., 2024) </li>
-<li>Long context 长文本</li>
+</ul>
+</li>
+<li>Long context 长文本<ul>
 <li><code>ZeroSCROLLS</code> (Shaham et al., 2023) </li>
 <li><code>Needle-in-a-Haystack</code> (Kamradt, 2023) </li>
 <li><code>InfiniteBench</code> (Zhang et al., 2024) </li>
+</ul>
+</li>
 </ul>
 <h3 id="_4">性能数值</h3>
 <p>在这些 benchmark 上测试时，由于单次结果不稳定（先前我们普遍的做法常常是多次结果求平均值等），本技术报告采用 Maddan et al.(2024) 提出的 95% confidence interval (CIs) 方法，通过计算置信区间来估计方差。这个方法假设测试得到的数值服从正态分布，如果单次测试得到的数值为 S，数据集大小为 N，那么置信区间为</p>
