@@ -1,14 +1,14 @@
 # 索引
 
-本章节包括深度学习理论+工程笔记
+本章节包括深度学习理论 + 工程笔记，每个文件夹属于一个 general topic。
 
-
-这个索引没写完
-
-而且我也不记得为什么下面放了这张图了
 
 ![](./asset/index.png)
 
+
+TODO
+
+- [](https://gallantlab.org/viewer-huth-2016/)
 
 
 好的笔记

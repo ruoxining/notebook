@@ -80,6 +80,7 @@ theme:
     code: Robot Mono
 plugins:
   - search
+  - statistics
   # - mkdocs-video:
   #     is_video: True
   #     video_muted: True
@@ -103,6 +104,8 @@ markdown_extensions:
   - attr_list
   - pymdownx.arithmatex:
       generic: true
+extra:
+  - statistics: True
 extra_css:
   - _css/style.css
 extra_javascript:

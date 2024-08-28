@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md",
+                "file": "DL/FormalLanguage/index.md",
                 "mode": "source",
                 "source": false
               }
@@ -23,12 +23,8 @@
             "id": "909d4c7e778800b4",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Linguistics_Notes/Semantics/index.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -105,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md",
+                "file": "DL/FormalLanguage/index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md",
+                "file": "DL/FormalLanguage/index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -145,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Linguistics_Notes/History of Philosophy of Language.md"
+                "file": "DL/FormalLanguage/index.md"
               }
             }
           },
@@ -155,7 +151,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -179,6 +177,7 @@
   },
   "active": "2dfcf26a9e7d00d0",
   "lastOpenFiles": [
+    "DL/Explainable/index.md",
     "Linguistics_Notes/asset/截屏2023-12-07 22.55.24.png",
     "Linguistics_Notes/Philosophy of Language and NLP.md",
     "Linguistics_Notes/History of Philosophy of Language.md",
@@ -209,7 +208,6 @@
     "CS_Notes/OS操作系统/asset/OS38.png",
     "CS_Notes/OS操作系统/asset/OS37.png",
     "CS_Notes/OS操作系统/asset/OS36.png",
-    "CS_Notes/OS操作系统/asset/OS35.png",
     "CS_Notes/OS操作系统/OS Lecture 内存 存储 文件系统 45314847c4294195a6ed9cf5b5ed9d66.md",
     "CS_Notes/OS操作系统/OS Lecture 进程与同步 8a4f18b7687b4834a9402d982a22680e.md",
     "CS_Notes/OS操作系统/OS Lecture Overview 76843e2eb3d445959b4edfd85f0d91b5.md",

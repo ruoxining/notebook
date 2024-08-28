@@ -1,0 +1,1859 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ruoxining.github.io/OBvault/CS/CA/chap2/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../chap3/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>chap2 - Mini Babel Library</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Simplified+Chinese:300,300i,400,400i,700,700i%7CRobot+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Simplified Chinese";--md-code-font:"Robot Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_css/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chap2-memory-hierachy-design" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Mini Babel Library" class="md-header__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mini Babel Library
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              chap2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      🏛️ Mini Babel Library
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        💻CS专栏
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../DL/" class="md-tabs__link">
+        🎓DL专栏
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Ling/" class="md-tabs__link">
+        🌳Ling专栏
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Other/" class="md-tabs__link">
+        💭说瞎话了
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Mini Babel Library" class="md-nav__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mini Babel Library
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OBvault
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        🏛️ Mini Babel Library
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          💻CS专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          💻CS专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libgraphics/" class="md-nav__link">
+        C大程libgraphics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          C++持续进步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          C++持续进步
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/course/" class="md-nav__link">
+        ZJU听课
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/final_review/" class="md-nav__link">
+        ZJU期末复习
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../x86assm/" class="md-nav__link">
+        x86汇编
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          OS操作系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OS/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OS/lab/" class="md-nav__link">
+        lab
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          CA体系结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          CA体系结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          chap2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        chap2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    cache 基础概念
+  </a>
+  
+    <nav class="md-nav" aria-label="cache 基础概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache_1" class="md-nav__link">
+    cache 的分类和地址的计算方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-write" class="md-nav__link">
+    cache write 的处理方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-miss-3c" class="md-nav__link">
+    cache miss 的种类 （简称为3C）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_2" class="md-nav__link">
+    cache 优化方法
+  </a>
+  
+    <nav class="md-nav" aria-label="cache 优化方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#miss-penalty" class="md-nav__link">
+    Miss Penalty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miss-rate" class="md-nav__link">
+    Miss Rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallelism" class="md-nav__link">
+    Parallelism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hit-time" class="md-nav__link">
+    Hit Time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap3/" class="md-nav__link">
+        chap3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chap5/" class="md-nav__link">
+        chap5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          Compiler编译原理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Compiler编译原理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/parsing/" class="md-nav__link">
+        Parsing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          🎓DL专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          🎓DL专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Explainable NLP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Explainable NLP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Explainable/" class="md-nav__link">
+        综述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Math Word Problem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Math Word Problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/MWP/" class="md-nav__link">
+        综述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          LLM大语言模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          LLM大语言模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/LLMs/llama3_405b/" class="md-nav__link">
+        Llama-3.1-405B技术报告
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          🌳Ling专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          🌳Ling专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          句法学Syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          句法学Syntax
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/conv_gen/" class="md-nav__link">
+        转换生成句法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/uni_gram/" class="md-nav__link">
+        普遍语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/ud_sud/" class="md-nav__link">
+        依存句法UD&SUD
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          语义学Semantics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          语义学Semantics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/definitions/" class="md-nav__link">
+        Definition Clearification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/formal_semantics/" class="md-nav__link">
+        Logics & Formal Semantics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/ambiguity/" class="md-nav__link">
+        Scope Ambiguity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          语用学Pragmatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          语用学Pragmatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/theories/" class="md-nav__link">
+        Theory&Hypothesis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/socio/" class="md-nav__link">
+        Sociopragmatics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/ca_da/" class="md-nav__link">
+        Research Methods
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/pol_zh/" class="md-nav__link">
+        语言哲学Philosophy of Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          💭说瞎话了
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          💭说瞎话了
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/tools/" class="md-nav__link">
+        我的工具箱！
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/nlp_resources/" class="md-nav__link">
+        DL & NLP 资源整理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/whynote/" class="md-nav__link">
+        WhyNote
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/portfolio/" class="md-nav__link">
+        Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/24fall/" class="md-nav__link">
+        24fall申请记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/zju_ling_cs/" class="md-nav__link">
+        英专转CS&NLP指北
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/readingnotes/" class="md-nav__link">
+        读书笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    目录
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache" class="md-nav__link">
+    cache 基础概念
+  </a>
+  
+    <nav class="md-nav" aria-label="cache 基础概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache_1" class="md-nav__link">
+    cache 的分类和地址的计算方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-write" class="md-nav__link">
+    cache write 的处理方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cache-miss-3c" class="md-nav__link">
+    cache miss 的种类 （简称为3C）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_2" class="md-nav__link">
+    cache 优化方法
+  </a>
+  
+    <nav class="md-nav" aria-label="cache 优化方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#miss-penalty" class="md-nav__link">
+    Miss Penalty
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miss-rate" class="md-nav__link">
+    Miss Rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallelism" class="md-nav__link">
+    Parallelism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hit-time" class="md-nav__link">
+    Hit Time
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chap2-memory-hierachy-design">chap2: Memory Hierachy Design</h1>
+<h2 id="_1">目录</h2>
+<ul>
+<li>cache 基础概念（与计组重合）</li>
+<li>cache 优化方法</li>
+</ul>
+<h2 id="cache">cache 基础概念</h2>
+<p>这块常考大题，比如计算地址长度，计算 AMAT，计算 miss 次数等。 </p>
+<h3 id="cache_1">cache 的分类和地址的计算方法</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>这个表记不清了打算等上计组再补。</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>解释</th>
+<th>标记项结构</th>
+<th>地址计算</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>direct-mapping 直接映射</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fully associative 全关联</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2^n-set associative 2^n路组关联</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>标记项结构: cache 里的数据和标记项是分成两个（或更多，见王道）存储的，然后标记项因为占用额外的空间所以就是所谓的 overhead</li>
+</ul>
+<h3 id="cache-write">cache write 的处理方法</h3>
+<table>
+<thead>
+<tr>
+<th>write 策略</th>
+<th>解释</th>
+<th>经常搭配的 write-miss 策略</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>write through</td>
+<td>每次写数据时既写在cache也写在main memory。好处是cache和main memory总是一致的，但是很慢。可以通过引入一个write buffer来改进。</td>
+<td>write around（也叫non-allocate）</td>
+<td>考虑到既然本来就要去一次main memory，不如直接写在里面，不再拿到cache里了。</td>
+</tr>
+<tr>
+<td>write back</td>
+<td>只将修改后的内容放在cache里，该block要被覆盖的时候再写回内存。这种情况需要一个额外的dirty bit来记录这个cache是否被更改过，从而直到被覆盖前是否需要被写回内存。</td>
+<td>write allocate</td>
+<td>像read miss一样先把block拿到cache里再写入</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cache-miss-3c">cache miss 的种类 （简称为3C）</h3>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compulsory miss</td>
+<td>冷启动失配，刚上电cache是空的，所以不论什么访问都要miss一次。cache越大compulsory miss越多。</td>
+</tr>
+<tr>
+<td>capacity miss</td>
+<td>cache块的大小不满足程序局部性时发生的失配，称为容量失配。cache块大小增大，容量失配率减小，与关联度无关。</td>
+</tr>
+<tr>
+<td>conflict miss</td>
+<td>在采用组关联和直接映像方式的cache中，主存的很多块都映射到cache的同一块，如果某块本来在cache中，刚被替换出去，又被访问到。有点像 OS 里页替换时讲到的“抖动”。关联度越大，Conflict失配越小。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cache_2">cache 优化方法</h2>
+<p>这块常考选择。</p>
+<p>总结性的图
+<img alt="cache optimization" src="../../asset/cache_optim.png" /></p>
+<p>接下来具体讲解每一种优化方法。</p>
+<p>首先四大类优化的思路是如何产生的？来自于衡量内存性能的公式：</p>
+<div class="arithmatex">\[ Average\space Memory\_access\space Time\space (AMAT) = Hit\_time + Miss\_rate \times Miss\_penalty \]</div>
+<p>首先这个公式的意思是，当 CPU 需要内存访问的时候，访问时间的计算方法是：
+- 如果在 cache 里找到了，即发生 cache hit，那么需要的时间只有 cache 的访问用时即hit_time。
+- 如果在 cache 里没找到（此时已经用了一个 hit_time，这就是为什么 hit_time 是 100% 要用掉的），那么就需要去内存里找，去内存里找的用时是这种情况所占的百分比 miss_rate 乘上去内存里找一次的耗时 miss_penalty。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>当然题目里还可能会说 "cache 和 memory 是同时访问的"，意思就是 cache 和 memory 一起找，如果 cache 里找到了，就把 memory 访问掐掉，这样在 miss 的情况下是比先在 cache 里找完再去 memory 找更快的。这样的条件下计算 AMAT 就需要把 hit_time 乘上一个 hit_rate，不再是 100% 用掉了。</p>
+</div>
+<p>总之，AMAT 的表达式给我们提供了三种优化的大方向，即 (1)降低 hit_time (2)减小 miss_rate (3)减小 miss_penalty。此外还有一个大方向叫 (4)做并行的 cache，在有的老师的 PPT 里第(4)项好像会拆出两类来讲，不过我们这里就按总共四种大方向来写，跟图一致，比较舒服。</p>
+<h3 id="miss-penalty">Miss Penalty</h3>
+<p><strong>Multilevel Caches</strong></p>
+<p>经典的内存模型是</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>小/快 &lt;---------------&gt; 大/慢
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[寄存器] - [cache] - [内存] - [外存]
+</span></code></pre></div>
+<p>这个方法是把它变成</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>小/快 &lt;---------------&gt; 大/慢
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[寄存器] - [小cache] - [大cache] - [内存] - [外存]
+</span></code></pre></div>
+比如小 cache 没找到的先从大 cache 找，大 cache 没找到的再去内存找。此类可能出 AMAT 的计算题，把各种 rate 拎清以后就像何老师说的“当成初中物理题做就行”。</p>
+<p><strong>Early Resart &amp; Critical Word 1st</strong></p>
+<p>众所周知（至少你现在知道了）cache 的一个 block 经常是含有多个 word 的（你可能会恍然大悟有些题目里说的“cache 按 word 编址”是什么意思），而 block 往往是大于 cache 和内存之间的数据线位宽的，也就是说想要替换一个 block，需要在 cache 和内存之间传送好几趟才能把一个 block 替换完。</p>
+<p>但是 miss 发生时 CPU 需要的可能只有一个 word，那么可以先把 CPU 需要的这个 word 写回来，让 CPU 先继续跑起来，在 CPU 继续跑的同时再把剩下的 word 写进 cache。</p>
+<p><strong>Priority to Read Miss</strong></p>
+<p>在使用 write buffer 的情况下，如果 write 的数据很快就要 read，可以先不将 buffer 的数据写进内存，而是等到read的时候直接从buffer里读，读多次之后再一次从buffer里写内存。</p>
+<p>其中，write buffer 是一个可以设在 cache 和内存之间的结构，意思是，假设内存只有一个读写端口，写入内存非常慢，那么 cache 可以将需要写到内存的东西先搬到 write buffer 里，然后 cache 先跑着，内存去慢慢写入。</p>
+<p><strong>Merging Write Buffer</strong></p>
+<p>同样是使用 write buffer 的情况。merging write buffer 就是将在多行可以一次写回的内容合并到一行，以可以一次写回。write buffer 的内容是按 byte 编址的，但内存数据线位宽一般大于 byte，比如一次可以写回一整个 word，那么假如 write buffer 里现在有四行 mem[200], mem[400], mem[208], mem[408]，写回内存就需要四次。但是如果我们把在同一个 word 里的 byte 合并一下，变成 mem[200] mem[208] 和 mem[400] mem[408] 两行，两次写回，就会变快。</p>
+<p><strong>Victim Caches</strong></p>
+<p>是一种减少 conflict miss 的方法，即替换出去的页先放进这个 victim cache 结构。victim cache 与 cache 是全相关的，有点像一个二级 cache，是一个比一级 cache 慢的 cache。这样如果发生 conflict miss，从这个 victim cache 里取数据比从内存里取更快。</p>
+<h3 id="miss-rate">Miss Rate</h3>
+<p>这一栏的前三个方法都不是很聪明，本质上是在 cache 的三种设计方法中去权衡，而我们知道 cache 的三种 miss 还是此消彼长的，哪一种设计方法都不能完美解决。不过整体而言，from 王道计组，使用合适的 2^n 路组关联时，最好的情况能够几乎兼具直接映射的效率和全关联的命中率。</p>
+<p><strong>Larger Block Size</strong></p>
+<p>把 cache 的每个块设计得更大，这样每个块存得东西多了，当然 miss_rate 就下降。缺点也很明显，miss_penalty 上升了，因为写起来变慢了。</p>
+<p><strong>Larger Cache Size</strong></p>
+<p>把 cache 的块数增多，这样存得东西也多了，miss_rate 就也下降。缺点也很明显，冷启动 compulsory miss 上升了；如果不是直接映射，查找时间也上升了。</p>
+<p><strong>Higher Associativity</strong></p>
+<p>提升组关联数，这样减少 cache 里面的东西被替换出去的概率，减少 conflict miss。缺点也很明显，查找时间增加。</p>
+<p><strong>Way-predicting Cache</strong></p>
+<p>在组关联设计中，使 cache 具有预测需要查找的 tag 的能力。因为去查需要的数据在组里哪个 tag 比较慢，所以先猜一个 tag 在 cache 里找着，等 tag 准备好后如果猜对了，那么节约了时间，就可以直接 hit。</p>
+<p><strong>Pseudo-associative Caches</strong></p>
+<p>既是直接映射又是组关联映射的 cache。首先把 cache 当作一个直接映射 cache，第一次查的时候就这么查，最快。但是这种 cache 又同时是一个组关联映射，在 cache 块中放一个额外的标志表示与之关联的其它块，如果 miss 了再去查这些块。这样有一个小的 hit_time 和2^n - 1个大的 pseudo_hit_time，但是平均来说 miss_rate 比直接映射小，hit_time 比组关联映射小。</p>
+<p><strong>Compiler Techniques Reduce Cache Misses</strong></p>
+<p>用软件方法，优化代码。这里有四个例程，分别叫 Merging Arrays, Loop Interchange, Blocking, 和 Loop Merging。简单的直接用文字描述了。</p>
+<p>Merging Arrays</p>
+<p>比如我们需要访问的是a[100], b[100], 在同一个循环里连续访问a[i] b[i]即下标相同的项，cache如果一次性放不下两个数组，就会两个数组交替从内存里取出来放到cache里。这时候可以设计成一个结构体数组struct ab { a[100], b[100] }，这样 cache 可以把 a 和 b 相邻地拿进来。减少miss。</p>
+<p>Loop Interchange</p>
+<p>e.g.</p>
+<div class="language-C highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/* Before: 外行内列，一行可以一次被放进内存 */</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="cm">/* After: 外列内行 */</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">            </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</span></code></pre></div>
+<p>修改后的cache命中率变高了，因为交换后对内存的访问是连续的。一般是行对齐的，最低维是相邻的。</p>
+<p>Blocking</p>
+<p>适当拆分运算，以配合cache大小。e.g. 矩阵相乘例子。</p>
+<p><div class="language-C highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cm">/* Before */</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="o">:</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">      </span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w">  </span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="cm">/* After */</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">jj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">jj</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">jj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jj</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kk</span><span class="w"> </span><span class="o">+</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="c1">// ...记不清了</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">B</span><span class="p">;</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">            </span><span class="c1">// 总之这个内层循环只处理一个 B * B 的 block，其中 block 是 cache 能放下的大小</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">}</span>
+</span></code></pre></div>
+那么优化前 cache 需要替换更多次，因为不论是行循环还是列循环，超过 B 之后 cache 都要重新写一遍。然后下次写到这个 block 时再换进来一次。</p>
+<p>优化后每次对每一个 block 一次性完成操作。</p>
+<p>Loop Merging</p>
+<p>比如有两个循环的循环起止条件一样，那么就不要开两个循环了，合并到一个循环里完成。</p>
+<h3 id="parallelism">Parallelism</h3>
+<p><strong>Non-blocking Caches</strong></p>
+<p>cache miss时, 等待内存写回时继续做别的没有冲突的事情，不必要让所有的资源都等待内存。可以让别的块先完成别的指令的需求。比如在处理write miss的时候，允许处理read hit。</p>
+<p>主要用于out of order（乱序）的处理器上。</p>
+<p>ppt 给的定义是：allows cache to continues to supply hits while processing read misses (hit under miss, hit under multiple miss)</p>
+<p><strong>Hardware Prefetching of Instr/Data</strong></p>
+<p>可以由硬件控制数据预取，一种类似 branch-prediction 的做法。预测并提前取出可能需要用到的数据放到cache里。</p>
+<p>使用prefetching的前提是指令是并行的，cache 也是 non-blocking 的。</p>
+<p><strong>Compiler Controlled Prefetching</strong></p>
+<p>上面一条预取方法，也可以由程序员和编译器手动指定哪些内容应该被放到cache。</p>
+<h3 id="hit-time">Hit Time</h3>
+<p><strong>Small &amp; Simple Caches</strong></p>
+<p>比如就针对 cache 本身，减小 cache 的复杂度以减小组合逻辑的延迟。当然由于我们之前讨论过的 cache 三个指标的相互制约，是可能会导致其它两个指标变不好的。</p>
+<p><strong>Avoiding Address Translation</strong></p>
+<p>这里需要分别回忆一下 cache 标记位的结构和 OS 里的页表项。一般本课程中使用的 cache 设计规则都是 "physically tagged, virtually indexed"(PTVI)，意思是，用于查找 cache block 的 tag 整个全都在 page offset 里，这块 offset 字段对于虚拟地址和物理地址来说是完全一样的，只有 page number 需要送进 tlb 去寻找物理帧号。如图。</p>
+<p><img alt="" src="../../asset/PTVI.png" /></p>
+<p>如果之前的做法是 cache 等到物理帧号找出来、地址翻译完再去查找，就太慢了。既然 tag 不用等到地址翻译就能拿到，可以使地址翻译和 cache 查找同时进行。</p>
+<p><strong>Pipelined Cache Access</strong></p>
+<p>因为 cache management unit 的操作分为好多步，可以把每步去像流水线一样并行。缺点是会增加系统开销，导致 hit_time 增加，但是好处是前面的指令 miss 时，下一条指令可以并行。</p>
+<p><strong>Multi-banked Cache</strong></p>
+<p>将多路组关联的每一路的查找并行。</p>
+<p>ppt 给的定义是：cache is divided into independent banks that can support simultateous accesses like interleaved memory banks.</p>
+<p><strong>Trace Cache</strong></p>
+<p>核心逻辑是缓存逻辑上的指令流，而不是缓存物理地址的指令流，从而加快指令的预取。比如分支指令中不去预测里 cache 不会命中的分支，这样节省了 cache 空间，也让相邻的指令在 cache 中也相邻。我的理解它的意思是把 prediction 的功能送给了 cache，如果分支预测预测到了某个跳转指令会发生，那么 cache 就去预取发生的分支后面的数据。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="../../../javascripts/tex-mml-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>
