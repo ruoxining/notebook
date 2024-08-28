@@ -76,8 +76,11 @@ theme:
   icon:
     repo: fontawesome/brands/git-alt
   font:
-    text: Noto Sans Simplified Chinese
-    code: Robot Mono
+    # text: Noto Sans Simplified Chinese
+    # code: Robot Mono
+    text: LXGW WenKai Screen GB Screen # Share Tech
+    code: JetBrains Mono
+    
 plugins:
   - search
   - statistics
