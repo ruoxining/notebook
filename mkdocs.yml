@@ -1,7 +1,7 @@
 site_name: Mini Babel Library
-site_url: https://ruoxining.github.io/OBvault
-repo_url: https://github.com/ruoxining/OBvault
-repo_name: OBvault
+site_url: https://ruoxining.github.io/notebook
+repo_url: https://github.com/ruoxining/notebook
+repo_name: notebook
 
 nav:
   - 'index.md' 

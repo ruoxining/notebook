@@ -1,9 +1,11 @@
 # Readme
 ## 简介
 
-我的BLOG，主要语言是中文，主要内容有笔记 + 一些瞎话。在线部署在[MiniBabelLibrary](https://ruoxining.github.io/OBvault/)。
+我的BLOG，主要语言是中文，主要内容有笔记 + 一些瞎话。
 
-如果想查找ZJU课程资料，可以配合仓库[ZJU_COURSE_MATERIALS](https://github.com/ruoxining/ZJU_COURSE_MATERIALS)食用。本BLOG的定位是掺杂自己观点的笔记 + 心得，上述仓库的定位是客观通用的一个工具箱。暂时这样分工。
+在线部署在[MiniBabelLibrary](https://ruoxining.github.io/notebook/)。
+
+如果想查找ZJU课程资料，可以配合仓库[ZJUCourse](https://github.com/ruoxining/ZJUCourse)食用。本BLOG的定位是掺杂自己观点的笔记 + 心得，上述仓库的定位是客观通用的一个工具箱。暂时这样分工。
 
 
 ## 撰写规则
