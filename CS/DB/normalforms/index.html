@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://ruoxining.github.io/OBvault/CS/DB/normalforms/">
+        <link rel="canonical" href="https://ruoxining.github.io/notebook/CS/DB/normalforms/">
       
       
       
@@ -146,13 +146,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/ruoxining/notebook" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    OBvault
+    notebook
   </div>
 </a>
       </div>
@@ -278,13 +278,13 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/ruoxining/notebook" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    OBvault
+    notebook
   </div>
 </a>
     </div>
@@ -1426,6 +1426,9 @@
 
 
 <h1 id="_1">数据库关系模式</h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 1976 个字 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
+</div>
 <p>为什么我们需要关系模式？</p>
 <p>在设计数据库的时候，我们画完 E-R 图，要把图转化成表的形式化定义（比如 <code>Student(sid, course, department)</code> 这种格式）。这就需要我们对一些属性进行进一步约束，比如要关注这些问题：（1）在两个表里的键谁决定谁？要保证只有 candidate key 的属性才能决定其它属性。（2）有些表该合在一起，还是拆成多个表？如果表合得太多，有些信息可能出现太多次，产生信息冗余、插入异常、更新困难。（3）有些属性虽然不是主键，但又决定其它关系的值，这种情况叫做有函数依赖。</p>
 <p>所以我们引入关系代数，来指导我们从 E-R 图到建立形式化定义的这一步骤。其实主要牵扯到的步骤就是关系分解。接下来我们先介绍分解，然后介绍其依赖的理论函数依赖的定义；然后介绍 6 种指导关系模式的范式，这些每种范式层层递进，是一些对数据库关系越来越严格的约束。</p>

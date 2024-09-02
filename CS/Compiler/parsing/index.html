@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://ruoxining.github.io/OBvault/CS/Compiler/parsing/">
+        <link rel="canonical" href="https://ruoxining.github.io/notebook/CS/Compiler/parsing/">
       
       
         <link rel="prev" href="../">
@@ -150,13 +150,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/ruoxining/notebook" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    OBvault
+    notebook
   </div>
 </a>
       </div>
@@ -284,13 +284,13 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/ruoxining/OBvault" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/ruoxining/notebook" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    OBvault
+    notebook
   </div>
 </a>
     </div>
@@ -1389,6 +1389,9 @@
 
 
 <h1 id="parsing">Parsing</h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 788 个字 :material-clock-time-two-outline: 预计阅读时间 3 分钟</p>
+</div>
 <p>本页完成了关于 LL(1), LR(0), SLR (aka. SLR(1)), LR(1), LALR(1) 文法的一些常用区别的整理。由于作者也学得不好，如果有错，请向我指出（可惜评论区我还没研究好怎样配，一定尽快配上，可以先其它途径联系我）。</p>
 <p>本页面写作时的特点是尽量用自然语言来描述特点，而不是 latex 数学公式和图像。原因是我在其它资料搜到的讲解都事无巨细用大量公式和图像，使理解变得容易，但不适合速查和记忆。直白一点说就是笔者不想看到它们，一看就头疼。因此也造成了本文档的一个缺点：不是为初学者设计的。初学者推荐阅读 xyx 的笔记。做题时速查记忆可以看本文档。</p>
 <p>怎样判断文法是...不是...</p>
