@@ -1,0 +1,1765 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://ruoxining.github.io/notebook/CS/DB/design/">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Database Design 数据库设计 - Mini Babel Library</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Simplified+Chinese:300,300i,400,400i,700,700i%7CRobot+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Simplified Chinese";--md-code-font:"Robot Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../_css/style.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#database-design" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Mini Babel Library" class="md-header__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mini Babel Library
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Database Design 数据库设计
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ruoxining/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    notebook
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      🏛️ Mini Babel Library
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        💻CS专栏
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../DL/" class="md-tabs__link">
+        🎓DL专栏
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Ling/" class="md-tabs__link">
+        🌳Ling专栏
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Other/" class="md-tabs__link">
+        💭说瞎话了
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Mini Babel Library" class="md-nav__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Mini Babel Library
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ruoxining/notebook" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    notebook
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        🏛️ Mini Babel Library
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          💻CS专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          💻CS专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../libgraphics/" class="md-nav__link">
+        C大程libgraphics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          C++持续进步
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          C++持续进步
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/course/" class="md-nav__link">
+        ZJU听课
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CPP/final_review/" class="md-nav__link">
+        ZJU期末复习
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../x86assm/" class="md-nav__link">
+        x86汇编
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          OS操作系统
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS操作系统
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OS/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OS/lab/" class="md-nav__link">
+        lab
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          CA体系结构
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          CA体系结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CA/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CA/chap2/" class="md-nav__link">
+        chap2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CA/chap3/" class="md-nav__link">
+        chap3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CA/chap5/" class="md-nav__link">
+        chap5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          Compiler编译原理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Compiler编译原理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Compiler/parsing/" class="md-nav__link">
+        Parsing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          🎓DL专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          🎓DL专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Explainable NLP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Explainable NLP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/Explainable/" class="md-nav__link">
+        综述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Math Word Problem
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Math Word Problem
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/MWP/" class="md-nav__link">
+        综述
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          LLM大语言模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          LLM大语言模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DL/LLMs/llama3_405b/" class="md-nav__link">
+        Llama-3.1-405B技术报告
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          🌳Ling专栏
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          🌳Ling专栏
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          句法学Syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          句法学Syntax
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/conv_gen/" class="md-nav__link">
+        转换生成句法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/uni_gram/" class="md-nav__link">
+        普遍语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Syntax/ud_sud/" class="md-nav__link">
+        依存句法UD&SUD
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          语义学Semantics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          语义学Semantics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/definitions/" class="md-nav__link">
+        Definition Clearification
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/formal_semantics/" class="md-nav__link">
+        Logics & Formal Semantics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Semantics/ambiguity/" class="md-nav__link">
+        Scope Ambiguity
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          语用学Pragmatics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          语用学Pragmatics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/intro/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/theories/" class="md-nav__link">
+        Theory&Hypothesis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/socio/" class="md-nav__link">
+        Sociopragmatics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/Pragmatics/ca_da/" class="md-nav__link">
+        Research Methods
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Ling/pol_zh/" class="md-nav__link">
+        语言哲学Philosophy of Language
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          💭说瞎话了
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          💭说瞎话了
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/" class="md-nav__link">
+        索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/tools/" class="md-nav__link">
+        我的工具箱！
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/nlp_resources/" class="md-nav__link">
+        DL & NLP 资源整理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/whynote/" class="md-nav__link">
+        WhyNote
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/portfolio/" class="md-nav__link">
+        Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/24fall/" class="md-nav__link">
+        24fall申请记录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/zju_ling_cs/" class="md-nav__link">
+        英专转CS&NLP指北
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Other/readingnotes/" class="md-nav__link">
+        读书笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#storage-structure" class="md-nav__link">
+    Storage Structure 存储结构
+  </a>
+  
+    <nav class="md-nav" aria-label="Storage Structure 存储结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#performance-measures-of-disk" class="md-nav__link">
+    Performance Measures of Disk 磁盘性能计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    磁盘性能优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raid" class="md-nav__link">
+    RAID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-system" class="md-nav__link">
+    File System 文件系统
+  </a>
+  
+    <nav class="md-nav" aria-label="File System 文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    记录的类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    记录的排布
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    Index 索引
+  </a>
+  
+    <nav class="md-nav" aria-label="Index 索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    B+ 树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash" class="md-nav__link">
+    Hash 索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="database-design">Database Design 数据库设计</h1>
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p>:material-circle-edit-outline: 约 3119 个字 :material-clock-time-two-outline: 预计阅读时间 10 分钟</p>
+</div>
+<p>这章关注如何在磁盘 disk 上实现一个 database。</p>
+<h2 id="storage-structure">Storage Structure 存储结构</h2>
+<p>首先需要介绍 storage hierarchy。一个从顶（容量最小最快的）向下（容量最大最慢的）的图示如下，</p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    /\   Primary storage 主存储器: CPU register 寄存器, cache 缓存, main memory 主存
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   /--\  Secondary storage 二级存储器: flash memory 闪存, magnetic disk 磁盘
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  /----\ Teriary storage 三级存储器: optical disk 光盘, magnetic tape 磁带
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> --------
+</span></code></pre></div>
+其中最顶层 primary storage 是 volatile（易失的），意思是如果计算机断电重启，就会丢失；下面两层都是 non-volatile（不易失的），意思是即使计算机断电，也不会丢失。</p>
+<p>下面依次简单介绍每个存储器：</p>
+<ul>
+<li>
+<p>Cache 缓存</p>
+<p>缓存是速度最快的存储器，但造价和维护成本最高，所以相对比较小。虽然数据库无需维护 cache，但有的数据库在设计查询的时候会关注 cache 效率。</p>
+</li>
+<li>
+<p>Main memory 主存</p>
+<p>主存里的数据可以直接被 CPU 执行计算操作，这里的计算操作就是指 machine instruction 机器指令。主存也相对小，虽然现在有的商业数据库可以被整个塞进主存。主存是 volatile 也就是断电丢失的，系统坏掉也会丢失。</p>
+</li>
+<li>
+<p>Flash memory 闪存
+    闪存及以下的存储器就都是断电不丢失的了。闪存的维护成本比主存低，比磁盘高。</p>
+<p>闪存可以用于在“USB flash drive”（U 盘）中保存数据；还有 Solid-state drive 固态硬盘（SSD）也使用了闪存，但是提供了磁盘一样的接口，可以代替磁盘的功能。</p>
+</li>
+<li>
+<p>Magnetic disk 磁盘</p>
+<p>也叫 hard disk drive 硬盘。磁盘是主要的长期 online 存储的介质，但是 CPU 如果想要操作磁盘上的数据，就先要把数据移到主存里，处理完再移出来。磁盘的存储能力在逐年上升。</p>
+</li>
+<li>
+<p>Optical disk 光盘</p>
+<p>常见的 disk video disk（DVD）就是一种光盘。光盘上的数据被用激光读写。它是一种 write-once, read-many (WORM) 介质，即只能写一次，但是能读很多次。</p>
+</li>
+<li>
+<p>Magnetic tape 磁盘</p>
+<p><a href="../../asset/magnetic_disk.png"></a></p>
+<p>磁盘一般是用来备份和存档不常用的数据的，这类数据就不常使用，一般需要被安全地长期保存。磁盘上的数据必须被顺序读取，即读写头在磁盘上移动，读哪里移到哪里，所以它叫 sequential-access storage，这样读取是非常慢的。直接读取的 direct-access storage，比如磁盘和 SSD storage，读取就相对快一些，因为可以直接读取盘上的任何地方。</p>
+<p>一个磁盘有上十万个 track（磁道），一个磁道又有上千个 sector（扇区，是计算机和磁盘交换数据的最小单位）。磁盘上寻道的工具是 arm assemly 读写头，读写头进进退退来寻找数据在哪个磁道上，等对应扇区旋转到读写头，才开始传输数据。</p>
+<p>同样的磁道组成一个柱面，对于大文件，最好储存在同一个柱面上，这样可以并行读写。</p>
+</li>
+</ul>
+<h3 id="performance-measures-of-disk">Performance Measures of Disk 磁盘性能计算</h3>
+<p>测量磁盘的性能需要一些量化指标，通常我们考虑数据数据访问的用时和。</p>
+<ul>
+<li>
+<p>Access time（访问时间）</p>
+<ul>
+<li>Seek time（寻道时间）</li>
+<li>Rotational latency（旋转延迟）</li>
+</ul>
+</li>
+<li>
+<p>Data-transfer Rate（数据传输率）</p>
+</li>
+</ul>
+<h3 id="_1">磁盘性能优化</h3>
+<h3 id="raid">RAID</h3>
+<p>!!!
+    (这块在 db 和 os 里都不考，但是都会经常提到，很神秘，所以顺便做一下笔记)</p>
+<p>RAID 全称是 redundant arrays of independent disk 独立磁盘冗余阵列。它的来历是因为，过去的系统设计者们认为使用多个小型、廉价磁盘组成的存储系统是一个更经济高效的选项，所以原来 RAID 中的 I 是 inexpensive 的意思。但现在所有磁盘在物理尺寸上都很小，容量更大的磁盘实际上具有更低的每兆字节成本。开发者使用 RAID 系统现在主要因其更高的可靠性和性能，和管理操作简便。</p>
+<p>!!! 
+    TODO</p>
+<p>通过并行来加速</p>
+<p><img alt="" src="../../asset/raid.png" /></p>
+<ul>
+<li>RAID 0：无冗余无校验的磁盘阵列</li>
+<li>RAID 1：镜像磁盘阵列</li>
+<li>RAID 2：采用纠错的海明码的磁盘阵列</li>
+<li>RAID 3：位交叉奇偶校验的磁盘阵列</li>
+<li>RAID 4：块较差奇偶校验的磁盘阵列</li>
+<li>RAID 5：无独立校验的奇偶校验磁盘阵列</li>
+</ul>
+<h2 id="file-system">File System 文件系统</h2>
+<p>数据库是存储在一系列的文件中的，文件内部，每个文件中有一系列的 records 记录，每个 record 含有一系列的 fields 域。</p>
+<p>在设计时，一般有一些假设：（1）假设记录的长度是固定的，（2）假设每个文件里只有一种记录，（3）假设不同的文件被用于不同的关系。</p>
+<h3 id="_2">记录的类型</h3>
+<p>记录分为</p>
+<ul>
+<li>
+<p>Fixed-length records 定长记录</p>
+<p>记录 i 从字节 n * (i-1) 处开始，</p>
+</li>
+<li>
+<p>Variable-length records 变长记录</p>
+</li>
+</ul>
+<h3 id="_3">记录的排布</h3>
+<p>一个新的记录要插入文件时，可以有几种算法来决定插入到文件的哪个位置：</p>
+<ul>
+<li><strong>Heap</strong>: Record can be placed anywhere in the file where there is space. 新的记录可能被插入任意空位。</li>
+<li><strong>Sequential</strong>: Store records in sequential order, based on the value of the search key of each record.</li>
+<li><strong>In multitable clustering file organization</strong>: In a multitable clustering file organization, records of several different relations can be stored in the same file Motivation. Store related records on the same block to minimize I/O. 在一个多表文件结构中，多个不同关系的记录可以存储在同一个文件中。将相关的记录保存在同一个数据块中，可以最大限度减少I/O。</li>
+<li><strong>B+ tree</strong>: Ordered storage even with inserts/deletes. 即使在插入和删除的时候也能有序存储。</li>
+<li><strong>Hashing</strong>: A hashed function computed on search key; the result specifies in which block of the file the record should be placed. 对搜索键进行散列计算的函数；结果指定了记录应该放在文件的哪个块中。</li>
+</ul>
+<p>每个文件被划分为固定长度的 blocks。block 是数据存取和空间分配的基本单位。</p>
+<p>一个 block 包含多条记录。在传统的数据库中，记录的长度不能超过 block，每条记录一定都是完整的。记录之间用链表来连接。</p>
+<p>记录分为定长记录和变长记录两种。</p>
+<ul>
+<li>
+<p>Fixed-length records 定长记录</p>
+<p>Storage record i starting from byte n*(i-1) where n is the size of each record. Record access is simple but records may cross blocks.</p>
+<p>Modification of fixed-length records: do not allow records to cross block boundaries.</p>
+<p>Deletion of record i: alternatives</p>
+<p>可以不 move records，but link all free records on a free list. 要删除的条目打上标记，形成一个空记录的链表。未来要插入时也应选择空记录，只要通过指针就可以找到，然后更新记录即可。</p>
+<p><img alt="" src="../asset/modification_deletion.png.crdownload" /></p>
+</li>
+<li>
+<p>Varaible-length records 变长记录
+    variable-length records arise in database systems in several ways:</p>
+<ul>
+<li>storage of multiple record types in a file</li>
+<li>record types that allow variable lengths for one or more fields such as strings (varchar)</li>
+<li>record types that allow repeating fields (used in some older data models)</li>
+</ul>
+<p>variable length attributes represented by fixed size (offset, length), with actual data storad after all fixed length atrributes.</p>
+<p>null values represented by null-value bitmap ()</p>
+<p>不定长的保存在后面，定长的（offset length）保存在前面。</p>
+</li>
+</ul>
+<p>slotted page structure 分槽页</p>
+<ul>
+<li>number of record entries</li>
+<li>end of free space 的指针，偏移量也要调整。也可以暂时不调整，等后面如果需要分配内存但不够时，再一次性调整之前的空间。</li>
+</ul>
+<p>典型的变长记录有如下特点：</p>
+<ul>
+<li>属性按顺序存储</li>
+<li>变长的变量用 offset + data 的形式存储，空值用 null-value bitmap 存储</li>
+</ul>
+<p>存储缓冲区的管理</p>
+<h2 id="index">Index 索引</h2>
+<p>数据库中引入索引概念，是为了加快查找速度。</p>
+<p>在引入索引的时候，需要关注的因素都有如下几种</p>
+<ul>
+<li>
+<p>Access type 访问类型</p>
+</li>
+<li>
+<p>Access time 访问时间</p>
+</li>
+<li>
+<p>Insertion time 插入时间</p>
+</li>
+<li>
+<p>Deletion time 删除时间</p>
+</li>
+<li>
+<p>Space overhead 空间开销</p>
+</li>
+</ul>
+<p>一般来说，键的排列方式分为 ordered index 顺序索引和 hased index 两种。</p>
+<ul>
+<li>顺序索引 （TODO 你是不是指 B+ 树啊）</li>
+<li>hash index</li>
+</ul>
+<p>而索引指向数据的方式又分为：</p>
+<ul>
+<li>
+<p>Dense index 密集索引
+    密集索引下，每一条数据记录都有对应的索引。</p>
+</li>
+<li>
+<p>Sparse inedx 稀疏索引
+    此时不是每一条记录都有对应的索引。索引只指向对应的一部分记录，其余记录通过链表一样的指针连接起来。此时需要的空间和插入删除新索引的开销较小，但是比密集的索引慢。</p>
+</li>
+<li>
+<p>Secondary index 二级索引
+    索引通过一个大的 bucket 来寻找所指向的地方。</p>
+</li>
+<li>
+<p>Multilevel index 多级索引
+    分为 outer index 和 inner index。</p>
+</li>
+<li>
+<p>Clustering Index
+    A clustering index is an index whose search key also defines the sequentially ordered, a clustering index is an index whose search key also defines the sequenrial order of the file. Clustering indices are also called primary indices.</p>
+</li>
+</ul>
+<h3 id="b">B+ 树</h3>
+<p>介绍常用的 B+ 树数据结构。与 fds 中定义相同，但是再介绍一次。</p>
+<p>B+ 树是一种平衡的（每层都是满的）多分树（不止两个节点）。一个 m 阶的 B+ 树满足如下条件：</p>
+<ul>
+<li>每个节点最多只有 m 个节点</li>
+<li>每个非叶子结点（除了根节点）具有至少 ⌈m/2⌉ 个子节点。</li>
+<li>如果根节点不是叶节点，则根节点至少有两个子节点。</li>
+<li>具有 k 个子节点的非叶节点包含 k-1 个键。</li>
+<li>所有叶子都出现在同一水平，高度一致。</li>
+<li>两个搜索键之间的指针指向的数据，总是在这两个搜索键之间。</li>
+</ul>
+<p>在实现中，B+ 树的一个节点的大小和一个磁盘区块一样大（通常是 4 KB），而索引的规模一般在 100 左右。</p>
+<p><a href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html">B+ Tree Visualization</a> 是一个 B+ 树可视化的工具。</p>
+<p>介绍查询、插入和删除操作。</p>
+<p>当 B+ 树中的节点 TODO 具体的条件是什么，我们这里记作破坏了 B+ 树、元素过多或元素过少，就需要考虑更新索引。</p>
+<ul>
+<li>
+<p>插入：</p>
+<ul>
+<li>如果被插入关键字所在的节点插入后不破坏 B+ 树，就可以插入。</li>
+<li>如果插入后某节点元素数目多了，且分裂后不破坏 B+ 树条件，就可以分裂；如果插入后父节点元素数目也过多了，就分裂父节点。</li>
+</ul>
+</li>
+<li>
+<p>删除：</p>
+<ul>
+<li>如果删除后不破坏 B+ 树，则可以直接删除</li>
+<li>如果删除某节点中最大或最小的关键字，就涉及到更改双亲节点一直到根节点值的更改</li>
+<li>如果删除后某节点中元素过少，但是向兄弟节点借元素后不破坏 B+ 树，就可以借</li>
+<li>如果删除后某节点中元素过少，但是与兄弟节点合并后不破坏 B+ 树，就可以合并；如果合并后使父节点元素过少，则也应借或合并。</li>
+</ul>
+</li>
+</ul>
+<p>分别分析几种数据操作下，B+ 树的性能：</p>
+<ul>
+<li>
+<p>查找 search</p>
+<p>查找算法就是从根节点开始向下比较，根据与每个父节点的大小关系一路比较找到要找的叶子结点。如果 N 为叶子的总数，那么查询的时间复杂度不会超过 <span class="arithmatex">\(log_n/2(K)+1\)</span>。</p>
+</li>
+<li>
+<p>插入 insert</p>
+<p>插入算法涉及：先找到该插入的位置直接插入，如果当前的节点数量超过了阶数 M 则拆成两个部分，并向上更新索引。所以时间复杂度是...</p>
+</li>
+<li>
+<p>删除 delete</p>
+<p>删除算法设计：直接把要删除的节点删除，然后把没有索引 key 了的非叶节点删除，从旁边找一个叶节点合并出新的非叶节点。所以时间复杂度是...</p>
+</li>
+</ul>
+<p>B+ 树的相关计算</p>
+<p>高度的估计：可以分析高度的上下界</p>
+<ul>
+<li>高度最小的情况是所有节点都满 <span class="arithmatex">\(h = \lceil log_N(M) \rceil\)</span></li>
+<li>高度最大的情况是所有节点都半满 <span class="arithmatex">\(h = \lfloor log_{\div{N}{2}}(\div{M}{2}) \rfloor + 1\)</span></li>
+</ul>
+<p>size 大小的估计：也是分析高度的上下界</p>
+<ul>
+<li>大小最小的时候是所有节点都满：相当于一个首项为 1，末项为 <span class="arithmatex">\(\lceil \div{K}{n-1} \lceil\)</span>，高度为 <span class="arithmatex">\(\lceil log_N(M) \rceil\)</span> 的等比数列求和</li>
+<li>大小最大的时候是所有节点都半满：相当于一个首项为 1，末项为 <span class="arithmatex">\(\ceil \div{K}{\lceil \div{n-1}{2} \rceil} \ceil\)</span>，高度为 <span class="arithmatex">\(\lfloor log_{\div{N}{2}}(\div{M}{2}) \rfloor + 1\)</span> 的等比数列求和</li>
+</ul>
+<h3 id="hash">Hash 索引</h3>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../../../javascripts/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="../../../javascripts/tex-mml-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

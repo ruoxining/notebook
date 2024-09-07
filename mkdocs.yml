@@ -106,8 +106,8 @@ markdown_extensions:
   - attr_list
   - pymdownx.arithmatex:
       generic: true
-extra:
-  - statistics: True
+# extra:
+#   - statistics: True
 extra_css:
   - _css/style.css
 extra_javascript:
