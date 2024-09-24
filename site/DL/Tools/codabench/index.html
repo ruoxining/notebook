@@ -8,20 +8,20 @@
       
       
       
-        <link rel="canonical" href="https://ruoxining.github.io/notebook/DL/LLMs/llama3_405b/">
+        <link rel="canonical" href="https://ruoxining.github.io/notebook/DL/Tools/codabench/">
       
       
-        <link rel="prev" href="../../MWP/">
+        <link rel="prev" href="../../LLMs/llama3_405b/">
       
       
-        <link rel="next" href="../../Tools/codabench/">
+        <link rel="next" href="../../../Ling/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Llama-3.1-405B技术报告 - Mini Babel Library</title>
+        <title>Codabench配置 - Mini Babel Library</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llama-31-405b" class="md-skip">
+        <a href="#codabench" class="md-skip">
           跳转至
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Llama-3.1-405B技术报告
+              Codabench配置
             
           </span>
         </div>
@@ -810,6 +810,54 @@
               
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          LLM大语言模型
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          LLM大语言模型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LLMs/llama3_405b/" class="md-nav__link">
+        Llama-3.1-405B技术报告
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -819,19 +867,19 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
-          LLM大语言模型
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          工具 Tools
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_3_4">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
-          LLM大语言模型
+          工具 Tools
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -851,12 +899,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Llama-3.1-405B技术报告
+          Codabench配置
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Llama-3.1-405B技术报告
+        Codabench配置
       </a>
       
         
@@ -879,46 +927,33 @@
     简介
   </a>
   
-    <nav class="md-nav" aria-label="简介">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    文章结构
+    运作
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#n" class="md-nav__link">
-    n 句话亮点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    性能
+    配置
   </a>
   
-    <nav class="md-nav" aria-label="性能">
+    <nav class="md-nav" aria-label="配置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benchmarks" class="md-nav__link">
-    Benchmarks 预览
+  <a href="#_4" class="md-nav__link">
+    上传创建
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    性能数值
+  <a href="#ui" class="md-nav__link">
+    UI 创建
   </a>
   
 </li>
@@ -930,88 +965,40 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    训练
+    修改
   </a>
   
-    <nav class="md-nav" aria-label="训练">
+    <nav class="md-nav" aria-label="修改">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pre-train" class="md-nav__link">
-    Pre-train 预训练
+  <a href="#phases" class="md-nav__link">
+    Phases
   </a>
   
-    <nav class="md-nav" aria-label="Pre-train 预训练">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
+  <a href="#leaderboard" class="md-nav__link">
+    Leaderboard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    整体问题
+    使用
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    数据清洗
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    数据混合
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    退火
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-architecture" class="md-nav__link">
-    Model Architecture 模型架构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-train" class="md-nav__link">
-    Post-train 微调
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    多模态能力
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    相关工作
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
     参考资料
   </a>
   
@@ -1021,54 +1008,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
-          工具 Tools
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_5">
-          <span class="md-nav__icon md-icon"></span>
-          工具 Tools
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Tools/codabench/" class="md-nav__link">
-        Codabench配置
-      </a>
     </li>
   
 
@@ -1598,46 +1537,33 @@
     简介
   </a>
   
-    <nav class="md-nav" aria-label="简介">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    文章结构
+    运作
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#n" class="md-nav__link">
-    n 句话亮点
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    性能
+    配置
   </a>
   
-    <nav class="md-nav" aria-label="性能">
+    <nav class="md-nav" aria-label="配置">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benchmarks" class="md-nav__link">
-    Benchmarks 预览
+  <a href="#_4" class="md-nav__link">
+    上传创建
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    性能数值
+  <a href="#ui" class="md-nav__link">
+    UI 创建
   </a>
   
 </li>
@@ -1649,88 +1575,40 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    训练
+    修改
   </a>
   
-    <nav class="md-nav" aria-label="训练">
+    <nav class="md-nav" aria-label="修改">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pre-train" class="md-nav__link">
-    Pre-train 预训练
+  <a href="#phases" class="md-nav__link">
+    Phases
   </a>
   
-    <nav class="md-nav" aria-label="Pre-train 预训练">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
+  <a href="#leaderboard" class="md-nav__link">
+    Leaderboard
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    整体问题
+    使用
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    数据清洗
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    数据混合
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    退火
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#model-architecture" class="md-nav__link">
-    Model Architecture 模型架构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#post-train" class="md-nav__link">
-    Post-train 微调
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    多模态能力
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    相关工作
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
     参考资料
   </a>
   
@@ -1754,218 +1632,165 @@
   
 
 
-<h1 id="llama-31-405b">Llama-3.1-405B 技术报告</h1>
+<h1 id="codabench">Codabench 配置教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 3436 个字 :material-clock-time-two-outline: 预计阅读时间 11 分钟</p>
+<p>:material-circle-edit-outline: 约 1125 个字 :fontawesome-solid-code: 76 行代码 :material-clock-time-two-outline: 预计阅读时间 5 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
-<p>这篇技术报告是 MetaAI 在 2024 年 7 月 23 日随 405B 模型发布的。先前 Llama 3 系列已经发布过 8B 和 70B 两个大小的模型，本次发布的模型在规模上增量非常大。尽管规模的提升使其成为最强的开源大语言对话模型（在本文写成时，2024 年 8 月 1 日，根据公认比较可信的评价指标 Chatbot Arena，截图如下），但本文在 benchmark 上展现出来的性能数值，相比 70B 提升不大，普遍在 1-3 个点。且考虑到模型占用的 GPU 成本，对于普通人日常用途，405B 可能性价比不如 70B 高。</p>
-<p><img alt="" src="../asset/chatbot_arena.png" /></p>
-<p>报告的原文见文末 ArXiv 链接。</p>
-<h3 id="_2">文章结构</h3>
-<p>Llama-3.1-405B 有文字、视频/图像和语音等多个模态的能力。本文的架构分为多个章节，先讲文字能力的预训练（pre-training）、微调（post-training）、定性能力、定量能力、局限性等，再讲视频/图像和语音的训练过程和性能数值。</p>
-<p>技术报告原文的结构如下：</p>
+<p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
+<h2 id="_2">运作</h2>
+<p>比赛创办者通过上传比赛配置后，每当有用户加入并提交一个运行请求，平台将在 CPU 上为每个提交创建一个 Docker，包含比赛创办者提供的比赛配置和该用户提交的数据，在 Docker 中运行指定路径的代码，并将结果显示在平台展示的 terminal 上。</p>
+<h2 id="_3">配置</h2>
+<p>在 Codabench 官网注册登陆后，点击右上角 Benchmark -&gt; Management，可以选择 Create 或 Upload 来创建比赛。</p>
 <ul>
-<li>第一节：Introduction 简介</li>
-<li>第二节：General Overview 概述</li>
-<li>第三节：Pre-training 预训练</li>
-<li>第四节：Post-training 微调</li>
-<li>第五节：Results 定量结果</li>
-<li>第六节：Inference 推理性能</li>
-<li>第七节：Vision Experiments 视觉模态能力</li>
-<li>第八节：Speech Experiments 语音模态能力</li>
-<li>第九节：Related Work 相关工作</li>
-<li>第十节：Conclusion 结论</li>
+<li>Create 是使用平台 UI 创建比赛</li>
+<li>Upload 是在本地写好配置文件，直接上传后被解析为一个比赛</li>
 </ul>
-<h3 id="n">n 句话亮点</h3>
+<p>更推荐用 Upload 来创建，因为 UI 的用户提示比较欠缺。</p>
+<h3 id="_4">上传创建</h3>
+<p>bundle 指比赛创建者上传的压缩文件。里面含有：</p>
 <ul>
-<li>
-<p>Data: 训练用了 15T 的多语言数据，主要在质量上有提升（比如采取了更激进的数据过滤策略）。李沐表示 15T 的数据量训练目前能训练的语言模型已足够了，接下来需要在质量而非数量上进一步提升。 </p>
-</li>
-<li>
-<p>Scale: 训练使用了 <span class="arithmatex">\(3.8 \times 10^25\)</span> FLOPs，scaling law 表示更大的参数量应该会使 performance 更好。</p>
-</li>
-<li>
-<p>Managing Complexity: Llama-3.1-405B 模型没有采取现在常用的 MoE 架构，而是把普通的 dense Transformer 结构直接做大，并且使用了相对简单的微调策略（SFT, RS, DPO）等，所以称作步骤不是特别复杂。也有消息称 MetaAI 本来将一个 MoE 架构和一个 dense Transformer 一起训练，但是 MoE 架构的模型效果不太好，所以只放出了 dense Transformer 架构版的。其中：</p>
+<li>competition.yaml 是比赛的 metadata</li>
+<li>scoring program 是平台所运行的评测脚本</li>
+<li>reference data 是评测脚本所读的 gold answer 数据</li>
+</ul>
+<p>需要期待用户上传：</p>
 <ul>
-<li>dense Transformer: 是 Transformer 模型的标准版本。每个输入 token 都通过相同的一组全连接层（Transformer 层），每个 Transformer 层都包括多头自注意力机制和前馈神经网络。</li>
-<li>mixture of experts: MoE 包括多个专家 experts 网络，在输入数据通过模型时，只有一部分网络被激活；训练时训练一个门控网络决定哪一部分专家网络被激活。相比简单的 dense Transformer，可以部分节省计算资源。</li>
+<li>result data 用户上传的答案数据</li>
+<li>ingestion program 是指用户提交的代码，如果希望用户将方法/模型上传，需要在 scoring program 中留出给 ingestion program 的接口</li>
 </ul>
-</li>
-</ul>
-<h2 id="_3">性能</h2>
-<h3 id="benchmarks">Benchmarks 预览</h3>
-<p>在多个 benchmark 上测试 Llama-3.1-405B 的性能。此处想对本文用到的 benchmark 进行一点概述。</p>
-<p>pre-train 阶段结束后，用于测试的 benchmark 有：</p>
-<ul>
-<li>Reading Comprehension 阅读理解<ul>
-<li><code>SQuAD V2</code> (Rajpurkar et al., 2018) stf 做的一个阅读理解 benchmark，收集了 wikipedia 文章，对里面内容做 QA。</li>
-<li><code>QuaC</code> (Choi et al., 2018) 全称是 QA in context，也是对 wikipedia 文章做 QA，但是所标注的 QA 数据是连续的很长的对话。比如格式是，speaker A 问，这个人出生地是哪里，B 回答，A 再问这个人哪一年做了哪个事等，如此继续。</li>
-<li><code>RACE</code> (Lai et al., 2017) 是中国的英语考试阅读理解题。</li>
-</ul>
-</li>
-<li>Code 代码<ul>
-<li><code>HumanEval</code> (Chen et al., 2021) 格式有点像 leetcode 题目，每条数据包含题目要求和一组测试点，自动测试程序会运行模型生成的代码，判断通过多少测试点。</li>
-<li><code>MBPP</code> (Austin et al., 2021) 格式大致同上。</li>
-</ul>
-</li>
-<li>Commonsense Reasoning / Understanding 常识推理<ul>
-<li><code>CommonSenseQA</code> (Talmor et al., 2019) 在 conceptnet 数据集的基础上产生 multichoice 问题。</li>
-<li><code>PiQA</code> (Bisk et al., 2020) physical ... 物理领域的常识推理。</li>
-<li><code>SiQA</code> (Sap et al., 2019) social ... 社交 / 文化领域的常识推理。</li>
-<li><code>OpenBookQA</code> (Mihaylov et al., 2018) 基础科学问题。</li>
-<li><code>WinoGrande</code> (Sakaguchi et al., 2021) adversarial Winograd challenge，因为 Winograd 已经被很多模型训练过了，制作了与 Winograd 数据集同格式的新数据。</li>
-</ul>
-</li>
-<li>Math, Reasoning, and Problem solving 数学推理<ul>
-<li><code>GSM8K</code> (Cobbe et al., 2021) 小学数学问题，问题是应用题，提供一系列思维链解题过程，每个步骤都能用简单的加减乘除解决。</li>
-<li><code>MATH</code> (Hendrycks et al., 2021b) 竞赛数学题，与 GSM8K 同格式，复杂的数学符号用 LaTeX 写成。</li>
-<li><code>ARC Challenge</code> (Clark et al., 2018) 全称 AI2's Reasoning Challenge，是 3-9 年级的科学题，格式是 multichoice。</li>
-<li><code>DROP</code> (Dua et al., 2019) discrete reasoning over paragraphs 文本段落中夹杂数字或大小等关系，对这些数字或文本进行推理。</li>
-<li><code>WorldSense</code> (Benchekroun et al., 2023) 用文本描述的图形和空间方位关系，对图形属性和空间方位进行推理。</li>
-</ul>
-</li>
-<li>Adversarial 对抗攻击？<ul>
-<li><code>Adv SQuAD</code> (Jia and Liang, 2017) 手动造了 SQuAD 格式的更难的问题。</li>
-<li><code>Dynabench SQuAD</code> (Kiela et al., 2021) dynamic benchmark collection，有一个网站 <a href="https://dynabench.org/about">Dynabench</a>，允许用户随时上传新的数据。</li>
-<li><code>GSM-Plus</code> (Li et al., 2024c) 将 GSM8K 里面的数字改掉，比如 3 改成 30，整数改成小数等。</li>
-<li><code>PAWS</code> (Zhang et al., 2019) 问题格式是，交换某个表达中的两个词（比如，flight from NYC to Florida 中的 NYC 和 Florida），判断是否等价。</li>
-</ul>
-</li>
-<li>Long context 长文本<ul>
-<li><code>QuALITY</code> (Pang et al., 2022) 长文本上的 multichoice 问题。</li>
-<li><code>many-shot GSM8K</code> (An et al., 2023a) 似乎这个 benchmark 搜关键词没有找到，原文中引用对应的文章也不是这个名字。</li>
-</ul>
-</li>
-<li>Aggregate 综合<ul>
-<li><code>MMLU</code> (Hendrycks et al., 2021a) massive multi-task language understanding，包含 57 个 STEM 学科，用来测量大模型在预训练中获得的知识。因为比较老了，很多大语言模型都在这个数据集上 overfit 了。</li>
-<li><code>MMLU-Pro</code> (Wang et al., 2024b) 在 MMLU 中去掉了一部分质量差的问题，做了一个更 challenging 的 test set。（发现还是即将一起去 Waterloo 的 Yubo 同学一作）</li>
-<li><code>AGIEval</code> (Zhong et al., 2023) 由一些考试题组成，高考，SAT，GRE ... 等。</li>
-<li><code>BIG-Bench Hard</code> (Suzgun et al., 2023) 专门选择了一些表现不如人类好的 benchmark 集合起来。</li>
-</ul>
-</li>
-</ul>
-<p>post-train 阶段结束时，测试用的 benchmark 如下：</p>
-<ul>
-<li>General 综合类 <ul>
-<li><code>MMLU</code> (Hendrycks et al., 2021a) 同前文。</li>
-<li><code>MMLU-Pro</code> (Wang et al., 2024b) 同前文。</li>
-<li><code>IFEval</code> (Zhou et al., 2023) Instruction-following evaluation for LLMs，定义了一系列“可以验证的指令”，比如“写 400 字”“至少说 3 次关键词”，测试模型遵守指令的能力。</li>
-</ul>
-</li>
-<li>Math and Reasoning 数学推理<ul>
-<li><code>GSM8K</code> (Cobbe et al., 2021) 同前文。</li>
-<li><code>MATH</code> (Hendrycks et al., 2021b) 同前文。</li>
-<li><code>GPQA</code> (Rein et al., 2023) graduate-level Google-proof QA benchmark，由 biology, physics, chemistry 领域的专家写成的非常难的问题。</li>
-<li><code>ARC-Challenge</code> (Clark et al., 2018) 同前文。</li>
-</ul>
-</li>
-<li>Code 代码<ul>
-<li><code>HumanEval</code> (Chen et al., 2021) 同前文。</li>
-<li><code>MBPP</code> (Austin et al., 2021) 同前文。</li>
-<li><code>HumanEval+</code> (Liu et al., 2024a) 将 HumanEval 扩大了 80 倍做成了这个数据集。</li>
-<li><code>MBPP EvalPlus (base)</code> (Liu et al., 2024a) 将 MBPP 扩大了 35 倍做成了这个数据集。</li>
-<li><code>MultiPL-E</code> (Cassano et al., 2023) 扩展 HumanEval 和 MBPP 到了 18 种编程语言。</li>
-</ul>
-</li>
-<li>Multilinguality 多语言<ul>
-<li><code>MGSM</code> (Shi et al., 2022) 将 GSM8K 数据集翻译成了 10 种文字不同的语言。（是我博导的工作）</li>
-<li><code>Multilingual MMLU</code> (internal benchmark) 内部数据集，没有搜到，可能没有公开。</li>
-</ul>
-</li>
-<li>Tool-use 使用工具<ul>
-<li><code>Nexus</code> (Srinivasan et al., 2023) 很奇怪，这个数据集能搜到的条目只有 huggingface 并且点开 404 了。</li>
-<li><code>API-Bank</code> (Li et al., 2023b) 由 73 个 API 工具构成，根据模型产生的对话中调用 API 的情况，测试模型是否能调用、检索+调用、规划+检索+调用 API。</li>
-<li><code>API-Bench</code> (Patil et al., 2023) 分为两个 subtask：query-based API（根据自然语言描述的需求输出 API） 和 code-based API（根据挖去 API 的代码填空）。分为 Python 和 Java 语言版本。</li>
-<li><code>BFCL</code> (Yan et al., 2024) Berkeley function calling leaderboard，多编程语言，且有 function call 类型的数据。</li>
-</ul>
-</li>
-<li>Long context 长文本<ul>
-<li><code>ZeroSCROLLS</code> (Shaham et al., 2023) zero-shot benchmark for long text understanding，一个综合的长文本多任务数据集。</li>
-<li><code>Needle-in-a-Haystack</code> (Kamradt, 2023) 大海捞针实验。</li>
-<li><code>InfiniteBench</code> (Zhang et al., 2024) 多任务 100K token 长文本数据集。</li>
-</ul>
-</li>
-</ul>
-<h3 id="_4">性能数值</h3>
-<p>在这些 benchmark 上测试时，由于单次结果不稳定（先前我们普遍的做法常常是多次结果求平均值等），本技术报告采用 Maddan et al.(2024) 提出的 95% confidence interval (CIs) 方法，通过计算置信区间来估计方差。这个方法假设测试得到的数值服从正态分布，如果单次测试得到的数值为 S，数据集大小为 N，那么置信区间为</p>
-<div class="arithmatex">\[ CI(S) = 1.96 \times \sqrt{\frac{S \times (1 - S)}{N}} \]</div>
-<p>由置信区间宽度除以临界值 1.96 可以得到标准差 -&gt; 方差。</p>
-<p>post-train 完成后，结果的总表如下</p>
-<p><img alt="" src="../asset/llama3_performance.png" /></p>
-<p>可以看出其实 Llama-3.1-405B 在 70B 上有提升，但相比参数量的提升，性能提升并不是很大，很多 benchmark 上都在 2-3 个点。考虑到前面提到可能 405B 可能训练了 MoE 和 dense Transformer 两个模型但是后者没训成功，不知道发布版 405B 性能比预期低是不是也是这个原因。</p>
-<h2 id="_5">训练</h2>
-<h3 id="pre-train">Pre-train 预训练</h3>
-<h4 id="_6">整体问题</h4>
-<p>预训练牵扯到的问题有四块：</p>
+<p>分别介绍：</p>
 <ol>
-<li>怎么把比较大的数据集弄出来</li>
-<li>怎么把 scaling law 体现出来，会决定用多少数据和模型参数量是多少</li>
-<li>怎么有效在 pre-train 阶段训练这么多参数</li>
-<li>怎么做 pre-train</li>
+<li>competition.yaml 不能改名，且必须位于 .zip 中最顶层的文件夹（即多选 competition.yaml 和其它文件夹后创建 .zip，而非把含有 competition.yaml 和其它文件夹的上层文件夹创建为 .zip）。支持的字段有：</li>
 </ol>
-<p>预训练大约用了半年，调参是年初开始的。</p>
-<h4 id="_7">数据清洗</h4>
-<p>用到的数据是在互联网上 common crawl 下来的截至 2023 年的数据，之后进行数据清洗。数据的选用一般属于公司秘密，不能讲太清楚。清洗的步骤虽然也没有讲，不过大致遵循（1）找一批数据观察大多是如何脏的 -&gt; （2）写脚本洗掉这种特点 -&gt; （3）返回（1）循环。有明确讲的数据清洗原则/类别有以下几条：</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="c1"># 比赛名</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="c1"># 1 指是 CodaLab bundle，2 指 CodaBench bundle，区别是有些 competition.yaml 字段不兼容</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="c1"># 比赛描述</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="c1"># 比赛 logo.png</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">registration_auto_approve</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">  </span><span class="c1"># do not require approval from organizers to join</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">docker_image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codalab/codalab-legacy:py39</span><span class="w"> </span><span class="c1"># the Docker image in which submissions are run，用此 default 即可</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">enable_detailed_results</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"> </span><span class="c1"># 不明，可以 default</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Documentation web pages</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">terms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pages/terms.md</span><span class="w"> </span><span class="c1"># 必须有一个 terms</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">pages</span><span class="p">:</span><span class="w">  </span><span class="c1"># 可任意加页面</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Overview</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pages/overview.md</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Definition of the tasks</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Development Task</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Development</span><span class="nv"> </span><span class="s">phase:</span><span class="nv"> </span><span class="s">create</span><span class="nv"> </span><span class="s">models</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">submit</span><span class="nv"> </span><span class="s">them</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">obtain</span><span class="nv"> </span><span class="s">feedback.&#39;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">is_public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">input_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/input_data</span><span class="w">         </span><span class="c1"># 此处及下列路径需要填写所上传 bundle 里的路径，而非所生成 Docker 中的</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">reference_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/reference_data</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">scoring_program</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scoring_program</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="nt">ingestion_program</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingestion_program</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="nt">solutions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w">   </span><span class="c1"># 不明</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1"># Sample code submission</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nt">solutions</span><span class="p">:</span><span class="w">      </span><span class="c1"># 不明，似乎在比赛中无处显示</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">solution/</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nt">phases</span><span class="p">:</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Development</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Development</span><span class="nv"> </span><span class="s">phase:</span><span class="nv"> </span><span class="s">create</span><span class="nv"> </span><span class="s">models</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">submit</span><span class="nv"> </span><span class="s">them</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">obtain</span><span class="nv"> </span><span class="s">feedback.</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">      </span><span class="s">You</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">make</span><span class="nv"> </span><span class="s">5</span><span class="nv"> </span><span class="s">submissions</span><span class="nv"> </span><span class="s">per</span><span class="nv"> </span><span class="s">day</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">100</span><span class="nv"> </span><span class="s">submissions</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">total.&#39;</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-1-2023</span><span class="w"> </span><span class="c1"># Month/Day/Year</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-30-2024</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">  </span><span class="nt">max_submissions_per_day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="nt">max_submissions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">  </span><span class="nt">execution_time_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">  </span><span class="nt">solutions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="nt">starting_kit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">starting_kit</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">  </span><span class="nt">public_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/input_data</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="c1"># Fact sheets to add more information in the leaderboard</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="nt">fact_sheet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="s">&quot;method_name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">        </span><span class="s">&quot;key&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;method_name&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="s">&quot;type&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">        </span><span class="s">&quot;title&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Method</span><span class="nv"> </span><span class="s">name&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="s">&quot;selection&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="s">&quot;is_required&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">        </span><span class="s">&quot;is_on_leaderboard&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="p p-Indicator">}</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="p p-Indicator">}</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="c1"># Leaderboard</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="nt">leaderboards</span><span class="p">:</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Results</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Results</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">  </span><span class="nt">submission_rule</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Force_Last&quot;</span><span class="w">     </span><span class="c1"># 可以去掉，默认似乎是允许展示多个结果</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">  </span><span class="nt">columns</span><span class="p">:</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Average Accuracy</span><span class="w">     </span><span class="c1"># 在 output.json 中，读取该 json 的哪个 key</span>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg_accuracy</span><span class="w">           </span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">        </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">        </span><span class="nt">sorting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">desc</span>
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">        </span><span class="nt">computation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg</span>
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">        </span><span class="nt">computation_indexes</span><span class="p">:</span>
+</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span></code></pre></div>
 <ol>
-<li>
-<p>洗掉 personally identifiable information (PII) 即一些个人姓名、邮箱、url，和成人内容；但李沐表示这两种东西也不会洗太干净，前者洗太干净了可能会使训练文档本身的意思有变化，后者太干净了可能模型在一些打擦边球应用上效果不太好，所以做法可能是对文档鉴定一个百分比，如果其中需要洗掉的内容占比太多，则不要了。</p>
-</li>
-<li>
-<p>在结构化文档中提取文本，比如去掉 html 和 markdown 的标签，只保留文本。</p>
-</li>
-<li>
-<p>分别做了 url、文档和行级别的去重。在 url 级别，保留了所有页面最新的版本；在文档级别，使用了 MinHash 算法；在行级别，将每 30M 里超过 6 次的行去除掉了，这显著提升了评测表现。</p>
-</li>
+<li>scoring program</li>
 </ol>
-<p>其中 MinHash 算法是一种快速比较两个集合相似度的算法，可以通过比较单词相似度来实现文本聚类。它预设两个文本的相似度是通过计算词集 A 和词集 B 的 Jaccard 相似度 $ J(A, B) = \frac{| A \cap B |}{| A \cup B |} $。目的是不需要实际计算两个集合的交和并。具体我认为这篇帖子讲得很清晰 <a href="https://blog.csdn.net/qq_39583450/article/details/108954384">LSH系列2：MinHash&amp;LSH——文档（集合）相似性</a>。</p>
-<ol>
-<li>
-<p>启发式过滤，过滤了以下三种内容：用 n-gram 过滤了一些行重复没去掉的内容，用脏词表过滤脏词，用 K-L 散度过滤分布太特殊的 token。</p>
-</li>
-<li>
-<p>代码和推理数据。从爬的数据里，用 fasttext 或 Llama 2 来判别出一些代码、数学等 STEM 文章。这些文章进一步用 DistlRoberta 选出了高质量的训练数据。</p>
-</li>
-<li>
-<p>多语言数据。用 fasttext 从爬下来的数据中识别出了 176 种语言，这些多语言数据也进行了去重、筛选等清洗步骤。</p>
-</li>
-</ol>
-<h4 id="_8">数据混合</h4>
-<p>如何决定训练数据的分布比例：</p>
+<p>奇异的是，比赛运行时所创建的 Docker 中文件结构并不是 bundle 的结构，或者示例 competition.yml 中指示的路径，而是会把各种资源结构打乱放在不同的位置。对我们影响就是，如果 scoring program 需要读其它文件（多代码文件 / gold answer 等），就需要按创建好的 Docker 中的新文件路径读取。</p>
+<p>比如，在我的测试中，Docker 的实际文件夹结构如下：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- app
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    - codalab           // 不明
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    - data              // 不明
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    - input
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        - res           // 用户结果
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        - ref           // gold anwser
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    - shared            // 不明
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    - program           // 所上传脚本
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        - score.py
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        - metadata.yaml
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    - output            // 脚本输出，用于 leaderboard 读取
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        - output.json
+</span></code></pre></div>
+<p>如果上述路径在你的测试中不 work，可以先上传一个含有 competition.yaml / scoring program / reference data / result data / ingestion program 等所有资源的测试 bundle，要求 scoring program 输出 Docker 的文件夹结构树，在 terminal 中依次记下资源的路径。</p>
+<p>可供参考：</p>
 <ul>
-<li>
-<p>知识分类。通过一个分类器对文章所属的知识种类进行分类，之后减少那些分布过多但对模型效果帮助不大的类别，比如艺术、娱乐。</p>
-</li>
-<li>
-<p>scaling law。用一种混合比例先训练一个小的模型，测试表现，用 scaling law 计算出在更大模型上使用该混合比例的表现，进而确定混合比例。</p>
-</li>
+<li><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a></li>
 </ul>
-<p>训练数据混合比例的总结：</p>
-<ul>
-<li>50% 通用知识</li>
-<li>25% 数学推理</li>
-<li>17% 代码</li>
-<li>8% 多语言</li>
-</ul>
-<p>可见多语言数据不需要太多，主要知识用英语学过后可以泛化到其它语言。</p>
-<h4 id="_9">退火</h4>
-<p>在训练过程中，随着模型逐渐接近训练完成，逐渐降低对新数据的权重，可以让模型更加稳定地适应新数据，而不会导致模型参数剧烈波动。随着学习率降低，只有高质量的数据才能显著提升模型的性能。因此退火提供了一种更有效的方法来评估小型特定领域数据集的价值。</p>
-<h3 id="model-architecture">Model Architecture 模型架构</h3>
-<p>性能的提升主要来源于数据质量的提高和模型更大了。</p>
-<p>模型与之前的区别：group query attention (GQA) 可以带来内存的节省。</p>
-<h3 id="post-train">Post-train 微调</h3>
-<p>TODO </p>
-<h2 id="_10">多模态能力</h2>
-<p>视频/图像能力的训练在文字能力训练结束之后，有额外的 encoder 和 decoder，训练时将文字能力的权重冻结，只调其它模态的参数。</p>
+<h3 id="ui">UI 创建</h3>
 <p>TODO</p>
-<h2 id="_11">相关工作</h2>
-<p>TODO</p>
-<h2 id="_12">参考资料</h2>
+<h2 id="_5">修改</h2>
+<p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
+<p>进入 Codabench 首页 -&gt; 右上角 Benchmark -&gt; Management -&gt; 选择一个已有的比赛右侧 Edit 按钮。</p>
+<p>顶层有 Details / Participation / Pages / Phases / Leaderboard / Administrators 六个页面，其它较易懂，Phases 和 Leaderboard 的设置比较复杂。</p>
+<h3 id="phases">Phases</h3>
+<p>Phases 构成比赛主体。一个比赛可以有一个或多个 phase，这样设计可能是有些比赛分成在多个数据集上测试；一个 phase 又可以包含多个 tasks，可能是为了支持有些比赛每个 phase 又有多个数据集。phase 之间不共享资源/Docker 环境，同一个 phase 的不同 task 之间共享资源/环境。</p>
+<p>最简单的方式可以只定义一个 phase。区分数据集甚至可以只通过 scoring program 来实现。</p>
+<p>在 phase 的 edit 界面最下方，可以通过 Manage tasks 按钮打开 task 的 edit 界面，该界面中 Submission / Datasets and programs / Bundles 三个页面都可以忽视，只需要使用 Tasks 这个页面。</p>
+<p>task 的本质意义是 scoring program 和 reference data / ingestion program / result data 的关联方式。</p>
+<p>（TODO：资源文件夹名和资源别名的关系，哪些资源必须添加，如何删除资源）</p>
+<h3 id="leaderboard">Leaderboard</h3>
+<p>（TODO；scoring program 和这里设置的关联方式）</p>
+<h2 id="_6">使用</h2>
+<ol>
+<li>提交：TODO（如果卡住）</li>
+<li>查看结果：TODO terminal 的每个页面</li>
+<li>Leaderboard：结果不会自动更新到 Leaderboard，需要用户同意。</li>
+</ol>
+<h2 id="_7">参考资料</h2>
 <ul>
-<li><a href="https://arxiv.org/abs/2407.21783">The Llama 3 Herd of Models</a></li>
-<li><a href="https://www.bilibili.com/video/BV1WM4m1y7Uh/?spm_id_from=333.337.search-card.all.click">Llama 3.1论文精读 · 1. 导言【论文精读·54】</a></li>
-<li><a href="https://www.bilibili.com/video/BV1u142187S5/?spm_id_from=333.1365.list.card_archive.click&amp;vd_source=add8ed6a0a0c3142a3e6ce9e4b286af6">Llama 3.1论文精读 · 2. 预训练数据【论文精读·54】</a></li>
+<li><a href="https://arxiv.org/abs/2110.05802">Codabench: Flexible, Easy-to-Use and Reproducible Benchmarking Platform</a></li>
+<li><a href="https://github.com/codalab/codabench/wiki">Codabench Repo Wiki</a></li>
+<li><a href="https://github.com/codalab/codabench/issues">Codabench Repo Issue</a></li>
 </ul>
+<p>现有参考资料都不太全面，不能覆盖各种常见错误，一些创建步骤和行为需要通过猜测得知。</p>
 
 
 

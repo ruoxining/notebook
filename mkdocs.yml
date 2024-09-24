@@ -32,6 +32,8 @@ nav:
       - 综述: 'DL/MWP/index.md'
     - LLM大语言模型:
       - Llama-3.1-405B技术报告: 'DL/LLMs/llama3_405b.md'
+    - 工具 Tools:
+      - Codabench配置: 'DL/Tools/codabench.md'
 
   - 🌳Ling专栏:
     - 索引: 'Ling/index.md'
