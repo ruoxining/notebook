@@ -951,6 +951,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    UI 创建
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -960,19 +967,6 @@
   <a href="#_5" class="md-nav__link">
     修改
   </a>
-  
-    <nav class="md-nav" aria-label="修改">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phases" class="md-nav__link">
-    Phases
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1547,6 +1541,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    UI 创建
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1556,19 +1557,6 @@
   <a href="#_5" class="md-nav__link">
     修改
   </a>
-  
-    <nav class="md-nav" aria-label="修改">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#phases" class="md-nav__link">
-    Phases
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1604,12 +1592,13 @@
   
 
 
-<h1 id="codabench">Codabench 配置教程</h1>
+<h1 id="codabench">Codabench 比赛创建教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 1689 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
+<p>:material-circle-edit-outline: 约 1920 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
+<p>Codabench 的优点是提供公共 CPU，使比赛创办方在将正确答案保密的情况下，不必亲手收集参赛者的答案并一一亲手测试，而是允许用户自行通过平台测试并得到结果，减轻负担。而用户也可以更迅速知道自己的分数，不必等待比赛方验证这个时间较长的流程。</p>
 <h2 id="_2">运作</h2>
 <p>比赛创办者通过上传比赛配置后，每当有用户加入并提交一个运行请求，平台将在 CPU 上为每个提交创建一个 Docker，包含比赛创办者提供的比赛配置和该用户提交的数据，在 Docker 中运行指定路径的代码，并将结果显示在平台展示的 terminal 上。</p>
 <h2 id="_3">配置</h2>
@@ -1650,23 +1639,23 @@
 </span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># Documentation web pages</span>
 </span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">terms</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pages/terms.md</span><span class="w"> </span><span class="c1"># 必须有一个 terms</span>
 </span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="nt">pages</span><span class="p">:</span><span class="w">  </span><span class="c1"># 可任意加页面</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Overview</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pages/overview.md</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., Overview</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">file</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., pages/overview.md</span>
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Definition of the tasks</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nt">tasks</span><span class="p">:</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Development Task</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Development</span><span class="nv"> </span><span class="s">phase:</span><span class="nv"> </span><span class="s">create</span><span class="nv"> </span><span class="s">models</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">submit</span><span class="nv"> </span><span class="s">them</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">obtain</span><span class="nv"> </span><span class="s">feedback.&#39;</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">is_public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">input_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/input_data</span><span class="w">         </span><span class="c1"># 此处及下列路径需要填写所上传 bundle 里的路径，而非所生成 Docker 中的</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">reference_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/reference_data</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">scoring_program</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scoring_program</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="nt">ingestion_program</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ingestion_program</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., Development Task</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="c1"># 描述</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">is_public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">   </span><span class="c1"># 公开可见</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">input_data</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., feedback_phase/input_data, 此处及下列路径需要填写所上传 bundle 里的路径，而非所生成 Docker 中的</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">reference_data</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., feedback_phase/reference_data</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">scoring_program</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., scoring_program</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="nt">ingestion_program</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., ingestion_program</span>
 </span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="nt">solutions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w">   </span><span class="c1"># 不明</span>
 </span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
 </span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="c1"># Sample code submission</span>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nt">solutions</span><span class="p">:</span><span class="w">      </span><span class="c1"># 不明，似乎在比赛中无处显示</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="nt">solutions</span><span class="p">:</span><span class="w">      </span><span class="c1"># 可能会显示在比赛首页的 resources 列表</span>
 </span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="nt">tasks</span><span class="p">:</span>
 </span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
@@ -1677,16 +1666,16 @@
 </span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w">             </span><span class="c1"># phase 标题</span>
 </span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w">      </span><span class="c1"># 描述</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-1-2023</span><span class="w">   </span><span class="c1"># Month / Day / Year</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-30-2024</span><span class="w">    </span><span class="c1"># end 时间可以缺失</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-1-2024</span><span class="w">   </span><span class="c1"># Month / Day / Year</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-30-2024</span><span class="w">    </span><span class="c1"># end 结束时间可以缺失，表示永远可提交</span>
 </span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="nt">max_submissions_per_day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">    </span><span class="c1"># 最大似乎是 100？</span>
 </span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">  </span><span class="nt">max_submissions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w">          </span><span class="c1"># 最大似乎是 10000？</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="nt">execution_time_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span><span class="w">     </span><span class="c1"># 每次提交的最长运行时间，超过这个时间将显示 run time exceed</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="nt">execution_time_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span><span class="w">     </span><span class="c1"># 每次提交允许的最长运行时间，超过这个时间将显示 run time exceed</span>
 </span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span><span class="w">            </span><span class="c1"># 与该 phase 关联的 tasks</span>
 </span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">  </span><span class="nt">solutions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">  </span><span class="nt">starting_kit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">starting_kit</span>
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="nt">public_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/input_data</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">  </span><span class="nt">starting_kit</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., starting_kit, 可能会显示在比赛首页的 resources 列表</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="nt">public_data</span><span class="p">:</span><span class="w"> </span><span class="c1"># e.g., starting_kit, feedback_phase/input_data</span>
 </span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
 </span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="c1"># Fact sheets to add more information in the leaderboard</span>
 </span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="nt">fact_sheet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w">                   </span><span class="c1"># 似乎是展示在 leaderboard 中支持用户修改的更多信息。`method_name` 该字段应与下方 `results` 平级。</span>
@@ -1716,7 +1705,7 @@
 </span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 </span></code></pre></div>
 <ol>
-<li>scoring program</li>
+<li>scoring program 的路径说明</li>
 </ol>
 <p>奇异的是，比赛运行时所创建的 Docker 中文件结构并不是 bundle 的结构，或者示例 competition.yml 中指示的路径，而是会把各种资源结构打乱放在不同的位置。对我们影响就是，如果 scoring program 需要读其它文件（多代码文件 / gold answer 等），就需要按创建好的 Docker 中的新文件路径读取。</p>
 <p>比如，在我的测试中，Docker 的实际文件夹结构如下：</p>
@@ -1735,6 +1724,9 @@
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        - output.json
 </span></code></pre></div>
 <p>如果上述路径在你的测试中不 work，可以先上传一个含有 competition.yaml / scoring program / reference data / result data / ingestion program 等所有资源的测试 bundle，要求 scoring program 输出 Docker 的文件夹结构树，在 terminal 中依次记下资源的路径。</p>
+<ol>
+<li>scoring program 的输出说明</li>
+</ol>
 <p>scoring program 在运行完成后被期待写一个 output.json 文件，其路径在前一节有说明。其结构据推测应当是，</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;leaderboards_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -1745,16 +1737,22 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>其中几个 'key' 分别对应在 competition.yaml 的 leaderboards 设置中自定义的 key。</p>
-<p>本节可供参考：</p>
-<ul>
-<li><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a></li>
-</ul>
-<h2 id="_5">修改</h2>
-<p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
-<p>进入 Codabench 首页 -&gt; 右上角 <code>Benchmark</code> -&gt; <code>Management</code> -&gt; 选择一个已有的比赛右侧 <code>Edit</code> 按钮。</p>
-<p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，<code>Phases</code> 的设置比较复杂。</p>
+<ol>
+<li>常见错误 </li>
+</ol>
+<p>将 bundle 拖入 Upload 页面后，如果报错，常常只有 Error 字样，没有具体错误信息。此时首先应当检查是否有 <code>competition.yaml</code> 文件，文件名和内容格式正确，并且位于压缩包顶层（参照上方压缩图示）。一般是此错误。</p>
+<ol>
+<li>
+<p>bundle 模板</p>
+</li>
+<li>
+<p><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a></p>
+</li>
+</ol>
+<h3 id="ui">UI 创建</h3>
+<p>进入 Codabench 首页，点击右上角 <code>Benchmark</code> -&gt; <code>Management</code>，选择 <code>Upload</code> 来创建比赛。</p>
+<p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，不再赘述，<code>Phases</code> 的设置比较复杂。</p>
 <p><img alt="" src="../assets/edit.png" /></p>
-<h3 id="phases">Phases</h3>
 <p>Phases 构成比赛主体。一个比赛可以有一个或多个 phase，这样设计可能是有些比赛分成在多个数据集上测试；一个 phase 又可以包含多个 tasks，可能是为了支持有些比赛每个 phase 又有多个数据集。phase 之间不共享资源/Docker 环境，同一个 phase 的不同 task 之间共享资源/环境。 </p>
 <p>最简单的方式可以只定义一个 phase。区分数据集甚至可以只通过 scoring program 来实现。</p>
 <p>在 phase 的 edit 界面最下方，可以通过 Manage tasks 按钮打开 task 的 edit 界面，该界面中 <code>Submission</code> / <code>Datasets and programs</code> / <code>Bundles</code> 三个页面都可以忽视，只需要使用 <code>Tasks</code> 这个页面。</p>
@@ -1769,6 +1767,10 @@
 <p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。</p>
 <p>必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
 <p>资源只有在没有与之关联的 task 时才能被从资源列表中删除。当存在没有 task 关联的资源时，下面 Quota and Cleanup 中会高亮 Delete unused datasets/programs，可以点击一键清除。</p>
+<h2 id="_5">修改</h2>
+<p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
+<p>进入 Codabench 首页 -&gt; 右上角 <code>Benchmark</code> -&gt; <code>Management</code> -&gt; 选择一个已有的比赛右侧 <code>Edit</code> 按钮。</p>
+<p>其余步骤同上方 <code>### UI 创建</code> 一节。</p>
 <h2 id="_6">使用</h2>
 <ol>
 <li>提交：上传无顶层文件夹的多个结果文件夹压缩包。读条结束后将显示一个 running xxx，自动进入运行。如未显示 running 这个框，一般是平台 CPU 紧缺，可以等待一段时间再尝试。如果显示则说明开始运行了。</li>
