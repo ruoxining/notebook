@@ -1676,7 +1676,7 @@
 
 <h1 id="codabench">Codabench 比赛创建教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 2058 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
+<p>:material-circle-edit-outline: 约 2065 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
@@ -1704,7 +1704,7 @@
 <li>result data 用户上传的答案数据</li>
 <li>ingestion program 是指用户提交的代码，如果希望用户将方法/模型上传，需要在 scoring program 中留出给 ingestion program 的接口</li>
 </ul>
-<p>下面分别介绍几个关键细节。</p>
+<p>下面介绍几个官方文档讲得不太清楚的细节。</p>
 <h4 id="competitionyaml"><code>competition.yaml</code> 文件</h4>
 <p><code>competition.yaml</code> 文件不能改名，且必须位于 .zip 中的最顶层（即多选 <code>competition.yaml</code> 和其它文件夹后创建 .zip，而非把含有 competition.yaml 和其它文件夹的上层文件夹创建为 .zip）。具体如图所示。下文所提到的无顶层文件夹 / 文件位于压缩包顶层，都是指如图所示的压缩包结构。</p>
 <p><img alt="如何压缩文件" src="../assets/compress.png" /></p>
