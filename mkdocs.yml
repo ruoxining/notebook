@@ -33,7 +33,7 @@ nav:
     - LLM大语言模型:
       - Llama-3.1-405B技术报告: 'DL/LLMs/llama3_405b.md'
     - 工具 Tools:
-      - Codabench配置: 'DL/Tools/codabench.md'
+      - Codabench比赛创建教程: 'DL/Tools/codabench.md'
 
   - 🌳Ling专栏:
     - 索引: 'Ling/index.md'
@@ -69,17 +69,23 @@ theme:
   name: material
   palette:
     primary: black
+    accent: indigo
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to dark mode
+    scheme: preference
   language: zh
   features:
     - content.code.copy
     # - navigation.expand # 一级导航在竖向
     # - navigation.top  # 导航完全展开
-    - navigation.tabs # 一级导航在横着的导航栏
+    - navigation.tabs
   icon:
     repo: fontawesome/brands/git-alt
   font:
     text: Noto Sans Simplified Chinese
     code: Robot Mono
+
 
 plugins:
   - search

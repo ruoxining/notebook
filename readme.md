@@ -12,7 +12,7 @@
 
 部署命令
 
-```
+```bash
 conda activate MKdocs
 mkdocs gh-deploy --clean
 ```
