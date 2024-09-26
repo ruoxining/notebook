@@ -971,13 +971,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#leaderboard" class="md-nav__link">
-    Leaderboard
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1574,13 +1567,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#leaderboard" class="md-nav__link">
-    Leaderboard
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1620,7 +1606,7 @@
 
 <h1 id="codabench">Codabench 配置教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 1690 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
+<p>:material-circle-edit-outline: 约 1689 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
@@ -1749,14 +1735,24 @@
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        - output.json
 </span></code></pre></div>
 <p>如果上述路径在你的测试中不 work，可以先上传一个含有 competition.yaml / scoring program / reference data / result data / ingestion program 等所有资源的测试 bundle，要求 scoring program 输出 Docker 的文件夹结构树，在 terminal 中依次记下资源的路径。</p>
-<p>可供参考：</p>
+<p>scoring program 在运行完成后被期待写一个 output.json 文件，其路径在前一节有说明。其结构据推测应当是，</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;leaderboards_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&quot;column_key1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&quot;column_key2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="err">...</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>其中几个 'key' 分别对应在 competition.yaml 的 leaderboards 设置中自定义的 key。</p>
+<p>本节可供参考：</p>
 <ul>
 <li><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a></li>
 </ul>
 <h2 id="_5">修改</h2>
 <p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
 <p>进入 Codabench 首页 -&gt; 右上角 <code>Benchmark</code> -&gt; <code>Management</code> -&gt; 选择一个已有的比赛右侧 <code>Edit</code> 按钮。</p>
-<p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，<code>Phases</code> 和 <code>Leaderboard</code> 的设置比较复杂。</p>
+<p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，<code>Phases</code> 的设置比较复杂。</p>
 <p><img alt="" src="../assets/edit.png" /></p>
 <h3 id="phases">Phases</h3>
 <p>Phases 构成比赛主体。一个比赛可以有一个或多个 phase，这样设计可能是有些比赛分成在多个数据集上测试；一个 phase 又可以包含多个 tasks，可能是为了支持有些比赛每个 phase 又有多个数据集。phase 之间不共享资源/Docker 环境，同一个 phase 的不同 task 之间共享资源/环境。 </p>
@@ -1773,17 +1769,6 @@
 <p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。</p>
 <p>必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
 <p>资源只有在没有与之关联的 task 时才能被从资源列表中删除。当存在没有 task 关联的资源时，下面 Quota and Cleanup 中会高亮 Delete unused datasets/programs，可以点击一键清除。</p>
-<h3 id="leaderboard">Leaderboard</h3>
-<p>scoring program 在运行完成后被期待写一个 output.json 文件，其路径在前一节有说明。其结构据推测应当是，</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;leaderboards_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&quot;column_key1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&quot;column_key2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="err">...</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>其中几个 'key' 分别对应在 competition.yaml 的 leaderboards 设置中自定义的 key。</p>
 <h2 id="_6">使用</h2>
 <ol>
 <li>提交：上传无顶层文件夹的多个结果文件夹压缩包。读条结束后将显示一个 running xxx，自动进入运行。如未显示 running 这个框，一般是平台 CPU 紧缺，可以等待一段时间再尝试。如果显示则说明开始运行了。</li>
