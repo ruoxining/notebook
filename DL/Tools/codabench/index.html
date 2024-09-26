@@ -951,13 +951,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ui" class="md-nav__link">
-    UI 创建
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1561,13 +1554,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ui" class="md-nav__link">
-    UI 创建
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1634,25 +1620,27 @@
 
 <h1 id="codabench">Codabench 配置教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 1125 个字 :fontawesome-solid-code: 76 行代码 :material-clock-time-two-outline: 预计阅读时间 5 分钟</p>
+<p>:material-circle-edit-outline: 约 1690 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
 <h2 id="_2">运作</h2>
 <p>比赛创办者通过上传比赛配置后，每当有用户加入并提交一个运行请求，平台将在 CPU 上为每个提交创建一个 Docker，包含比赛创办者提供的比赛配置和该用户提交的数据，在 Docker 中运行指定路径的代码，并将结果显示在平台展示的 terminal 上。</p>
 <h2 id="_3">配置</h2>
-<p>在 Codabench 官网注册登陆后，点击右上角 Benchmark -&gt; Management，可以选择 Create 或 Upload 来创建比赛。</p>
+<p>在 Codabench 官网注册登陆后，点击右上角 <code>Benchmark</code> -&gt; <code>Management</code>，可以选择 <code>Create</code> 或 <code>Upload</code> 来创建比赛。</p>
+<p><img alt="Benchmark Management" src="../assets/benchmarks.png" /></p>
+<p><img alt="Benchmark Creation" src="../assets/create.png" /></p>
 <ul>
-<li>Create 是使用平台 UI 创建比赛</li>
-<li>Upload 是在本地写好配置文件，直接上传后被解析为一个比赛</li>
+<li><code>Create</code> 是使用平台 UI 创建比赛</li>
+<li><code>Upload</code> 是在本地写好配置文件，直接上传后被解析为一个比赛</li>
 </ul>
-<p>更推荐用 Upload 来创建，因为 UI 的用户提示比较欠缺。</p>
+<p>更推荐用 <code>Upload</code> 来创建，因为 UI 的用户提示比较欠缺。</p>
 <h3 id="_4">上传创建</h3>
-<p>bundle 指比赛创建者上传的压缩文件。里面含有：</p>
+<p>'bundle' 指比赛创建者上传的压缩文件。里面含有：</p>
 <ul>
-<li>competition.yaml 是比赛的 metadata</li>
-<li>scoring program 是平台所运行的评测脚本</li>
-<li>reference data 是评测脚本所读的 gold answer 数据</li>
+<li><code>competition.yaml</code> 是比赛的 metadata</li>
+<li>'scoring program' 是平台所运行的评测脚本</li>
+<li>'reference data' 是评测脚本所读的 gold answer 数据</li>
 </ul>
 <p>需要期待用户上传：</p>
 <ul>
@@ -1661,8 +1649,10 @@
 </ul>
 <p>分别介绍：</p>
 <ol>
-<li>competition.yaml 不能改名，且必须位于 .zip 中最顶层的文件夹（即多选 competition.yaml 和其它文件夹后创建 .zip，而非把含有 competition.yaml 和其它文件夹的上层文件夹创建为 .zip）。支持的字段有：</li>
+<li><code>competition.yaml</code> 文件不能改名，且必须位于 .zip 中的最顶层（即多选 <code>competition.yaml</code> 和其它文件夹后创建 .zip，而非把含有 competition.yaml 和其它文件夹的上层文件夹创建为 .zip）。具体如图所示。下文所提到的无顶层文件夹 / 文件位于压缩包顶层，都是指如图所示的压缩包结构。</li>
 </ol>
+<p><img alt="如何压缩文件" src="../assets/compress.png" /></p>
+<p><code>competition.yaml</code> 支持的字段有：</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="c1"># 比赛名</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="c1"># 1 指是 CodaLab bundle，2 指 CodaBench bundle，区别是有些 competition.yaml 字段不兼容</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="c1"># 比赛描述</span>
@@ -1699,46 +1689,45 @@
 </span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
 </span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="nt">phases</span><span class="p">:</span>
 </span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Development</span>
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Development</span><span class="nv"> </span><span class="s">phase:</span><span class="nv"> </span><span class="s">create</span><span class="nv"> </span><span class="s">models</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">submit</span><span class="nv"> </span><span class="s">them</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">obtain</span><span class="nv"> </span><span class="s">feedback.</span>
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">      </span><span class="s">You</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">make</span><span class="nv"> </span><span class="s">5</span><span class="nv"> </span><span class="s">submissions</span><span class="nv"> </span><span class="s">per</span><span class="nv"> </span><span class="s">day</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">100</span><span class="nv"> </span><span class="s">submissions</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">total.&#39;</span>
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-1-2023</span><span class="w"> </span><span class="c1"># Month/Day/Year</span>
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-30-2024</span>
-</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">  </span><span class="nt">max_submissions_per_day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="nt">max_submissions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
-</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">  </span><span class="nt">execution_time_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span>
-</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
-</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">  </span><span class="nt">solutions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
-</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="nt">starting_kit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">starting_kit</span>
-</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">  </span><span class="nt">public_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/input_data</span>
-</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>
-</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="c1"># Fact sheets to add more information in the leaderboard</span>
-</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="nt">fact_sheet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
-</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">    </span><span class="s">&quot;method_name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
-</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">        </span><span class="s">&quot;key&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;method_name&quot;</span><span class="p p-Indicator">,</span>
-</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="s">&quot;type&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p p-Indicator">,</span>
-</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">        </span><span class="s">&quot;title&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Method</span><span class="nv"> </span><span class="s">name&quot;</span><span class="p p-Indicator">,</span>
-</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="s">&quot;selection&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p p-Indicator">,</span>
-</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="s">&quot;is_required&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p p-Indicator">,</span>
-</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">        </span><span class="s">&quot;is_on_leaderboard&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
-</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">    </span><span class="p p-Indicator">}</span>
-</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="p p-Indicator">}</span>
-</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a>
-</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="c1"># Leaderboard</span>
-</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="nt">leaderboards</span><span class="p">:</span>
-</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Results</span>
-</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Results</span>
-</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">  </span><span class="nt">submission_rule</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Force_Last&quot;</span><span class="w">     </span><span class="c1"># 可以去掉，默认似乎是允许展示多个结果</span>
-</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">  </span><span class="nt">columns</span><span class="p">:</span>
-</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Average Accuracy</span><span class="w">     </span><span class="c1"># 在 output.json 中，读取该 json 的哪个 key</span>
-</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg_accuracy</span><span class="w">           </span>
-</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">        </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">        </span><span class="nt">sorting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">desc</span>
-</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">        </span><span class="nt">computation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg</span>
-</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">        </span><span class="nt">computation_indexes</span><span class="p">:</span>
-</span><span id="__span-0-76"><a id="__codelineno-0-76" name="__codelineno-0-76" href="#__codelineno-0-76"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w">             </span><span class="c1"># phase 标题</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">  </span><span class="nt">description</span><span class="p">:</span><span class="w">      </span><span class="c1"># 描述</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-1-2023</span><span class="w">   </span><span class="c1"># Month / Day / Year</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">  </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1-30-2024</span><span class="w">    </span><span class="c1"># end 时间可以缺失</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">  </span><span class="nt">max_submissions_per_day</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">    </span><span class="c1"># 最大似乎是 100？</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">  </span><span class="nt">max_submissions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w">          </span><span class="c1"># 最大似乎是 10000？</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">  </span><span class="nt">execution_time_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span><span class="w">     </span><span class="c1"># 每次提交的最长运行时间，超过这个时间将显示 run time exceed</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">  </span><span class="nt">tasks</span><span class="p">:</span><span class="w">            </span><span class="c1"># 与该 phase 关联的 tasks</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">  </span><span class="nt">solutions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">  </span><span class="nt">starting_kit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">starting_kit</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">  </span><span class="nt">public_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feedback_phase/input_data</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="c1"># Fact sheets to add more information in the leaderboard</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="nt">fact_sheet</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w">                   </span><span class="c1"># 似乎是展示在 leaderboard 中支持用户修改的更多信息。`method_name` 该字段应与下方 `results` 平级。</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="s">&quot;method_name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a><span class="w">        </span><span class="s">&quot;key&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;method_name&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">        </span><span class="s">&quot;type&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;text&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="s">&quot;title&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;Method</span><span class="nv"> </span><span class="s">name&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">        </span><span class="s">&quot;selection&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">        </span><span class="s">&quot;is_required&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">        </span><span class="s">&quot;is_on_leaderboard&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">    </span><span class="p p-Indicator">}</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="p p-Indicator">}</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="c1"># Leaderboard</span>
+</span><span id="__span-0-63"><a id="__codelineno-0-63" name="__codelineno-0-63" href="#__codelineno-0-63"></a><span class="nt">leaderboards</span><span class="p">:</span>
+</span><span id="__span-0-64"><a id="__codelineno-0-64" name="__codelineno-0-64" href="#__codelineno-0-64"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+</span><span id="__span-0-65"><a id="__codelineno-0-65" name="__codelineno-0-65" href="#__codelineno-0-65"></a><span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Results</span><span class="w">                    </span><span class="c1"># leaderboard 的 title</span>
+</span><span id="__span-0-66"><a id="__codelineno-0-66" name="__codelineno-0-66" href="#__codelineno-0-66"></a><span class="w">  </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Results</span><span class="w">                      </span><span class="c1"># `output.json` 中用于定位的 key</span>
+</span><span id="__span-0-67"><a id="__codelineno-0-67" name="__codelineno-0-67" href="#__codelineno-0-67"></a><span class="w">  </span><span class="nt">submission_rule</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Force_Last&quot;</span><span class="w">     </span><span class="c1"># 可以去掉，默认似乎是允许展示多个结果</span>
+</span><span id="__span-0-68"><a id="__codelineno-0-68" name="__codelineno-0-68" href="#__codelineno-0-68"></a><span class="w">  </span><span class="nt">columns</span><span class="p">:</span>
+</span><span id="__span-0-69"><a id="__codelineno-0-69" name="__codelineno-0-69" href="#__codelineno-0-69"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Average Accuracy</span><span class="w">     </span><span class="c1"># 在 output.json 中，读取该 json 的哪个 key</span>
+</span><span id="__span-0-70"><a id="__codelineno-0-70" name="__codelineno-0-70" href="#__codelineno-0-70"></a><span class="w">        </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg_accuracy</span><span class="w">           </span><span class="c1"># `output.json` 中用于定位的 key</span>
+</span><span id="__span-0-71"><a id="__codelineno-0-71" name="__codelineno-0-71" href="#__codelineno-0-71"></a><span class="w">        </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                    </span><span class="c1"># 展示在 leaderboard 表格中的第几列</span>
+</span><span id="__span-0-72"><a id="__codelineno-0-72" name="__codelineno-0-72" href="#__codelineno-0-72"></a><span class="w">        </span><span class="nt">sorting</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">desc</span><span class="w">               </span><span class="c1"># 升序/降序排列</span>
+</span><span id="__span-0-73"><a id="__codelineno-0-73" name="__codelineno-0-73" href="#__codelineno-0-73"></a><span class="w">        </span><span class="nt">computation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">avg</span><span class="w">            </span><span class="c1"># 同一用户的多个提交，按什么计算方法排序？</span>
+</span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">        </span><span class="nt">computation_indexes</span><span class="p">:</span><span class="w">        </span><span class="c1"># 在哪一列上计算</span>
+</span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 </span></code></pre></div>
 <ol>
 <li>scoring program</li>
@@ -1764,33 +1753,58 @@
 <ul>
 <li><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a></li>
 </ul>
-<h3 id="ui">UI 创建</h3>
-<p>TODO</p>
 <h2 id="_5">修改</h2>
 <p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
-<p>进入 Codabench 首页 -&gt; 右上角 Benchmark -&gt; Management -&gt; 选择一个已有的比赛右侧 Edit 按钮。</p>
-<p>顶层有 Details / Participation / Pages / Phases / Leaderboard / Administrators 六个页面，其它较易懂，Phases 和 Leaderboard 的设置比较复杂。</p>
+<p>进入 Codabench 首页 -&gt; 右上角 <code>Benchmark</code> -&gt; <code>Management</code> -&gt; 选择一个已有的比赛右侧 <code>Edit</code> 按钮。</p>
+<p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，<code>Phases</code> 和 <code>Leaderboard</code> 的设置比较复杂。</p>
+<p><img alt="" src="../assets/edit.png" /></p>
 <h3 id="phases">Phases</h3>
-<p>Phases 构成比赛主体。一个比赛可以有一个或多个 phase，这样设计可能是有些比赛分成在多个数据集上测试；一个 phase 又可以包含多个 tasks，可能是为了支持有些比赛每个 phase 又有多个数据集。phase 之间不共享资源/Docker 环境，同一个 phase 的不同 task 之间共享资源/环境。</p>
+<p>Phases 构成比赛主体。一个比赛可以有一个或多个 phase，这样设计可能是有些比赛分成在多个数据集上测试；一个 phase 又可以包含多个 tasks，可能是为了支持有些比赛每个 phase 又有多个数据集。phase 之间不共享资源/Docker 环境，同一个 phase 的不同 task 之间共享资源/环境。 </p>
 <p>最简单的方式可以只定义一个 phase。区分数据集甚至可以只通过 scoring program 来实现。</p>
-<p>在 phase 的 edit 界面最下方，可以通过 Manage tasks 按钮打开 task 的 edit 界面，该界面中 Submission / Datasets and programs / Bundles 三个页面都可以忽视，只需要使用 Tasks 这个页面。</p>
+<p>在 phase 的 edit 界面最下方，可以通过 Manage tasks 按钮打开 task 的 edit 界面，该界面中 <code>Submission</code> / <code>Datasets and programs</code> / <code>Bundles</code> 三个页面都可以忽视，只需要使用 <code>Tasks</code> 这个页面。</p>
+<p><img alt="" src="../assets/edit_phase.png" /></p>
 <p>task 的本质意义是 scoring program 和 reference data / ingestion program / result data 的关联方式。</p>
-<p>（TODO：资源文件夹名和资源别名的关系，哪些资源必须添加，如何删除资源）</p>
+<p>如果定义一个 phase 有多个 tasks，在用户提交时，会显示选择提交哪个 task 的复选框。当复选框被勾选时，task 所关联的 scoring program 被运行。</p>
+<p><img alt="" src="../assets/multitasks.png" /></p>
+<p>当然也有不创建多个 task，将多个评测合并为一个脚本的方法，可以在脚本里检测用户上传了哪些结果，据此选择运行哪些评测。这里 scoring program 的设计自由度比较高。</p>
+<p>在 task 的编辑页面里，</p>
+<p><img alt="" src="../assets/create_task.png" /></p>
+<p><img alt="" src="../assets/create_task2.png" /></p>
+<p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。</p>
+<p>必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
+<p>资源只有在没有与之关联的 task 时才能被从资源列表中删除。当存在没有 task 关联的资源时，下面 Quota and Cleanup 中会高亮 Delete unused datasets/programs，可以点击一键清除。</p>
 <h3 id="leaderboard">Leaderboard</h3>
-<p>（TODO；scoring program 和这里设置的关联方式）</p>
+<p>scoring program 在运行完成后被期待写一个 output.json 文件，其路径在前一节有说明。其结构据推测应当是，</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;leaderboards_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nt">&quot;column_key1&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&quot;column_key2&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="err">...</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>其中几个 'key' 分别对应在 competition.yaml 的 leaderboards 设置中自定义的 key。</p>
 <h2 id="_6">使用</h2>
 <ol>
-<li>提交：TODO（如果卡住）</li>
-<li>查看结果：TODO terminal 的每个页面</li>
-<li>Leaderboard：结果不会自动更新到 Leaderboard，需要用户同意。</li>
+<li>提交：上传无顶层文件夹的多个结果文件夹压缩包。读条结束后将显示一个 running xxx，自动进入运行。如未显示 running 这个框，一般是平台 CPU 紧缺，可以等待一段时间再尝试。如果显示则说明开始运行了。</li>
+<li>查看结果：点击 running xxx 可以查看运行期间的 terminal 输出，此处 terminal 是正常的 terminal，会显示所有 warning / error / 输出。运行完成后应当显示 Finish。</li>
+<li>查看报错：如果状态不是 Finish，如 Scoring / Running / Error，可以点击当前提交对应的状态栏。</li>
 </ol>
+<p><img alt="" src="../assets/run_downloads.png" /></p>
+<p>Download 中可以下载到的内容与 terminal 中能输出的内容相似，直接查看 terminal 即可。</p>
+<p><img alt="" src="../assets/run_logs.png" /></p>
+<p>terminal 的左侧分为 prediction 和 scoring 两种，当有 ingestion program 时第一个 terminal 才会有输出。stdout 和 stderr 将 terminal 输出分开了，stdout 是程序指定的正常输出，stderr 是 error 输出，有时候会存在其中一个没有输出的情况，可切换查看。</p>
+<ol>
+<li>Leaderboard：结果不会自动更新到 Leaderboard，需要用户同意。点击运行结果右侧的按钮更新到 Leaderboard。</li>
+</ol>
+<p><img alt="Add to Leaderboard" src="../assets/add_to_leaderboard.png" /></p>
 <h2 id="_7">参考资料</h2>
 <ul>
 <li><a href="https://arxiv.org/abs/2110.05802">Codabench: Flexible, Easy-to-Use and Reproducible Benchmarking Platform</a></li>
 <li><a href="https://github.com/codalab/codabench/wiki">Codabench Repo Wiki</a></li>
 <li><a href="https://github.com/codalab/codabench/issues">Codabench Repo Issue</a></li>
 </ul>
-<p>现有参考资料都不太全面，不能覆盖各种常见错误，一些创建步骤和行为需要通过猜测得知。</p>
+<p>现有参考资料都不太全面，不能覆盖各种常见错误，一些创建步骤和行为需要通过猜测得知。如果本文有误，欢迎联系作者改正！</p>
 
 
 
