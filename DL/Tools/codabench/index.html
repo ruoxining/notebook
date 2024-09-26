@@ -1676,7 +1676,7 @@
 
 <h1 id="codabench">Codabench 比赛创建教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 1969 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
+<p>:material-circle-edit-outline: 约 2058 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
@@ -1815,7 +1815,8 @@
 </span></code></pre></div>
 <p>其中几个 'key' 分别对应在 competition.yaml 的 leaderboards 设置中自定义的 key。</p>
 <h4 id="_5">常见报错</h4>
-<p>将 bundle 拖入 Upload 页面后，如果报错，常常只有 Error 字样，没有具体错误信息。此时首先应当检查是否有 <code>competition.yaml</code> 文件，文件名和内容格式正确，并且位于压缩包顶层（参照上方压缩图示）。一般是此错误。</p>
+<p>将 bundle 拖入 Upload 页面后，如果报错显示 Creation Fail，此时首先应当检查是否有 <code>competition.yaml</code> 文件，文件名和内容格式正确，并且位于压缩包顶层（参照上方压缩图示）。一般是此错误。</p>
+<p><img alt="" src="../assets/creation_fail.png" /></p>
 <h4 id="bundle">bundle 模板</h4>
 <ul>
 <li><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a> 官方提供的几个 bundle 模板，可以对比 Codabench 上同名比赛查看创建结果，在本仓库拿一些需要的写法。</li>
@@ -1835,8 +1836,8 @@
 <p>在 task 的编辑页面里，</p>
 <p><img alt="" src="../assets/create_task.png" /></p>
 <p><img alt="" src="../assets/create_task2.png" /></p>
-<p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。</p>
-<p>必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
+<p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。例如，在 <code>competition.yaml</code> 中指定了 reference data 的文件夹名是 <code>ref_data</code>，那么在上传时也需要将一个名为 <code>ref_data</code> 的文件夹进行压缩。但是压缩后得到的压缩包名字随意，可以叫 <code>AAA.zip</code> 等；上传后在 UI 处会允许你为这次上传的资源起一个别名，也是随意的，可以叫 <code>ref_data20240925</code> 等。</p>
+<p>每个 task 中，必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
 <p>资源只有在没有与之关联的 task 时才能被从资源列表中删除。当存在没有 task 关联的资源时，下面 Quota and Cleanup 中会高亮 Delete unused datasets/programs，可以点击一键清除。</p>
 <h2 id="_6">修改</h2>
 <p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
