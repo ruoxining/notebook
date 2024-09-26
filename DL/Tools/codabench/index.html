@@ -1676,7 +1676,7 @@
 
 <h1 id="codabench">Codabench 比赛创建教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 2065 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
+<p>:material-circle-edit-outline: 约 2095 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
@@ -1825,8 +1825,9 @@
 <p><img alt="" src="../assets/edit.png" /></p>
 <p>Phases 构成比赛主体。一个比赛可以有一个或多个 phase，这样设计可能是有些比赛分成在多个数据集上测试；一个 phase 又可以包含多个 tasks，可能是为了支持有些比赛每个 phase 又有多个数据集。phase 之间不共享资源/Docker 环境，同一个 phase 的不同 task 之间共享资源/环境。 </p>
 <p>最简单的方式可以只定义一个 phase。区分数据集甚至可以只通过 scoring program 来实现。</p>
-<p>在 phase 的 edit 界面最下方，可以通过 Manage tasks 按钮打开 task 的 edit 界面，该界面中 <code>Submission</code> / <code>Datasets and programs</code> / <code>Bundles</code> 三个页面都可以忽视，只需要使用 <code>Tasks</code> 这个页面。</p>
+<p>在 phase 的 edit 界面最下方，可以通过 Manage tasks 按钮打开 task 的 edit 界面。</p>
 <p><img alt="" src="../assets/edit_phase.png" /></p>
+<p>该界面中 <code>Submission</code> / <code>Datasets and programs</code> / <code>Bundles</code> 三个页面都可以忽视，只需要使用 <code>Tasks</code> 这个页面。</p>
 <p>task 的本质意义是 scoring program 和 reference data / ingestion program / result data 的关联方式。</p>
 <p>如果定义一个 phase 有多个 tasks，在用户提交时，会显示选择提交哪个 task 的复选框。当复选框被勾选时，task 所关联的 scoring program 被运行。</p>
 <p><img alt="" src="../assets/multitasks.png" /></p>
@@ -1834,7 +1835,7 @@
 <p>在 task 的编辑页面里，</p>
 <p><img alt="" src="../assets/create_task.png" /></p>
 <p><img alt="" src="../assets/create_task2.png" /></p>
-<p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。例如，在 <code>competition.yaml</code> 中指定了 reference data 的文件夹名是 <code>ref_data</code>，那么在上传时也需要将一个名为 <code>ref_data</code> 的文件夹进行压缩。但是压缩后得到的压缩包名字随意，可以叫 <code>AAA.zip</code> 等；上传后在 UI 处会允许你为这次上传的资源起一个别名，也是随意的，可以叫 <code>ref_data20240925</code> 等。</p>
+<p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。例如，在 <code>competition.yaml</code> 中指定了 reference data 的文件夹名是 <code>ref_data</code>，那么在上传时也需要将一个名为 <code>ref_data</code> 的文件夹进行压缩。但是压缩后得到的压缩包名字随意，可以叫 <code>AAA.zip</code> 等；上传后在 UI 处会允许你为这次上传的资源起一个别名，也是随意的，可以叫 <code>ref_data20240925</code> 等。如遇到资源上传失败但无报错，可以优先考虑这个原因。</p>
 <p>每个 task 中，必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
 <p>资源只有在没有与之关联的 task 时才能被从资源列表中删除。当存在没有 task 关联的资源时，下面 Quota and Cleanup 中会高亮 Delete unused datasets/programs，可以点击一键清除。</p>
 <h2 id="_6">修改</h2>
@@ -1848,12 +1849,10 @@
 <li>查看报错：如果状态不是 Finish，如 Scoring / Running / Error，可以点击当前提交对应的状态栏。</li>
 </ol>
 <p><img alt="" src="../assets/run_downloads.png" /></p>
-<p>Download 中可以下载到的内容与 terminal 中能输出的内容相似，直接查看 terminal 即可。</p>
+<p>Download 中可以下载到的内容与 logs 中能输出的内容相似，直接查看 logs 即可。</p>
 <p><img alt="" src="../assets/run_logs.png" /></p>
 <p>terminal 的左侧分为 prediction 和 scoring 两种，当有 ingestion program 时第一个 terminal 才会有输出。stdout 和 stderr 将 terminal 输出分开了，stdout 是程序指定的正常输出，stderr 是 error 输出，有时候会存在其中一个没有输出的情况，可切换查看。</p>
-<ol>
-<li>Leaderboard：结果不会自动更新到 Leaderboard，需要用户同意。点击运行结果右侧的按钮更新到 Leaderboard。</li>
-</ol>
+<p>Leaderboard 的结果不会自动更新到 Leaderboard，需要用户同意。点击运行结果右侧的按钮更新到 Leaderboard。</p>
 <p><img alt="Add to Leaderboard" src="../assets/add_to_leaderboard.png" /></p>
 <h2 id="_8">参考资料</h2>
 <ul>
@@ -1861,7 +1860,7 @@
 <li><a href="https://github.com/codalab/codabench/wiki">Codabench Repo Wiki</a></li>
 <li><a href="https://github.com/codalab/codabench/issues">Codabench Repo Issue</a></li>
 </ul>
-<p>现有参考资料都不太全面，不能覆盖各种常见错误，一些创建步骤和行为需要通过猜测得知。如果本文有误，欢迎联系作者改正！</p>
+<p>现有官网参考资料似乎都不太全面，不能覆盖各种常见错误，因此一些创建步骤和行为是通过猜测得知的。如果本文有误，欢迎联系作者改正！</p>
 
 
 
