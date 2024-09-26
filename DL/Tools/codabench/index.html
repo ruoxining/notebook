@@ -949,6 +949,47 @@
     上传创建
   </a>
   
+    <nav class="md-nav" aria-label="上传创建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competitionyaml" class="md-nav__link">
+    competition.yaml 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-program" class="md-nav__link">
+    scoring program 的路径说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-program_1" class="md-nav__link">
+    scoring program 的输出说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见报错
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundle" class="md-nav__link">
+    bundle 模板
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -964,21 +1005,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     修改
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     使用
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     参考资料
   </a>
   
@@ -1539,6 +1580,47 @@
     上传创建
   </a>
   
+    <nav class="md-nav" aria-label="上传创建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#competitionyaml" class="md-nav__link">
+    competition.yaml 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-program" class="md-nav__link">
+    scoring program 的路径说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-program_1" class="md-nav__link">
+    scoring program 的输出说明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    常见报错
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bundle" class="md-nav__link">
+    bundle 模板
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1554,21 +1636,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     修改
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     使用
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     参考资料
   </a>
   
@@ -1594,7 +1676,7 @@
 
 <h1 id="codabench">Codabench 比赛创建教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 1920 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 7 分钟</p>
+<p>:material-circle-edit-outline: 约 1969 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
@@ -1622,10 +1704,9 @@
 <li>result data 用户上传的答案数据</li>
 <li>ingestion program 是指用户提交的代码，如果希望用户将方法/模型上传，需要在 scoring program 中留出给 ingestion program 的接口</li>
 </ul>
-<p>分别介绍：</p>
-<ol>
-<li><code>competition.yaml</code> 文件不能改名，且必须位于 .zip 中的最顶层（即多选 <code>competition.yaml</code> 和其它文件夹后创建 .zip，而非把含有 competition.yaml 和其它文件夹的上层文件夹创建为 .zip）。具体如图所示。下文所提到的无顶层文件夹 / 文件位于压缩包顶层，都是指如图所示的压缩包结构。</li>
-</ol>
+<p>下面分别介绍几个关键细节。</p>
+<h4 id="competitionyaml"><code>competition.yaml</code> 文件</h4>
+<p><code>competition.yaml</code> 文件不能改名，且必须位于 .zip 中的最顶层（即多选 <code>competition.yaml</code> 和其它文件夹后创建 .zip，而非把含有 competition.yaml 和其它文件夹的上层文件夹创建为 .zip）。具体如图所示。下文所提到的无顶层文件夹 / 文件位于压缩包顶层，都是指如图所示的压缩包结构。</p>
 <p><img alt="如何压缩文件" src="../assets/compress.png" /></p>
 <p><code>competition.yaml</code> 支持的字段有：</p>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="c1"># 比赛名</span>
@@ -1704,9 +1785,7 @@
 </span><span id="__span-0-74"><a id="__codelineno-0-74" name="__codelineno-0-74" href="#__codelineno-0-74"></a><span class="w">        </span><span class="nt">computation_indexes</span><span class="p">:</span><span class="w">        </span><span class="c1"># 在哪一列上计算</span>
 </span><span id="__span-0-75"><a id="__codelineno-0-75" name="__codelineno-0-75" href="#__codelineno-0-75"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 </span></code></pre></div>
-<ol>
-<li>scoring program 的路径说明</li>
-</ol>
+<h4 id="scoring-program">scoring program 的路径说明</h4>
 <p>奇异的是，比赛运行时所创建的 Docker 中文件结构并不是 bundle 的结构，或者示例 competition.yml 中指示的路径，而是会把各种资源结构打乱放在不同的位置。对我们影响就是，如果 scoring program 需要读其它文件（多代码文件 / gold answer 等），就需要按创建好的 Docker 中的新文件路径读取。</p>
 <p>比如，在我的测试中，Docker 的实际文件夹结构如下：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.
@@ -1724,9 +1803,7 @@
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        - output.json
 </span></code></pre></div>
 <p>如果上述路径在你的测试中不 work，可以先上传一个含有 competition.yaml / scoring program / reference data / result data / ingestion program 等所有资源的测试 bundle，要求 scoring program 输出 Docker 的文件夹结构树，在 terminal 中依次记下资源的路径。</p>
-<ol>
-<li>scoring program 的输出说明</li>
-</ol>
+<h4 id="scoring-program_1">scoring program 的输出说明</h4>
 <p>scoring program 在运行完成后被期待写一个 output.json 文件，其路径在前一节有说明。其结构据推测应当是，</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;leaderboards_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -1737,18 +1814,12 @@
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>其中几个 'key' 分别对应在 competition.yaml 的 leaderboards 设置中自定义的 key。</p>
-<ol>
-<li>常见错误 </li>
-</ol>
+<h4 id="_5">常见报错</h4>
 <p>将 bundle 拖入 Upload 页面后，如果报错，常常只有 Error 字样，没有具体错误信息。此时首先应当检查是否有 <code>competition.yaml</code> 文件，文件名和内容格式正确，并且位于压缩包顶层（参照上方压缩图示）。一般是此错误。</p>
-<ol>
-<li>
-<p>bundle 模板</p>
-</li>
-<li>
-<p><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a></p>
-</li>
-</ol>
+<h4 id="bundle">bundle 模板</h4>
+<ul>
+<li><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a> 官方提供的几个 bundle 模板，可以对比 Codabench 上同名比赛查看创建结果，在本仓库拿一些需要的写法。</li>
+</ul>
 <h3 id="ui">UI 创建</h3>
 <p>进入 Codabench 首页，点击右上角 <code>Benchmark</code> -&gt; <code>Management</code>，选择 <code>Upload</code> 来创建比赛。</p>
 <p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，不再赘述，<code>Phases</code> 的设置比较复杂。</p>
@@ -1767,11 +1838,11 @@
 <p>资源文件夹名必须与比赛初始化时 <code>competition.yaml</code> 指定的文件夹名相同，压缩包名和在这里填写的资源别名则任意。</p>
 <p>必须添加的资源是 scoring program，有这个才能运行。可根据需要添加 reference data。</p>
 <p>资源只有在没有与之关联的 task 时才能被从资源列表中删除。当存在没有 task 关联的资源时，下面 Quota and Cleanup 中会高亮 Delete unused datasets/programs，可以点击一键清除。</p>
-<h2 id="_5">修改</h2>
+<h2 id="_6">修改</h2>
 <p>只支持通过 UI 修改。不能重新上传 bundle，每次重新上传 bundle 就视为创建一个新的比赛。</p>
 <p>进入 Codabench 首页 -&gt; 右上角 <code>Benchmark</code> -&gt; <code>Management</code> -&gt; 选择一个已有的比赛右侧 <code>Edit</code> 按钮。</p>
 <p>其余步骤同上方 <code>### UI 创建</code> 一节。</p>
-<h2 id="_6">使用</h2>
+<h2 id="_7">使用</h2>
 <ol>
 <li>提交：上传无顶层文件夹的多个结果文件夹压缩包。读条结束后将显示一个 running xxx，自动进入运行。如未显示 running 这个框，一般是平台 CPU 紧缺，可以等待一段时间再尝试。如果显示则说明开始运行了。</li>
 <li>查看结果：点击 running xxx 可以查看运行期间的 terminal 输出，此处 terminal 是正常的 terminal，会显示所有 warning / error / 输出。运行完成后应当显示 Finish。</li>
@@ -1785,7 +1856,7 @@
 <li>Leaderboard：结果不会自动更新到 Leaderboard，需要用户同意。点击运行结果右侧的按钮更新到 Leaderboard。</li>
 </ol>
 <p><img alt="Add to Leaderboard" src="../assets/add_to_leaderboard.png" /></p>
-<h2 id="_7">参考资料</h2>
+<h2 id="_8">参考资料</h2>
 <ul>
 <li><a href="https://arxiv.org/abs/2110.05802">Codabench: Flexible, Easy-to-Use and Reproducible Benchmarking Platform</a></li>
 <li><a href="https://github.com/codalab/codabench/wiki">Codabench Repo Wiki</a></li>
