@@ -8,27 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://ruoxining.github.io/notebook/CS/CA/chap5/">
+        <link rel="canonical" href="https://ruoxining.github.io/notebook/CS/code-style/">
       
       
-        <link rel="prev" href="../chap3/">
       
-      
-        <link rel="next" href="../../Compiler/">
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>chap5 - Mini Babel Library</title>
+        <title>Pythons' Code Style Guide - Mini Babel Library</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -44,9 +40,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../_css/style.css">
+      <link rel="stylesheet" href="../../_css/style.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chap5-thread-level-parallelism" class="md-skip">
+        <a href="#pythons-code-style-guide" class="md-skip">
           跳转至
         </a>
       
@@ -85,7 +81,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../../.." title="Mini Babel Library" class="md-header__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
+    <a href="../.." title="Mini Babel Library" class="md-header__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -104,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              chap5
+              Pythons' Code Style Guide
             
           </span>
         </div>
@@ -181,7 +177,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../.." class="md-tabs__link">
+    <a href="../.." class="md-tabs__link">
       🏛️ Mini Babel Library
     </a>
   </li>
@@ -190,15 +186,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link">
         💻CS专栏
       </a>
     </li>
@@ -214,7 +208,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../DL/" class="md-tabs__link">
+      <a href="../../DL/" class="md-tabs__link">
         🎓DL专栏
       </a>
     </li>
@@ -230,7 +224,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../Ling/" class="md-tabs__link">
+      <a href="../../Ling/" class="md-tabs__link">
         🌳Ling专栏
       </a>
     </li>
@@ -246,7 +240,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../Other/" class="md-tabs__link">
+      <a href="../../Other/" class="md-tabs__link">
         💭说瞎话了
       </a>
     </li>
@@ -274,7 +268,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Mini Babel Library" class="md-nav__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
+    <a href="../.." title="Mini Babel Library" class="md-nav__button md-logo" aria-label="Mini Babel Library" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -305,7 +299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         🏛️ Mini Babel Library
       </a>
     </li>
@@ -318,16 +312,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -336,7 +328,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           💻CS专栏
@@ -349,7 +341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         索引
       </a>
     </li>
@@ -363,7 +355,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../libgraphics/" class="md-nav__link">
+      <a href="../libgraphics/" class="md-nav__link">
         C大程libgraphics
       </a>
     </li>
@@ -404,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CPP/course/" class="md-nav__link">
+      <a href="../CPP/course/" class="md-nav__link">
         ZJU听课
       </a>
     </li>
@@ -418,7 +410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../CPP/final_review/" class="md-nav__link">
+      <a href="../CPP/final_review/" class="md-nav__link">
         ZJU期末复习
       </a>
     </li>
@@ -439,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../x86assm/" class="md-nav__link">
+      <a href="../x86assm/" class="md-nav__link">
         x86汇编
       </a>
     </li>
@@ -480,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/" class="md-nav__link">
+      <a href="../OS/" class="md-nav__link">
         index
       </a>
     </li>
@@ -494,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../OS/lab/" class="md-nav__link">
+      <a href="../OS/lab/" class="md-nav__link">
         lab
       </a>
     </li>
@@ -513,16 +505,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
       
       
       
@@ -531,7 +521,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           CA体系结构
@@ -544,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../CA/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -558,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chap2/" class="md-nav__link">
+      <a href="../CA/chap2/" class="md-nav__link">
         chap2
       </a>
     </li>
@@ -572,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chap3/" class="md-nav__link">
+      <a href="../CA/chap3/" class="md-nav__link">
         chap3
       </a>
     </li>
@@ -584,66 +574,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          chap5
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../CA/chap5/" class="md-nav__link">
         chap5
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    目录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cache" class="md-nav__link">
-    cache 一致性的概念
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cache_1" class="md-nav__link">
-    达成 cache 一致性两个协议
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -689,7 +624,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Compiler/" class="md-nav__link">
+      <a href="../Compiler/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -703,7 +638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Compiler/parsing/" class="md-nav__link">
+      <a href="../Compiler/parsing/" class="md-nav__link">
         Parsing
       </a>
     </li>
@@ -759,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL/" class="md-nav__link">
+      <a href="../../DL/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -800,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL/Explainable/" class="md-nav__link">
+      <a href="../../DL/Explainable/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -848,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL/MWP/" class="md-nav__link">
+      <a href="../../DL/MWP/" class="md-nav__link">
         综述
       </a>
     </li>
@@ -896,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL/LLMs/llama3_405b/" class="md-nav__link">
+      <a href="../../DL/LLMs/llama3_405b/" class="md-nav__link">
         Llama-3.1-405B技术报告
       </a>
     </li>
@@ -944,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL/Tools/codabench/" class="md-nav__link">
+      <a href="../../DL/Tools/codabench/" class="md-nav__link">
         Codabench比赛创建教程
       </a>
     </li>
@@ -1000,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/" class="md-nav__link">
+      <a href="../../Ling/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -1041,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Syntax/" class="md-nav__link">
+      <a href="../../Ling/Syntax/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1055,7 +990,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Syntax/conv_gen/" class="md-nav__link">
+      <a href="../../Ling/Syntax/conv_gen/" class="md-nav__link">
         转换生成句法
       </a>
     </li>
@@ -1069,7 +1004,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Syntax/uni_gram/" class="md-nav__link">
+      <a href="../../Ling/Syntax/uni_gram/" class="md-nav__link">
         普遍语法
       </a>
     </li>
@@ -1083,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Syntax/ud_sud/" class="md-nav__link">
+      <a href="../../Ling/Syntax/ud_sud/" class="md-nav__link">
         依存句法UD&SUD
       </a>
     </li>
@@ -1131,7 +1066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Semantics/" class="md-nav__link">
+      <a href="../../Ling/Semantics/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -1145,7 +1080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Semantics/definitions/" class="md-nav__link">
+      <a href="../../Ling/Semantics/definitions/" class="md-nav__link">
         Definition Clearification
       </a>
     </li>
@@ -1159,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Semantics/formal_semantics/" class="md-nav__link">
+      <a href="../../Ling/Semantics/formal_semantics/" class="md-nav__link">
         Logics & Formal Semantics
       </a>
     </li>
@@ -1173,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Semantics/ambiguity/" class="md-nav__link">
+      <a href="../../Ling/Semantics/ambiguity/" class="md-nav__link">
         Scope Ambiguity
       </a>
     </li>
@@ -1221,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Pragmatics/intro/" class="md-nav__link">
+      <a href="../../Ling/Pragmatics/intro/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -1235,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Pragmatics/theories/" class="md-nav__link">
+      <a href="../../Ling/Pragmatics/theories/" class="md-nav__link">
         Theory&Hypothesis
       </a>
     </li>
@@ -1249,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Pragmatics/socio/" class="md-nav__link">
+      <a href="../../Ling/Pragmatics/socio/" class="md-nav__link">
         Sociopragmatics
       </a>
     </li>
@@ -1263,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/Pragmatics/ca_da/" class="md-nav__link">
+      <a href="../../Ling/Pragmatics/ca_da/" class="md-nav__link">
         Research Methods
       </a>
     </li>
@@ -1284,7 +1219,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Ling/pol_zh/" class="md-nav__link">
+      <a href="../../Ling/pol_zh/" class="md-nav__link">
         语言哲学Philosophy of Language
       </a>
     </li>
@@ -1333,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/" class="md-nav__link">
+      <a href="../../Other/" class="md-nav__link">
         索引
       </a>
     </li>
@@ -1347,7 +1282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/tools/" class="md-nav__link">
+      <a href="../../Other/tools/" class="md-nav__link">
         我的工具箱！
       </a>
     </li>
@@ -1361,7 +1296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/nlp_resources/" class="md-nav__link">
+      <a href="../../Other/nlp_resources/" class="md-nav__link">
         DL & NLP 资源整理
       </a>
     </li>
@@ -1375,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/whynote/" class="md-nav__link">
+      <a href="../../Other/whynote/" class="md-nav__link">
         WhyNote
       </a>
     </li>
@@ -1389,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/portfolio/" class="md-nav__link">
+      <a href="../../Other/portfolio/" class="md-nav__link">
         Portfolio
       </a>
     </li>
@@ -1403,7 +1338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/zju_ling_cs/" class="md-nav__link">
+      <a href="../../Other/zju_ling_cs/" class="md-nav__link">
         英专转CS&NLP指北
       </a>
     </li>
@@ -1417,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Other/readingnotes/" class="md-nav__link">
+      <a href="../../Other/readingnotes/" class="md-nav__link">
         读书笔记
       </a>
     </li>
@@ -1458,22 +1393,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    目录
+  <a href="#pr" class="md-nav__link">
+    PR
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cache" class="md-nav__link">
-    cache 一致性的概念
+  <a href="#file-management" class="md-nav__link">
+    File management
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cache_1" class="md-nav__link">
-    达成 cache 一致性两个协议
+  <a href="#naming" class="md-nav__link">
+    Naming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spacing" class="md-nav__link">
+    Spacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-hints" class="md-nav__link">
+    Type Hints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-write-type-hints-no-need-to-write-types-in-the-comment" class="md-nav__link">
+    - write type hints, no need to write types in the comment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
   </a>
   
 </li>
@@ -1496,83 +1459,97 @@
   
 
 
-<h1 id="chap5-thread-level-parallelism">chap5: Thread-level Parallelism</h1>
+<h1 id="pythons-code-style-guide">Pythons' Code Style Guide</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 381 个字 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
+<p>:material-circle-edit-outline: 约 261 个字 :fontawesome-solid-code: 12 行代码 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
 </div>
-<h2 id="_1">目录</h2>
+<h2 id="pr">PR</h2>
 <ul>
-<li>cache 一致性的概念</li>
-<li>达成 cache 一致性两个协议</li>
+<li>split to smallest elements</li>
+<li>require review before each merging, by setting up ‘protecting your branch’</li>
+<li>
+<p>PRs title - same as git commit message</p>
+<p>format <code>[label] name + summary of change</code></p>
+<p>admitted labels: <a href="https://gist.github.com/ericavonb/3c79e5035567c8ef3267">Git Commit Style Guide</a></p>
+</li>
+<li>
+<p>PR message - same as git commit message</p>
+</li>
 </ul>
-<h2 id="cache">cache 一致性的概念</h2>
-<p><strong>不知道怎么描述的两个术语</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>计组王道有一章专门讲。其它请通过王道学习，还有姜老师 ppt 也有一个小总结的表格。</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>概念</th>
-<th>全名</th>
-<th>特点</th>
-<th>优点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>UMA</td>
-<td>uniform memory access</td>
-<td>每个节点到 memory 的访问时间一致</td>
-<td></td>
-</tr>
-<tr>
-<td>NUMA</td>
-<td>non-uniform memory access</td>
-<td>每个节点到 memory 的访问时间不一致，到自己的快，到别人的慢</td>
-<td>扩展到更大规模上的可扩展性强</td>
-</tr>
-</tbody>
-</table>
-<p><strong>cache 一致性的术语</strong></p>
-<p>如果 CPU 有多个核，或者如果 CPU 是分布式的，它们共用一个 cache，那么就需要使 cache 对所有核/节点的读写保持一致性，比如一个核/节点写的东西对其它核/节点可见，其它核/节点看见的都是最新的。</p>
-<table>
-<thead>
-<tr>
-<th>术语</th>
-<th>一句话定义（在 ppt 上发现的，但是个人感觉不太准确）</th>
-<th>关注的方面是（这栏 from 课本更准确，但不是一句话定义）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>coherence</td>
-<td>Memory accesses executed by each processor were kept in order.</td>
-<td>reads and writes to the same location</td>
-</tr>
-<tr>
-<td>consistency</td>
-<td>Memory accesses among different processors were interleaved.</td>
-<td>reads and writes wrt other memory locations</td>
-</tr>
-</tbody>
-</table>
-<h2 id="cache_1">达成 cache 一致性两个协议</h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>聪明的读者已经发现我已经不想写了</p>
-</div>
-<p><strong>Snooping协议</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>请通过自己班老师 ppt 学习：MOESI 状态机 + 例题表格 两个图</p>
-</div>
-<p><strong>Directory协议</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>请通过自己班老师 ppt 学习: 例题表格 一个图</p>
-</div>
+<h2 id="file-management">File management</h2>
+<ul>
+<li>oop</li>
+<li>write prototypes first</li>
+<li>avoid using hyphen or underscore in file naming, make files into folders instead.</li>
+</ul>
+<h2 id="naming">Naming</h2>
+<ul>
+<li>
+<p>avoid abbreviations and use full spellings</p>
+</li>
+<li>
+<p>(my own habit:)</p>
+</li>
+<li>class name: noun-adj</li>
+<li>function name: verb-noun</li>
+<li>functions/files with similar functions or operate on the same objects should begin with the same substring</li>
+</ul>
+<h2 id="spacing">Spacing</h2>
+<p>From top to down
+- In every comment: 1 space-line between each section, i.e., 
+- Except the file top, no more than 2 space-line</p>
+<h2 id="type-hints">Type Hints</h2>
+<h2 id="-write-type-hints-no-need-to-write-types-in-the-comment">- write type hints, no need to write types in the comment</h2>
+<h2 id="comments">Comments</h2>
+<p>Where should comments appear?</p>
+<ul>
+<li>file docstring</li>
+<li>class docstring</li>
+<li>function docstring</li>
+<li>other</li>
+</ul>
+<p>Format</p>
+<ul>
+<li>
+<p>Required: file docstring (on the top of the file), class docstring (after the class's name), function docstring (after the function's name).</p>
+</li>
+<li>
+<p>Either a sentence or several paragraphs.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.&quot;&quot;&quot;</span>
+</span></code></pre></div>
+<p>or </p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">Declarations.</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">&quot;&quot;&quot;</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>Function docstring's format</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the function&#39;s content.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">Args:</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">    arg1    : explain</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="sd">Returns:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="sd">    return1 : explain</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="sd">&quot;&quot;&quot;</span>
+</span></code></pre></div>
+</li>
+<li>
+<p>file docstring: No space between the docstring and the imports.</p>
+</li>
+<li>
+<p>Be sure to make every doc a sentence </p>
+</li>
+<li>Can omit ‘the’ but keep congruent</li>
+</ul>
+<h1 id="imports">Imports</h1>
+<p>Order: 
+1. import all Python default libs, in alphabetical order (of the package name instead of the folder name), and add an empty line.
+2. import all 3rd party libs in alphabetical order, and add an empty line.
+3. import all libs defined in this project.</p>
+<p>do not use <code>from x import y</code>, instead, use <code>import x</code>, <code>x.y</code> to avoid the conflict of namespace</p>
 
 
 
@@ -1610,13 +1587,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="../../../javascripts/mathjax.js"></script>
+          <script src="../../javascripts/mathjax.js"></script>
         
       
         
@@ -1624,7 +1601,7 @@
         
       
         
-          <script src="../../../javascripts/tex-mml-chtml.js"></script>
+          <script src="../../javascripts/tex-mml-chtml.js"></script>
         
       
     
