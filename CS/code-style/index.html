@@ -40,6 +40,8 @@
       
     
     
+      <link rel="stylesheet" href="../../css/timeline.css">
+    
       <link rel="stylesheet" href="../../_css/style.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -1399,48 +1401,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#file-management" class="md-nav__link">
-    File management
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#naming" class="md-nav__link">
-    Naming
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#spacing" class="md-nav__link">
-    Spacing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#type-hints" class="md-nav__link">
-    Type Hints
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-write-type-hints-no-need-to-write-types-in-the-comment" class="md-nav__link">
-    - write type hints, no need to write types in the comment
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    Comments
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1461,9 +1421,12 @@
 
 <h1 id="pythons-code-style-guide">Pythons' Code Style Guide</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 261 个字 :fontawesome-solid-code: 12 行代码 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
+<p>:material-circle-edit-outline: 约 283 个字 :fontawesome-solid-code: 16 行代码 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
 </div>
 <h2 id="pr">PR</h2>
+<h1 id="split-to-the-smallest-elements">Split to the smallest elements</h1>
+<p>i.e., that each PR can be described within one sentence.</p>
+<h1 id="_1"></h1>
 <ul>
 <li>split to smallest elements</li>
 <li>require review before each merging, by setting up ‘protecting your branch’</li>
@@ -1499,7 +1462,19 @@
 - In every comment: 1 space-line between each section, i.e., 
 - Except the file top, no more than 2 space-line</p>
 <h2 id="type-hints">Type Hints</h2>
-<h2 id="-write-type-hints-no-need-to-write-types-in-the-comment">- write type hints, no need to write types in the comment</h2>
+<ul>
+<li>write type hints, no need to write types in the comment</li>
+<li>
+<p>try to use the <code>typing</code> library.
+    usage: 
+    <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">typing</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">typing</span><span class="o">.</span><span class="n">Dict</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">typing</span><span class="o">.</span>
+</span></code></pre></div></p>
+</li>
+<li></li>
+</ul>
 <h2 id="comments">Comments</h2>
 <p>Where should comments appear?</p>
 <ul>
@@ -1515,25 +1490,25 @@
 </li>
 <li>
 <p>Either a sentence or several paragraphs.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.&quot;&quot;&quot;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.&quot;&quot;&quot;</span>
 </span></code></pre></div>
 <p>or </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="sd">Declarations.</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="sd">&quot;&quot;&quot;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">Declarations.</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">&quot;&quot;&quot;</span>
 </span></code></pre></div>
 </li>
 <li>
 <p>Function docstring's format</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the function&#39;s content.</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="sd">Args:</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="sd">    arg1    : explain</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="sd">Returns:</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="sd">    return1 : explain</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="sd">&quot;&quot;&quot;</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the function&#39;s content.</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">Args:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">    arg1    : explain</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">Returns:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="sd">    return1 : explain</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="sd">&quot;&quot;&quot;</span>
 </span></code></pre></div>
 </li>
 <li>
