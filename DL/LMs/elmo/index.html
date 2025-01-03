@@ -1461,7 +1461,7 @@
 
 <h1 id="elmo">ELMo</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 94 个字 </p>
+<p>:material-circle-edit-outline: 约 207 个字 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
 </div>
 <p>ELMo (embeddings from language model) is a word embedding method for representing a sequence of words as a corresponding sequence of vectors. Its essence is a bidirectional LSTM which takes character-level as inputs and produces word-level embeddings.</p>
 <p>According to its original paper (?), it requires training on a corpus of about 30 million sentences and a billion words.</p>
@@ -1473,10 +1473,22 @@
 <li>
 <p>Contextualized word representation: </p>
 <ul>
-<li></li>
+<li>The first forward LSTM of ELMo would process each input token in the context of all previous token</li>
+<li>The first backward LSTM would process each token in the context of all subsequent tokens. </li>
+<li>The second forward LSTM would process each token in the context of all subsequent tokens, and then incorporate those to further contextualize each token.</li>
 </ul>
 </li>
 </ul>
+<p>e.g., for sentence </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>She went to the bank to withdraw money.
+</span></code></pre></div>
+<ul>
+<li>the first forward LSTM processes 'bank' in the context of 'She went to'.</li>
+<li>the first backward LSTM processes 'bank' in the context of 'to withdraw money'.</li>
+<li>the second forward LSTM processes 'bank' with the representation vector provided by the first backward LSTM. </li>
+</ul>
+<p>References</p>
+<p><a href="https://en.wikipedia.org/wiki/ELMo">Wikipedia ELMo</a></p>
 
 
 
