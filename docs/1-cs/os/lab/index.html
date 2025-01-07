@@ -2522,7 +2522,7 @@
 
 <h1 id="os-lab">OS lab</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 8965 个字 :fontawesome-solid-code: 91 行代码 :material-clock-time-two-outline: 预计阅读时间 31 分钟</p>
+<p>:material-circle-edit-outline: 约 8973 个字 :fontawesome-solid-code: 91 行代码 :material-clock-time-two-outline: 预计阅读时间 31 分钟</p>
 </div>
 <p>目录：这里会先讲一下用到的背景知识和 mac 下的环境配置技巧（因为手册讲 mac 不多），然后挨个实验我想进行一些综述，不知道精力能支撑写多少，最后补充两个我实验中总遇到的但手册没涉及的问题。自知学得不好，不确定的地方我会标出来。</p>
 <h2 id="overview">overview</h2>
@@ -2833,7 +2833,7 @@
 <h3 id="gdb">聪明地使用 gdb</h3>
 <p>gdb 自带的命令行 ui 缺点主要在于不能随时显示寄存器和变量的值，调试会不舒服。有一些更好的 ui 工具。</p>
 <p>我没有配所以不能提供很好的我的推荐，贴一些别人的帖子。除了下面帖子里提到的几个，萱萱还提到一个 <code>gdbpeda</code>。</p>
-<p><a href="https://www.cnblogs.com/liuhanxu/p/17011775.html">推荐几个好用的GDB图形化功能增强插件</a></p>
+<p><a href="https://www.cnblogs.com/liuhanxu/p/17011775.html" target="_blank">推荐几个好用的GDB图形化功能增强插件</a></p>
 <h2 id="lab0">lab0</h2>
 <p>没难度不用讲</p>
 <h2 id="lab1">lab1</h2>
@@ -2883,7 +2883,7 @@
 <div class="language-c highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">({</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">__asm__</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;csrw &quot;</span><span class="w"> </span><span class="s">&quot;sstatus&quot;</span><span class="w"> </span><span class="s">&quot;, %0&quot;</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="s">&quot;r&quot;</span><span class="p">(</span><span class="n">val</span><span class="p">));</span><span class="w"> </span><span class="p">})</span>
 </span></code></pre></div>
-<p>此外，这个示例中的 <code>({...})</code> 还涉及了一个 GNU 对 C 的扩展，可以参考 <a href="https://gcc.gnu.org/onlinedocs/gcc/Statement-Exprs.html">Statements and Declarations in Expressions</a>。复合语句中的最后一项应该是一个表达式，后跟一个分号 <code>;</code>。该子表达式的值用作整个语句的值，可以用来实现类似“返回值”的效果。</p>
+<p>此外，这个示例中的 <code>({...})</code> 还涉及了一个 GNU 对 C 的扩展，可以参考 <a href="https://gcc.gnu.org/onlinedocs/gcc/Statement-Exprs.html" target="_blank">Statements and Declarations in Expressions</a>。复合语句中的最后一项应该是一个表达式，后跟一个分号 <code>;</code>。该子表达式的值用作整个语句的值，可以用来实现类似“返回值”的效果。</p>
 <h3 id="_5">编译的知识</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -3159,7 +3159,7 @@ of:</p>
 <li>仅仅是读的话，哪条基础指令都可以，一般会用伪指令.</li>
 <li>以 i 结尾的，不管是基础指令还是伪指令，都是立即数作为参数的，在指令中操作这个立即数替换了 rs1.</li>
 <li>csr基础的操作，就简单的3种区别，w (直接写 )， s(设置) ， c(清除)，不计i的4字母指令都是伪指令.</li>
-<li><a href="http://crva.ict.ac.cn/documents/RISC-V-Reader-Chinese-v2p1.pdf">RISC-V中文手册</a>上csr指令有些名字错误，主要看内容描述.</li>
+<li><a href="http://crva.ict.ac.cn/documents/RISC-V-Reader-Chinese-v2p1.pdf" target="_blank">RISC-V中文手册</a>上csr指令有些名字错误，主要看内容描述.</li>
 <li>伪指令仅仅是方便程序员读写代码，最终编译器还是都给转成了基础指令.</li>
 </ul>
 <h2 id="lab2">lab2</h2>
@@ -3373,7 +3373,7 @@ of:</p>
 <li><code>__dummy</code>: 我们回忆之前 lab2 实现的是，直接将 <code>__dummy</code> 函数的写在线程的 sepc（中断返回地址）里，又在 <code>__dummy</code> 里写返回地址是 <code>dummy()</code> 函数。所以如果我们这里想让进程切换到用户进程后进入用户程序，修改 <code>__dummy</code> 运行完所返回的地址为 user app 的第一条指令地址就可以了。</li>
 </ul>
 <h4 id="buddy-system">buddy system</h4>
-<p>一种物理内存管理算法，空闲空间首先被看成 2^N 个物理页的大空间，当一个大小为 m 的页请求内存分配时，不停把空间 /2 划分，最后找到最接近m的2的次方的一个空间大小分给 m。当块释放时，分配器就会找到其它空闲的伙伴块去合并。它的实现在这个文章里讲得更好 <a href="https://zhuanlan.zhihu.com/p/456803049">Lab 6：RISC-V 动态内存分配与缺页异常处理 - 知乎 (zhihu.com)</a>。</p>
+<p>一种物理内存管理算法，空闲空间首先被看成 2^N 个物理页的大空间，当一个大小为 m 的页请求内存分配时，不停把空间 /2 划分，最后找到最接近m的2的次方的一个空间大小分给 m。当块释放时，分配器就会找到其它空闲的伙伴块去合并。它的实现在这个文章里讲得更好 <a href="https://zhuanlan.zhihu.com/p/456803049" target="_blank">Lab 6：RISC-V 动态内存分配与缺页异常处理 - 知乎 (zhihu.com)</a>。</p>
 <h4 id="elf">elf 文件</h4>
 <p>一个 elf 文件像一个封装复杂版的二进制用户程序。用抽象的画图给它的结构做一个比喻（对不起太抽象了）：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Elf_Ehdr     ehdr-&gt;e_phoff

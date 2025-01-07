@@ -2168,11 +2168,11 @@
 
 <h1 id="codabench">Codabench 比赛创建教程</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 2098 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
+<p>:material-circle-edit-outline: 约 2110 个字 :fontawesome-solid-code: 82 行代码 :material-clock-time-two-outline: 预计阅读时间 8 分钟</p>
 </div>
 <h2 id="_1">简介</h2>
 <p><img alt="" src="../assets/codabench_intro.png" /></p>
-<p><a href="https://www.codabench.org/">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
+<p><a href="https://www.codabench.org/" target="_blank">Codabench</a> 是一个为数据科学和机器学习比赛设计的低代码模型测试平台。平台提供 CPU，允许比赛创办者通过上传脚本和数据的方式创办比赛，并允许其它用户使用平台 CPU 来运行代码得到结果。前序工作是 <a href="https://codalab.org/" target="_blank">CodaLab</a>，2023 年 Codabench 团队仿照 CodaLab 改进出了 Codabench。</p>
 <p>Codabench 的优点是提供公共 CPU，使比赛创办方在将正确答案保密的情况下，不必亲手收集参赛者的答案并一一亲手测试，而是允许用户自行通过平台测试并得到结果，减轻负担。而用户也可以更迅速知道自己的分数，不必等待比赛方验证这个时间较长的流程。</p>
 <h2 id="_2">运作</h2>
 <p>比赛创办者通过上传比赛配置后，每当有用户加入并提交一个运行请求，平台将在 CPU 上为每个提交创建一个 Docker，包含比赛创办者提供的比赛配置和该用户提交的数据，在 Docker 中运行指定路径的代码，并将结果显示在平台展示的 terminal 上。</p>
@@ -2311,7 +2311,7 @@
 <p>将 bundle 拖入 Upload 页面后，如果报错显示 Creation Fail，此时首先应当检查是否有 <code>competition.yaml</code> 文件，文件名和内容格式正确，并且位于压缩包顶层（参照上方压缩图示）。一般是此错误。</p>
 <p><img alt="" src="../assets/creation_fail.png" /></p>
 <h4 id="bundle">bundle 模板</h4>
-<p><a href="https://github.com/codalab/competition-examples/tree/master/codabench">codalab/competition-examples/codabench</a> 官方提供的几个 bundle 模板，可以对比 Codabench 上同名比赛查看创建结果，在本仓库拿一些需要的写法。</p>
+<p><a href="https://github.com/codalab/competition-examples/tree/master/codabench" target="_blank">codalab/competition-examples/codabench</a> 官方提供的几个 bundle 模板，可以对比 Codabench 上同名比赛查看创建结果，在本仓库拿一些需要的写法。</p>
 <h3 id="ui">UI 创建</h3>
 <p>进入 Codabench 首页，点击右上角 <code>Benchmark</code> -&gt; <code>Management</code>，选择 <code>Upload</code> 来创建比赛。</p>
 <p>顶层有 <code>Details</code> / <code>Participation</code> / <code>Pages</code> / <code>Phases</code> / <code>Leaderboard</code> / <code>Administrators</code> 六个页面，其它较易懂，不再赘述，<code>Phases</code> 的设置比较复杂。</p>
@@ -2349,9 +2349,9 @@
 <p><img alt="Add to Leaderboard" src="../assets/add_to_leaderboard.png" /></p>
 <h2 id="_8">参考资料</h2>
 <ul>
-<li><a href="https://arxiv.org/abs/2110.05802">Codabench: Flexible, Easy-to-Use and Reproducible Benchmarking Platform</a></li>
-<li><a href="https://github.com/codalab/codabench/wiki">Codabench Repo Wiki</a></li>
-<li><a href="https://github.com/codalab/codabench/issues">Codabench Repo Issue</a></li>
+<li><a href="https://arxiv.org/abs/2110.05802" target="_blank">Codabench: Flexible, Easy-to-Use and Reproducible Benchmarking Platform</a></li>
+<li><a href="https://github.com/codalab/codabench/wiki" target="_blank">Codabench Repo Wiki</a></li>
+<li><a href="https://github.com/codalab/codabench/issues" target="_blank">Codabench Repo Issue</a></li>
 </ul>
 <p>现有官网参考资料似乎都不太全面，不能覆盖各种常见错误，因此一些创建步骤和行为是通过测试和推测得知的。如果本文有误，欢迎联系作者改正！</p>
 
