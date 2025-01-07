@@ -1,8 +1,20 @@
 @import url('https://static.zeoseven.com/zsft/292/main/result.css');
 
 body {
-    font-family: "LXGW WenKai";
+    font-family: "LXGW WenKai",
+        sans-serif;
     font-weight: normal;
+}
+
+button.md-top {
+    font-family: LXGW WenKai;
+    /* 修改字体 */
+    font-size: 16px;
+    /* 修改字体大小 */
+    font-weight: bold;
+    /* 修改字体粗细 */
+    color: #518FC1;
+    /* 修改字体颜色 */
 }
 
 .changelog-type-refactor {
