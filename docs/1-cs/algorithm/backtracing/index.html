@@ -8,25 +8,23 @@
       
       
       
-        <link rel="canonical" href="https://ruoxining.github.io/notebook/">
+        <link rel="canonical" href="https://ruoxining.github.io/notebook/docs/1-cs/algorithm/backtracing/">
       
       
       
-        <link rel="next" href="docs/1-cs/">
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
     
     
       
-        <title>Mini-Babel Library</title>
+        <title>Backtracing - Mini-Babel Library</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -42,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="css/timeline.css">
+      <link rel="stylesheet" href="../../../../css/timeline.css">
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,11 +68,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#mini-babel-library" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -87,7 +80,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Mini-Babel Library" class="md-header__button md-logo" aria-label="Mini-Babel Library" data-md-component="logo">
+    <a href="../../../.." title="Mini-Babel Library" class="md-header__button md-logo" aria-label="Mini-Babel Library" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🏛️ Mini-Babel Library
+              Backtracing
             
           </span>
         </div>
@@ -187,7 +180,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Mini-Babel Library" class="md-nav__button md-logo" aria-label="Mini-Babel Library" data-md-component="logo">
+    <a href="../../../.." title="Mini-Babel Library" class="md-nav__button md-logo" aria-label="Mini-Babel Library" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -216,73 +209,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          🏛️ Mini-Babel Library
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         🏛️ Mini-Babel Library
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#content-shortcut" class="md-nav__link">
-    🛗 Content Shortcut
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ⏰ 更新记录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    🧑‍🤝‍🧑 友链
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    ☎️ 联系作者
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -324,7 +255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -338,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/assembly-x86/" class="md-nav__link">
+      <a href="../../assembly-x86/" class="md-nav__link">
         🌕 x86 Assembly | 汇编
       </a>
     </li>
@@ -352,7 +283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/c-libgraphics/" class="md-nav__link">
+      <a href="../../c-libgraphics/" class="md-nav__link">
         🌗 C libgraphics | C 程
       </a>
     </li>
@@ -395,7 +326,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/oop/course/" class="md-nav__link">
+      <a href="../../oop/course/" class="md-nav__link">
         🌕 ZJU Lectures | 课程笔记
       </a>
     </li>
@@ -409,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/oop/final_review/" class="md-nav__link">
+      <a href="../../oop/final_review/" class="md-nav__link">
         🌕 ZJU Reviews | 期末复习
       </a>
     </li>
@@ -459,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/" class="md-nav__link">
+      <a href="../../database/" class="md-nav__link">
         🌕 Index | 索引
       </a>
     </li>
@@ -473,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/normalforms/" class="md-nav__link">
+      <a href="../../database/normalforms/" class="md-nav__link">
         🌕 Normal Forms | 范式
       </a>
     </li>
@@ -487,7 +418,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/sql/" class="md-nav__link">
+      <a href="../../database/sql/" class="md-nav__link">
         🌑 SQL | SQL 结构化查询语言
       </a>
     </li>
@@ -501,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/" class="md-nav__link">
+      <a href="../../database/" class="md-nav__link">
         🌑 ER models | ER 模型
       </a>
     </li>
@@ -515,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/" class="md-nav__link">
+      <a href="../../database/" class="md-nav__link">
         🌕 Design | 数据库设计
       </a>
     </li>
@@ -529,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/" class="md-nav__link">
+      <a href="../../database/" class="md-nav__link">
         🌗 Query | 查询
       </a>
     </li>
@@ -543,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/" class="md-nav__link">
+      <a href="../../database/" class="md-nav__link">
         🌗 Transaction | 事务
       </a>
     </li>
@@ -557,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/database/" class="md-nav__link">
+      <a href="../../database/" class="md-nav__link">
         🌑 XML | XML 数据结构
       </a>
     </li>
@@ -607,7 +538,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/os/" class="md-nav__link">
+      <a href="../../os/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -621,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/os/lab/" class="md-nav__link">
+      <a href="../../os/lab/" class="md-nav__link">
         🌕 Labs | 实验们
       </a>
     </li>
@@ -671,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -685,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/architecture/chap2/" class="md-nav__link">
+      <a href="../../architecture/chap2/" class="md-nav__link">
         🌕 chap2 | 第 2 章
       </a>
     </li>
@@ -699,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/architecture/chap3/" class="md-nav__link">
+      <a href="../../architecture/chap3/" class="md-nav__link">
         🌕 chap3 | 第 3 章
       </a>
     </li>
@@ -713,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/architecture/chap5/" class="md-nav__link">
+      <a href="../../architecture/chap5/" class="md-nav__link">
         🌕 chap5 | 第 5 章
       </a>
     </li>
@@ -763,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/compiler/" class="md-nav__link">
+      <a href="../../compiler/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -777,7 +708,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/1-cs/compiler/parsing/" class="md-nav__link">
+      <a href="../../compiler/parsing/" class="md-nav__link">
         🌕 Parsing | Parsing
       </a>
     </li>
@@ -835,7 +766,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/" class="md-nav__link">
+      <a href="../../../2-ling/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -878,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/syntax/" class="md-nav__link">
+      <a href="../../../2-ling/syntax/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -892,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/syntax/trans_gen/" class="md-nav__link">
+      <a href="../../../2-ling/syntax/trans_gen/" class="md-nav__link">
         🌗 Transformational Generative Grammar | 转换生成句法
       </a>
     </li>
@@ -906,7 +837,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/syntax/uni_gram/" class="md-nav__link">
+      <a href="../../../2-ling/syntax/uni_gram/" class="md-nav__link">
         🌗 Universal Grammar | 普遍语法
       </a>
     </li>
@@ -920,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/syntax/ud_sud/" class="md-nav__link">
+      <a href="../../../2-ling/syntax/ud_sud/" class="md-nav__link">
         🌗 Universal Dependency | 依存句法
       </a>
     </li>
@@ -970,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/semantics/" class="md-nav__link">
+      <a href="../../../2-ling/semantics/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -984,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/semantics/definitions/" class="md-nav__link">
+      <a href="../../../2-ling/semantics/definitions/" class="md-nav__link">
         🌕 Definitions | 定义们
       </a>
     </li>
@@ -998,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/semantics/formal_semantics/" class="md-nav__link">
+      <a href="../../../2-ling/semantics/formal_semantics/" class="md-nav__link">
         🌕 Formal Semantics | 形式语义学
       </a>
     </li>
@@ -1012,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/semantics/ambiguity/" class="md-nav__link">
+      <a href="../../../2-ling/semantics/ambiguity/" class="md-nav__link">
         🌕 Ambiguity | 歧义
       </a>
     </li>
@@ -1062,7 +993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/pragmatics/intro/" class="md-nav__link">
+      <a href="../../../2-ling/pragmatics/intro/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1076,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/pragmatics/theories/" class="md-nav__link">
+      <a href="../../../2-ling/pragmatics/theories/" class="md-nav__link">
         🌕 Theories | 理论
       </a>
     </li>
@@ -1090,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/pragmatics/socio/" class="md-nav__link">
+      <a href="../../../2-ling/pragmatics/socio/" class="md-nav__link">
         🌕 Sociopragmatics | 社会语用学
       </a>
     </li>
@@ -1104,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/pragmatics/ca_da/" class="md-nav__link">
+      <a href="../../../2-ling/pragmatics/ca_da/" class="md-nav__link">
         🌕 Research Methods | 研究方法
       </a>
     </li>
@@ -1154,7 +1085,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/philosophy/" class="md-nav__link">
+      <a href="../../../2-ling/philosophy/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1168,7 +1099,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/philosophy/pol_zh/" class="md-nav__link">
+      <a href="../../../2-ling/philosophy/pol_zh/" class="md-nav__link">
         🌕 History | 历史
       </a>
     </li>
@@ -1182,7 +1113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/2-ling/philosophy/saussure/" class="md-nav__link">
+      <a href="../../../2-ling/philosophy/saussure/" class="md-nav__link">
         🌕 Reading Notes on Saussure's General Linguistics | 普通语言学读书笔记
       </a>
     </li>
@@ -1240,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/" class="md-nav__link">
+      <a href="../../../3-dl/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1283,7 +1214,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/basics/" class="md-nav__link">
+      <a href="../../../3-dl/basics/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1297,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/basics/bpe/" class="md-nav__link">
+      <a href="../../../3-dl/basics/bpe/" class="md-nav__link">
         🌗 BPE | Byte-pair Encoding
       </a>
     </li>
@@ -1311,7 +1242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/basics/elmo/" class="md-nav__link">
+      <a href="../../../3-dl/basics/elmo/" class="md-nav__link">
         🌗 ELMo | ELMo 模型
       </a>
     </li>
@@ -1361,7 +1292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/efficient-train/" class="md-nav__link">
+      <a href="../../../3-dl/efficient-train/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1375,7 +1306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/efficient-train/hardware/" class="md-nav__link">
+      <a href="../../../3-dl/efficient-train/hardware/" class="md-nav__link">
         🌕 Hardware | 硬件
       </a>
     </li>
@@ -1389,7 +1320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/efficient-train/parameter/" class="md-nav__link">
+      <a href="../../../3-dl/efficient-train/parameter/" class="md-nav__link">
         🌕 Parameter | 参数
       </a>
     </li>
@@ -1439,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/survey/" class="md-nav__link">
+      <a href="../../../3-dl/survey/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1453,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/survey/explainable-nlp/" class="md-nav__link">
+      <a href="../../../3-dl/survey/explainable-nlp/" class="md-nav__link">
         🌗 Explainable NLP | 可解释
       </a>
     </li>
@@ -1467,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/survey/math-word-problem/" class="md-nav__link">
+      <a href="../../../3-dl/survey/math-word-problem/" class="md-nav__link">
         🌕 Math Word Problem | 数学推理题
       </a>
     </li>
@@ -1481,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/survey/llama3_405b/" class="md-nav__link">
+      <a href="../../../3-dl/survey/llama3_405b/" class="md-nav__link">
         🌗 Llama-3.1-405B Tech Repost | 技术报告
       </a>
     </li>
@@ -1531,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/tools/" class="md-nav__link">
+      <a href="../../../3-dl/tools/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1545,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/tools/code-style/" class="md-nav__link">
+      <a href="../../../3-dl/tools/code-style/" class="md-nav__link">
         🌗 Code Style | 代码风格
       </a>
     </li>
@@ -1559,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/3-dl/tools/codabench/" class="md-nav__link">
+      <a href="../../../3-dl/tools/codabench/" class="md-nav__link">
         🌕 Codabench Tutorial | Codabench 教程
       </a>
     </li>
@@ -1617,7 +1548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/4-opinion/" class="md-nav__link">
+      <a href="../../../4-opinion/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1660,7 +1591,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/4-opinion/tools/" class="md-nav__link">
+      <a href="../../../4-opinion/tools/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1674,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/4-opinion/tools/notes/" class="md-nav__link">
+      <a href="../../../4-opinion/tools/notes/" class="md-nav__link">
         Notes | 写笔记
       </a>
     </li>
@@ -1724,7 +1655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/4-opinion/plan/" class="md-nav__link">
+      <a href="../../../4-opinion/plan/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1738,7 +1669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/4-opinion/plan/zju_ling_cs/" class="md-nav__link">
+      <a href="../../../4-opinion/plan/zju_ling_cs/" class="md-nav__link">
         🌕 Linguistics student to CS | 指北
       </a>
     </li>
@@ -1752,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/4-opinion/plan/24fall/" class="md-nav__link">
+      <a href="../../../4-opinion/plan/24fall/" class="md-nav__link">
         🌕 24fall | 申请记录
       </a>
     </li>
@@ -1810,7 +1741,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/" class="md-nav__link">
+      <a href="../../../5-life/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1853,7 +1784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/annual-summary/" class="md-nav__link">
+      <a href="../../../5-life/annual-summary/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1867,7 +1798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/annual-summary/2024/" class="md-nav__link">
+      <a href="../../../5-life/annual-summary/2024/" class="md-nav__link">
         🌕 2024 Summary | 2024 总结
       </a>
     </li>
@@ -1917,7 +1848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/read-watch-listen/" class="md-nav__link">
+      <a href="../../../5-life/read-watch-listen/" class="md-nav__link">
         🌕 Index
       </a>
     </li>
@@ -1931,7 +1862,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/read-watch-listen/music-theory/" class="md-nav__link">
+      <a href="../../../5-life/read-watch-listen/music-theory/" class="md-nav__link">
         🌗 Music Theory | 乐理
       </a>
     </li>
@@ -1945,7 +1876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/read-watch-listen/musicals/" class="md-nav__link">
+      <a href="../../../5-life/read-watch-listen/musicals/" class="md-nav__link">
         🌑 Musicals Recommendation | 音乐剧推荐
       </a>
     </li>
@@ -1966,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docs/5-life/portfolio/" class="md-nav__link">
+      <a href="../../../5-life/portfolio/" class="md-nav__link">
         🌗 Portfolio | 艺术作品集
       </a>
     </li>
@@ -1997,44 +1928,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#content-shortcut" class="md-nav__link">
-    🛗 Content Shortcut
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    ⏰ 更新记录
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    🧑‍🤝‍🧑 友链
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    ☎️ 联系作者
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -2052,196 +1945,11 @@
   
 
 
-<h1 id="mini-babel-library">🏛️ Mini-Babel Library</h1>
+  <h1>Backtracing</h1>
+
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 243 个字 :material-clock-time-two-outline: 预计阅读时间 1 分钟</p>
+<p>:material-circle-edit-outline: 约 0 个字 </p>
 </div>
-<div class="admonition quote">
-<p class="admonition-title">La biblioteca de Babel</p>
-<p><div>
-<div align="center">
-「宇宙（别人管它叫图书馆）由许多六角形的回廊组成，数目不能确定，也许是无限的」。
-</div>
-<div align="right">
-—— Jorge Luis Borges (1939)
-</div>
-</div></p>
-</div>
-<p>这是我的 BLOG，大部分内容是学习笔记。我的笔记不多！以后也不会多的(保质不保量) 欢迎来看我的笔记！</p>
-<!-- structure: columns - selctions, updates -->
-
-<h2 id="content-shortcut">🛗 Content Shortcut</h2>
-<div class="admonition note inline">
-<p class="admonition-title">💻 Computer Science</p>
-<p><div>
-<h3>✨ Selection</h3>
--
-<h3>🆕 Updates</h3>
-- 
-</div></p>
-</div>
-<div class="admonition tip inline">
-<p class="admonition-title">🌳 Linguistics</p>
-<p><div>
-<h3>✨ Selection</h3>
--
-<h3>🆕 Updates</h3>
-- 
-</div></p>
-</div>
-<div class="admonition example inline">
-<p class="admonition-title">🤖 Deep Learning</p>
-<p><div>
-<h3>✨ Selection</h3>
--
-<h3>🆕 Updates</h3>
-- 
-</div></p>
-</div>
-<div class="admonition quote inline">
-<p class="admonition-title">💭 Opinions</p>
-<p><div>
-<h3>✨ Selection</h3>
--
-<h3>🆕 Updates</h3>
-- 
-</div></p>
-</div>
-<div class="admonition abstract inline">
-<p class="admonition-title">🎹 Life</p>
-<p><div>
-<h3>✨ Selection</h3>
--
-<h3>🆕 Updates</h3>
-- 
-</div></p>
-</div>
-<!-- The number of `<br>`s is either 4 * rows or 3 * rows + 3-->
-
-<p><br><br><br><br>
-<br><br><br><br>
-<br><br><br><br></p>
-<h2 id="_1">⏰ 更新记录</h2>
-<div style="clear: both;">
-
-<div style="position: relative">
-  <div class="timeline-wrapper">
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-dot-wrapper">
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="changelog-time" id="2025-01-07">2025-01-07<a class="headerlink" href="#2025-01-07" title="Permanent link">¶</a></div>
-            <div class="changelog-content">
-
-
-                  <p><span class="changelog-type changelog-type-pageupdate"></span> <a href="/notebook/docs/1-cs/database/">🌗 Database | 数据库系统</a></p>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot-wrapper">
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="changelog-time" id="2025-01-04">2025-01-04<a class="headerlink" href="#2025-01-04" title="Permanent link">¶</a></div>
-            <div class="changelog-content">
-
-
-                  <p><span class="changelog-type changelog-type-pageupdate"></span> <a href="/notebook/docs/5-life/read-watch-liten/music-theory">🌗 Music Theory | 乐理</a></p>
-
-
-
-                  <p><span class="changelog-type changelog-type-pageupdate"></span> <a href="/notebook/docs/2-ling/acqusition/french_tense">🌗 French Tense | 法语时态</a></p>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot-wrapper">
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="changelog-time" id="2025-01-01">2025-01-01<a class="headerlink" href="#2025-01-01" title="Permanent link">¶</a></div>
-            <div class="changelog-content">
-
-
-                  <p><span class="changelog-type changelog-type-pageupdate"></span> <a href="/notebook/docs/5-life/annual-summary/2024">🌕 2024 Summary</a></p>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot-wrapper">
-          <div class="timeline-dot"></div>
-        </div>
-        <div class="timeline-content">
-          <div class="timeline-card">
-            <div class="changelog-time" id="2024-12-14">2024-12-14<a class="headerlink" href="#2024-12-14" title="Permanent link">¶</a></div>
-            <div class="changelog-content">
-
-
-                  <p><span class="changelog-type changelog-type-pageupdate"></span> <a href="/notebook/">🌕 Main Page</a></p>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  </div>
-
-记录生成工具：[TonyCrane/mkdocs-changelog-plugin](https://github.com/TonyCrane/mkdocs-changelog-plugin?tab=readme-ov-file)
-
-</div>
-
-<h2 id="_2">🧑‍🤝‍🧑 友链</h2>
-<p>（又：不错的资源但暂时没想好归类）</p>
-<table>
-<thead>
-<tr>
-<th align="left">站</th>
-<th align="left">定位是</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">本站：#</td>
-<td align="left">掺杂自己观点的笔记 + 心得</td>
-</tr>
-<tr>
-<td align="left">仓库：<a href="https://github.com/ruoxining/ZJUCourse">🔗ZJUCourse</a></td>
-<td align="left">客观通用的一个ZJU课程资料工具箱</td>
-</tr>
-<tr>
-<td align="left"><a href="https://mem.ac/">🔗mem 的小站</a></td>
-<td align="left">内容主要是算法笔记 + ZJU 课程笔记。谢谢第一位找我换友链的小朋友！是很厉害的 OIer</td>
-</tr>
-<tr>
-<td align="left"><a href="https://spaces.ac.cn/">🔗科学空间</a></td>
-<td align="left">苏剑林苏神的 blog，更新了十几年了，仰慕</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_3">☎️ 联系作者</h2>
-<p><a href="ruoxining@outlook.com">📫 邮箱</a> | <a href="https://ruoxining.github.io">🧑‍💻 主页</a></p>
 
 
 
@@ -2279,13 +1987,13 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.code.copy", "navigation.expand"], "search": "assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.copy", "navigation.expand"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
         
-          <script src="javascripts/mathjax.js"></script>
+          <script src="../../../../javascripts/mathjax.js"></script>
         
       
         
@@ -2297,7 +2005,7 @@
         
       
         
-          <script src="javascripts/tex-mml-chtml.js"></script>
+          <script src="../../../../javascripts/tex-mml-chtml.js"></script>
         
       
     
