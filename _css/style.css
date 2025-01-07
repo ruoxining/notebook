@@ -1,10 +1,18 @@
+@import url('https://static.zeoseven.com/zsft/292/main/result.css');
+
+body {
+  font-family: "LXGW WenKai";
+  font-weight: normal;
+}
+
 .md-typeset code:not(pre code) {
-    font-size: inherit;
-  }
-  
-  .md-typeset .admonition, .md-typeset details {
-    font-size: 0.7rem;
-  }
+  font-size: inherit;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.7rem;
+}
 
 /* :root {
   --md-primary-fg-color:        #B1CBF4;
