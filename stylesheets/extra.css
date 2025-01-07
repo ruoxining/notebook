@@ -25,3 +25,14 @@ button.md-top {
 .changelog-type-refactor::before {
     content: "文档重构";
 }
+
+.container {
+    display: flex;
+    gap: 20px;
+    /* Space between columns */
+}
+
+.column {
+    flex: 1;
+    /* Equal width for both columns */
+}
