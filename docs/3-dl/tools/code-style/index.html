@@ -21,7 +21,7 @@
     
     
       
-        <title>🌗 Code Style | 代码风格 - Mini-Babel Library</title>
+        <title>🌕 Code Style | 代码风格 - Mini-Babel Library</title>
       
     
     
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              🌗 Code Style | 代码风格
+              🌕 Code Style | 代码风格
             
           </span>
         </div>
@@ -1531,12 +1531,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          🌗 Code Style | 代码风格
+          🌕 Code Style | 代码风格
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        🌗 Code Style | 代码风格
+        🌕 Code Style | 代码风格
       </a>
       
         
@@ -1677,35 +1677,6 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-barfoo-def-__init__self-arg-bool-none-comment-args-arg-arg-pass-def-barself-bool-comment-returns-arg-arg-return-true" class="md-nav__link">
-    class Bar(foo):
-    def __init__(self, arg: bool) -&gt; None:
-        &quot;&quot;&quot;Comment.
-
-        Args:
-            arg      : arg.
-        &quot;&quot;&quot;
-        pass
-
-    def bar(self) -&gt; bool:
-        &quot;&quot;&quot;Comment.
-
-        Returns:
-            arg     : arg.
-        &quot;&quot;&quot;
-        return True
-
-  </a>
-  
-    <nav class="md-nav" aria-label="class Bar(foo): def __init__(self, arg: bool) -> None: """Comment. Args: arg : arg. """ pass def bar(self) -> bool: """Comment. Returns: arg : arg. """ return True">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#32-include-a-main-function" class="md-nav__link">
@@ -1873,23 +1844,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-foo-def-__init__self-bar-self_bar-bar-property-def-barself-return-self_bar-foo-foo-foobar-recommended" class="md-nav__link">
-    class Foo:
-    def __init__(self, bar):
-        self._bar = bar
-
-    @property
-    def bar(self):
-        return self._bar
-
-foo = Foo()
-foo.bar                 # recommended
-
-  </a>
   
 </li>
       
@@ -2501,35 +2455,6 @@ foo.bar                 # recommended
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#class-barfoo-def-__init__self-arg-bool-none-comment-args-arg-arg-pass-def-barself-bool-comment-returns-arg-arg-return-true" class="md-nav__link">
-    class Bar(foo):
-    def __init__(self, arg: bool) -&gt; None:
-        &quot;&quot;&quot;Comment.
-
-        Args:
-            arg      : arg.
-        &quot;&quot;&quot;
-        pass
-
-    def bar(self) -&gt; bool:
-        &quot;&quot;&quot;Comment.
-
-        Returns:
-            arg     : arg.
-        &quot;&quot;&quot;
-        return True
-
-  </a>
-  
-    <nav class="md-nav" aria-label="class Bar(foo): def __init__(self, arg: bool) -> None: """Comment. Args: arg : arg. """ pass def bar(self) -> bool: """Comment. Returns: arg : arg. """ return True">
-      <ul class="md-nav__list">
-        
           <li class="md-nav__item">
   <a href="#32-include-a-main-function" class="md-nav__link">
     3.2 - Include a Main Function
@@ -2700,23 +2625,6 @@ foo.bar                 # recommended
 </li>
       
         <li class="md-nav__item">
-  <a href="#class-foo-def-__init__self-bar-self_bar-bar-property-def-barself-return-self_bar-foo-foo-foobar-recommended" class="md-nav__link">
-    class Foo:
-    def __init__(self, bar):
-        self._bar = bar
-
-    @property
-    def bar(self):
-        return self._bar
-
-foo = Foo()
-foo.bar                 # recommended
-
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#type-hints" class="md-nav__link">
     Type Hints
   </a>
@@ -2835,20 +2743,18 @@ foo.bar                 # recommended
 </li>
 <li>
 <p><strong>Configure Settings</strong>:</p>
+<p>To automatically sort the imports and format the code, open the <code>settings.json</code> and add or modify the following setting:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Automatically sort the imports</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&quot;editor.codeActionsOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;source.organizeImports&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">},</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">// Trim whitespace</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">&quot;files.trimTrailingWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Add a final new line</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nt">&quot;files.insertFinalNewline&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span></code></pre></div>
 </li>
 </ol>
-<p>To automatically sort the imports and format the code, open the <code>settings.json</code> and add or modify the following setting:</p>
-<div class="language-text highlight"><pre><span></span><code>```json
-// Automatically sort the imports
-&quot;editor.codeActionsOnSave&quot;: {
-    &quot;source.organizeImports&quot;: true,
-},
-// Trim whitespace
-&quot;files.trimTrailingWhitespace&quot;: true,
-// Add a final new line
-&quot;files.insertFinalNewline&quot;: true,
-```
-</code></pre></div>
 <!---------------------------- section ---------------------------->
 
 <h2 id="2-commit-and-pull-request-pr">2 - Commit and Pull Request (PR)</h2>
@@ -2889,7 +2795,7 @@ foo.bar                 # recommended
 <li>Function declarations with proper docstrings.</li>
 </ul>
 <p>Example:</p>
-<h2 id="class-barfoo-def-__init__self-arg-bool-none-comment-args-arg-arg-pass-def-barself-bool-comment-returns-arg-arg-return-true"><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">Bar</span><span class="p">(</span><span class="n">foo</span><span class="p">):</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">Bar</span><span class="p">(</span><span class="n">foo</span><span class="p">):</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Comment.</span>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
@@ -2905,7 +2811,8 @@ foo.bar                 # recommended
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="sd">            arg     : arg.</span>
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="sd">        &quot;&quot;&quot;</span>
 </span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="k">return</span> <span class="kc">True</span>
-</span></code></pre></div></h2>
+</span></code></pre></div>
+<hr />
 <h3 id="32-include-a-main-function">3.2 - Include a Main Function</h3>
 <p>It’s encouraged to add a main function to demonstrate the general workflow:</p>
 <ul>
@@ -3079,7 +2986,7 @@ foo.bar                 # recommended
 </span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">foo</span><span class="o">.</span><span class="n">get_bar</span><span class="p">()</span>           <span class="c1"># not recommended, since the function name looks messy.</span>
 </span></code></pre></div>
 <p>Instead, using a <code>@property</code> decorator is recommonded.</p>
-<h2 id="class-foo-def-__init__self-bar-self_bar-bar-property-def-barself-return-self_bar-foo-foo-foobar-recommended"><div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="n">bar</span>
 </span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
@@ -3089,7 +2996,8 @@ foo.bar                 # recommended
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
 </span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
 </span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">foo</span><span class="o">.</span><span class="n">bar</span>                 <span class="c1"># recommended</span>
-</span></code></pre></div></h2>
+</span></code></pre></div>
+<hr />
 <!---------------------------- section ---------------------------->
 
 <h2 id="type-hints">Type Hints</h2>
