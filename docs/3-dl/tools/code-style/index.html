@@ -1555,58 +1555,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    PR
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
   </a>
   
-    <nav class="md-nav" aria-label="PR">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-style-management" class="md-nav__link">
+    1 - Style Management
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Style Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#first-prototypes-and-implementations-then" class="md-nav__link">
-    First prototypes, and implementations then
+  <a href="#11-install-style-checking" class="md-nav__link">
+    1.1 - Install style checking
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#every-pr-should-be-meaningful-an-integral-element" class="md-nav__link">
-    Every PR should be meaningful (an integral element)
+  <a href="#12-config-the-github-repository" class="md-nav__link">
+    1.2 - Config the Github repository
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#split-to-the-smallest-elements" class="md-nav__link">
-    Split to the smallest elements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#git-add-instead-of-git-add" class="md-nav__link">
-    git add , instead of git add .
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require-review-before-each-merging-by-setting-up-protecting-your-branch" class="md-nav__link">
-    require review before each merging, by setting up ‘protecting your branch’
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prs-title-same-as-git-commit-message" class="md-nav__link">
-    PRs title - same as git commit message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr-message-same-as-git-commit-message" class="md-nav__link">
-    PR message - same as git commit message
+  <a href="#13-set-up-vs-code-style-helpers-optional" class="md-nav__link">
+    1.3 - Set Up VS Code Style Helpers (Optional)
   </a>
   
 </li>
@@ -1617,30 +1596,84 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-management" class="md-nav__link">
-    File management
+  <a href="#2-commit-and-pull-request-pr" class="md-nav__link">
+    2 - Commit and Pull Request (PR)
   </a>
   
-    <nav class="md-nav" aria-label="File management">
+    <nav class="md-nav" aria-label="2 - Commit and Pull Request (PR)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#oop" class="md-nav__link">
-    oop
+  <a href="#21-split-changes-into-small-prs" class="md-nav__link">
+    2.1 - Split Changes into Small PRs
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#write-prototypes-first" class="md-nav__link">
-    write prototypes first
+  <a href="#22-ensure-each-pr-is-complete-and-meaningful" class="md-nav__link">
+    2.2 - Ensure Each PR is Complete and Meaningful
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#avoid-using-hyphen-or-underscore-in-file-naming-make-files-into-folders-instead" class="md-nav__link">
-    avoid using hyphen or underscore in file naming, make files into folders instead.
+  <a href="#23-manage-committed-files" class="md-nav__link">
+    2.3 - Manage Committed Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-require-review-before-merging" class="md-nav__link">
+    2.4 - Require Review Before Merging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-pr-and-commit-messages" class="md-nav__link">
+    2.5 - PR and Commit Messages
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 - PR and Commit Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pr-titles" class="md-nav__link">
+    PR Titles:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-messages" class="md-nav__link">
+    PR Messages:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prototyping" class="md-nav__link">
+    3 - Prototyping
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Prototyping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-define-class-prototypes" class="md-nav__link">
+    3.1 - Define Class Prototypes
   </a>
   
 </li>
@@ -1651,30 +1684,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming" class="md-nav__link">
-    Naming
+  <a href="#class-barfoo-def-__init__self-arg-bool-none-comment-args-arg-arg-pass-def-barself-bool-comment-returns-arg-arg-return-true" class="md-nav__link">
+    class Bar(foo):
+    def __init__(self, arg: bool) -&gt; None:
+        &quot;&quot;&quot;Comment.
+
+        Args:
+            arg      : arg.
+        &quot;&quot;&quot;
+        pass
+
+    def bar(self) -&gt; bool:
+        &quot;&quot;&quot;Comment.
+
+        Returns:
+            arg     : arg.
+        &quot;&quot;&quot;
+        return True
+
   </a>
   
-    <nav class="md-nav" aria-label="Naming">
+    <nav class="md-nav" aria-label="class Bar(foo): def __init__(self, arg: bool) -> None: """Comment. Args: arg : arg. """ pass def bar(self) -> bool: """Comment. Returns: arg : arg. """ return True">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avoid-abbreviations-and-use-full-spellings" class="md-nav__link">
-    avoid abbreviations and use full spellings
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#my-own-habit" class="md-nav__link">
-    (my own habit:)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classs-private-members-should-start-with-an-underscore-_-to-separate-with-the-input-parameters" class="md-nav__link">
-    Class's private members should start with an underscore _ to separate with the input parameters.
+  <a href="#32-include-a-main-function" class="md-nav__link">
+    3.2 - Include a Main Function
   </a>
   
 </li>
@@ -1685,78 +1720,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spacing" class="md-nav__link">
-    Spacing
+  <a href="#4-file-management" class="md-nav__link">
+    4 - File Management
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#type-hints" class="md-nav__link">
-    Type Hints
-  </a>
-  
-    <nav class="md-nav" aria-label="Type Hints">
+    <nav class="md-nav" aria-label="4 - File Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#write-type-hints-no-need-to-write-types-in-the-comment" class="md-nav__link">
-    write type hints, no need to write types in the comment
+  <a href="#41-oop" class="md-nav__link">
+    4.1 - OOP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#try-to-use-the-typing-library" class="md-nav__link">
-    try to use the typing library.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    Comments
-  </a>
-  
-    <nav class="md-nav" aria-label="Comments">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-should-comments-appear" class="md-nav__link">
-    Where should comments appear?
+  <a href="#42-write-prototypes-first" class="md-nav__link">
+    4.2 - Write Prototypes First
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#formats" class="md-nav__link">
-    Formats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#file-docstring" class="md-nav__link">
-    file docstring
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#be-sure-to-make-every-doc-a-sentence" class="md-nav__link">
-    Be sure to make every doc a sentence
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#can-omit-the-but-keep-congruent" class="md-nav__link">
-    Can omit 'the' but keep congruent
+  <a href="#43-avoid-hyphen-or-underscore-in-file-naming" class="md-nav__link">
+    4.3 - Avoid Hyphen or Underscore in File Naming
   </a>
   
 </li>
@@ -1775,15 +1762,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#order" class="md-nav__link">
-    Order
+  <a href="#51-order" class="md-nav__link">
+    5.1 - Order
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#importing-names" class="md-nav__link">
-    Importing Names
+  <a href="#52-importing-names" class="md-nav__link">
+    5.2 - Importing Names
   </a>
   
 </li>
@@ -1794,8 +1781,148 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+    <nav class="md-nav" aria-label="Comments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-where-should-comments-appear" class="md-nav__link">
+    6.1 - Where Should Comments Appear?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-formats" class="md-nav__link">
+    6.2 - Formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-file-docstring" class="md-nav__link">
+    6.3 - File Docstring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-be-sure-to-make-every-doc-a-sentence" class="md-nav__link">
+    6.4 - Be Sure to Make Every Doc a 'Sentence'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-keep-consistency-in-omitting-the" class="md-nav__link">
+    6.5 - Keep Consistency in Omitting 'The'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spacing" class="md-nav__link">
+    Spacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    Naming
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-avoid-abbreviations-and-use-full-spellings" class="md-nav__link">
+    8.1 - Avoid Abbreviations and Use Full Spellings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-naming-conventions-my-own-habit" class="md-nav__link">
+    8.2 - Naming Conventions (My Own Habit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-private-members" class="md-nav__link">
+    8.3 - Private Members
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-accessing-private-members" class="md-nav__link">
+    8.4 - Accessing Private Members
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-foo-def-__init__self-bar-self_bar-bar-property-def-barself-return-self_bar-foo-foo-foobar-recommended" class="md-nav__link">
+    class Foo:
+    def __init__(self, bar):
+        self._bar = bar
+
+    @property
+    def bar(self):
+        return self._bar
+
+foo = Foo()
+foo.bar                 # recommended
+
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-hints" class="md-nav__link">
+    Type Hints
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-write-type-hints" class="md-nav__link">
+    9.1 - Write Type Hints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-use-the-typing-library" class="md-nav__link">
+    9.2 - Use the typing Library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-credits" class="md-nav__link">
+    References and Credits
   </a>
   
 </li>
@@ -2251,58 +2378,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    PR
+  <a href="#getting-started" class="md-nav__link">
+    Getting Started
   </a>
   
-    <nav class="md-nav" aria-label="PR">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-style-management" class="md-nav__link">
+    1 - Style Management
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Style Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#first-prototypes-and-implementations-then" class="md-nav__link">
-    First prototypes, and implementations then
+  <a href="#11-install-style-checking" class="md-nav__link">
+    1.1 - Install style checking
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#every-pr-should-be-meaningful-an-integral-element" class="md-nav__link">
-    Every PR should be meaningful (an integral element)
+  <a href="#12-config-the-github-repository" class="md-nav__link">
+    1.2 - Config the Github repository
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#split-to-the-smallest-elements" class="md-nav__link">
-    Split to the smallest elements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#git-add-instead-of-git-add" class="md-nav__link">
-    git add , instead of git add .
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#require-review-before-each-merging-by-setting-up-protecting-your-branch" class="md-nav__link">
-    require review before each merging, by setting up ‘protecting your branch’
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#prs-title-same-as-git-commit-message" class="md-nav__link">
-    PRs title - same as git commit message
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pr-message-same-as-git-commit-message" class="md-nav__link">
-    PR message - same as git commit message
+  <a href="#13-set-up-vs-code-style-helpers-optional" class="md-nav__link">
+    1.3 - Set Up VS Code Style Helpers (Optional)
   </a>
   
 </li>
@@ -2313,30 +2419,84 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#file-management" class="md-nav__link">
-    File management
+  <a href="#2-commit-and-pull-request-pr" class="md-nav__link">
+    2 - Commit and Pull Request (PR)
   </a>
   
-    <nav class="md-nav" aria-label="File management">
+    <nav class="md-nav" aria-label="2 - Commit and Pull Request (PR)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#oop" class="md-nav__link">
-    oop
+  <a href="#21-split-changes-into-small-prs" class="md-nav__link">
+    2.1 - Split Changes into Small PRs
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#write-prototypes-first" class="md-nav__link">
-    write prototypes first
+  <a href="#22-ensure-each-pr-is-complete-and-meaningful" class="md-nav__link">
+    2.2 - Ensure Each PR is Complete and Meaningful
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#avoid-using-hyphen-or-underscore-in-file-naming-make-files-into-folders-instead" class="md-nav__link">
-    avoid using hyphen or underscore in file naming, make files into folders instead.
+  <a href="#23-manage-committed-files" class="md-nav__link">
+    2.3 - Manage Committed Files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-require-review-before-merging" class="md-nav__link">
+    2.4 - Require Review Before Merging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-pr-and-commit-messages" class="md-nav__link">
+    2.5 - PR and Commit Messages
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 - PR and Commit Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pr-titles" class="md-nav__link">
+    PR Titles:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr-messages" class="md-nav__link">
+    PR Messages:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-prototyping" class="md-nav__link">
+    3 - Prototyping
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Prototyping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-define-class-prototypes" class="md-nav__link">
+    3.1 - Define Class Prototypes
   </a>
   
 </li>
@@ -2347,30 +2507,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#naming" class="md-nav__link">
-    Naming
+  <a href="#class-barfoo-def-__init__self-arg-bool-none-comment-args-arg-arg-pass-def-barself-bool-comment-returns-arg-arg-return-true" class="md-nav__link">
+    class Bar(foo):
+    def __init__(self, arg: bool) -&gt; None:
+        &quot;&quot;&quot;Comment.
+
+        Args:
+            arg      : arg.
+        &quot;&quot;&quot;
+        pass
+
+    def bar(self) -&gt; bool:
+        &quot;&quot;&quot;Comment.
+
+        Returns:
+            arg     : arg.
+        &quot;&quot;&quot;
+        return True
+
   </a>
   
-    <nav class="md-nav" aria-label="Naming">
+    <nav class="md-nav" aria-label="class Bar(foo): def __init__(self, arg: bool) -> None: """Comment. Args: arg : arg. """ pass def bar(self) -> bool: """Comment. Returns: arg : arg. """ return True">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#avoid-abbreviations-and-use-full-spellings" class="md-nav__link">
-    avoid abbreviations and use full spellings
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#my-own-habit" class="md-nav__link">
-    (my own habit:)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classs-private-members-should-start-with-an-underscore-_-to-separate-with-the-input-parameters" class="md-nav__link">
-    Class's private members should start with an underscore _ to separate with the input parameters.
+  <a href="#32-include-a-main-function" class="md-nav__link">
+    3.2 - Include a Main Function
   </a>
   
 </li>
@@ -2381,78 +2543,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#spacing" class="md-nav__link">
-    Spacing
+  <a href="#4-file-management" class="md-nav__link">
+    4 - File Management
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#type-hints" class="md-nav__link">
-    Type Hints
-  </a>
-  
-    <nav class="md-nav" aria-label="Type Hints">
+    <nav class="md-nav" aria-label="4 - File Management">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#write-type-hints-no-need-to-write-types-in-the-comment" class="md-nav__link">
-    write type hints, no need to write types in the comment
+  <a href="#41-oop" class="md-nav__link">
+    4.1 - OOP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#try-to-use-the-typing-library" class="md-nav__link">
-    try to use the typing library.
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    Comments
-  </a>
-  
-    <nav class="md-nav" aria-label="Comments">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#where-should-comments-appear" class="md-nav__link">
-    Where should comments appear?
+  <a href="#42-write-prototypes-first" class="md-nav__link">
+    4.2 - Write Prototypes First
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#formats" class="md-nav__link">
-    Formats
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#file-docstring" class="md-nav__link">
-    file docstring
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#be-sure-to-make-every-doc-a-sentence" class="md-nav__link">
-    Be sure to make every doc a sentence
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#can-omit-the-but-keep-congruent" class="md-nav__link">
-    Can omit 'the' but keep congruent
+  <a href="#43-avoid-hyphen-or-underscore-in-file-naming" class="md-nav__link">
+    4.3 - Avoid Hyphen or Underscore in File Naming
   </a>
   
 </li>
@@ -2471,15 +2585,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#order" class="md-nav__link">
-    Order
+  <a href="#51-order" class="md-nav__link">
+    5.1 - Order
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#importing-names" class="md-nav__link">
-    Importing Names
+  <a href="#52-importing-names" class="md-nav__link">
+    5.2 - Importing Names
   </a>
   
 </li>
@@ -2490,8 +2604,148 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+    <nav class="md-nav" aria-label="Comments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-where-should-comments-appear" class="md-nav__link">
+    6.1 - Where Should Comments Appear?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-formats" class="md-nav__link">
+    6.2 - Formats
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-file-docstring" class="md-nav__link">
+    6.3 - File Docstring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-be-sure-to-make-every-doc-a-sentence" class="md-nav__link">
+    6.4 - Be Sure to Make Every Doc a 'Sentence'
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-keep-consistency-in-omitting-the" class="md-nav__link">
+    6.5 - Keep Consistency in Omitting 'The'
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spacing" class="md-nav__link">
+    Spacing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    Naming
+  </a>
+  
+    <nav class="md-nav" aria-label="Naming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-avoid-abbreviations-and-use-full-spellings" class="md-nav__link">
+    8.1 - Avoid Abbreviations and Use Full Spellings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-naming-conventions-my-own-habit" class="md-nav__link">
+    8.2 - Naming Conventions (My Own Habit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-private-members" class="md-nav__link">
+    8.3 - Private Members
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-accessing-private-members" class="md-nav__link">
+    8.4 - Accessing Private Members
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-foo-def-__init__self-bar-self_bar-bar-property-def-barself-return-self_bar-foo-foo-foobar-recommended" class="md-nav__link">
+    class Foo:
+    def __init__(self, bar):
+        self._bar = bar
+
+    @property
+    def bar(self):
+        return self._bar
+
+foo = Foo()
+foo.bar                 # recommended
+
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-hints" class="md-nav__link">
+    Type Hints
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Hints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-write-type-hints" class="md-nav__link">
+    9.1 - Write Type Hints
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-use-the-typing-library" class="md-nav__link">
+    9.2 - Use the typing Library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-and-credits" class="md-nav__link">
+    References and Credits
   </a>
   
 </li>
@@ -2516,212 +2770,372 @@
 
 <h1 id="pythons-code-style-guide">Pythons' Code Style Guide</h1>
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p>:material-circle-edit-outline: 约 519 个字 :fontawesome-solid-code: 71 行代码 :material-clock-time-two-outline: 预计阅读时间 3 分钟</p>
+<p>:material-circle-edit-outline: 约 1048 个字 :fontawesome-solid-code: 114 行代码 :material-clock-time-two-outline: 预计阅读时间 5 分钟</p>
 </div>
-<!---------------------------- section ---------------------------->
-
-<h2 id="pr">PR</h2>
-<h3 id="first-prototypes-and-implementations-then">First prototypes, and implementations then</h3>
-<h3 id="every-pr-should-be-meaningful-an-integral-element">Every PR should be meaningful (an integral element)</h3>
-<h3 id="split-to-the-smallest-elements">Split to the smallest elements</h3>
-<p>✅ each PR can be described within one sentence.</p>
-<h3 id="git-add-instead-of-git-add">git add <specific-files>, instead of git add .</h3>
-<h3 id="require-review-before-each-merging-by-setting-up-protecting-your-branch">require review before each merging, by setting up ‘protecting your branch’</h3>
-<h3 id="prs-title-same-as-git-commit-message">PRs title - same as git commit message</h3>
-<p>format <code>[label] name + summary of change</code></p>
-<p>admitted labels: <a href="https://gist.github.com/ericavonb/3c79e5035567c8ef3267" target="_blank">Git Commit Style Guide</a></p>
-<h3 id="pr-message-same-as-git-commit-message">PR message - same as git commit message</h3>
-<!---------------------------- section ---------------------------->
-
-<h2 id="file-management">File management</h2>
-<h3 id="oop">oop</h3>
-<p>Encompass each function (except <code>main</code>) into a related class.</p>
-<h3 id="write-prototypes-first">write prototypes first</h3>
-<h3 id="avoid-using-hyphen-or-underscore-in-file-naming-make-files-into-folders-instead">avoid using hyphen or underscore in file naming, make files into folders instead.</h3>
-<p>✅ Do <code>models/models.py</code></p>
-<p>❌ Don't <code>models_main.py</code></p>
-<!---------------------------- section ---------------------------->
-
-<h2 id="naming">Naming</h2>
-<h3 id="avoid-abbreviations-and-use-full-spellings">avoid abbreviations and use full spellings</h3>
-<p>✅ Do <code>path_checkpoint</code>.</p>
-<p>❌ Don't <code>path_ckpt</code>.</p>
-<h3 id="my-own-habit">(my own habit:)</h3>
-<ul>
-<li>class name: noun-adj</li>
-<li>function name: verb-noun</li>
-<li>functions/files with similar functions or operate on the same objects should begin with the same substring</li>
-</ul>
-<h3 id="classs-private-members-should-start-with-an-underscore-_-to-separate-with-the-input-parameters">Class's private members should start with an underscore <code>_</code> to separate with the input parameters.</h3>
-<p>e.g., the correct private number name should be</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foo</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_foo</span> <span class="o">=</span> <span class="n">foo</span>     <span class="c1"># not recommended</span>
-</span></code></pre></div>
-<p>instead of </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foo</span><span class="p">):</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="n">foo</span>      <span class="c1"># recommended</span>
-</span></code></pre></div>
-<p>And whenever an outer function requires a private member of a class, it is not recommended to directly use the private member from the class like</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="n">bar</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">foo</span><span class="o">.</span><span class="n">_bar</span>                <span class="c1"># not recommnded</span>
-</span></code></pre></div>
-<p>nor</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="n">bar</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="nd">@property</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="k">def</span> <span class="nf">get_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">foo</span><span class="o">.</span><span class="n">get_bar</span><span class="p">()</span>
-</span></code></pre></div>
-<p>instead, using a <code>@property</code> decorator is recommonded.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="n">bar</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nd">@property</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">foo</span><span class="o">.</span><span class="n">bar</span>
-</span></code></pre></div>
-<!---------------------------- section ---------------------------->
-
-<h2 id="spacing">Spacing</h2>
-<p>From top to down
-- In every comment: 1 space-line between each section, i.e., 
-- Except the file top, no more than 2 space-line</p>
-<!---------------------------- section ---------------------------->
-
-<h2 id="type-hints">Type Hints</h2>
-<h3 id="write-type-hints-no-need-to-write-types-in-the-comment">write type hints, no need to write types in the comment</h3>
-<p>✅ Do</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="sd">    Args:</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="sd">        bar: </span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="sd">    Returns:</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="sd">        str: </span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="k">pass</span>
-</span></code></pre></div>
-<p>❌ Don't</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="sd">    Args:</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="sd">        bar (int): </span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="sd">    Returns:</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="sd">        str (str): </span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="k">pass</span>
-</span></code></pre></div>
-<h3 id="try-to-use-the-typing-library">try to use the <code>typing</code> library.</h3>
-<p>Usual usage: when you want to indicat the element type of a Dict / a List / etc.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
-</span></code></pre></div>
-<p>Supported types:
-- Dict[x, y]
-- Union[x, y, ...]
-- </p>
-<p>After Python 3.10, this feature is included as an internal feature, with all types written as lower cases.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">]</span>
-</span></code></pre></div>
-<p>But to preserve the extenability to lower versions, I believe the importing method would be better. </p>
-<!---------------------------- section ---------------------------->
-
-<h2 id="comments">Comments</h2>
-<h3 id="where-should-comments-appear">Where should comments appear?</h3>
-<ul>
-<li>file docstring</li>
-<li>class docstring</li>
-<li>function docstring</li>
-<li>other</li>
-</ul>
-<h3 id="formats">Formats</h3>
-<ul>
-<li>
-<p>Required: file docstring (on the top of the file), class docstring (after the class's name), function docstring (after the function's name).</p>
-</li>
-<li>
-<p>Either a sentence or several paragraphs.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.&quot;&quot;&quot;</span>
-</span></code></pre></div>
-<p>or </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="sd">Declarations.</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="sd">&quot;&quot;&quot;</span>
-</span></code></pre></div>
-</li>
-<li>
-<p>Function docstring's format</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the function&#39;s content.</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="sd">Args:</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="sd">    arg1    : explain</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="sd">Returns:</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="sd">    return1 : explain</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="sd">&quot;&quot;&quot;</span>
-</span></code></pre></div>
-</li>
-</ul>
-<h3 id="file-docstring">file docstring</h3>
-<p>No space between the docstring and the imports.</p>
-<h3 id="be-sure-to-make-every-doc-a-sentence">Be sure to make every doc a sentence</h3>
-<p>✅ Do <code># a comment</code>.</p>
-<p>❌ Don't <code># a comment.</code>.</p>
-<h3 id="can-omit-the-but-keep-congruent">Can omit 'the' but keep congruent</h3>
-<p>✅ Do </p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># comment 1.</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># comment 2.</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="c1"># comment 3.</span>
-</span></code></pre></div>
-<p>❌ Don't</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># comment 1.</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># the comment 2.</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="c1"># comment 3.</span>
-</span></code></pre></div>
-<!---------------------------- section ---------------------------->
-
-<h2 id="imports">Imports</h2>
-<h3 id="order">Order</h3>
+<h2 id="getting-started">Getting Started</h2>
+<p>First, follow these steps to structure your repository and maintain consistency:</p>
 <ol>
-<li>import all Python default libs, in alphabetical order (of the package name instead of the folder name), and add an empty line.</li>
-<li>import all 3rd party libs in alphabetical order, and add an empty line.</li>
-<li>import all libs defined in this project.</li>
+<li><strong>Design a Class Diagram</strong>: Plan all key classes (e.g., DataLoader, Model, Trainer, TrainingArgs).</li>
+<li><strong>Setting up Style Management Tools</strong>: Go to section 1 (Style Management) for instructions.</li>
+<li><strong>Write Class Prototypes</strong>: Begin with basic implementations for each class.</li>
+<li><strong>Submit Incremental Pull Requests (PRs)</strong>: Commit small, meaningful progress and review frequently.</li>
 </ol>
-<p>One way to automatically sort the imports in VSCode (Don't sing an alphabet song every time you add an import):
-1. Open the <code>setting.json</code>.
-2. Add or change the following setting</p>
+<p>Next, refer to the instructions in each section below when you are writing each of them.</p>
+<ol>
+<li>Style Management</li>
+<li>Commit and Pull Request (PR)</li>
+<li>Prototyping</li>
+<li>File Management</li>
+<li>Imports</li>
+<li>Comments</li>
+<li>Spacing</li>
+<li>Naming</li>
+<li>Type Hints</li>
+</ol>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="1-style-management">1 - Style Management</h2>
+<h3 id="11-install-style-checking">1.1 - Install style checking</h3>
+<p>Install the pre-commit checking by <code>pip install pre-commit</code></p>
+<p>and add two files at the root directory of your repository.</p>
+<p>file <code>.flake8</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[flake8]
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docstring-convention = google
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>extend-ignore = E501, E731
+</span></code></pre></div>
+<p>file <code>.pre-commit-config.yaml</code></p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># pre-commit run --all-files</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">repos</span><span class="p">:</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">repo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/pycqa/flake8</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">rev</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.7.9</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">hooks</span><span class="p">:</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w">   </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flake8</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="nt">additional_dependencies</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">            </span><span class="s">&#39;flake8-docstrings==1.7.0&#39;</span><span class="p p-Indicator">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">        </span><span class="p p-Indicator">]</span>
+</span></code></pre></div>
+<p>and finally, run <code>pre-commit install</code>.</p>
+<hr />
+<h3 id="12-config-the-github-repository">1.2 - Config the Github repository</h3>
+<p>Config the branch protection rule to require review on merging each pull request.</p>
+<p>According to this document, set up requiring at least one reviewer before merging. <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule">Managing a branch protection rule</a>_{target="blank"}</p>
+<hr />
+<h3 id="13-set-up-vs-code-style-helpers-optional">1.3 - Set Up VS Code Style Helpers (Optional)</h3>
+<p>To streamline code formatting and import sorting, configure VS Code with the following extensions and settings:</p>
+<ol>
+<li>
+<p><strong>Install Extensions</strong>:</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a> (for Python language support).</p>
+</li>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.isort">isort</a> (for sorting imports).</p>
+</li>
+<li>
+<p><strong>Configure Settings</strong>:</p>
+</li>
+</ol>
+<p>To automatically sort the imports and format the code, open the <code>settings.json</code> and add or modify the following setting:</p>
 <div class="language-text highlight"><pre><span></span><code>```json
+// Automatically sort the imports
 &quot;editor.codeActionsOnSave&quot;: {
     &quot;source.organizeImports&quot;: true,
 },
+// Trim whitespace
+&quot;files.trimTrailingWhitespace&quot;: true,
+// Add a final new line
+&quot;files.insertFinalNewline&quot;: true,
 ```
 </code></pre></div>
-<h3 id="importing-names">Importing Names</h3>
-<p>✅ Do use <code>import x</code>, <code>x.y</code> to avoid the conflict of namespace, e.g.,</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>import torch
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>import transformers
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>torch.nn.Module
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>transformers.Trainer
+<!---------------------------- section ---------------------------->
+
+<h2 id="2-commit-and-pull-request-pr">2 - Commit and Pull Request (PR)</h2>
+<h3 id="21-split-changes-into-small-prs">2.1 - Split Changes into Small PRs</h3>
+<p>❌ Avoid bundling multiple unrelated modifications into a single PR.</p>
+<p>✅ Each PR should address a single, focused change that can be summarized in one sentence.</p>
+<p>Examples:
+- Pre-commit setup as a standalone PR.
+- Prototyping or implementing a single class as separate PRs.</p>
+<hr />
+<h3 id="22-ensure-each-pr-is-complete-and-meaningful">2.2 - Ensure Each PR is Complete and Meaningful</h3>
+<p>❌ Avoid submitting partially completed features.</p>
+<p>✅ Submit only when a feature or change is complete and functional.</p>
+<hr />
+<h3 id="23-manage-committed-files">2.3 - Manage Committed Files</h3>
+<p>❌ Avoid using <code>git add .</code> indiscriminately.</p>
+<p>✅ Use <code>git add &lt;specific-files&gt;</code> to ensure only intentional changes are included.</p>
+<hr />
+<h3 id="24-require-review-before-merging">2.4 - Require Review Before Merging</h3>
+<p>Set up branch protection rules to require reviews before merging. Refer to the GitHub guide:
+<a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule">Managing a branch protection rule</a></p>
+<hr />
+<h3 id="25-pr-and-commit-messages">2.5 - PR and Commit Messages</h3>
+<h4 id="pr-titles">PR Titles:</h4>
+<p>Format titles as you would for commit messages:</p>
+<p><strong><code>[label] name + summary of change</code></strong></p>
+<p>Refer to the <a href="https://gist.github.com/ericavonb/3c79e5035567c8ef3267" target="_blank">Git Commit Style Guide</a> for approved labels.</p>
+<h4 id="pr-messages">PR Messages:</h4>
+<p>The PR description should match the commit message format, providing clear and concise context for the changes.</p>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="3-prototyping">3 - Prototyping</h2>
+<h3 id="31-define-class-prototypes">3.1 - Define Class Prototypes</h3>
+<p>A prototype is the skeleton of a class, including:</p>
+<ul>
+<li>The class definition.</li>
+<li>Function declarations with proper docstrings.</li>
+</ul>
+<p>Example:</p>
+<h2 id="class-barfoo-def-__init__self-arg-bool-none-comment-args-arg-arg-pass-def-barself-bool-comment-returns-arg-arg-return-true"><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">Bar</span><span class="p">(</span><span class="n">foo</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Comment.</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">        Args:</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="sd">            arg      : arg.</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="k">pass</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Comment.</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="sd">        Returns:</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="sd">            arg     : arg.</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="k">return</span> <span class="kc">True</span>
+</span></code></pre></div></h2>
+<h3 id="32-include-a-main-function">3.2 - Include a Main Function</h3>
+<p>It’s encouraged to add a main function to demonstrate the general workflow:</p>
+<ul>
+<li>How classes will be instantiated.</li>
+<li>How functions will be called.</li>
+</ul>
+<p>Example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">int</span> <span class="n">main</span><span class="p">():</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Comment.&quot;&quot;&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">bar</span> <span class="o">=</span> <span class="n">Bar</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="k">return</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">main</span><span class="p">()</span>
 </span></code></pre></div>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="4-file-management">4 - File Management</h2>
+<h3 id="41-oop">4.1 - OOP</h3>
+<p>Encapsulate each function (except <code>main</code>) into a related class.</p>
+<hr />
+<h3 id="42-write-prototypes-first">4.2 - Write Prototypes First</h3>
+<p>Ensure prototypes are written before detailed implementations.</p>
+<hr />
+<h3 id="43-avoid-hyphen-or-underscore-in-file-naming">4.3 - Avoid Hyphen or Underscore in File Naming</h3>
+<p>Use folders to organize files instead of naming files with hyphens or underscores.</p>
+<p>✅ Do: <code>models/models.py</code></p>
+<p>❌ Don't: <code>models_main.py</code></p>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="imports">Imports</h2>
+<h3 id="51-order">5.1 - Order</h3>
+<ol>
+<li>Import all Python standard libraries, in alphabetical order (based on the package name instead of the folder name), and add an empty line.</li>
+<li>Import all 3rd-party libraries, in alphabetical order, and add an empty line.</li>
+<li>Import all libraries defined within the project.</li>
+</ol>
+<p>Example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">os</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">import</span> <span class="nn">torch</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">import</span> <span class="nn">transformers</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="kn">from</span> <span class="nn">myfile</span> <span class="kn">import</span> <span class="n">MyClass</span>
+</span></code></pre></div>
+<p>If you have set up the automatical sorting tool in VSCode, it can avoid you from singing an alphabet song every time you add an import.</p>
+<hr />
+<h3 id="52-importing-names">5.2 - Importing Names</h3>
 <p>❌ Don't use <code>from x import y</code>.</p>
-<p>The only examptions are those well-established ones, e.g., <code>from typing import Dict, List, Optional, Sequence, Union</code>.</p>
-<h2 id="references">References</h2>
-<p>This code style guide is an examplanation of the <a href="https://google.github.io/styleguide/pyguide.html">Google's Python Style Guide</a>.</p>
+<p>✅ The only examptions are those well-established ones, e.g., <code>from typing import Dict, List, Optional, Sequence, Union</code>.</p>
+<p>✅ Do use <code>import x</code> and <code>x.y</code> to avoid namespace conflicts, for example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span> <span class="nn">torch</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span> <span class="nn">transformers</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">transformers</span><span class="o">.</span><span class="n">Trainer</span>
+</span></code></pre></div>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="comments">Comments</h2>
+<h3 id="61-where-should-comments-appear">6.1 - Where Should Comments Appear?</h3>
+<ul>
+<li>File docstring</li>
+<li>Class docstring</li>
+<li>Function docstring</li>
+<li>Other (full-line comment, inline comment)</li>
+</ul>
+<hr />
+<h3 id="62-formats">6.2 - Formats</h3>
+<ul>
+<li><strong>Required</strong>:</li>
+<li>File docstring (at the top of the file)</li>
+<li>Class docstring (immediately after the class name)</li>
+<li>
+<p>Function docstring (immediately after the function name)</p>
+</li>
+<li>
+<p>Docstrings can be either a sentence or multiple paragraphs.</p>
+<p>Example for a single sentence:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.&quot;&quot;&quot;</span>
+</span></code></pre></div>
+<p>Example for multiple paragraphs:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the file content.</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="sd">Declarations.</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="sd">&quot;&quot;&quot;</span>
+</span></code></pre></div>
+</li>
+<li>
+<p><strong>Function docstring format</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="sd">&quot;&quot;&quot;A sentence describing the function&#39;s content.</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="sd">Args:</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="sd">    arg1    : explanation</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="sd">Returns:</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="sd">    return1 : explanation</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="sd">&quot;&quot;&quot;</span>
+</span></code></pre></div>
+</li>
+</ul>
+<hr />
+<h3 id="63-file-docstring">6.3 - File Docstring</h3>
+<p>Ensure there is no space between the docstring and the imports.</p>
+<hr />
+<h3 id="64-be-sure-to-make-every-doc-a-sentence">6.4 - Be Sure to Make Every Doc a 'Sentence'</h3>
+<p>✅ Do <code># a comment</code>.</p>
+<p>❌ Don't <code># a comment.</code>.</p>
+<hr />
+<h3 id="65-keep-consistency-in-omitting-the">6.5 - Keep Consistency in Omitting 'The'</h3>
+<p>✅ Do</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># comment 1.</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1"># comment 2.</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># comment 3.</span>
+</span></code></pre></div>
+<p>❌ Don't</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># comment 1.</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># the comment 2.</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># comment 3.</span>
+</span></code></pre></div>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="spacing">Spacing</h2>
+<ul>
+<li>In every comment: Add 1 empty line between each section.</li>
+<li>Except at the top of the file, do not use more than 2 empty lines.</li>
+</ul>
+<p>If you have configured the styling tool in VSCode, it will automatically manage the spacing for you.</p>
+<hr />
+<!---------------------------- section ---------------------------->
+
+<h2 id="naming">Naming</h2>
+<h3 id="81-avoid-abbreviations-and-use-full-spellings">8.1 - Avoid Abbreviations and Use Full Spellings</h3>
+<p>✅ Do <code>path_checkpoint</code>.</p>
+<p>❌ Don't <code>path_ckpt</code>.</p>
+<hr />
+<h3 id="82-naming-conventions-my-own-habit">8.2 - Naming Conventions (My Own Habit)</h3>
+<ul>
+<li>Class Names: Use a noun-adjective format.</li>
+<li>Function Names: Use a verb-noun format.</li>
+<li>Functions and files that perform similar tasks or operate on the same objects should begin with the same substring.</li>
+</ul>
+<hr />
+<h3 id="83-private-members">8.3 - Private Members</h3>
+<p>Class private members should start with an underscore _ to distinguish them from input parameters.</p>
+<p>e.g., the correct private number name should be</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foo</span><span class="p">):</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_foo</span> <span class="o">=</span> <span class="n">foo</span>     <span class="c1"># recommended</span>
+</span></code></pre></div>
+<p>instead of</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foo</span><span class="p">):</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="n">foo</span>      <span class="c1"># not recommended</span>
+</span></code></pre></div>
+<hr />
+<h3 id="84-accessing-private-members">8.4 - Accessing Private Members</h3>
+<p>Avoid directly accessing private members outside the class.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="n">bar</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="k">def</span> <span class="nf">get_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="n">foo</span><span class="o">.</span><span class="n">_bar</span>                <span class="c1"># not recommended, since the members should be &#39;considered as private&#39;.</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">foo</span><span class="o">.</span><span class="n">get_bar</span><span class="p">()</span>           <span class="c1"># not recommended, since the function name looks messy.</span>
+</span></code></pre></div>
+<p>Instead, using a <code>@property</code> decorator is recommonded.</p>
+<h2 id="class-foo-def-__init__self-bar-self_bar-bar-property-def-barself-return-self_bar-foo-foo-foobar-recommended"><div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span> <span class="nc">Foo</span><span class="p">:</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bar</span><span class="p">):</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span> <span class="o">=</span> <span class="n">bar</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="nd">@property</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bar</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">()</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="n">foo</span><span class="o">.</span><span class="n">bar</span>                 <span class="c1"># recommended</span>
+</span></code></pre></div></h2>
+<!---------------------------- section ---------------------------->
+
+<h2 id="type-hints">Type Hints</h2>
+<h3 id="91-write-type-hints">9.1 - Write Type Hints</h3>
+<p>✅ Do: write type hints in function declarations.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="sd">    Args:</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="sd">        bar:</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="sd">    Returns:</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="sd">        str:</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="k">pass</span>
+</span></code></pre></div>
+<p>❌ Don't: write types in the comment.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">bar</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="sd">    Args:</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="sd">        bar (int):</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="sd">    Returns:</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="sd">        str (str):</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>    <span class="k">pass</span>
+</span></code></pre></div>
+<hr />
+<h3 id="92-use-the-typing-library">9.2 - Use the typing Library</h3>
+<p>Use the typing library when you need to indicate the element type of a <code>Dict</code>, <code>List</code>, etc.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+</span></code></pre></div>
+<p>Commonly used examples:</p>
+<ul>
+<li><code>Dict[x, y]</code> — for dictionaries with keys of type <code>x</code> and values of type <code>y</code>.</li>
+<li><code>Union[x, y, ...]</code> — for a type that can be one of several types (e.g., <code>Union[int, float]</code>).</li>
+<li><code>List[x]</code> — for a list where each element is of type <code>x</code>.</li>
+<li><code>Tuple[x, y, ...]</code> — for a tuple with fixed types and length.</li>
+<li><code>Optional[x]</code> — equivalent to <code>Union[x, None]</code>, meaning a value could be of type <code>x</code> or <code>None</code> (e.g., <code>Optional[str]</code>).</li>
+<li><code>Callable[[x, y], z]</code> — for a function type that takes arguments of types <code>x</code> and <code>y</code>, and returns a value of type <code>z</code>.</li>
+<li><code>Any</code> — for any type (used when you don't want to specify a type).</li>
+</ul>
+<p>More examples in <a _target="blank" href="https://docs.python.org/3/library/typing.html">typing — Support for type hints</a></p>
+<hr />
+<h2 id="references-and-credits">References and Credits</h2>
+<p>This code style guide is based on the <a href="https://google.github.io/styleguide/pyguide.html" target="_blank">Google Python Style Guide</a>.</p>
+<p>Written with the help of ChatGPT-4.</p>
 
 
 
