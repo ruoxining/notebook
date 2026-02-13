@@ -1,0 +1,22 @@
+Machine Learning | 机器学习
+#   - 🌕 Index: 'docs/3-dl/index.md'
+  # - 🌗 LM Basics | 语言模型基础:
+  #   - 🌕 Index: 'docs/3-dl/basics/index.md'
+  #   - 🌗 BPE | Byte-pair Encoding: 'docs/3-dl/basics/bpe.md'
+  #   - 🌗 ELMo | ELMo 模型: 'docs/3-dl/basics/elmo.md'
+  # - 🌗 Formal Languages | 形式语言:
+  #   - 🌕 Index: 'docs/3-dl/formal-language/index.md'
+  #   - 🌕 CYK Algorithm | CYK 算法: 'docs/3-dl/formal-language/cyk.md'
+  # - 🌗 Efficient Train | 高效训练:
+  #   - 🌕 Index: 'docs/3-dl/efficient-train/index.md'
+  #   - 🌕 Hardware | 硬件: 'docs/3-dl/efficient-train/hardware.md'
+  #   - 🌕 Parameter | 参数: 'docs/3-dl/efficient-train/parameter.md'
+  # - 🌕 Misc Survey | 各种综述:
+  #   - 🌕 Index: 'docs/3-dl/survey/index.md'
+  #   - 🌗 Explainable NLP | 可解释: 'docs/3-dl/survey/explainable-nlp.md'
+  #   - 🌕 Math Word Problem | 数学推理题: 'docs/3-dl/survey/math-word-problem.md'
+  # # - 🌗 Llama-3.1-405B Tech Repost | 技术报告: 'docs/3-dl/survey/llama3_405b.md'
+  # - 🌕 Tools | 工具:
+  #   - 🌕 Index: 'docs/3-dl/tools/index.md'
+  #   - 🌕 Code Style | 代码风格: 'docs/3-dl/tools/code-style.md'
+  #   - 🌕 Codabench Tutorial | Codabench 教程: 'docs/3-dl/tools/codabench.md'

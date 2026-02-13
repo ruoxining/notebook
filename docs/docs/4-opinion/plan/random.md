@@ -1,0 +1,4 @@
+If I met anything unexpected and thus not be able to process my personal belongings or convey my thoughts - please refer to this page as my last words!
+
+1. The most mysterious thing about the death is not why I am alive but why I am myself. 智能常有（每个人类），而被我观测不常有（仅有我自己），智能与被我观测的关系是如何被分配的？我“随机被分配到”观测我这具智能体，然而脱离观测，“我”也并不存在，因而也不存在这具智能体存在之前或消失之后“我”如何被分配问题。然而观测者因智能产生（个体与个体时空上的区别都只有经验不同），所以观测者的产生并不排外。如果粗略考虑宇宙中大多定律都有简洁的对称性，则可以粗略认为每个智能体中都有观测者我，每一个我有我相、人相、众生相、寿者相，不但我活着意味我活着，我死后亦意味我活着（？）
+2. I want to be cremated with no tablets on the land but only a tree (secretly if not legally possible). Personally I'd prefer trees that can grow big with a giant crown (Banyan is always my first choice, but if I have to be buried somewhere with the weather not permitting, pines or Chinese scholar trees other trees that are generally green are also okay). Thus, my elements can transform into another creature immediately!

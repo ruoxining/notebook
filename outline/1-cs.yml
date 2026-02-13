@@ -1,0 +1,27 @@
+Computer Science | 计算机科学:
+  - 🌕 Index: 'docs/1-cs/index.md'
+  - 🌕 x86 Assembly | 汇编: 'docs/1-cs/assembly-x86.md'
+  - 🌗 C libgraphics | C 程: 'docs/1-cs/c-libgraphics.md'
+  - 🌕 OOP | 面向对象程序设计:
+    - 🌕 ZJU Lectures | 课程笔记: 'docs/1-cs/oop/course.md'
+    - 🌕 ZJU Reviews | 期末复习: 'docs/1-cs/oop/final_review.md'
+  - 🌗 DB | 数据库系统:
+    - 🌕 Index | 索引: 'docs/1-cs/database/index.md'
+    - 🌕 Normal Forms | 范式: 'docs/1-cs/database/normalforms.md'
+    - 🌑 SQL | SQL 结构化查询语言: 'docs/1-cs/database/sql.md'
+    - 🌑 ER models | ER 模型: 'docs/1-cs/database/er_model.md'
+    - 🌕 Design | 数据库设计: 'docs/1-cs/database/design.md'
+    - 🌗 Query | 查询: 'docs/1-cs/database/query.md'
+    - 🌗 Transaction | 事务: 'docs/1-cs/database/transaction.md'
+    - 🌑 XML | XML 数据结构: 'docs/1-cs/database/xml.md'
+  - 🌗 OS | 操作系统:
+    - 🌕 Index: 'docs/1-cs/os/index.md'
+    - 🌕 Labs | 实验: 'docs/1-cs/os/lab.md'
+  - 🌕 Computer Architecture | 体系结构:
+    - 🌕 Index: 'docs/1-cs/architecture/index.md'
+    - 🌕 chap2 | 第 2 章: 'docs/1-cs/architecture/chap2.md'
+    - 🌕 chap3 | 第 3 章: 'docs/1-cs/architecture/chap3.md'
+    - 🌕 chap5 | 第 5 章: 'docs/1-cs/architecture/chap5.md'
+  - 🌗 Compiler | 编译原理:
+    - 🌕 Index: 'docs/1-cs/compiler/index.md'
+    - 🌕 Parsing | Parsing: 'docs/1-cs/compiler/parsing.md'

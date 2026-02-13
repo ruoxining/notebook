@@ -1,0 +1,38 @@
+@import url('https://static.zeoseven.com/zsft/95/main/result.css');
+
+body {
+    font-family: "LXGW WenKai",
+        sans-serif;
+    font-weight: normal;
+}
+
+/* from https: //wcowin.work/blog/websitebeauty/mkdocsfont.html#mkdocs */
+button.md-top {
+    font-family: LXGW WenKai;
+    /* 修改字体 */
+    font-size: 16px;
+    /* 修改字体大小 */
+    font-weight: bold;
+    /* 修改字体粗细 */
+    color: #518FC1;
+    /* 修改字体颜色 */
+}
+
+.changelog-type-refactor {
+    background-color: #c63f94b0;
+}
+
+.changelog-type-refactor::before {
+    content: "文档重构";
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    /* Space between columns */
+}
+
+.column {
+    flex: 1;
+    /* Equal width for both columns */
+}

@@ -1,0 +1,21 @@
+Linguistics | 语言学:
+  - 🌕 Index: 'docs/2-ling/index.md'
+  - 🌗 Syntax | 句法学:
+    - 🌕 Index: 'docs/2-ling/syntax/index.md'
+    - 🌗 Transformational Generative Grammar | 转换生成句法: 'docs/2-ling/syntax/trans_gen.md'
+    - 🌗 Universal Grammar | 普遍语法: 'docs/2-ling/syntax/uni_gram.md'
+    - 🌗 Universal Dependency | 依存句法: 'docs/2-ling/syntax/ud_sud.md'
+  - 🌕 Semantics | 语义学:
+    - 🌕 Index: 'docs/2-ling/semantics/index.md'
+    - 🌕 Definitions | 定义: 'docs/2-ling/semantics/definitions.md'
+    - 🌕 Formal Semantics | 形式语义学: 'docs/2-ling/semantics/formal_semantics.md'
+    - 🌕 Ambiguity | 歧义: 'docs/2-ling/semantics/ambiguity.md'
+  - 🌕 Pragmatics | 语用学:
+    - 🌕 Index: 'docs/2-ling/pragmatics/intro.md'
+    - 🌕 Theories | 理论: 'docs/2-ling/pragmatics/theories.md'
+    - 🌕 Sociopragmatics | 社会语用学: 'docs/2-ling/pragmatics/socio.md'
+    - 🌕 Research Methods | 研究方法: 'docs/2-ling/pragmatics/ca_da.md'
+  - 🌗 Philosophy of Language | 语言哲学:
+    - 🌕 Index: 'docs/2-ling/philosophy/index.md'
+    - 🌕 History | 历史: 'docs/2-ling/philosophy/pol_zh.md'
+    - 🌕 Reading Notes on Saussure's General Linguistics | 普通语言学读书笔记 : 'docs/2-ling/philosophy/saussure.md'
